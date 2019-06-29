@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.ILoginHistoryDao">
+    <resultMap id="BaseResultMap" type="youke.common.model.TLoginHistory">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="mobile" property="mobile" jdbcType="VARCHAR"/>
+        <result column="loginTime" property="logintime" jdbcType="TIMESTAMP"/>
+        <result column="loginIp" property="loginip" jdbcType="VARCHAR"/>
+        <result column="region" property="region" jdbcType="VARCHAR"/>
+        <result column="youkeId" property="youkeid" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, mobile, loginTime, loginIp, region, youkeId
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from t_login_history
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <select id="selectRegistrationRecordList" resultType="youke.common.model.vo.result.SubAccountLoginRecordRetVo">
+        select id, mobile, loginTime, loginIp, region
+        from t_login_history
+        <where>
+            <if test="mobile!=null">
+                AND mobile=#{mobile}
+            </if>
+            <if test="begTime!=null">
+                AND loginTime >= #{begTime}
+            </if>
+            <if test="endTime!=null">
+                AND loginTime &lt;= #{endTime}
+            </if>
+            AND youkeId = #{dykId}
+        </where>
+        ORDER BY loginTime DESC
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_login_history
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="youke.common.model.TLoginHistory">
+    insert into t_login_history (id, mobile, loginTime, 
+      loginIp, region, youkeId
+      )
+    values (#{id,jdbcType=BIGINT}, #{mobile,jdbcType=VARCHAR}, #{logintime,jdbcType=TIMESTAMP}, 
+      #{loginip,jdbcType=VARCHAR}, #{region,jdbcType=VARCHAR}, #{youkeid,jdbcType=VARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="youke.common.model.TLoginHistory">
+        insert into t_login_history
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="mobile != null">
+                mobile,
+            </if>
+            <if test="logintime != null">
+                loginTime,
+            </if>
+            <if test="loginip != null">
+                loginIp,
+            </if>
+            <if test="region != null">
+                region,
+            </if>
+            <if test="youkeid != null">
+                youkeId,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="mobile != null">
+                #{mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="logintime != null">
+                #{logintime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="loginip != null">
+                #{loginip,jdbcType=VARCHAR},
+            </if>
+            <if test="region != null">
+                #{region,jdbcType=VARCHAR},
+            </if>
+            <if test="youkeid != null">
+                #{youkeid,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TLoginHistory">
+        update t_login_history
+        <set>
+            <if test="mobile != null">
+                mobile = #{mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="logintime != null">
+                loginTime = #{logintime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="loginip != null">
+                loginIp = #{loginip,jdbcType=VARCHAR},
+            </if>
+            <if test="region != null">
+                region = #{region,jdbcType=VARCHAR},
+            </if>
+            <if test="youkeid != null">
+                youkeId = #{youkeid,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="youke.common.model.TLoginHistory">
+    update t_login_history
+    set mobile = #{mobile,jdbcType=VARCHAR},
+      loginTime = #{logintime,jdbcType=TIMESTAMP},
+      loginIp = #{loginip,jdbcType=VARCHAR},
+      region = #{region,jdbcType=VARCHAR},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

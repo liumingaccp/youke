@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.ISubscrTemplateDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TSubscrTemplate" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="appId" property="appid" jdbcType="VARCHAR" />
+    <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+    <result column="templateId" property="templateid" jdbcType="VARCHAR" />
+    <result column="templateShort" property="templateshort" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, appId, youkeId, templateId, templateShort, createTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_subscr_template
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_subscr_template
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TSubscrTemplate" useGeneratedKeys="true" keyProperty="id">
+    insert into t_subscr_template (id, appId, youkeId, 
+      templateId, templateShort, createTime
+      )
+    values (#{id,jdbcType=BIGINT}, #{appid,jdbcType=VARCHAR}, #{youkeid,jdbcType=VARCHAR}, 
+      #{templateid,jdbcType=VARCHAR}, #{templateshort,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TSubscrTemplate" useGeneratedKeys="true" keyProperty="id">
+    insert into t_subscr_template
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="appid != null" >
+        appId,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+      <if test="templateid != null" >
+        templateId,
+      </if>
+      <if test="templateshort != null" >
+        templateShort,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="appid != null" >
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+      <if test="templateid != null" >
+        #{templateid,jdbcType=VARCHAR},
+      </if>
+      <if test="templateshort != null" >
+        #{templateshort,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TSubscrTemplate" >
+    update t_subscr_template
+    <set >
+      <if test="appid != null" >
+        appId = #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="youkeid != null" >
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+      <if test="templateid != null" >
+        templateId = #{templateid,jdbcType=VARCHAR},
+      </if>
+      <if test="templateshort != null" >
+        templateShort = #{templateshort,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TSubscrTemplate" >
+    update t_subscr_template
+    set appId = #{appid,jdbcType=VARCHAR},
+      youkeId = #{youkeid,jdbcType=VARCHAR},
+      templateId = #{templateid,jdbcType=VARCHAR},
+      templateShort = #{templateshort,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

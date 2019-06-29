@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IMassFansDao">
+    <resultMap id="BaseResultMap" type="youke.common.model.TMassFans">
+        <id column="openId" property="openid" jdbcType="VARCHAR"/>
+        <result column="lastSendTime" property="lastsendtime" jdbcType="TIMESTAMP"/>
+        <result column="monthTotal" property="monthtotal" jdbcType="INTEGER"/>
+        <result column="nickname" property="nickname" jdbcType="INTEGER"/>
+        <result column="appId" property="appId" />
+    </resultMap>
+    <sql id="Base_Column_List">
+    openId, lastSendTime, monthTotal, nickname, appId
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from t_mass_fans
+        where openId = #{openid,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_mass_fans
+    where openId = #{openid,jdbcType=VARCHAR}
+  </delete>
+    <insert id="insert" parameterType="youke.common.model.TMassFans">
+    insert into t_mass_fans (openId,lastSendTime, monthTotal, nickname, appId
+      )
+    values (#{openid,jdbcType=VARCHAR}, #{lastsendtime,jdbcType=TIMESTAMP}, #{monthtotal,jdbcType=INTEGER}, #{nickname}, #{appId}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="youke.common.model.TMassFans" useGeneratedKeys="true" keyProperty="id">
+        insert into t_mass_fans
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="openid != null">
+                openId,
+            </if>
+            <if test="lastsendtime != null">
+                lastSendTime,
+            </if>
+            <if test="monthtotal != null">
+                monthTotal,
+            </if>
+            <if test="nickname != null">
+                nickname,
+            </if>
+            <if test="appId != null">
+                appId,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="openid != null">
+                #{openid,jdbcType=VARCHAR},
+            </if>
+            <if test="lastsendtime != null">
+                #{lastsendtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="monthtotal != null">
+                #{monthtotal,jdbcType=INTEGER},
+            </if>
+            <if test="nickname != null">
+                #{nickname,jdbcType=VARCHAR},
+            </if>
+            <if test="appId != null">
+                #{appId}
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TMassFans">
+        update t_mass_fans
+        <set>
+            <if test="lastsendtime != null">
+                lastSendTime = #{lastsendtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="monthtotal != null">
+                monthTotal = #{monthtotal,jdbcType=INTEGER},
+            </if>
+            <if test="nickname != null">
+                nickname = #{nickname,jdbcType=VARCHAR},
+            </if>
+            <if test="appId != null">
+                appId = #{appId}
+            </if>
+        </set>
+        where openId = #{openid,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="youke.common.model.TMassFans">
+    update t_mass_fans
+    set lastSendTime = #{lastsendtime,jdbcType=TIMESTAMP},
+        monthTotal = #{monthtotal,jdbcType=INTEGER},
+        nickname = #{nickname,jdbcType=VARCHAR},
+        appId = #{appId}
+    where openId = #{openid,jdbcType=VARCHAR}
+  </update>
+
+    <select id="queryList" parameterType="youke.common.model.vo.param.MassFansQueryVo" resultMap="BaseResultMap">
+        SELECT
+        fans.openId, mfans.lastSendTime, mfans.monthTotal, fans.nickname
+        <if test="0 >= limitSend">
+            FROM t_subscr_fans fans
+            LEFT JOIN t_mass_fans mfans ON fans.openId = mfans.openId
+        </if>
+        <if test="limitSend != null and limitSend > 0">
+            FROM t_mass_fans mfans
+            JOIN t_subscr_fans fans ON fans.openId = mfans.openId
+            AND mfans.monthTotal = #{limitSend}
+            AND mfans.lastSendTime &gt;= #{mouthStartTime}
+        </if>
+        <where>
+            AND fans.appId = #{appId}
+            AND fans.state = 0
+            AND fans.subState = 0
+            <if test="openIdCount > 0">
+                AND fans.openId IN
+                <foreach collection="openIds" index="index" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="nickname != null">
+                AND fans.nickname like concat('%', #{nickname}, '%')
+            </if>
+            <if test="lastTimeBeg != null and lastTimeEnd != null">
+                AND fans.lastTime &gt;= #{lastTimeBeg}
+                AND fans.lastTime &lt;= #{lastTimeEnd}
+            </if>
+            <if test="subTimeBeg != null and subTimeEnd != null">
+                AND fans.subTime &gt;= #{subTimeBeg}
+                AND fans.subTime &lt;= #{subTimeEnd}
+            </if>
+            <if test="hasMobile == 0">
+                AND fans.mobile IS NULL
+            </if>
+            <if test="hasMobile == 1">
+                AND fans.mobile IS NOT NULL
+            </if>
+            <if test="province != null">
+                AND fans.province = #{province}
+            </if>
+            <if test="city != null">
+                AND fans.city = #{city}
+            </if>
+            <if test="sex > -1">
+                AND fans.sex = #{sex}
+            </if>
+
+            <if test="limitSend == -1">
+                AND (( mfans.lastSendTime &gt;= #{mouthStartTime} AND mfans.monthTotal &lt; 4 ) OR mfans.lastSendTime &lt; #{mouthStartTime}OR mfans.lastSendTime IS NULL)
+            </if>
+            <if test="limitSend == 0">
+                (
+                  AND mfans.monthTotal IS NULL
+                  AND mfans.lastSendTime IS NULL
+                )
+                OR
+                (
+                  mfans.lastSendTime &lt;= #{mouthStartTime}
+                )
+            </if>
+        </where>
+    </select>
+
+    <select id="queryCount" parameterType="youke.common.model.vo.param.MassFansQueryVo" resultType="java.lang.Long">
+        SELECT
+        COUNT(fans.openId)
+        <if test="0 >= limitSend">
+            FROM t_subscr_fans fans
+            LEFT JOIN t_mass_fans mfans ON fans.openId = mfans.openId
+        </if>
+        <if test="limitSend != null and limitSend > 0">
+            FROM t_mass_fans mfans
+            JOIN t_subscr_fans fans ON fans.openId = mfans.openId
+            AND mfans.monthTotal = #{limitSend}
+            AND mfans.lastSendTime &gt;= #{mouthStartTime}
+        </if>
+        <where>
+            AND fans.state = 0
+            AND fans.subState = 0
+            AND fans.appId = #{appId}
+            <if test="nickname != null">
+                AND fans.nickname like concat('%', #{nickname}, '%')
+            </if>
+            <if test="openIdCount > 0">
+                AND fans.openId IN
+                <foreach collection="openIds" index="index" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="lastTimeBeg != null and lastTimeEnd != null">
+                AND fans.lastTime &gt;= #{lastTimeBeg}
+                AND fans.lastTime &lt;= #{lastTimeEnd}
+            </if>
+            <if test="subTimeBeg != null and subTimeEnd != null">
+                AND fans.subTime &gt;= #{subTimeBeg}
+                AND fans.subTime &lt;= #{subTimeEnd}
+            </if>
+            <if test="hasMobile == 0">
+                AND fans.mobile IS NULL
+            </if>
+            <if test="hasMobile == 1">
+                AND fans.mobile IS NOT NULL
+            </if>
+            <if test="province != null">
+                AND fans.province = #{province}
+            </if>
+            <if test="city != null">
+                AND fans.city = #{city}
+            </if>
+            <if test="sex != null and sex > -1">
+                AND fans.sex = #{sex}
+            </if>
+
+            <if test="limitSend == -1">
+                AND (( mfans.lastSendTime &gt;= #{mouthStartTime} AND mfans.monthTotal &lt; 4 ) OR mfans.lastSendTime &lt;= #{mouthStartTime} OR mfans.lastSendTime IS NULL)
+            </if>
+            <if test="limitSend == 0">
+                (
+                AND mfans.monthTotal IS NULL
+                AND mfans.lastSendTime IS NULL
+                )
+                OR
+                (
+                mfans.lastSendTime &lt;= #{mouthStartTime}
+                )
+            </if>
+        </where>
+    </select>
+
+    <select id="querySubList" resultMap="BaseResultMap" parameterType="youke.common.model.vo.param.MassFansQueryVo">
+        SELECT
+        fans.openId,fans.nickname, mfans.monthTotal, fans.lastTime AS lastSendTime
+        FROM t_subscr_fans fans
+        LEFT JOIN t_mass_fans mfans ON fans.openId = mfans.openId
+        <where>
+            AND fans.appId = #{appId}
+            AND fans.lastTime &gt;= #{wxTimeOut}
+            AND fans.state = 0
+            AND fans.subState = 0
+            <if test="openIdCount > 0">
+                AND fans.openId IN
+                <foreach collection="openIds" index="index" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="lastTimeBeg != null and lastTimeBeg != '' and lastTimeEnd != null and lastTimeEnd != ''">
+                AND fans.lastTime &gt;= #{lastTimeBeg}
+                AND fans.lastTime &lt;= #{lastTimeEnd}
+            </if>
+            <if test="subTimeBeg != null and subTimeBeg != '' and subTimeEnd != null and subTimeEnd != ''">
+                AND fans.subTime &gt;= #{subTimeBeg}
+                AND fans.subTime &lt;= #{subTimeEnd}
+            </if>
+            <if test="hasMobile == 0">
+                AND fans.mobile IS NULL
+            </if>
+            <if test="hasMobile == 1">
+                AND fans.mobile IS NOT NULL
+            </if>
+            <if test="province != null and province != ''">
+                AND fans.province = #{province}
+            </if>
+            <if test="city != null and city != ''">
+                AND fans.city = #{city}
+            </if>
+            <if test="sex != null and sex > -1">
+                AND fans.sex = #{sex}
+            </if>
+            <if test="nickname != null">
+                AND fans.nickname like concat('%', #{nickname}, '%')
+            </if>
+        </where>
+    </select>
+
+    <select id="querySubCount" resultType="java.lang.Long" parameterType="youke.common.model.vo.param.MassFansQueryVo">
+        SELECT
+        COUNT(fans.openId)
+        FROM t_subscr_fans fans
+        <where>
+            AND fans.state = 0
+            AND fans.subState = 0
+            AND fans.appId = #{appId}
+            AND fans.lastTime &gt;= #{wxTimeOut}
+            <if test="openIdCount > 0">
+                AND fans.openId IN
+                <foreach collection="openIds" index="index" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="lastTimeBeg != null and lastTimeEnd != null">
+                AND fans.lastTime &gt;= #{lastTimeBeg}
+                AND fans.lastTime &lt;= #{lastTimeEnd}
+            </if>
+            <if test="subTimeBeg != null and subTimeEnd != null">
+                AND fans.subTime &gt;= #{subTimeBeg}
+                AND fans.subTime &lt;= #{subTimeEnd}
+            </if>
+            <if test="hasMobile == 0">
+                AND fans.mobile IS NULL
+            </if>
+            <if test="hasMobile == 1">
+                AND fans.mobile IS NOT NULL
+            </if>
+            <if test="province != null">
+                AND fans.province = #{province}
+            </if>
+            <if test="city != null">
+                AND fans.city = #{city}
+            </if>
+            <if test="sex != null and sex > -1">
+                AND fans.sex = #{sex}
+            </if>
+            <if test="nickname != null">
+                AND fans.nickname LIKE like concat('%', #{nickname}, '%')
+            </if>
+        </where>
+    </select>
+
+    <select id="checkExite" resultType="java.lang.String">
+        SELECT openId
+        FROM t_mass_fans
+        WHERE openId = #{openid}
+    </select>
+
+    <update id="updateNumForOpendIds">
+        UPDATE t_mass_fans
+        SET monthTotal = monthTotal - 1
+        WHERE openId IN
+            <foreach collection="openIds" item="openId" open="(" close=")" separator=",">
+                #{openId}
+            </foreach>
+    </update>
+
+</mapper>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="youke-web-service:war">
+    <output-path>$PROJECT_DIR$/youke-web-service/target</output-path>
+    <root id="archive" name="youke-web-service-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="youke-web-service:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.ISubscrFansIntegralDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TSubscrFansIntegral" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="openId" property="openid" jdbcType="VARCHAR" />
+    <result column="comeType" property="cometype" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="integral" property="integral" jdbcType="INTEGER" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="appId" property="appid" jdbcType="VARCHAR" />
+    <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, openId, comeType, title, integral, createTime, appId, youkeId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from t_subscr_fans_integral
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_subscr_fans_integral
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TSubscrFansIntegral" useGeneratedKeys="true" keyProperty="id">
+    insert into t_subscr_fans_integral (id, openId, comeType,
+    title, integral, createTime,
+    appId, youkeId)
+    values (#{id,jdbcType=BIGINT}, #{openid,jdbcType=VARCHAR}, #{cometype,jdbcType=INTEGER},
+    #{title,jdbcType=VARCHAR}, #{integral,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP},
+    #{appid,jdbcType=VARCHAR}, #{youkeid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TSubscrFansIntegral" useGeneratedKeys="true" keyProperty="id">
+    insert into t_subscr_fans_integral
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="openid != null" >
+        openId,
+      </if>
+      <if test="cometype != null" >
+        comeType,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="integral != null" >
+        integral,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="appid != null" >
+        appId,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="cometype != null" >
+        #{cometype,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="integral != null" >
+        #{integral,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appid != null" >
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TSubscrFansIntegral" >
+    update t_subscr_fans_integral
+    <set >
+      <if test="openid != null" >
+        openId = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="cometype != null" >
+        comeType = #{cometype,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="integral != null" >
+        integral = #{integral,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appid != null" >
+        appId = #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="youkeid != null" >
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TSubscrFansIntegral" >
+    update t_subscr_fans_integral
+    set openId = #{openid,jdbcType=VARCHAR},
+      comeType = #{cometype,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      integral = #{integral,jdbcType=INTEGER},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      appId = #{appid,jdbcType=VARCHAR},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="queryList" resultType="youke.common.model.vo.result.SubFansIntegralVo" parameterType="youke.common.model.vo.param.WealIntegralQueryVo">
+    SELECT sfi.id, sfi.openId, sfi.comeType , sfi.title, sfi.integral, sfi.createTime, sf.nickname AS wxfansName
+    FROM t_subscr_fans_integral sfi
+    JOIN t_subscr_fans sf ON sfi.openId = sf.openId
+    <where>
+      <if test="wxFansName != null">
+        AND sf.nickname LIKE #{wxFansName}
+      </if>
+      <if test="type==0">
+        AND sfi.integral &gt; 0
+      </if>
+      <if test="type == 1">
+        AND sfi.integral &lt; 0
+      </if>
+      <if test="comeType > -1">
+        AND sfi.comeType = #{comeType}
+      </if>
+      <if test="timeBeg != null and timeEnd != null">
+        AND sfi.createTime &gt; #{timeBeg}
+        AND sfi.createTime &lt; #{timeEnd}
+      </if>
+      <if test="openId != null">
+        AND sfi.openId = #{openId}
+      </if>
+      <if test="appId != null">
+        AND sfi.appId = #{appId}
+      </if>
+      <if test="dykId != null">
+        AND sfi.youkeId = #{dykId}
+      </if>
+    </where>
+  </select>
+
+  <select id="queryListByOpenId" resultType="youke.common.model.vo.result.SubFansIntegralDetailVo">
+    SELECT title, integral, createTime
+    FROM t_subscr_fans_integral
+    WHERE openId = #{openId}
+  </select>
+
+  <select id="selectCount" resultType="java.lang.Long" parameterType="youke.common.model.vo.param.WealIntegralQueryVo">
+    SELECT SUM(sfi.integral)
+    FROM t_subscr_fans_integral sfi
+    JOIN t_subscr_fans sf ON sfi.openId = sf.openId
+    <where>
+      <if test="wxFansName != null">
+        AND sf.nickname LIKE #{wxFansName}
+      </if>
+      <if test="type==0">
+        AND sfi.integral &gt; 0
+      </if>
+      <if test="type == 1">
+        AND sfi.integral &lt; 0
+      </if>
+      <if test="comeType > -1">
+        AND sfi.comeType = #{comeType}
+      </if>
+      <if test="timeBeg != null and timeEnd != null">
+        AND sfi.createTime &gt; #{timeBeg}
+        AND sfi.createTime &lt; #{timeEnd}
+      </if>
+      <if test="openId != null">
+        AND sfi.openId = #{openId}
+      </if>
+      <if test="appId != null">
+        AND sfi.appId = #{appId}
+      </if>
+      <if test="dykId != null">
+        AND sfi.youkeId = #{dykId}
+      </if>
+    </where>
+  </select>
+</mapper>

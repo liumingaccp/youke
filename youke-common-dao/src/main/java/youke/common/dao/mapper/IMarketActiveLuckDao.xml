@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IMarketActiveLuckDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TMarketActiveLuck" >
+    <id column="activeId" property="activeid" jdbcType="BIGINT" />
+    <result column="costIntegral" property="costintegral" jdbcType="INTEGER" />
+    <result column="prizeObj" property="prizeobj" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    activeId, costIntegral, prizeObj
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_market_active_luck
+    where activeId = #{activeid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_market_active_luck
+    where activeId = #{activeid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TMarketActiveLuck" >
+    insert into t_market_active_luck (activeId, costIntegral, prizeObj
+      )
+    values (#{activeid,jdbcType=BIGINT}, #{costintegral,jdbcType=INTEGER}, #{prizeobj,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TMarketActiveLuck" useGeneratedKeys="true" keyProperty="id">
+    insert into t_market_active_luck
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="activeid != null" >
+        activeId,
+      </if>
+      <if test="costintegral != null" >
+        costIntegral,
+      </if>
+      <if test="prizeobj != null" >
+        prizeObj,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="activeid != null" >
+        #{activeid,jdbcType=BIGINT},
+      </if>
+      <if test="costintegral != null" >
+        #{costintegral,jdbcType=INTEGER},
+      </if>
+      <if test="prizeobj != null" >
+        #{prizeobj,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TMarketActiveLuck" >
+    update t_market_active_luck
+    <set >
+      <if test="costintegral != null" >
+        costIntegral = #{costintegral,jdbcType=INTEGER},
+      </if>
+      <if test="prizeobj != null" >
+        prizeObj = #{prizeobj,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where activeId = #{activeid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TMarketActiveLuck" >
+    update t_market_active_luck
+    set costIntegral = #{costintegral,jdbcType=INTEGER},
+      prizeObj = #{prizeobj,jdbcType=VARCHAR}
+    where activeId = #{activeid,jdbcType=BIGINT}
+  </update>
+</mapper>

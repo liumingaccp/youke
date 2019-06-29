@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/youke-web-demo" />
+    <file type="web" url="file://$PROJECT_DIR$/youke-web-h5" />
+    <file type="web" url="file://$PROJECT_DIR$/youke-web-pc" />
+    <file type="web" url="file://$PROJECT_DIR$/youke-web-service" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/youke-service-market/pom.xml" />
+        <option value="$PROJECT_DIR$/youke-service-helper/pom.xml" />
+        <option value="$PROJECT_DIR$/youke-facade-market/pom.xml" />
+        <option value="$PROJECT_DIR$/youke-facade-helper/pom.xml" />
+        <option value="$PROJECT_DIR$/youke-core-order/pom.xml" />
+        <option value="$PROJECT_DIR$/youke-facade-cloudcode/pom.xml" />
+        <option value="$PROJECT_DIR$/youke-service-cloudcode/pom.xml" />
+        <option value="$PROJECT_DIR$/youke-core-orderJD/pom.xml" />
+        <option value="$PROJECT_DIR$/youke-core-orderPDD/pom.xml" />
+        <option value="$PROJECT_DIR$/youke-web-spread/pom.xml" />
+        <option value="$PROJECT_DIR$/youke-core-orderYZ/pom.xml" />
+        <option value="$PROJECT_DIR$/youke-facade-wxper/pom.xml" />
+        <option value="$PROJECT_DIR$/youke-service-wxper/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/classes" />
+  </component>
+  <component name="SvnBranchConfigurationManager">
+    <option name="myConfigurationMap">
+      <map>
+        <entry key="$PROJECT_DIR$">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="branchUrls">
+                <list>
+                  <option value="svn://120.79.19.230/youke/web-h5" />
+                  <option value="svn://120.79.19.230/youke/web-official" />
+                  <option value="svn://120.79.19.230/youke/web-pc" />
+                  <option value="svn://120.79.19.230/youke/youke-manage" />
+                </list>
+              </option>
+              <option name="trunkUrl" value="svn://120.79.19.230/youke/trunk" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="mySupportsUserInfoFilter" value="true" />
+  </component>
+</project>

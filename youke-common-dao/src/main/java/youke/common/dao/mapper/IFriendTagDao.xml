@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IFriendTagDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TFriendTag" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="friendId" property="friendId" jdbcType="VARCHAR" />
+    <result column="tagId" property="tagId" jdbcType="INTEGER" />
+    <result column="weixinId" property="weixinId" jdbcType="VARCHAR" />
+    <result column="youkeId" property="youkeId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, friendId, tagId, weixinId, youkeId
+  </sql>
+  <insert id="insert">
+    INSERT INTO t_friend_tag (id, friendId, tagId, weixinId, youkeId)VALUES (#{id}, #{friendId}, #{tagId}, #{weixinId}, #{youkeId})
+  </insert>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from t_friend_tag
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_friend_tag
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TFriendTag" >
+    update t_friend_tag
+    set friendId = #{friendId,jdbcType=VARCHAR},
+      tagId = #{tagId,jdbcType=INTEGER},
+      weixinId = #{weixinId,jdbcType=VARCHAR},
+      youkeId = #{youkeId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectTagFriendIds" resultType="youke.common.model.vo.result.FriendIdVo">
+     select friendId from t_friend_tag where weixinId=#{weixinId} and youkeId=#{youkeId} and tagId in
+    <foreach collection="tagIds" item="tagId" index="index"
+             open="(" close=")" separator=",">
+      #{tagId}
+    </foreach>
+  </select>
+</mapper>

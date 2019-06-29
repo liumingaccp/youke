@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IMassTaskOpenIdDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TMassTaskOpenId" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="taskId" property="taskid" jdbcType="INTEGER" />
+    <result column="openId" property="openid" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="appId" property="appid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, taskId, openId, state, appId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_mass_task_openId
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_mass_task_openId
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TMassTaskOpenId" >
+    insert into t_mass_task_openId (id, taskId, openId, 
+      state, appId)
+    values (#{id,jdbcType=BIGINT}, #{taskid,jdbcType=INTEGER}, #{openid,jdbcType=VARCHAR}, 
+      #{state,jdbcType=INTEGER}, #{appid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TMassTaskOpenId" >
+    insert into t_mass_task_openId
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="taskid != null" >
+        taskId,
+      </if>
+      <if test="openid != null" >
+        openId,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="appid != null" >
+        appId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="taskid != null" >
+        #{taskid,jdbcType=INTEGER},
+      </if>
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="appid != null" >
+        #{appid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TMassTaskOpenId" >
+    update t_mass_task_openId
+    <set >
+      <if test="taskid != null" >
+        taskId = #{taskid,jdbcType=INTEGER},
+      </if>
+      <if test="openid != null" >
+        openId = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="appid != null" >
+        appId = #{appid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TMassTaskOpenId" >
+    update t_mass_task_openId
+    set taskId = #{taskid,jdbcType=INTEGER},
+      openId = #{openid,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER},
+      appId = #{appid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectFansByTaskId" resultType="youke.common.model.vo.result.MassFansVo">
+    SELECT a.openId, a.state, s.nickname
+    FROM t_mass_task_openId a
+    JOIN t_subscr_fans s on a.openId = s.openId
+    WHERE a.taskId = #{taskId} and a.appId = #{appId}
+  </select>
+</mapper>

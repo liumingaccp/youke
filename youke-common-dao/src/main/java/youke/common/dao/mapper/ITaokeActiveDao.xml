@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.ITaokeActiveDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TTaokeActive" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="shopId" property="shopid" jdbcType="INTEGER" />
+    <result column="goodsId" property="goodsid" jdbcType="VARCHAR" />
+    <result column="goodsUrl" property="goodsurl" jdbcType="VARCHAR" />
+    <result column="cover" property="cover" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="startTime" property="starttime" jdbcType="TIMESTAMP" />
+    <result column="endTime" property="endtime" jdbcType="TIMESTAMP" />
+    <result column="intro" property="intro" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="INTEGER" />
+    <result column="backMoney" property="backmoney" jdbcType="INTEGER" />
+    <result column="commision" property="commision" jdbcType="INTEGER" />
+    <result column="totalNum" property="totalnum" jdbcType="INTEGER" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="backBg" property="backbg" jdbcType="VARCHAR" />
+    <result column="fansLimit" property="fanslimit" jdbcType="INTEGER" />
+    <result column="openOrderLimit" property="openorderlimit" jdbcType="INTEGER" />
+    <result column="openBackLimit" property="openbacklimit" jdbcType="INTEGER" />
+    <result column="openSelfCommision" property="openselfcommision" jdbcType="INTEGER" />
+    <result column="waitDay" property="waitday" jdbcType="INTEGER" />
+    <result column="slogan" property="slogan" jdbcType="VARCHAR" />
+    <result column="openType" property="opentype" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="taocode" property="taocode" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, shopId, goodsId, goodsUrl, cover, title, startTime, endTime, intro, price, backMoney, 
+    commision, totalNum, num, backBg, fansLimit, openOrderLimit, openBackLimit, openSelfCommision, 
+    waitDay, slogan, openType, state, taocode, createTime, youkeId
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from t_taoke_active
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_taoke_active
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertSelective" parameterType="youke.common.model.TTaokeActive" useGeneratedKeys="true" keyProperty="id">
+    insert into t_taoke_active
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="shopid != null" >
+        shopId,
+      </if>
+      <if test="goodsid != null" >
+        goodsId,
+      </if>
+      <if test="goodsurl != null" >
+        goodsUrl,
+      </if>
+      <if test="cover != null" >
+        cover,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="starttime != null" >
+        startTime,
+      </if>
+      <if test="endtime != null" >
+        endTime,
+      </if>
+      <if test="intro != null" >
+        intro,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="backmoney != null" >
+        backMoney,
+      </if>
+      <if test="commision != null" >
+        commision,
+      </if>
+      <if test="totalnum != null" >
+        totalNum,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="backbg != null" >
+        backBg,
+      </if>
+      <if test="fanslimit != null" >
+        fansLimit,
+      </if>
+      <if test="openorderlimit != null" >
+        openOrderLimit,
+      </if>
+      <if test="openbacklimit != null" >
+        openBackLimit,
+      </if>
+      <if test="openselfcommision != null" >
+        openSelfCommision,
+      </if>
+      <if test="waitday != null" >
+        waitDay,
+      </if>
+      <if test="slogan != null" >
+        slogan,
+      </if>
+      <if test="opentype != null" >
+        openType,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="taocode != null" >
+        taocode,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="shopid != null" >
+        #{shopid,jdbcType=INTEGER},
+      </if>
+      <if test="goodsid != null" >
+        #{goodsid,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsurl != null" >
+        #{goodsurl,jdbcType=VARCHAR},
+      </if>
+      <if test="cover != null" >
+        #{cover,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null" >
+        #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="intro != null" >
+        #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="backmoney != null" >
+        #{backmoney,jdbcType=INTEGER},
+      </if>
+      <if test="commision != null" >
+        #{commision,jdbcType=INTEGER},
+      </if>
+      <if test="totalnum != null" >
+        #{totalnum,jdbcType=INTEGER},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="backbg != null" >
+        #{backbg,jdbcType=VARCHAR},
+      </if>
+      <if test="fanslimit != null" >
+        #{fanslimit,jdbcType=INTEGER},
+      </if>
+      <if test="openorderlimit != null" >
+        #{openorderlimit,jdbcType=INTEGER},
+      </if>
+      <if test="openbacklimit != null" >
+        #{openbacklimit,jdbcType=INTEGER},
+      </if>
+      <if test="openselfcommision != null" >
+        #{openselfcommision,jdbcType=INTEGER},
+      </if>
+      <if test="waitday != null" >
+        #{waitday,jdbcType=INTEGER},
+      </if>
+      <if test="slogan != null" >
+        #{slogan,jdbcType=VARCHAR},
+      </if>
+      <if test="opentype != null" >
+        #{opentype,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="taocode != null" >
+        #{taocode,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TTaokeActive" >
+    update t_taoke_active
+    <set >
+      <if test="shopid != null" >
+        shopId = #{shopid,jdbcType=INTEGER},
+      </if>
+      <if test="goodsid != null" >
+        goodsId = #{goodsid,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsurl != null" >
+        goodsUrl = #{goodsurl,jdbcType=VARCHAR},
+      </if>
+      <if test="cover != null" >
+        cover = #{cover,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null" >
+        startTime = #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        endTime = #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="intro != null" >
+        intro = #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=INTEGER},
+      </if>
+      <if test="backmoney != null" >
+        backMoney = #{backmoney,jdbcType=INTEGER},
+      </if>
+      <if test="commision != null" >
+        commision = #{commision,jdbcType=INTEGER},
+      </if>
+      <if test="totalnum != null" >
+        totalNum = #{totalnum,jdbcType=INTEGER},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="backbg != null" >
+        backBg = #{backbg,jdbcType=VARCHAR},
+      </if>
+      <if test="fanslimit != null" >
+        fansLimit = #{fanslimit,jdbcType=INTEGER},
+      </if>
+      <if test="openorderlimit != null" >
+        openOrderLimit = #{openorderlimit,jdbcType=INTEGER},
+      </if>
+      <if test="openbacklimit != null" >
+        openBackLimit = #{openbacklimit,jdbcType=INTEGER},
+      </if>
+      <if test="openselfcommision != null" >
+        openSelfCommision = #{openselfcommision,jdbcType=INTEGER},
+      </if>
+      <if test="waitday != null" >
+        waitDay = #{waitday,jdbcType=INTEGER},
+      </if>
+      <if test="slogan != null" >
+        slogan = #{slogan,jdbcType=VARCHAR},
+      </if>
+      <if test="opentype != null" >
+        openType = #{opentype,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="taocode != null" >
+        taocode = #{taocode,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="youkeid != null" >
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TTaokeActive" >
+    update t_taoke_active
+    set shopId = #{shopid,jdbcType=INTEGER},
+      goodsId = #{goodsid,jdbcType=VARCHAR},
+      goodsUrl = #{goodsurl,jdbcType=VARCHAR},
+      cover = #{cover,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      startTime = #{starttime,jdbcType=TIMESTAMP},
+      endTime = #{endtime,jdbcType=TIMESTAMP},
+      intro = #{intro,jdbcType=VARCHAR},
+      price = #{price,jdbcType=INTEGER},
+      backMoney = #{backmoney,jdbcType=INTEGER},
+      commision = #{commision,jdbcType=INTEGER},
+      totalNum = #{totalnum,jdbcType=INTEGER},
+      num = #{num,jdbcType=INTEGER},
+      backBg = #{backbg,jdbcType=VARCHAR},
+      fansLimit = #{fanslimit,jdbcType=INTEGER},
+      openOrderLimit = #{openorderlimit,jdbcType=INTEGER},
+      openBackLimit = #{openbacklimit,jdbcType=INTEGER},
+      openSelfCommision = #{openselfcommision,jdbcType=INTEGER},
+      waitDay = #{waitday,jdbcType=INTEGER},
+      slogan = #{slogan,jdbcType=VARCHAR},
+      openType = #{opentype,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      taocode = #{taocode,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+    <select id="queryList" resultType="youke.common.model.vo.result.helper.TaokeQueryRetVo"
+            parameterType="youke.common.model.vo.param.helper.TaokeQueryVo">
+        SELECT
+        active.id,
+        active.cover,
+        active.title,
+        active.goodsId,
+        active.goodsUrl,
+        active.price,
+        active.backMoney,
+        active.commision,
+        active.startTime,
+        active.endTime,
+        active.totalNum,
+        active.num,
+        active.state
+        FROM
+          t_taoke_active active
+        <where>
+            AND active.state &lt; 3
+            AND active.youkeId = #{youkeId}
+            <if test="title != null">
+                AND active.title LIKE #{title}
+            </if>
+            <if test="shopId != null and shopId > -1">
+                AND active.shopId = #{shopId}
+            </if>
+            <if test="goodId != null">
+                AND active.goodsId = #{goodId}
+            </if>
+            <if test="begTime != null and endTime != null">
+                AND active.endTime &lt;= #{endTime} AND active.startTime &gt;= #{begTime}
+            </if>
+            <if test="state != null and state >-1 ">
+                AND active.state = #{state}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectCountData" resultType="youke.common.model.vo.result.helper.TaokeCountDataVo">
+        SELECT
+          SUM(backMoney) AS totalBackMoney, SUM(commision) AS totalCommision, SUM(id) AS backNum
+        FROM
+          t_taoke_active_order
+        WHERE
+            activeId = #{id}
+        AND state = 6
+  </select>
+
+  <select id="getActiveTimeList" resultType="java.util.HashMap">
+    SELECT
+      startTime,endTime
+      FROM t_taoke_active
+      WHERE state &lt; 2
+        AND (
+          (startTime &lt; #{startTime} AND endTime &gt; #{startTime})
+            or
+            (starttime &lt; #{endTime} AND endTime &gt; #{endTime})
+              or
+          (starttime &gt; #{startTime} AND endTime &lt; #{endTime})
+          )
+  </select>
+
+  <select id="selectDetail" resultType="youke.common.model.vo.result.TaokeActiveVo">
+    select
+    a.id, a.shopId, a.goodsId, a.goodsUrl, a.cover, a.title, a.startTime, a.endTime, a.intro as intros, a.price, a.backMoney,
+    a.commision, a.totalNum, a.num, a.backBg, a.fansLimit, a.openOrderLimit, a.openBackLimit, a.openSelfCommision,
+    a.waitDay, a.slogan, a.openType, a.state, a.taocode, a.createTime, s.title AS shopName, s.`type` AS shopType
+    from t_taoke_active a
+    JOIN t_shop s ON a.shopId = s.id
+    where a.id = #{id,jdbcType=INTEGER} and a.youkeId = #{youkeId}
+  </select>
+</mapper>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IReplyRuleDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TReplyRule" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="rank" property="rank" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="keyMatch" property="keymatch" jdbcType="INTEGER" />
+    <result column="mediaType" property="mediatype" jdbcType="VARCHAR" />
+    <result column="materialId" property="materialid" jdbcType="INTEGER" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="appId" property="appid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, title, rank, state, keyMatch, mediaType, materialId, createTime, updateTime,
+    content, appId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from t_reply_rule
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_reply_rule
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TReplyRule" useGeneratedKeys="true" keyProperty="id">
+    insert into t_reply_rule (id, title, rank,
+    state, keyMatch, mediaType,
+    materialId, createTime, updateTime,
+    content, appId)
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{rank,jdbcType=INTEGER},
+    #{state,jdbcType=INTEGER}, #{keymatch,jdbcType=INTEGER}, #{mediatype,jdbcType=VARCHAR},
+    #{materialid,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP},
+    #{content,jdbcType=VARCHAR}, #{appid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TReplyRule" useGeneratedKeys="true" keyProperty="id">
+    insert into t_reply_rule
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="rank != null" >
+        rank,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="keymatch != null" >
+        keyMatch,
+      </if>
+      <if test="mediatype != null" >
+        mediaType,
+      </if>
+      <if test="materialid != null" >
+        materialId,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="appid != null" >
+        appId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="rank != null" >
+        #{rank,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="keymatch != null" >
+        #{keymatch,jdbcType=INTEGER},
+      </if>
+      <if test="mediatype != null" >
+        #{mediatype,jdbcType=VARCHAR},
+      </if>
+      <if test="materialid != null" >
+        #{materialid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null" >
+        #{appid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TReplyRule" >
+    update t_reply_rule
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="rank != null" >
+        rank = #{rank,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="keymatch != null" >
+        keyMatch = #{keymatch,jdbcType=INTEGER},
+      </if>
+      <if test="mediatype != null" >
+        mediaType = #{mediatype,jdbcType=VARCHAR},
+      </if>
+      <if test="materialid != null" >
+        materialId = #{materialid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null" >
+        appId = #{appid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TReplyRule" >
+    update t_reply_rule
+    set title = #{title,jdbcType=VARCHAR},
+      rank = #{rank,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      keyMatch = #{keymatch,jdbcType=INTEGER},
+      mediaType = #{mediatype,jdbcType=VARCHAR},
+      materialId = #{materialid,jdbcType=INTEGER},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      content = #{content,jdbcType=VARCHAR},
+      appId = #{appid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="hasReplyRule" resultType="java.lang.String">
+    SELECT title
+    FROM t_reply_rule
+    WHERE appId = #{appId} AND title = #{rule}
+  </select>
+  <select id="selectLikeTitle" resultMap="BaseResultMap" resultType="list">
+    SELECT
+    rule.*
+    FROM
+    t_reply_rule rule
+    LEFT JOIN t_reply_rule_key rkey
+    ON rule.id = rkey.ruleId
+    WHERE
+    rule.appId = #{appId}
+    AND rule.title like #{title}
+    AND rkey.`key` like #{key}
+    GROUP BY
+    rule.id
+  </select>
+  <delete id="deleteById">
+    DELETE
+    FROM t_reply_rule
+    WHERE id = #{id} and appId = #{appId}
+  </delete>
+</mapper>

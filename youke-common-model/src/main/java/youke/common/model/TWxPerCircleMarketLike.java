@@ -1,0 +1,56 @@
+package youke.common.model;
+
+import java.io.Serializable;
+import java.util.Date;
+
+public class TWxPerCircleMarketLike implements Serializable {
+    private Long id;
+
+    private Long taskid;
+
+    private String nickname;
+
+    private Date createtime;
+
+    private String youkeid;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getTaskid() {
+        return taskid;
+    }
+
+    public void setTaskid(Long taskid) {
+        this.taskid = taskid;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname == null ? null : nickname.trim();
+    }
+
+    public Date getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
+    }
+
+    public String getYoukeid() {
+        return youkeid;
+    }
+
+    public void setYoukeid(String youkeid) {
+        this.youkeid = youkeid == null ? null : youkeid.trim();
+    }
+}

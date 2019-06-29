@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="youke.common.dao.IWxPerMultipleTaskMapper">
+  <resultMap id="BaseResultMap" type="youke.common.model.TWxPerMultipleTask">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="deviceIds" jdbcType="VARCHAR" property="deviceids" />
+    <result column="tagIds" jdbcType="VARCHAR" property="tagids" />
+    <result column="pushTime" jdbcType="TIMESTAMP" property="pushtime" />
+    <result column="delay" jdbcType="INTEGER" property="delay" />
+    <result column="mediaUrl" jdbcType="VARCHAR" property="mediaurl" />
+    <result column="contentType" jdbcType="VARCHAR" property="contenttype" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="youkeId" jdbcType="VARCHAR" property="youkeid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, deviceIds, tagIds, pushTime, delay, mediaUrl, contentType, content, createTime,
+    state, youkeId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_wxper_multiple_task
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_wxper_multiple_task
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TWxPerMultipleTask" useGeneratedKeys="true" keyProperty="id">
+    insert into t_wxper_multiple_task (id, deviceIds, tagIds,
+    pushTime, delay, mediaUrl,
+    contentType, content, createTime,
+    state, youkeId)
+    values (#{id,jdbcType=BIGINT}, #{deviceids,jdbcType=VARCHAR}, #{tagids,jdbcType=VARCHAR},
+    #{pushtime,jdbcType=TIMESTAMP}, #{delay,jdbcType=INTEGER}, #{mediaurl,jdbcType=VARCHAR},
+    #{contenttype,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP},
+    #{state,jdbcType=INTEGER}, #{youkeid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TWxPerMultipleTask" useGeneratedKeys="true" keyProperty="id">
+    insert into t_wxper_multiple_task
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="deviceids != null">
+        deviceIds,
+      </if>
+      <if test="tagids != null">
+        tagIds,
+      </if>
+      <if test="pushtime != null">
+        pushTime,
+      </if>
+      <if test="delay != null">
+        delay,
+      </if>
+      <if test="mediaurl != null">
+        mediaUrl,
+      </if>
+      <if test="contenttype != null">
+        contentType,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="youkeid != null">
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="deviceids != null">
+        #{deviceids,jdbcType=VARCHAR},
+      </if>
+      <if test="tagids != null">
+        #{tagids,jdbcType=VARCHAR},
+      </if>
+      <if test="pushtime != null">
+        #{pushtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delay != null">
+        #{delay,jdbcType=INTEGER},
+      </if>
+      <if test="mediaurl != null">
+        #{mediaurl,jdbcType=VARCHAR},
+      </if>
+      <if test="contenttype != null">
+        #{contenttype,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="youkeid != null">
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TWxPerMultipleTask">
+    update t_wxper_multiple_task
+    <set>
+      <if test="deviceids != null">
+        deviceIds = #{deviceids,jdbcType=VARCHAR},
+      </if>
+      <if test="tagids != null">
+        tagIds = #{tagids,jdbcType=VARCHAR},
+      </if>
+      <if test="pushtime != null">
+        pushTime = #{pushtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delay != null">
+        delay = #{delay,jdbcType=INTEGER},
+      </if>
+      <if test="mediaurl != null">
+        mediaUrl = #{mediaurl,jdbcType=VARCHAR},
+      </if>
+      <if test="contenttype != null">
+        contentType = #{contenttype,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="youkeid != null">
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TWxPerMultipleTask">
+    update t_wxper_multiple_task
+    set deviceIds = #{deviceids,jdbcType=VARCHAR},
+      tagIds = #{tagids,jdbcType=VARCHAR},
+      pushTime = #{pushtime,jdbcType=TIMESTAMP},
+      delay = #{delay,jdbcType=INTEGER},
+      mediaUrl = #{mediaurl,jdbcType=VARCHAR},
+      contentType = #{contenttype,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=INTEGER},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

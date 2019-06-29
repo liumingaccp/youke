@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.ICutpriceActiveOrderDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TCutpriceActiveOrder" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="orderno" property="orderno" jdbcType="VARCHAR" />
+    <result column="wxfansname" property="wxfansname" jdbcType="VARCHAR" />
+    <result column="buyername" property="buyername" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="INTEGER" />
+    <result column="dealPrice" property="dealprice" jdbcType="INTEGER" />
+    <result column="alreadyCutPrice" property="alreadycutprice" jdbcType="INTEGER" />
+    <result column="leftCutPrice" property="leftcutprice" jdbcType="INTEGER" />
+    <result column="dealFansNum" property="dealfansnum" jdbcType="INTEGER" />
+    <result column="joinFansNum" property="joinfansnum" jdbcType="INTEGER" />
+    <result column="orderTime" property="ordertime" jdbcType="TIMESTAMP" />
+    <result column="backTime" property="backtime" jdbcType="TIMESTAMP" />
+    <result column="cutEndTime" property="cutendtime" jdbcType="TIMESTAMP" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="backMoney" property="backmoney" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="activeId" property="activeid" jdbcType="INTEGER" />
+    <result column="openId" property="openid" jdbcType="VARCHAR" />
+    <result column="appId" property="appid" jdbcType="VARCHAR" />
+    <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, title, orderno, wxfansname, buyername, price, dealPrice, alreadyCutPrice, leftCutPrice,
+    dealFansNum, joinFansNum, orderTime, backTime, cutEndTime, createTime, backMoney,
+    state, activeId, openId, appId, youkeId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from t_cutprice_active_order
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+    <select id="selectOrderList" resultType="youke.common.model.vo.result.helper.CutPriceOrderRetVo">
+        SELECT tcao.id AS id, tcao.title AS title, tcao.wxfansname AS wxfansname, tcao.buyername AS buyername, tcao.orderno AS orderno, tcao.price AS price,
+        tcao.dealPrice AS dealPrice, tcao.alreadyCutPrice AS alreadyCutPrice, tcao.leftCutPrice AS leftCutPrice, tcao.dealFansNum AS dealFansNum,
+        tcao.joinFansNum AS joinFansNum, tca.shopId AS shopId,tcao.cutEndTime AS cutEndTime, tcao.createTime AS createTime, tcao.state AS state,
+        tcao.backTime AS backTime
+        FROM t_cutprice_active tca LEFT JOIN t_cutprice_active_order tcao
+        ON tca.id = tcao.activeId
+    <where>
+        <if test="title!=null">
+            AND tcao.title like CONCAT('%',#{title},'%')
+        </if>
+        <if test="wxfansName!=null">
+            AND tcao.wxfansname like CONCAT('%',#{wxfansName},'%')
+        </if>
+        <if test="state!=null and state!=-1">
+            AND tcao.state = #{state}
+        </if>
+        <if test="orderno!=null">
+            AND tcao.orderno = #{orderno}
+        </if>
+        <if test="shopId!=null and shopId!=-1">
+            AND tca.shopId = #{shopId}
+        </if>
+        <if test="timeBeg!=null">
+            AND tcao.createTime >= #{timeBeg}
+        </if>
+        <if test="timeEnd!=null">
+            AND tcao.createTime &lt;= #{timeEnd}
+        </if>
+        AND tcao.youkeId = #{dykId}
+    </where>
+      ORDER BY tcao.createTime DESC
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_cutprice_active_order
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TCutpriceActiveOrder" >
+    insert into t_cutprice_active_order (id, title, orderno,
+    wxfansname, buyername, price,
+    dealPrice, alreadyCutPrice, leftCutPrice,
+    dealFansNum, joinFansNum, orderTime,
+    backTime, cutEndTime, createTime,
+    backMoney, state, activeId,
+    openId, appId, youkeId
+    )
+    values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{orderno,jdbcType=VARCHAR},
+    #{wxfansname,jdbcType=VARCHAR}, #{buyername,jdbcType=VARCHAR}, #{price,jdbcType=INTEGER},
+    #{dealprice,jdbcType=INTEGER}, #{alreadycutprice,jdbcType=INTEGER}, #{leftcutprice,jdbcType=INTEGER},
+    #{dealfansnum,jdbcType=INTEGER}, #{joinfansnum,jdbcType=INTEGER}, #{ordertime,jdbcType=TIMESTAMP},
+    #{backtime,jdbcType=TIMESTAMP}, #{cutendtime,jdbcType=TIMESTAMP}, #{createtime,jdbcType=TIMESTAMP},
+    #{backmoney,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, #{activeid,jdbcType=INTEGER},
+    #{openid,jdbcType=VARCHAR}, #{appid,jdbcType=VARCHAR}, #{youkeid,jdbcType=VARCHAR}
+    )
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TCutpriceActiveOrder" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+    insert into t_cutprice_active_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="orderno != null" >
+        orderno,
+      </if>
+      <if test="wxfansname != null" >
+        wxfansname,
+      </if>
+      <if test="buyername != null" >
+        buyername,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="dealprice != null" >
+        dealPrice,
+      </if>
+      <if test="alreadycutprice != null" >
+        alreadyCutPrice,
+      </if>
+      <if test="leftcutprice != null" >
+        leftCutPrice,
+      </if>
+      <if test="dealfansnum != null" >
+        dealFansNum,
+      </if>
+      <if test="joinfansnum != null" >
+        joinFansNum,
+      </if>
+      <if test="ordertime != null" >
+        orderTime,
+      </if>
+      <if test="backtime != null" >
+        backTime,
+      </if>
+      <if test="cutendtime != null" >
+        cutEndTime,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="backmoney != null" >
+        backMoney,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="activeid != null" >
+        activeId,
+      </if>
+      <if test="openid != null" >
+        openId,
+      </if>
+      <if test="appid != null" >
+        appId,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="orderno != null" >
+        #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="wxfansname != null" >
+        #{wxfansname,jdbcType=VARCHAR},
+      </if>
+      <if test="buyername != null" >
+        #{buyername,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="dealprice != null" >
+        #{dealprice,jdbcType=INTEGER},
+      </if>
+      <if test="alreadycutprice != null" >
+        #{alreadycutprice,jdbcType=INTEGER},
+      </if>
+      <if test="leftcutprice != null" >
+        #{leftcutprice,jdbcType=INTEGER},
+      </if>
+      <if test="dealfansnum != null" >
+        #{dealfansnum,jdbcType=INTEGER},
+      </if>
+      <if test="joinfansnum != null" >
+        #{joinfansnum,jdbcType=INTEGER},
+      </if>
+      <if test="ordertime != null" >
+        #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="backtime != null" >
+        #{backtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cutendtime != null" >
+        #{cutendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="backmoney != null" >
+        #{backmoney,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="activeid != null" >
+        #{activeid,jdbcType=INTEGER},
+      </if>
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null" >
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TCutpriceActiveOrder" >
+    update t_cutprice_active_order
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="orderno != null" >
+        orderno = #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="wxfansname != null" >
+        wxfansname = #{wxfansname,jdbcType=VARCHAR},
+      </if>
+      <if test="buyername != null" >
+        buyername = #{buyername,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=INTEGER},
+      </if>
+      <if test="dealprice != null" >
+        dealPrice = #{dealprice,jdbcType=INTEGER},
+      </if>
+      <if test="alreadycutprice != null" >
+        alreadyCutPrice = #{alreadycutprice,jdbcType=INTEGER},
+      </if>
+      <if test="leftcutprice != null" >
+        leftCutPrice = #{leftcutprice,jdbcType=INTEGER},
+      </if>
+      <if test="dealfansnum != null" >
+        dealFansNum = #{dealfansnum,jdbcType=INTEGER},
+      </if>
+      <if test="joinfansnum != null" >
+        joinFansNum = #{joinfansnum,jdbcType=INTEGER},
+      </if>
+      <if test="ordertime != null" >
+        orderTime = #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="backtime != null" >
+        backTime = #{backtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cutendtime != null" >
+        cutEndTime = #{cutendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="backmoney != null" >
+        backMoney = #{backmoney,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="activeid != null" >
+        activeId = #{activeid,jdbcType=INTEGER},
+      </if>
+      <if test="openid != null" >
+        openId = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null" >
+        appId = #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="youkeid != null" >
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TCutpriceActiveOrder" >
+    update t_cutprice_active_order
+    set title = #{title,jdbcType=VARCHAR},
+      orderno = #{orderno,jdbcType=VARCHAR},
+      wxfansname = #{wxfansname,jdbcType=VARCHAR},
+      buyername = #{buyername,jdbcType=VARCHAR},
+      price = #{price,jdbcType=INTEGER},
+      dealPrice = #{dealprice,jdbcType=INTEGER},
+      alreadyCutPrice = #{alreadycutprice,jdbcType=INTEGER},
+      leftCutPrice = #{leftcutprice,jdbcType=INTEGER},
+      dealFansNum = #{dealfansnum,jdbcType=INTEGER},
+      joinFansNum = #{joinfansnum,jdbcType=INTEGER},
+      orderTime = #{ordertime,jdbcType=TIMESTAMP},
+      backTime = #{backtime,jdbcType=TIMESTAMP},
+      cutEndTime = #{cutendtime,jdbcType=TIMESTAMP},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      backMoney = #{backmoney,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      activeId = #{activeid,jdbcType=INTEGER},
+      openId = #{openid,jdbcType=VARCHAR},
+      appId = #{appid,jdbcType=VARCHAR},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateBatchState">
+    update t_cutprice_active_order set state=#{state} where id in
+    <foreach collection="orderIds" item="orderId"  open="(" separator="," close=")">
+      #{orderId}
+    </foreach>
+  </update>
+</mapper>

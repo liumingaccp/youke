@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.ITagDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TTag" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="wxTagId" property="wxtagid" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="groupId" property="groupid" jdbcType="INTEGER" />
+    <result column="ruleType" property="ruletype" jdbcType="INTEGER" />
+    <result column="appId" property="appid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, wxTagId, title, groupId, ruleType, appId
+  </sql>
+  <select id="selectAllTagByAppId" resultType="youke.common.model.TTag">
+    select id AS id,title AS title
+    from t_tag
+    where appId = #{appId} AND  groupId=#{groupId}
+  </select>
+  <select id="selectTagsByGroupIdAndAppId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_tag
+    where groupId=#{groupId} and appId = #{appId}
+  </select>
+  <delete id="removeRelationWithGroupByGroupIdAndAppId">
+    update t_tag
+    SET  groupId = NULL
+    where groupId = #{groupId} AND appId=#{appId}
+  </delete>
+  <delete id="deleteTagByIdANdAppId">
+    delete from t_tag
+    where id = #{id} and appId=#{appId}
+  </delete>
+  <select id="selectTagByTitleAndAppId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_tag
+    where title = #{title} and appId = #{appId}
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from t_tag
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_tag
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TTag" useGeneratedKeys="true" keyProperty="id">
+    insert into t_tag (id, wxTagId, title,
+    groupId, ruleType, appId
+    )
+    values (#{id,jdbcType=INTEGER}, #{wxtagid,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR},
+    #{groupid,jdbcType=INTEGER}, #{ruletype,jdbcType=INTEGER}, #{appid,jdbcType=VARCHAR}
+    )
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TTag" useGeneratedKeys="true" keyProperty="id">
+    insert into t_tag
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="wxtagid != null" >
+        wxTagId,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="groupid != null" >
+        groupId,
+      </if>
+      <if test="ruletype != null" >
+        ruleType,
+      </if>
+      <if test="appid != null" >
+        appId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="wxtagid != null" >
+        #{wxtagid,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="groupid != null" >
+        #{groupid,jdbcType=INTEGER},
+      </if>
+      <if test="ruletype != null" >
+        #{ruletype,jdbcType=INTEGER},
+      </if>
+      <if test="appid != null" >
+        #{appid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TTag" >
+    update t_tag
+    <set >
+      <if test="wxtagid != null" >
+        wxTagId = #{wxtagid,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="groupid != null" >
+        groupId = #{groupid,jdbcType=INTEGER},
+      </if>
+      <if test="ruletype != null" >
+        ruleType = #{ruletype,jdbcType=INTEGER},
+      </if>
+      <if test="appid != null" >
+        appId = #{appid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TTag" >
+    update t_tag
+    set wxTagId = #{wxtagid,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      groupId = #{groupid,jdbcType=INTEGER},
+      ruleType = #{ruletype,jdbcType=INTEGER},
+      appId = #{appid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectAllWxTagIdByAppId" resultType="java.lang.Integer">
+    select
+    wxTagId
+    from t_tag
+    where wxTagId IS NOT NULL and appId = #{appId}
+  </select>
+
+  <select id="getWxList" resultType="youke.common.model.vo.result.TagVo">
+    select
+    <include refid="Base_Column_List" />
+    from t_tag
+    where wxTagId IS NOT NULL and appId = #{appId}
+  </select>
+</mapper>

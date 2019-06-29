@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="youke-common" />
+        <module name="youke-common-dao" />
+        <module name="youke-common-model" />
+        <module name="youke-core-mq" />
+        <module name="youke-core-order" />
+        <module name="youke-core-orderJD" />
+        <module name="youke-core-orderPDD" />
+        <module name="youke-core-orderYZ" />
+        <module name="youke-core-scheduler" />
+        <module name="youke-facade-cloudcode" />
+        <module name="youke-facade-fans" />
+        <module name="youke-facade-helper" />
+        <module name="youke-facade-market" />
+        <module name="youke-facade-mass" />
+        <module name="youke-facade-pay" />
+        <module name="youke-facade-shop" />
+        <module name="youke-facade-user" />
+        <module name="youke-facade-wx" />
+        <module name="youke-facade-wxper" />
+        <module name="youke-service-cloudcode" />
+        <module name="youke-service-fans" />
+        <module name="youke-service-helper" />
+        <module name="youke-service-market" />
+        <module name="youke-service-mass" />
+        <module name="youke-service-pay" />
+        <module name="youke-service-shop" />
+        <module name="youke-service-user" />
+        <module name="youke-service-wx" />
+        <module name="youke-service-wxper" />
+        <module name="youke-web-demo" />
+        <module name="youke-web-h5" />
+        <module name="youke-web-pc" />
+        <module name="youke-web-service" />
+        <module name="youke-web-spread" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="youke-common" target="1.8" />
+      <module name="youke-common-dao" target="1.8" />
+      <module name="youke-common-model" target="1.8" />
+      <module name="youke-core-mq" target="1.8" />
+      <module name="youke-core-order" target="1.8" />
+      <module name="youke-core-orderJD" target="1.8" />
+      <module name="youke-core-orderPDD" target="1.8" />
+      <module name="youke-core-orderYZ" target="1.8" />
+      <module name="youke-core-scheduler" target="1.8" />
+      <module name="youke-core-statistics" target="1.8" />
+      <module name="youke-facade-cloudcode" target="1.8" />
+      <module name="youke-facade-fans" target="1.8" />
+      <module name="youke-facade-helper" target="1.8" />
+      <module name="youke-facade-market" target="1.8" />
+      <module name="youke-facade-mass" target="1.8" />
+      <module name="youke-facade-pay" target="1.8" />
+      <module name="youke-facade-shop" target="1.8" />
+      <module name="youke-facade-user" target="1.8" />
+      <module name="youke-facade-wx" target="1.8" />
+      <module name="youke-facade-wxper" target="1.8" />
+      <module name="youke-parent" target="1.8" />
+      <module name="youke-service-cloudcode" target="1.8" />
+      <module name="youke-service-fans" target="1.8" />
+      <module name="youke-service-helper" target="1.8" />
+      <module name="youke-service-market" target="1.8" />
+      <module name="youke-service-mass" target="1.8" />
+      <module name="youke-service-pay" target="1.8" />
+      <module name="youke-service-shop" target="1.8" />
+      <module name="youke-service-user" target="1.8" />
+      <module name="youke-service-wx" target="1.8" />
+      <module name="youke-service-wxper" target="1.8" />
+      <module name="youke-web-demo" target="1.8" />
+      <module name="youke-web-h5" target="1.8" />
+      <module name="youke-web-pc" target="1.8" />
+      <module name="youke-web-service" target="1.8" />
+      <module name="youke-web-spread" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

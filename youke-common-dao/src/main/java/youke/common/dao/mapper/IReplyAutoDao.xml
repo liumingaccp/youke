@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IReplyAutoDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TReplyAuto" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="mediaType" property="mediatype" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="materialId" property="materialid" jdbcType="INTEGER" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="appId" property="appid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, type, mediaType, content, materialId, createTime, updateTime, appId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from t_reply_auto
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_reply_auto
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TReplyAuto" >
+    insert into t_reply_auto (id, type, mediaType,
+    content, materialId, createTime,
+    updateTime, appId)
+    values (#{id,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, #{mediatype,jdbcType=VARCHAR},
+    #{content,jdbcType=VARCHAR}, #{materialid,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP},
+    #{updatetime,jdbcType=TIMESTAMP}, #{appid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TReplyAuto" useGeneratedKeys="true" keyProperty="id">
+    insert into t_reply_auto
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="mediatype != null" >
+        mediaType,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="materialid != null" >
+        materialId,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+      <if test="appid != null" >
+        appId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="mediatype != null" >
+        #{mediatype,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="materialid != null" >
+        #{materialid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appid != null" >
+        #{appid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TReplyAuto" >
+    update t_reply_auto
+    <set >
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="mediatype != null" >
+        mediaType = #{mediatype,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="materialid != null" >
+        materialId = #{materialid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appid != null" >
+        appId = #{appid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TReplyAuto" >
+    update t_reply_auto
+    set type = #{type,jdbcType=INTEGER},
+      mediaType = #{mediatype,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      materialId = #{materialid,jdbcType=INTEGER},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      appId = #{appid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <delete id="deleteByAppid">
+    DELETE
+    FROM t_reply_auto
+    WHERE appId = #{appId} AND type = #{type}
+  </delete>
+
+  <select id="selectByAppid" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    from t_reply_auto
+    where appId = #{appId} AND type = #{type}
+  </select>
+
+  <select id="selectMaterialByAppId" resultType="Integer">
+    SELECT materialId
+    FROM t_reply_auto
+    WHERE appId = #{appId}
+      AND mediaType = #{materType}
+  </select>
+
+</mapper>

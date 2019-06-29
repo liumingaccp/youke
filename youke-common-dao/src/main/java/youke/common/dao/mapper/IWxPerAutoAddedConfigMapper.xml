@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IWxPerAutoAddedConfigMapper" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TWxPerAutoAddedConfig">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="deviceId" jdbcType="BIGINT" property="deviceid" />
+    <result column="autoPass" jdbcType="INTEGER" property="autopass" />
+    <result column="dailylimit" jdbcType="INTEGER" property="dailylimit" />
+    <result column="autoReply" jdbcType="INTEGER" property="autoreply" />
+    <result column="contentType" jdbcType="VARCHAR" property="contenttype" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="createTime" jdbcType="DATE" property="createtime" />
+    <result column="updateTime" jdbcType="DATE" property="updatetime" />
+    <result column="youkeId" jdbcType="VARCHAR" property="youkeid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, deviceId, autoPass, dailylimit ,autoReply, contentType, content, createTime, updateTime,
+    youkeId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_wxper_autoadded_config
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_wxper_autoadded_config
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TWxPerAutoAddedConfig">
+    insert into t_wxper_autoadded_config (id, deviceId, autoPass, dailylimit,
+    autoReply, contentType, content,
+    createTime, updateTime, youkeId
+    )
+    values (#{id,jdbcType=BIGINT}, #{deviceid,jdbcType=BIGINT}, #{autopass,jdbcType=INTEGER},#{dailylimit},
+    #{autoreply,jdbcType=INTEGER}, #{contenttype,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR},
+    #{createtime,jdbcType=DATE}, #{updatetime,jdbcType=DATE}, #{youkeid,jdbcType=VARCHAR}
+    )
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TWxPerAutoAddedConfig">
+    insert into t_wxper_autoadded_config
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="deviceid != null">
+        deviceId,
+      </if>
+      <if test="autopass != null">
+        autoPass,
+      </if>
+      <if test="dailylimit != null">
+        dailylimit,
+      </if>
+      <if test="autoreply != null">
+        autoReply,
+      </if>
+      <if test="contenttype != null">
+        contentType,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+      <if test="updatetime != null">
+        updateTime,
+      </if>
+      <if test="youkeid != null">
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="deviceid != null">
+        #{deviceid,jdbcType=BIGINT},
+      </if>
+      <if test="autopass != null">
+        #{autopass,jdbcType=INTEGER},
+      </if>
+      <if test="dailylimit != null">
+        #{dailylimit},
+      </if>
+      <if test="autoreply != null">
+        #{autoreply,jdbcType=INTEGER},
+      </if>
+      <if test="contenttype != null">
+        #{contenttype,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=DATE},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=DATE},
+      </if>
+      <if test="youkeid != null">
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TWxPerAutoAddedConfig">
+    update t_wxper_autoadded_config
+    <set>
+      <if test="deviceid != null">
+        deviceId = #{deviceid,jdbcType=BIGINT},
+      </if>
+      <if test="autopass != null">
+        autoPass = #{autopass,jdbcType=INTEGER},
+      </if>
+      <if test="dailylimit != null">
+        dailylimit = #{dailylimit},
+      </if>
+      <if test="autoreply != null">
+        autoReply = #{autoreply,jdbcType=INTEGER},
+      </if>
+      <if test="contenttype != null">
+        contentType = #{contenttype,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createTime = #{createtime,jdbcType=DATE},
+      </if>
+      <if test="updatetime != null">
+        updateTime = #{updatetime,jdbcType=DATE},
+      </if>
+      <if test="youkeid != null">
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TWxPerAutoAddedConfig">
+    update t_wxper_autoadded_config
+    set deviceId = #{deviceid,jdbcType=BIGINT},
+      autoPass = #{autopass,jdbcType=INTEGER},
+      dailylimit = #{dailylimit,jdbcType=INTEGER},
+      autoReply = #{autoreply,jdbcType=INTEGER},
+      contentType = #{contenttype,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=DATE},
+      updateTime = #{updatetime,jdbcType=DATE},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <select id="selectByDeviceId" resultType="java.util.Map">
+    SELECT t1.*
+    FROM t_wxper_autoadded_config t1
+    WHERE t1.id = #{id} and t1.youkeId = #{youkeId}
+  </select>
+  
+  <select id="queryList" resultType="java.util.HashMap">
+    SELECT t1.id, t1.deviceId, t2.deviceName, t2.wxAccountId, t1.autoPass, t1.autoReply FROM
+    t_wxper_autoadded_config t1
+    JOIN t_wxper_device t2 on t1.deviceId = t2.id
+    WHERE t1.youkeId = #{youkeId}
+    order by t1.id desc
+  </select>
+
+    <select id="selectAddedFriendDevices" resultType="java.util.Map">
+      SELECT t1.id, t1.deviceId, t1.dailyLimit, t1.youkeId, t2.wxAccountId, t3.lastAddedFriendTime, t3.addednum
+      from t_wxper_autoadded_config t1
+      JOIN t_wxper_device t2 ON t1.deviceId = t2.id
+      JOIN t_wxper_account t3 on t2.wxAccountId = t3.id
+      WHERE t2.state = 1 AND t1.autoPass = 1
+    </select>
+
+  <select id="selectAccountById" resultType="java.util.Map">
+      SELECT t1.id, t1.deviceId, t1.dailyLimit, t1.youkeId, t2.wxAccountId, t3.lastAddedFriendTime, t3.addednum
+      from t_wxper_autoadded_config t1
+      JOIN t_wxper_device t2 ON t1.deviceId = t2.id
+      JOIN t_wxper_account t3 on t2.wxAccountId = t3.id
+      WHERE t2.state = 1 and t1.id = #{id}
+  </select>
+</mapper>

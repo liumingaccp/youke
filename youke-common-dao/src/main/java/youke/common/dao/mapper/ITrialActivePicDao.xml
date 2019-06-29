@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.ITrialActivePicDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TTrialActivePic" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="picName" property="picname" jdbcType="VARCHAR" />
+    <result column="picInfo" property="picinfo" jdbcType="VARCHAR" />
+    <result column="picUrl" property="picurl" jdbcType="VARCHAR" />
+    <result column="activeId" property="activeid" jdbcType="BIGINT" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, picName, picInfo, picUrl, activeId, type, youkeId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_trial_active_pic
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_trial_active_pic
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insertSelective" parameterType="youke.common.model.TTrialActivePic" useGeneratedKeys="true" keyProperty="id">
+    insert into t_trial_active_pic
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="picname != null" >
+        picName,
+      </if>
+      <if test="picinfo != null" >
+        picInfo,
+      </if>
+      <if test="picurl != null" >
+        picUrl,
+      </if>
+      <if test="activeid != null" >
+        activeId,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="picname != null" >
+        #{picname,jdbcType=VARCHAR},
+      </if>
+      <if test="picinfo != null" >
+        #{picinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="picurl != null" >
+        #{picurl,jdbcType=VARCHAR},
+      </if>
+      <if test="activeid != null" >
+        #{activeid,jdbcType=BIGINT},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TTrialActivePic" >
+    update t_trial_active_pic
+    <set >
+      <if test="picname != null" >
+        picName = #{picname,jdbcType=VARCHAR},
+      </if>
+      <if test="picinfo != null" >
+        picInfo = #{picinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="picurl != null" >
+        picUrl = #{picurl,jdbcType=VARCHAR},
+      </if>
+      <if test="activeid != null" >
+        activeId = #{activeid,jdbcType=BIGINT},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="youkeid != null" >
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TTrialActivePic" >
+    update t_trial_active_pic
+    set picName = #{picname,jdbcType=VARCHAR},
+      picInfo = #{picinfo,jdbcType=VARCHAR},
+      picUrl = #{picurl,jdbcType=VARCHAR},
+      activeId = #{activeid,jdbcType=BIGINT},
+      type = #{type,jdbcType=INTEGER},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectPics" parameterType="youke.common.model.vo.param.helper.H5QueryPicVo" resultMap="BaseResultMap">
+      SELECT <include refid="Base_Column_List" />
+      FROM t_trial_active_pic
+      WHERE youkeId = #{youkeId} AND activeId = #{activeId}
+  </select>
+  <select id="selectPicsCount" resultType="java.lang.Integer">
+    SELECT COUNT(id)
+    FROM t_trial_active_pic
+    WHERE activeId = #{activeId} and youkeId = #{dyk}
+  </select>
+</mapper>

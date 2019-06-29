@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IMobcodeTaskDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TMobcodeTask" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="mobiles" property="mobiles" jdbcType="VARCHAR" />
+    <result column="mymobile" property="mymobile" jdbcType="VARCHAR" />
+    <result column="shopIds" property="shopids" jdbcType="VARCHAR" />
+    <result column="filterDay" property="filterday" jdbcType="INTEGER" />
+    <result column="filterWxFans" property="filterwxfans" jdbcType="INTEGER" />
+    <result column="lastTimeBeg" property="lasttimebeg" jdbcType="TIMESTAMP" />
+    <result column="lastTimeEnd" property="lasttimeend" jdbcType="TIMESTAMP" />
+    <result column="avgDealTotalBeg" property="avgdealtotalbeg" jdbcType="INTEGER" />
+    <result column="avgDealTotalEnd" property="avgdealtotalend" jdbcType="INTEGER" />
+    <result column="label" property="label" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="hasNickVar" property="hasnickvar" jdbcType="INTEGER" />
+    <result column="hasShopVar" property="hasshopvar" jdbcType="INTEGER" />
+    <result column="taskTime" property="tasktime" jdbcType="TIMESTAMP" />
+    <result column="sendType" property="sendtype" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, mobiles, mymobile, shopIds, filterDay, filterWxFans, lastTimeBeg, lastTimeEnd, 
+    avgDealTotalBeg, avgDealTotalEnd, label, content, hasNickVar, hasShopVar, taskTime, 
+    sendType, state, youkeId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_mobcode_task
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_mobcode_task
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TMobcodeTask" >
+    insert into t_mobcode_task (id, mobiles, mymobile, 
+      shopIds, filterDay, filterWxFans, 
+      lastTimeBeg, lastTimeEnd, avgDealTotalBeg, 
+      avgDealTotalEnd, label, content, 
+      hasNickVar, hasShopVar, taskTime, 
+      sendType, state, youkeId
+      )
+    values (#{id,jdbcType=INTEGER}, #{mobiles,jdbcType=VARCHAR}, #{mymobile,jdbcType=VARCHAR}, 
+      #{shopids,jdbcType=VARCHAR}, #{filterday,jdbcType=INTEGER}, #{filterwxfans,jdbcType=INTEGER}, 
+      #{lasttimebeg,jdbcType=TIMESTAMP}, #{lasttimeend,jdbcType=TIMESTAMP}, #{avgdealtotalbeg,jdbcType=INTEGER}, 
+      #{avgdealtotalend,jdbcType=INTEGER}, #{label,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{hasnickvar,jdbcType=INTEGER}, #{hasshopvar,jdbcType=INTEGER}, #{tasktime,jdbcType=TIMESTAMP}, 
+      #{sendtype,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, #{youkeid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TMobcodeTask" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+    insert into t_mobcode_task
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="mobiles != null" >
+        mobiles,
+      </if>
+      <if test="mymobile != null" >
+        mymobile,
+      </if>
+      <if test="shopids != null" >
+        shopIds,
+      </if>
+      <if test="filterday != null" >
+        filterDay,
+      </if>
+      <if test="filterwxfans != null" >
+        filterWxFans,
+      </if>
+      <if test="lasttimebeg != null" >
+        lastTimeBeg,
+      </if>
+      <if test="lasttimeend != null" >
+        lastTimeEnd,
+      </if>
+      <if test="avgdealtotalbeg != null" >
+        avgDealTotalBeg,
+      </if>
+      <if test="avgdealtotalend != null" >
+        avgDealTotalEnd,
+      </if>
+      <if test="label != null" >
+        label,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="hasnickvar != null" >
+        hasNickVar,
+      </if>
+      <if test="hasshopvar != null" >
+        hasShopVar,
+      </if>
+      <if test="tasktime != null" >
+        taskTime,
+      </if>
+      <if test="sendtype != null" >
+        sendType,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="mobiles != null" >
+        #{mobiles,jdbcType=VARCHAR},
+      </if>
+      <if test="mymobile != null" >
+        #{mymobile,jdbcType=VARCHAR},
+      </if>
+      <if test="shopids != null" >
+        #{shopids,jdbcType=VARCHAR},
+      </if>
+      <if test="filterday != null" >
+        #{filterday,jdbcType=INTEGER},
+      </if>
+      <if test="filterwxfans != null" >
+        #{filterwxfans,jdbcType=INTEGER},
+      </if>
+      <if test="lasttimebeg != null" >
+        #{lasttimebeg,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lasttimeend != null" >
+        #{lasttimeend,jdbcType=TIMESTAMP},
+      </if>
+      <if test="avgdealtotalbeg != null" >
+        #{avgdealtotalbeg,jdbcType=INTEGER},
+      </if>
+      <if test="avgdealtotalend != null" >
+        #{avgdealtotalend,jdbcType=INTEGER},
+      </if>
+      <if test="label != null" >
+        #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="hasnickvar != null" >
+        #{hasnickvar,jdbcType=INTEGER},
+      </if>
+      <if test="hasshopvar != null" >
+        #{hasshopvar,jdbcType=INTEGER},
+      </if>
+      <if test="tasktime != null" >
+        #{tasktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendtype != null" >
+        #{sendtype,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TMobcodeTask" >
+    update t_mobcode_task
+    <set >
+      <if test="mobiles != null" >
+        mobiles = #{mobiles,jdbcType=VARCHAR},
+      </if>
+      <if test="mymobile != null" >
+        mymobile = #{mymobile,jdbcType=VARCHAR},
+      </if>
+      <if test="shopids != null" >
+        shopIds = #{shopids,jdbcType=VARCHAR},
+      </if>
+      <if test="filterday != null" >
+        filterDay = #{filterday,jdbcType=INTEGER},
+      </if>
+      <if test="filterwxfans != null" >
+        filterWxFans = #{filterwxfans,jdbcType=INTEGER},
+      </if>
+      <if test="lasttimebeg != null" >
+        lastTimeBeg = #{lasttimebeg,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lasttimeend != null" >
+        lastTimeEnd = #{lasttimeend,jdbcType=TIMESTAMP},
+      </if>
+      <if test="avgdealtotalbeg != null" >
+        avgDealTotalBeg = #{avgdealtotalbeg,jdbcType=INTEGER},
+      </if>
+      <if test="avgdealtotalend != null" >
+        avgDealTotalEnd = #{avgdealtotalend,jdbcType=INTEGER},
+      </if>
+      <if test="label != null" >
+        label = #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="hasnickvar != null" >
+        hasNickVar = #{hasnickvar,jdbcType=INTEGER},
+      </if>
+      <if test="hasshopvar != null" >
+        hasShopVar = #{hasshopvar,jdbcType=INTEGER},
+      </if>
+      <if test="tasktime != null" >
+        taskTime = #{tasktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendtype != null" >
+        sendType = #{sendtype,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="youkeid != null" >
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TMobcodeTask" >
+    update t_mobcode_task
+    set mobiles = #{mobiles,jdbcType=VARCHAR},
+      mymobile = #{mymobile,jdbcType=VARCHAR},
+      shopIds = #{shopids,jdbcType=VARCHAR},
+      filterDay = #{filterday,jdbcType=INTEGER},
+      filterWxFans = #{filterwxfans,jdbcType=INTEGER},
+      lastTimeBeg = #{lasttimebeg,jdbcType=TIMESTAMP},
+      lastTimeEnd = #{lasttimeend,jdbcType=TIMESTAMP},
+      avgDealTotalBeg = #{avgdealtotalbeg,jdbcType=INTEGER},
+      avgDealTotalEnd = #{avgdealtotalend,jdbcType=INTEGER},
+      label = #{label,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      hasNickVar = #{hasnickvar,jdbcType=INTEGER},
+      hasShopVar = #{hasshopvar,jdbcType=INTEGER},
+      taskTime = #{tasktime,jdbcType=TIMESTAMP},
+      sendType = #{sendtype,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

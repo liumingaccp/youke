@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IMobcodeTempleteDao">
+    <resultMap id="BaseResultMap" type="youke.common.model.TMobcodeTemplete">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="content" property="content" jdbcType="VARCHAR"/>
+        <result column="type" property="type" jdbcType="INTEGER"/>
+        <result column="role" property="role" jdbcType="INTEGER"/>
+        <result column="youkeId" property="youkeid" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, name, content, type, role, youkeId
+  </sql>
+    <select id="getTemplateNames" resultType="String">
+        SELECT `name` FROM t_mobcode_templete
+        <where>
+            <if test="type!=null">
+                AND `type` = #{type}
+            </if>
+            <if test="role != null and role == 0">
+                AND role=#{role}
+            </if>
+            <if test="role != null and role == 1">
+                AND role=#{role}
+                AND youkeId =#{dykId}
+            </if>
+            group by `name`
+        </where>
+    </select>
+    <select id="getTemplateList" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM t_mobcode_templete
+        <where>
+            <if test="keyword!=null and keyword!='' ">
+                AND name = #{keyword}
+            </if>
+            <if test="type!=null">
+                AND `type` = #{type}
+            </if>
+            <if test="role != null and role == 0">
+                AND role=#{role}
+            </if>
+            <if test="role != null and role == 1">
+                AND role=#{role}
+                AND youkeId =#{dykId}
+            </if>
+        </where>
+    </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from t_mobcode_templete
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="selectTemplateByName" resultType="java.lang.Integer">
+        select count(id) from t_mobcode_templete where name=#{name} And youkeId = #{dykId}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_mobcode_templete
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="youke.common.model.TMobcodeTemplete">
+    insert into t_mobcode_templete (id, name, content, 
+      type, role, youkeId
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{type,jdbcType=INTEGER}, #{role,jdbcType=INTEGER}, #{youkeid,jdbcType=VARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="youke.common.model.TMobcodeTemplete" useGeneratedKeys="true" keyProperty="id">
+        insert into t_mobcode_templete
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="content != null">
+                content,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            <if test="role != null">
+                role,
+            </if>
+            <if test="youkeid != null">
+                youkeId,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="content != null">
+                #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=INTEGER},
+            </if>
+            <if test="role != null">
+                #{role,jdbcType=INTEGER},
+            </if>
+            <if test="youkeid != null">
+                #{youkeid,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TMobcodeTemplete">
+        update t_mobcode_templete
+        <set>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="content != null">
+                content = #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                type = #{type,jdbcType=INTEGER},
+            </if>
+            <if test="role != null">
+                role = #{role,jdbcType=INTEGER},
+            </if>
+            <if test="youkeid != null">
+                youkeId = #{youkeid,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="youke.common.model.TMobcodeTemplete">
+    update t_mobcode_templete
+    set name = #{name,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      role = #{role,jdbcType=INTEGER},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

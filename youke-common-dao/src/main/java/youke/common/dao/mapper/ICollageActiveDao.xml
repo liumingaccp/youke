@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.ICollageActiveDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TCollageActive" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="shopId" property="shopid" jdbcType="INTEGER" />
+    <result column="goodsId" property="goodsid" jdbcType="VARCHAR" />
+    <result column="goodsUrl" property="goodsurl" jdbcType="VARCHAR" />
+    <result column="cover" property="cover" jdbcType="VARCHAR" />
+    <result column="coverPics" property="coverpics" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="startTime" property="starttime" jdbcType="TIMESTAMP" />
+    <result column="endTime" property="endtime" jdbcType="TIMESTAMP" />
+    <result column="intro" property="intro" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="INTEGER" />
+    <result column="totalNum" property="totalnum" jdbcType="INTEGER" />
+    <result column="tuanPrice" property="tuanprice" jdbcType="INTEGER" />
+    <result column="tuanFansNum" property="tuanfansnum" jdbcType="INTEGER" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="tuanHour" property="tuanhour" jdbcType="INTEGER" />
+    <result column="fansLimit" property="fanslimit" jdbcType="INTEGER" />
+    <result column="waitDay" property="waitday" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="appId" property="appid" jdbcType="VARCHAR" />
+    <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, shopId, goodsId, goodsUrl, cover, coverPics, title, content, startTime, endTime, 
+    intro, price, totalNum, tuanPrice, tuanFansNum, num, tuanHour, fansLimit, waitDay, 
+    state, createTime, appId, youkeId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_collage_active
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_collage_active
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TCollageActive" >
+    insert into t_collage_active (id, shopId, goodsId, 
+      goodsUrl, cover, coverPics, 
+      title, content, startTime, 
+      endTime, intro, price, 
+      totalNum, tuanPrice, tuanFansNum, 
+      num, tuanHour, fansLimit, 
+      waitDay, state, createTime, 
+      appId, youkeId)
+    values (#{id,jdbcType=INTEGER}, #{shopid,jdbcType=INTEGER}, #{goodsid,jdbcType=VARCHAR}, 
+      #{goodsurl,jdbcType=VARCHAR}, #{cover,jdbcType=VARCHAR}, #{coverpics,jdbcType=VARCHAR}, 
+      #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{starttime,jdbcType=TIMESTAMP}, 
+      #{endtime,jdbcType=TIMESTAMP}, #{intro,jdbcType=VARCHAR}, #{price,jdbcType=INTEGER}, 
+      #{totalnum,jdbcType=INTEGER}, #{tuanprice,jdbcType=INTEGER}, #{tuanfansnum,jdbcType=INTEGER}, 
+      #{num,jdbcType=INTEGER}, #{tuanhour,jdbcType=INTEGER}, #{fanslimit,jdbcType=INTEGER}, 
+      #{waitday,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{appid,jdbcType=VARCHAR}, #{youkeid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TCollageActive" useGeneratedKeys="true" keyProperty="id">
+    insert into t_collage_active
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="shopid != null" >
+        shopId,
+      </if>
+      <if test="goodsid != null" >
+        goodsId,
+      </if>
+      <if test="goodsurl != null" >
+        goodsUrl,
+      </if>
+      <if test="cover != null" >
+        cover,
+      </if>
+      <if test="coverpics != null" >
+        coverPics,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="starttime != null" >
+        startTime,
+      </if>
+      <if test="endtime != null" >
+        endTime,
+      </if>
+      <if test="intro != null" >
+        intro,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="totalnum != null" >
+        totalNum,
+      </if>
+      <if test="tuanprice != null" >
+        tuanPrice,
+      </if>
+      <if test="tuanfansnum != null" >
+        tuanFansNum,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="tuanhour != null" >
+        tuanHour,
+      </if>
+      <if test="fanslimit != null" >
+        fansLimit,
+      </if>
+      <if test="waitday != null" >
+        waitDay,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="appid != null" >
+        appId,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="shopid != null" >
+        #{shopid,jdbcType=INTEGER},
+      </if>
+      <if test="goodsid != null" >
+        #{goodsid,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsurl != null" >
+        #{goodsurl,jdbcType=VARCHAR},
+      </if>
+      <if test="cover != null" >
+        #{cover,jdbcType=VARCHAR},
+      </if>
+      <if test="coverpics != null" >
+        #{coverpics,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null" >
+        #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="intro != null" >
+        #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="totalnum != null" >
+        #{totalnum,jdbcType=INTEGER},
+      </if>
+      <if test="tuanprice != null" >
+        #{tuanprice,jdbcType=INTEGER},
+      </if>
+      <if test="tuanfansnum != null" >
+        #{tuanfansnum,jdbcType=INTEGER},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="tuanhour != null" >
+        #{tuanhour,jdbcType=INTEGER},
+      </if>
+      <if test="fanslimit != null" >
+        #{fanslimit,jdbcType=INTEGER},
+      </if>
+      <if test="waitday != null" >
+        #{waitday,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appid != null" >
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TCollageActive" >
+    update t_collage_active
+    <set >
+      <if test="shopid != null" >
+        shopId = #{shopid,jdbcType=INTEGER},
+      </if>
+      <if test="goodsid != null" >
+        goodsId = #{goodsid,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsurl != null" >
+        goodsUrl = #{goodsurl,jdbcType=VARCHAR},
+      </if>
+      <if test="cover != null" >
+        cover = #{cover,jdbcType=VARCHAR},
+      </if>
+      <if test="coverpics != null" >
+        coverPics = #{coverpics,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null" >
+        startTime = #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        endTime = #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="intro != null" >
+        intro = #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=INTEGER},
+      </if>
+      <if test="totalnum != null" >
+        totalNum = #{totalnum,jdbcType=INTEGER},
+      </if>
+      <if test="tuanprice != null" >
+        tuanPrice = #{tuanprice,jdbcType=INTEGER},
+      </if>
+      <if test="tuanfansnum != null" >
+        tuanFansNum = #{tuanfansnum,jdbcType=INTEGER},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="tuanhour != null" >
+        tuanHour = #{tuanhour,jdbcType=INTEGER},
+      </if>
+      <if test="fanslimit != null" >
+        fansLimit = #{fanslimit,jdbcType=INTEGER},
+      </if>
+      <if test="waitday != null" >
+        waitDay = #{waitday,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appid != null" >
+        appId = #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="youkeid != null" >
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TCollageActive" >
+    update t_collage_active
+    set shopId = #{shopid,jdbcType=INTEGER},
+      goodsId = #{goodsid,jdbcType=VARCHAR},
+      goodsUrl = #{goodsurl,jdbcType=VARCHAR},
+      cover = #{cover,jdbcType=VARCHAR},
+      coverPics = #{coverpics,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      startTime = #{starttime,jdbcType=TIMESTAMP},
+      endTime = #{endtime,jdbcType=TIMESTAMP},
+      intro = #{intro,jdbcType=VARCHAR},
+      price = #{price,jdbcType=INTEGER},
+      totalNum = #{totalnum,jdbcType=INTEGER},
+      tuanPrice = #{tuanprice,jdbcType=INTEGER},
+      tuanFansNum = #{tuanfansnum,jdbcType=INTEGER},
+      num = #{num,jdbcType=INTEGER},
+      tuanHour = #{tuanhour,jdbcType=INTEGER},
+      fansLimit = #{fanslimit,jdbcType=INTEGER},
+      waitDay = #{waitday,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      appId = #{appid,jdbcType=VARCHAR},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="queryList" parameterType="youke.common.model.vo.param.helper.CollageQueryVo" resultType="youke.common.model.vo.result.helper.CollageQueryRetVo">
+    select
+      collage.id, collage.shopId, collage.goodsId, collage.goodsUrl, collage.cover, collage.title, collage.content, collage.startTime, collage.endTime,
+      collage.intro, collage.price, collage.totalNum, collage.tuanPrice, collage.tuanFansNum, collage.num, collage.state, collage.createTime,shop.title AS shopTitle
+    from t_collage_active collage
+    JOIN t_shop shop ON shop.id = collage.shopId
+    <where>
+      AND collage.appId = #{appId}
+      AND collage.youkeId = #{youkeId}
+      AND collage.state &lt; 3
+      <if test="title != null">
+        AND collage.title LIKE #{title}
+      </if>
+      <if test="shopId > -1">
+        AND collage.shopId = #{shopId}
+      </if>
+      <if test="goodsId != null">
+        AND collage.goodsId = #{goodsId}
+      </if>
+      <if test="state > -1">
+        AND collage.state = #{state}
+      </if>
+      <if test="begTime != null">
+        AND collage.createTime &gt;= #{begTime}
+      </if>
+      <if test="endTime != null">
+        AND collage.endTime &lt;= #{endTime}
+      </if>
+    </where>
+  </select>
+
+  <select id="queryListForH5" parameterType="youke.common.model.vo.param.helper.CollageQueryVo" resultType="youke.common.model.vo.result.helper.CollageQueryRetVoH5">
+    SELECT id, cover, title, tuanPrice
+    FROM t_collage_active
+    WHERE appId = #{appId} AND state = 1
+    order by createTime desc
+  </select>
+
+  <select id="queryListForOpenId" parameterType="youke.common.model.vo.param.helper.CollageQueryVo" resultType="youke.common.model.vo.result.helper.CollageQueryRetVoByOpenId">
+    SELECT active.id, tuan.id as tuanId ,active.cover,active.title,active.tuanFansNum - tuan.alreadyTuanNum AS leftTuanNum, tuan.endTime, torder.orderno AS orderNo, torder.state
+    FROM t_collage_active_tuan tuan
+    JOIN t_collage_active active ON tuan.activeId = active.id
+    JOIN t_collage_active_order torder ON tuan.id = torder.tuanId
+    WHERE torder.appId = #{appId} and torder.openId = #{openId} order by tuan.createTime desc
+  </select>
+
+  <select id="selectActiveDetail" resultType="youke.common.model.vo.result.helper.CollageActiveDetailAndTuanVo">
+    SELECT id,coverPics,title,content,endTime,intro AS intros,price,tuanPrice,tuanFansNum,goodsId,goodsUrl
+    FROM t_collage_active
+    WHERE appId = #{appId} AND id = #{activeId}
+  </select>
+</mapper>

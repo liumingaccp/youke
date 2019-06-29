@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IMassTaskDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TMassTask" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="tagIds" property="tagIds" jdbcType="VARCHAR" />
+    <result column="tagFilter" property="tagfilter" jdbcType="INTEGER" />
+    <result column="limitSend" property="limitsend" jdbcType="INTEGER" />
+    <result column="lastTimeBeg" property="lasttimebeg" jdbcType="TIMESTAMP" />
+    <result column="lastTimeEnd" property="lasttimeend" jdbcType="TIMESTAMP" />
+    <result column="subTimeBeg" property="subtimebeg" jdbcType="TIMESTAMP" />
+    <result column="subTimeEnd" property="subtimeend" jdbcType="TIMESTAMP" />
+    <result column="sex" property="sex" jdbcType="INTEGER" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="mediaType" property="mediatype" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="materialId" property="materialid" jdbcType="INTEGER" />
+    <result column="taskTime" property="tasktime" jdbcType="TIMESTAMP" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="appId" property="appid" jdbcType="VARCHAR" />
+    <result column="sendType" property="sendType" jdbcType="VARCHAR" />
+    <result column="hasMobile" property="hasmobile" javaType="Integer" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, tagIds, tagFilter, limitSend, lastTimeBeg, lastTimeEnd, subTimeBeg, subTimeEnd, hasMobile,
+    sex, province, city, mediaType, content, materialId, taskTime, state, appId, sendType
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_mass_task
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_mass_task
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TMassTask" useGeneratedKeys="true" keyProperty="id">
+    insert into t_mass_task (id, tagIds, tagFilter, 
+      limitSend, lastTimeBeg, lastTimeEnd, hasMobile,
+      subTimeBeg, subTimeEnd, sex, 
+      province, city, mediaType, 
+      content, materialId, taskTime, 
+      state, appId, sendType)
+    values (#{id,jdbcType=INTEGER}, #{tagIds,jdbcType=VARCHAR}, #{tagfilter,jdbcType=INTEGER}, 
+      #{limitsend,jdbcType=INTEGER}, #{lasttimebeg,jdbcType=TIMESTAMP}, #{lasttimeend,jdbcType=TIMESTAMP}, 
+      #{subtimebeg,jdbcType=TIMESTAMP}, #{subtimeend,jdbcType=TIMESTAMP}, #{hasmobile,jdbcType=INTEGER}, #{sex,jdbcType=INTEGER},
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{mediatype,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR}, #{materialid,jdbcType=INTEGER}, #{tasktime,jdbcType=TIMESTAMP}, 
+      #{state,jdbcType=INTEGER}, #{appid,jdbcType=VARCHAR}, #{sendType,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TMassTask" useGeneratedKeys="true" keyProperty="id">
+    insert into t_mass_task
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="tagIds != null" >
+        tagIds,
+      </if>
+      <if test="tagfilter != null" >
+        tagFilter,
+      </if>
+      <if test="limitsend != null" >
+        limitSend,
+      </if>
+      <if test="lasttimebeg != null" >
+        lastTimeBeg,
+      </if>
+      <if test="lasttimeend != null" >
+        lastTimeEnd,
+      </if>
+      <if test="subtimebeg != null" >
+        subTimeBeg,
+      </if>
+      <if test="subtimeend != null" >
+        subTimeEnd,
+      </if>
+      <if test="hasmobile != null" >
+        hasMobile,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="mediatype != null" >
+        mediaType,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="materialid != null" >
+        materialId,
+      </if>
+      <if test="tasktime != null" >
+        taskTime,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="appid != null" >
+        appId,
+      </if>
+      <if test="sendType != null" >
+        sendType,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="tagIds != null" >
+        #{tagIds,jdbcType=VARCHAR},
+      </if>
+      <if test="tagfilter != null" >
+        #{tagfilter,jdbcType=INTEGER},
+      </if>
+      <if test="limitsend != null" >
+        #{limitsend,jdbcType=INTEGER},
+      </if>
+      <if test="lasttimebeg != null" >
+        #{lasttimebeg,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lasttimeend != null" >
+        #{lasttimeend,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subtimebeg != null" >
+        #{subtimebeg,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subtimeend != null" >
+        #{subtimeend,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hasmobile != null" >
+        #{hasmobile,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="mediatype != null" >
+        #{mediatype,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="materialid != null" >
+        #{materialid,jdbcType=INTEGER},
+      </if>
+      <if test="tasktime != null" >
+        #{tasktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="appid != null" >
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="sendType != null" >
+        #{sendType,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TMassTask" >
+    update t_mass_task
+    <set >
+      <if test="tagIds != null" >
+        tagIds = #{tagIds,jdbcType=VARCHAR},
+      </if>
+      <if test="tagfilter != null" >
+        tagFilter = #{tagfilter,jdbcType=INTEGER},
+      </if>
+      <if test="limitsend != null" >
+        limitSend = #{limitsend,jdbcType=INTEGER},
+      </if>
+      <if test="lasttimebeg != null" >
+        lastTimeBeg = #{lasttimebeg,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lasttimeend != null" >
+        lastTimeEnd = #{lasttimeend,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subtimebeg != null" >
+        subTimeBeg = #{subtimebeg,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subtimeend != null" >
+        subTimeEnd = #{subtimeend,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hasmobile != null" >
+        hasMobile = #{hasmobile,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="mediatype != null" >
+        mediaType = #{mediatype,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="materialid != null" >
+        materialId = #{materialid,jdbcType=INTEGER},
+      </if>
+      <if test="tasktime != null" >
+        taskTime = #{tasktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="appid != null" >
+        appId = #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="sendType != null" >
+        sendType = #{sendType,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TMassTask" >
+    update t_mass_task
+    set tagIds = #{tagIds,jdbcType=VARCHAR},
+      tagFilter = #{tagfilter,jdbcType=INTEGER},
+      limitSend = #{limitsend,jdbcType=INTEGER},
+      lastTimeBeg = #{lasttimebeg,jdbcType=TIMESTAMP},
+      lastTimeEnd = #{lasttimeend,jdbcType=TIMESTAMP},
+      subTimeBeg = #{subtimebeg,jdbcType=TIMESTAMP},
+      subTimeEnd = #{subtimeend,jdbcType=TIMESTAMP},
+      hasMobile = #{hasmobile,jdbcType=INTEGER},
+      sex = #{sex,jdbcType=INTEGER},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      mediaType = #{mediatype,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      materialId = #{materialid,jdbcType=INTEGER},
+      taskTime = #{tasktime,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=INTEGER},
+      appId = #{appid,jdbcType=VARCHAR},
+      sendType = #{sendType, jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

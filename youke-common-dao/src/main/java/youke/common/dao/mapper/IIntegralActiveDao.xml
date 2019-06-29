@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IIntegralActiveDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TIntegralActive" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="shopId" property="shopid" jdbcType="INTEGER" />
+    <result column="goodsId" property="goodsid" jdbcType="VARCHAR" />
+    <result column="goodsUrl" property="goodsurl" jdbcType="VARCHAR" />
+    <result column="cover" property="cover" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="startTime" property="starttime" jdbcType="TIMESTAMP" />
+    <result column="endTime" property="endtime" jdbcType="TIMESTAMP" />
+    <result column="intro" property="intro" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="INTEGER" />
+    <result column="totalNum" property="totalnum" jdbcType="INTEGER" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="openIntegral" property="openintegral" jdbcType="INTEGER" />
+    <result column="openMoney" property="openmoney" jdbcType="INTEGER" />
+    <result column="integral" property="integral" jdbcType="INTEGER" />
+    <result column="moneyIntegral" property="moneyintegral" jdbcType="INTEGER" />
+    <result column="money" property="money" jdbcType="INTEGER" />
+    <result column="validHour" property="validhour" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="taocode" property="taocode" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, shopId, goodsId, goodsUrl, cover, title, startTime, endTime, intro, price, totalNum,
+    num, openIntegral, openMoney, integral, moneyIntegral, money, validHour, state, taocode,
+    createTime, youkeId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from t_integral_active
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_integral_active
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TIntegralActive" useGeneratedKeys="true" keyProperty="id">
+    insert into t_integral_active
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="shopid != null" >
+        shopId,
+      </if>
+      <if test="goodsid != null" >
+        goodsId,
+      </if>
+      <if test="goodsurl != null" >
+        goodsUrl,
+      </if>
+      <if test="cover != null" >
+        cover,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="starttime != null" >
+        startTime,
+      </if>
+      <if test="endtime != null" >
+        endTime,
+      </if>
+      <if test="intro != null" >
+        intro,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="totalnum != null" >
+        totalNum,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="openintegral != null" >
+        openIntegral,
+      </if>
+      <if test="openmoney != null" >
+        openMoney,
+      </if>
+      <if test="integral != null" >
+        integral,
+      </if>
+      <if test="moneyintegral != null" >
+        moneyIntegral,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="validhour != null" >
+        validHour,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="taocode != null" >
+        taocode,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="shopid != null" >
+        #{shopid,jdbcType=INTEGER},
+      </if>
+      <if test="goodsid != null" >
+        #{goodsid,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsurl != null" >
+        #{goodsurl,jdbcType=VARCHAR},
+      </if>
+      <if test="cover != null" >
+        #{cover,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null" >
+        #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="intro != null" >
+        #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="totalnum != null" >
+        #{totalnum,jdbcType=INTEGER},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="openintegral != null" >
+        #{openintegral,jdbcType=INTEGER},
+      </if>
+      <if test="openmoney != null" >
+        #{openmoney,jdbcType=INTEGER},
+      </if>
+      <if test="integral != null" >
+        #{integral,jdbcType=INTEGER},
+      </if>
+      <if test="moneyintegral != null" >
+        #{moneyintegral,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=INTEGER},
+      </if>
+      <if test="validhour != null" >
+        #{validhour,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="taocode != null" >
+        #{taocode,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TIntegralActive" useGeneratedKeys="true" keyProperty="id">
+    insert into t_integral_active
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="shopid != null" >
+        shopId,
+      </if>
+      <if test="goodsid != null" >
+        goodsId,
+      </if>
+      <if test="goodsurl != null" >
+        goodsUrl,
+      </if>
+      <if test="cover != null" >
+        cover,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="starttime != null" >
+        startTime,
+      </if>
+      <if test="endtime != null" >
+        endTime,
+      </if>
+      <if test="intro != null" >
+        intro,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="totalnum != null" >
+        totalNum,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="openintegral != null" >
+        openIntegral,
+      </if>
+      <if test="openmoney != null" >
+        openMoney,
+      </if>
+      <if test="integral != null" >
+        integral,
+      </if>
+      <if test="moneyintegral != null" >
+        moneyIntegral,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="validhour != null" >
+        validHour,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="taocode != null" >
+        taocode,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="shopid != null" >
+        #{shopid,jdbcType=INTEGER},
+      </if>
+      <if test="goodsid != null" >
+        #{goodsid,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsurl != null" >
+        #{goodsurl,jdbcType=VARCHAR},
+      </if>
+      <if test="cover != null" >
+        #{cover,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null" >
+        #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="intro != null" >
+        #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="totalnum != null" >
+        #{totalnum,jdbcType=INTEGER},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="openintegral != null" >
+        #{openintegral,jdbcType=INTEGER},
+      </if>
+      <if test="openmoney != null" >
+        #{openmoney,jdbcType=INTEGER},
+      </if>
+      <if test="integral != null" >
+        #{integral,jdbcType=INTEGER},
+      </if>
+      <if test="moneyintegral != null" >
+        #{moneyintegral,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=INTEGER},
+      </if>
+      <if test="validhour != null" >
+        #{validhour,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="taocode != null" >
+        #{taocode,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TIntegralActive" >
+    update t_integral_active
+    <set >
+      <if test="shopid != null" >
+        shopId = #{shopid,jdbcType=INTEGER},
+      </if>
+      <if test="goodsid != null" >
+        goodsId = #{goodsid,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsurl != null" >
+        goodsUrl = #{goodsurl,jdbcType=VARCHAR},
+      </if>
+      <if test="cover != null" >
+        cover = #{cover,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null" >
+        startTime = #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        endTime = #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="intro != null" >
+        intro = #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=INTEGER},
+      </if>
+      <if test="totalnum != null" >
+        totalNum = #{totalnum,jdbcType=INTEGER},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="openintegral != null" >
+        openIntegral = #{openintegral,jdbcType=INTEGER},
+      </if>
+      <if test="openmoney != null" >
+        openMoney = #{openmoney,jdbcType=INTEGER},
+      </if>
+      <if test="integral != null" >
+        integral = #{integral,jdbcType=INTEGER},
+      </if>
+      <if test="moneyintegral != null" >
+        moneyIntegral = #{moneyintegral,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=INTEGER},
+      </if>
+      <if test="validhour != null" >
+        validHour = #{validhour,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="taocode != null" >
+        taocode = #{taocode,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="youkeid != null" >
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TIntegralActive" >
+    update t_integral_active
+    set shopId = #{shopid,jdbcType=INTEGER},
+      goodsId = #{goodsid,jdbcType=VARCHAR},
+      goodsUrl = #{goodsurl,jdbcType=VARCHAR},
+      cover = #{cover,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      startTime = #{starttime,jdbcType=TIMESTAMP},
+      endTime = #{endtime,jdbcType=TIMESTAMP},
+      intro = #{intro,jdbcType=VARCHAR},
+      price = #{price,jdbcType=INTEGER},
+      totalNum = #{totalnum,jdbcType=INTEGER},
+      num = #{num,jdbcType=INTEGER},
+      openIntegral = #{openintegral,jdbcType=INTEGER},
+      openMoney = #{openmoney,jdbcType=INTEGER},
+      integral = #{integral,jdbcType=INTEGER},
+      moneyIntegral = #{moneyintegral,jdbcType=INTEGER},
+      money = #{money,jdbcType=INTEGER},
+      validHour = #{validhour,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      taocode = #{taocode,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="queryList" resultType="youke.common.model.vo.result.IntegralActiveVo" >
+    select
+    id, cover, goodsUrl,title, startTime, endTime, totalNum, price,
+    num, openIntegral, openMoney, integral, moneyIntegral, money, state
+    from t_integral_active
+    <where>
+      youkeId = #{youkeId}
+      AND state != 3
+      <if test="title != null">
+        AND title LIKE #{title}
+      </if>
+      <if test="state > -1">
+        AND state = #{state}
+      </if>
+    </where>
+  </select>
+
+  <select id="getActiceById" resultType="youke.common.model.vo.result.IntegralActiveDetailVo">
+    SELECT active.createTime,active.price,active.goodsUrl,active.taocode AS taoCode,config.payBuss
+    FROM t_integral_active active, t_subscr_config config
+    WHERE active.id = #{activeId} AND active.youkeId = #{youkeId} AND config.appId = #{appId}
+  </select>
+
+  <select id="getactiveinfo" resultType="youke.common.model.vo.result.IntegralActiveRetVo">
+    SELECT ia.id, ia.shopId, ia.goodsId, ia.goodsUrl, ia.cover, ia.title, ia.startTime, ia.endTime, ia.intro AS intros, ia.price, ia.totalNum,
+    ia.num, ia.openIntegral, ia.openMoney, ia.integral, ia.moneyIntegral, ia.money, ia.validHour, ia.state, ia.taocode,
+    ia.createTime, ia.youkeId , s.title AS shopName, s.`type` AS shopType FROM t_integral_active ia join t_shop s ON ia.shopid = s.id where ia.id = #{id} and ia.youkeId = #{youkeId}
+  </select>
+</mapper>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/youke-common/youke-common.iml" filepath="$PROJECT_DIR$/youke-common/youke-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-common-dao/youke-common-dao.iml" filepath="$PROJECT_DIR$/youke-common-dao/youke-common-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-common-model/youke-common-model.iml" filepath="$PROJECT_DIR$/youke-common-model/youke-common-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-core-mq/youke-core-mq.iml" filepath="$PROJECT_DIR$/youke-core-mq/youke-core-mq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-core-order/youke-core-order.iml" filepath="$PROJECT_DIR$/youke-core-order/youke-core-order.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-core-orderJD/youke-core-orderJD.iml" filepath="$PROJECT_DIR$/youke-core-orderJD/youke-core-orderJD.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-core-orderPDD/youke-core-orderPDD.iml" filepath="$PROJECT_DIR$/youke-core-orderPDD/youke-core-orderPDD.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-core-orderYZ/youke-core-orderYZ.iml" filepath="$PROJECT_DIR$/youke-core-orderYZ/youke-core-orderYZ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-core-scheduler/youke-core-scheduler.iml" filepath="$PROJECT_DIR$/youke-core-scheduler/youke-core-scheduler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-facade-cloudcode/youke-facade-cloudcode.iml" filepath="$PROJECT_DIR$/youke-facade-cloudcode/youke-facade-cloudcode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-facade-fans/youke-facade-fans.iml" filepath="$PROJECT_DIR$/youke-facade-fans/youke-facade-fans.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-facade-helper/youke-facade-helper.iml" filepath="$PROJECT_DIR$/youke-facade-helper/youke-facade-helper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-facade-market/youke-facade-market.iml" filepath="$PROJECT_DIR$/youke-facade-market/youke-facade-market.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-facade-mass/youke-facade-mass.iml" filepath="$PROJECT_DIR$/youke-facade-mass/youke-facade-mass.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-facade-pay/youke-facade-pay.iml" filepath="$PROJECT_DIR$/youke-facade-pay/youke-facade-pay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-facade-shop/youke-facade-shop.iml" filepath="$PROJECT_DIR$/youke-facade-shop/youke-facade-shop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-facade-user/youke-facade-user.iml" filepath="$PROJECT_DIR$/youke-facade-user/youke-facade-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-facade-wx/youke-facade-wx.iml" filepath="$PROJECT_DIR$/youke-facade-wx/youke-facade-wx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-facade-wxper/youke-facade-wxper.iml" filepath="$PROJECT_DIR$/youke-facade-wxper/youke-facade-wxper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-service-cloudcode/youke-service-cloudcode.iml" filepath="$PROJECT_DIR$/youke-service-cloudcode/youke-service-cloudcode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-service-fans/youke-service-fans.iml" filepath="$PROJECT_DIR$/youke-service-fans/youke-service-fans.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-service-helper/youke-service-helper.iml" filepath="$PROJECT_DIR$/youke-service-helper/youke-service-helper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-service-market/youke-service-market.iml" filepath="$PROJECT_DIR$/youke-service-market/youke-service-market.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-service-mass/youke-service-mass.iml" filepath="$PROJECT_DIR$/youke-service-mass/youke-service-mass.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-service-pay/youke-service-pay.iml" filepath="$PROJECT_DIR$/youke-service-pay/youke-service-pay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-service-shop/youke-service-shop.iml" filepath="$PROJECT_DIR$/youke-service-shop/youke-service-shop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-service-user/youke-service-user.iml" filepath="$PROJECT_DIR$/youke-service-user/youke-service-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-service-wx/youke-service-wx.iml" filepath="$PROJECT_DIR$/youke-service-wx/youke-service-wx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-service-wxper/youke-service-wxper.iml" filepath="$PROJECT_DIR$/youke-service-wxper/youke-service-wxper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-web-demo/youke-web-demo.iml" filepath="$PROJECT_DIR$/youke-web-demo/youke-web-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-web-h5/youke-web-h5.iml" filepath="$PROJECT_DIR$/youke-web-h5/youke-web-h5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-web-pc/youke-web-pc.iml" filepath="$PROJECT_DIR$/youke-web-pc/youke-web-pc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-web-service/youke-web-service.iml" filepath="$PROJECT_DIR$/youke-web-service/youke-web-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/youke-web-spread/youke-web-spread.iml" filepath="$PROJECT_DIR$/youke-web-spread/youke-web-spread.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.ITaowxPosterDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TTaowxPoster" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="sourceUrl" property="sourceurl" jdbcType="VARCHAR" />
+    <result column="shortUrl" property="shorturl" jdbcType="VARCHAR" />
+    <result column="posterUrl" property="posterurl" jdbcType="VARCHAR" />
+    <result column="body" property="body" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, sourceUrl, shortUrl, posterUrl, body, createTime, youkeId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_taowx_poster
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_taowx_poster
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TTaowxPoster" useGeneratedKeys="true" keyProperty="id">
+    insert into t_taowx_poster (id, sourceUrl, shortUrl, 
+      posterUrl, body, createTime, 
+      youkeId)
+    values (#{id,jdbcType=INTEGER}, #{sourceurl,jdbcType=VARCHAR}, #{shorturl,jdbcType=VARCHAR}, 
+      #{posterurl,jdbcType=VARCHAR}, #{body,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{youkeid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TTaowxPoster" useGeneratedKeys="true" keyProperty="id">
+    insert into t_taowx_poster
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="sourceurl != null" >
+        sourceUrl,
+      </if>
+      <if test="shorturl != null" >
+        shortUrl,
+      </if>
+      <if test="posterurl != null" >
+        posterUrl,
+      </if>
+      <if test="body != null" >
+        body,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sourceurl != null" >
+        #{sourceurl,jdbcType=VARCHAR},
+      </if>
+      <if test="shorturl != null" >
+        #{shorturl,jdbcType=VARCHAR},
+      </if>
+      <if test="posterurl != null" >
+        #{posterurl,jdbcType=VARCHAR},
+      </if>
+      <if test="body != null" >
+        #{body,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TTaowxPoster" >
+    update t_taowx_poster
+    <set >
+      <if test="sourceurl != null" >
+        sourceUrl = #{sourceurl,jdbcType=VARCHAR},
+      </if>
+      <if test="shorturl != null" >
+        shortUrl = #{shorturl,jdbcType=VARCHAR},
+      </if>
+      <if test="posterurl != null" >
+        posterUrl = #{posterurl,jdbcType=VARCHAR},
+      </if>
+      <if test="body != null" >
+        body = #{body,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="youkeid != null" >
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TTaowxPoster" >
+    update t_taowx_poster
+    set sourceUrl = #{sourceurl,jdbcType=VARCHAR},
+      shortUrl = #{shorturl,jdbcType=VARCHAR},
+      posterUrl = #{posterurl,jdbcType=VARCHAR},
+      body = #{body,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="queryPage" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_taowx_poster
+    where youkeId = #{dykId}
+    <if test="timeStart != null">
+      AND createTime &gt;= #{timeStart}
+    </if>
+    <if test="timeEnd != null">
+      AND createTime &lt;= #{timeEnd}
+    </if>
+  </select>
+
+</mapper>

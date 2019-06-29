@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IMarketActiveSignDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TMarketActiveSign" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="activeId" property="activeid" jdbcType="BIGINT" />
+    <result column="openId" property="openid" jdbcType="VARCHAR" />
+    <result column="runDay" property="runday" jdbcType="INTEGER" />
+    <result column="lastRunDay" property="lastrunday" jdbcType="INTEGER" />
+    <result column="lastDate" property="lastdate" jdbcType="DATE" />
+    <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, activeId, openId, runDay, lastRunDay, lastDate, youkeId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from t_market_active_sign
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_market_active_sign
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TMarketActiveSign" >
+    insert into t_market_active_sign (id, activeId, openId,
+    runDay, lastRunDay, lastDate, youkeId)
+    values (#{id,jdbcType=BIGINT}, #{activeid,jdbcType=BIGINT}, #{openid,jdbcType=VARCHAR},
+    #{runday,jdbcType=INTEGER}, #{lastrunday,jdbcType=INTEGER}, #{lastdate,jdbcType=DATE},
+    #{youkeid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TMarketActiveSign" useGeneratedKeys="true" keyProperty="id">
+    insert into t_market_active_sign
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="activeid != null" >
+        activeId,
+      </if>
+      <if test="openid != null" >
+        openId,
+      </if>
+      <if test="runday != null" >
+        runDay,
+      </if>
+      <if test="lastrunday != null" >
+        lastRunDay,
+      </if>
+      <if test="lastdate != null" >
+        lastDate,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="activeid != null" >
+        #{activeid,jdbcType=BIGINT},
+      </if>
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="runday != null" >
+        #{runday,jdbcType=INTEGER},
+      </if>
+      <if test="lastrunday != null" >
+        #{lastrunday,jdbcType=INTEGER},
+      </if>
+      <if test="lastdate != null" >
+        #{lastdate,jdbcType=DATE},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TMarketActiveSign" >
+    update t_market_active_sign
+    <set >
+      <if test="activeid != null" >
+        activeId = #{activeid,jdbcType=BIGINT},
+      </if>
+      <if test="openid != null" >
+        openId = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="runday != null" >
+        runDay = #{runday,jdbcType=INTEGER},
+      </if>
+      <if test="lastrunday != null" >
+        lastRunDay = #{lastrunday,jdbcType=INTEGER},
+      </if>
+      <if test="lastdate != null" >
+        lastDate = #{lastdate,jdbcType=DATE},
+      </if>
+      <if test="youkeid != null" >
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TMarketActiveSign" >
+    update t_market_active_sign
+    set activeId = #{activeid,jdbcType=BIGINT},
+      openId = #{openid,jdbcType=VARCHAR},
+      runDay = #{runday,jdbcType=INTEGER},
+      lastRunDay = #{lastrunday,jdbcType=INTEGER},
+      lastDate = #{lastdate,jdbcType=DATE},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

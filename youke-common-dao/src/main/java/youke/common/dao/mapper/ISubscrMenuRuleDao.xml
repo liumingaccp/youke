@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.ISubscrMenuRuleDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TSubscrMenuRule" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="tag_id" property="tagId" jdbcType="INTEGER" />
+    <result column="sex" property="sex" jdbcType="BIT" />
+    <result column="os" property="os" jdbcType="TINYINT" />
+    <result column="city" property="city" jdbcType="INTEGER" />
+    <result column="province" property="province" jdbcType="INTEGER" />
+    <result column="country" property="country" jdbcType="INTEGER" />
+    <result column="lang" property="lang" jdbcType="CHAR" />
+    <result column="menuid" property="menuid" jdbcType="VARCHAR" />
+    <result column="language" property="language" jdbcType="VARCHAR" />
+    <result column="appId" property="appid" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, tag_id, sex, os, city, province, country, lang, menuid, language, appId, createTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_subscr_menu_rule
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_subscr_menu_rule
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TSubscrMenuRule" useGeneratedKeys="true" keyProperty="id">
+    insert into t_subscr_menu_rule (id, tag_id, sex, os, 
+      city, province, country, 
+      lang, menuid, language, 
+      appId, createTime)
+    values (#{id,jdbcType=INTEGER}, #{tagId,jdbcType=INTEGER}, #{sex,jdbcType=BIT}, #{os,jdbcType=TINYINT}, 
+      #{city,jdbcType=INTEGER}, #{province,jdbcType=INTEGER}, #{country,jdbcType=INTEGER}, 
+      #{lang,jdbcType=CHAR}, #{menuid,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR}, 
+      #{appid,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TSubscrMenuRule" useGeneratedKeys="true" keyProperty="id">
+    insert into t_subscr_menu_rule
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="tagId != null" >
+        tag_id,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="os != null" >
+        os,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="lang != null" >
+        lang,
+      </if>
+      <if test="menuid != null" >
+        menuid,
+      </if>
+      <if test="language != null" >
+        language,
+      </if>
+      <if test="appid != null" >
+        appId,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="tagId != null" >
+        #{tagId,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=BIT},
+      </if>
+      <if test="os != null" >
+        #{os,jdbcType=TINYINT},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=INTEGER},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=INTEGER},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=INTEGER},
+      </if>
+      <if test="lang != null" >
+        #{lang,jdbcType=CHAR},
+      </if>
+      <if test="menuid != null" >
+        #{menuid,jdbcType=VARCHAR},
+      </if>
+      <if test="language != null" >
+        #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null" >
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TSubscrMenuRule" >
+    update t_subscr_menu_rule
+    <set >
+      <if test="tagId != null" >
+        tag_id = #{tagId,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=BIT},
+      </if>
+      <if test="os != null" >
+        os = #{os,jdbcType=TINYINT},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=INTEGER},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=INTEGER},
+      </if>
+      <if test="country != null" >
+        country = #{country,jdbcType=INTEGER},
+      </if>
+      <if test="lang != null" >
+        lang = #{lang,jdbcType=CHAR},
+      </if>
+      <if test="menuid != null" >
+        menuid = #{menuid,jdbcType=VARCHAR},
+      </if>
+      <if test="language != null" >
+        language = #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null" >
+        appId = #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TSubscrMenuRule" >
+    update t_subscr_menu_rule
+    set tag_id = #{tagId,jdbcType=INTEGER},
+      sex = #{sex,jdbcType=BIT},
+      os = #{os,jdbcType=TINYINT},
+      city = #{city,jdbcType=INTEGER},
+      province = #{province,jdbcType=INTEGER},
+      country = #{country,jdbcType=INTEGER},
+      lang = #{lang,jdbcType=CHAR},
+      menuid = #{menuid,jdbcType=VARCHAR},
+      language = #{language,jdbcType=VARCHAR},
+      appId = #{appid,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <!-- 新增方法 -->
+  <select id="getMenuid" resultType="string">
+    SELECT menuid FROM t_subscr_menu_rule
+    WHERE id = #{ruleId}
+  </select>
+
+  <select id="selectByAppId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_subscr_menu_rule
+    where appId = #{appId} AND menuid IS NULL
+  </select>
+
+  <delete id="deleteAllByAppId">
+    DELETE FROM t_subscr_menu_rule
+    WHERE appId = #{appId}
+  </delete>
+
+</mapper>

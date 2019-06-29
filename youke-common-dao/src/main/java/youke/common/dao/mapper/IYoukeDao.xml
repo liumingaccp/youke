@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IYoukeDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TYouke" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="country" property="country" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="company" property="company" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="website" property="website" jdbcType="VARCHAR" />
+    <result column="shopUrl" property="shopurl" jdbcType="VARCHAR" />
+    <result column="linkTruename" property="linktruename" jdbcType="VARCHAR" />
+    <result column="linkPosition" property="linkposition" jdbcType="VARCHAR" />
+    <result column="linkQQ" property="linkqq" jdbcType="VARCHAR" />
+    <result column="linkTel" property="linktel" jdbcType="VARCHAR" />
+    <result column="openTime" property="opentime" jdbcType="DATE" />
+    <result column="endTime" property="endtime" jdbcType="DATE" />
+    <result column="vip" property="vip" jdbcType="INTEGER" />
+    <result column="money" property="money" jdbcType="INTEGER" />
+    <result column="extShopNum" property="extshopnum" jdbcType="INTEGER" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, country, province, city, company, address, website, shopUrl, linkTruename, linkPosition,
+    linkQQ, linkTel, openTime, endTime, vip, money, extShopNum, createTime, state
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from t_youke
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_youke
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TYouke" >
+    insert into t_youke (id, country, province,
+    city, company, address,
+    website, shopUrl, linkTruename,
+    linkPosition, linkQQ, linkTel,
+    openTime, endTime, vip, money,
+    extShopNum, createTime, state
+    )
+    values (#{id,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR},
+    #{city,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},
+    #{website,jdbcType=VARCHAR}, #{shopurl,jdbcType=VARCHAR}, #{linktruename,jdbcType=VARCHAR},
+    #{linkposition,jdbcType=VARCHAR}, #{linkqq,jdbcType=VARCHAR}, #{linktel,jdbcType=VARCHAR},
+    #{opentime,jdbcType=DATE}, #{endtime,jdbcType=DATE}, #{vip,jdbcType=INTEGER}, #{money,jdbcType=INTEGER},
+    #{extshopnum,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER}
+    )
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TYouke" >
+    insert into t_youke
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="company != null" >
+        company,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="website != null" >
+        website,
+      </if>
+      <if test="shopurl != null" >
+        shopUrl,
+      </if>
+      <if test="linktruename != null" >
+        linkTruename,
+      </if>
+      <if test="linkposition != null" >
+        linkPosition,
+      </if>
+      <if test="linkqq != null" >
+        linkQQ,
+      </if>
+      <if test="linktel != null" >
+        linkTel,
+      </if>
+      <if test="opentime != null" >
+        openTime,
+      </if>
+      <if test="endtime != null" >
+        endTime,
+      </if>
+      <if test="vip != null" >
+        vip,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="extshopnum != null" >
+        extShopNum,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null" >
+        #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="website != null" >
+        #{website,jdbcType=VARCHAR},
+      </if>
+      <if test="shopurl != null" >
+        #{shopurl,jdbcType=VARCHAR},
+      </if>
+      <if test="linktruename != null" >
+        #{linktruename,jdbcType=VARCHAR},
+      </if>
+      <if test="linkposition != null" >
+        #{linkposition,jdbcType=VARCHAR},
+      </if>
+      <if test="linkqq != null" >
+        #{linkqq,jdbcType=VARCHAR},
+      </if>
+      <if test="linktel != null" >
+        #{linktel,jdbcType=VARCHAR},
+      </if>
+      <if test="opentime != null" >
+        #{opentime,jdbcType=DATE},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=DATE},
+      </if>
+      <if test="vip != null" >
+        #{vip,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=INTEGER},
+      </if>
+      <if test="extshopnum != null" >
+        #{extshopnum,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TYouke" >
+    update t_youke
+    <set >
+      <if test="country != null" >
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null" >
+        company = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="website != null" >
+        website = #{website,jdbcType=VARCHAR},
+      </if>
+      <if test="shopurl != null" >
+        shopUrl = #{shopurl,jdbcType=VARCHAR},
+      </if>
+      <if test="linktruename != null" >
+        linkTruename = #{linktruename,jdbcType=VARCHAR},
+      </if>
+      <if test="linkposition != null" >
+        linkPosition = #{linkposition,jdbcType=VARCHAR},
+      </if>
+      <if test="linkqq != null" >
+        linkQQ = #{linkqq,jdbcType=VARCHAR},
+      </if>
+      <if test="linktel != null" >
+        linkTel = #{linktel,jdbcType=VARCHAR},
+      </if>
+      <if test="opentime != null" >
+        openTime = #{opentime,jdbcType=DATE},
+      </if>
+      <if test="endtime != null" >
+        endTime = #{endtime,jdbcType=DATE},
+      </if>
+      <if test="vip != null" >
+        vip = #{vip,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=INTEGER},
+      </if>
+      <if test="extshopnum != null" >
+        extShopNum = #{extshopnum,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TYouke" >
+    update t_youke
+    set country = #{country,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      company = #{company,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      website = #{website,jdbcType=VARCHAR},
+      shopUrl = #{shopurl,jdbcType=VARCHAR},
+      linkTruename = #{linktruename,jdbcType=VARCHAR},
+      linkPosition = #{linkposition,jdbcType=VARCHAR},
+      linkQQ = #{linkqq,jdbcType=VARCHAR},
+      linkTel = #{linktel,jdbcType=VARCHAR},
+      openTime = #{opentime,jdbcType=DATE},
+      endTime = #{endtime,jdbcType=DATE},
+      vip = #{vip,jdbcType=INTEGER},
+      money = #{money,jdbcType=INTEGER},
+      extShopNum = #{extshopnum,jdbcType=INTEGER},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="getAccontData" resultType="youke.common.model.vo.result.AccountDataVo">
+    SELECT
+      youke.money AS accountMoney,
+      youke.vip,
+      youke.endTime,
+      youke.openTime,
+      mob.count AS accountMobCode,
+      COUNT(shop.id) AS shopNum,
+      pack.shopCount+youke.extShopNum AS vipShopNum
+    FROM t_youke youke
+    LEFT JOIN t_mobcode mob ON youke.id = mob.youkeId
+    LEFT JOIN t_shop shop ON youke.id = shop.youkeId
+    LEFT JOIN t_open_package pack ON youke.vip = pack.id
+    WHERE youke.id = #{youkeId}
+  </select>
+</mapper>

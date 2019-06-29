@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="youke.common.dao.IWxPerAccountMapper">
+  <resultMap id="BaseResultMap" type="youke.common.model.TWxPerAccount">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="wxPersonal" jdbcType="VARCHAR" property="wxpersonal" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="lastOpTime" jdbcType="TIMESTAMP" property="lastoptime" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="wx" jdbcType="VARCHAR" property="wx" />
+    <result column="lastAddFriendTime" jdbcType="TIMESTAMP" property="lastaddfriendtime" />
+    <result column="addNum" jdbcType="INTEGER" property="addnum" />
+    <result column="lastAddedFriendTime" jdbcType="TIMESTAMP" property="lastaddedfriendtime" />
+    <result column="addedNum" property="addednum" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, wxPersonal, createTime, lastOpTime, state, wx, lastAddFriendTime, addNum, addedNum, lastAddedFriendTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_wxper_account
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_wxper_account
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TWxPerAccount">
+    insert into t_wxper_account (id, wxPersonal, createTime,
+    lastOpTime, state, wx,
+    lastAddFriendTime, lastAddedFriendTime, addNum, addedNum
+    )
+    values (#{id,jdbcType=BIGINT}, #{wxpersonal,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP},
+    #{lastoptime,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER}, #{wx,jdbcType=VARCHAR},
+    #{lastaddfriendtime,jdbcType=TIMESTAMP}, #{lastaddedfriendtime,jdbcType=TIMESTAMP},
+    #{addnum}, #{addednum}
+    )
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TWxPerAccount" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+    insert into t_wxper_account
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="wxpersonal != null">
+        wxPersonal,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+      <if test="lastoptime != null">
+        lastOpTime,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="wx != null">
+        wx,
+      </if>
+      <if test="lastaddfriendtime != null">
+        lastAddFriendTime,
+      </if>
+      <if test="lastaddedfriendtime != null">
+        lastAddedFriendTime,
+      </if>
+      <if test="addnum != null">
+        addNum,
+      </if>
+      <if test="addednum != null">
+        addedNum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="wxpersonal != null">
+        #{wxpersonal,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastoptime != null">
+        #{lastoptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="wx != null">
+        #{wx,jdbcType=VARCHAR},
+      </if>
+      <if test="lastaddfriendtime != null">
+        #{lastaddfriendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastaddedfriendtime != null">
+        #{lastaddedfriendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addnum != null">
+        #{addnum},
+      </if>
+      <if test="addednum != null">
+        #{addednum},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TWxPerAccount">
+    update t_wxper_account
+    <set>
+      <if test="wxpersonal != null">
+        wxPersonal = #{wxpersonal,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastoptime != null">
+        lastOpTime = #{lastoptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="wx != null">
+        wx = #{wx,jdbcType=VARCHAR},
+      </if>
+      <if test="lastaddfriendtime != null">
+        lastAddFriendTime = #{lastaddfriendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastaddedfriendtime != null">
+        lastAddedFriendTime = #{lastaddedfriendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addnum != null">
+        addNum = #{addnum},
+      </if>
+      <if test="addednum != null">
+        addedNum = #{addednum},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TWxPerAccount">
+    update t_wxper_account
+    set wxPersonal = #{wxpersonal,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      lastOpTime = #{lastoptime,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=INTEGER},
+      wx = #{wx,jdbcType=VARCHAR},
+      lastAddFriendTime = #{lastaddfriendtime,jdbcType=TIMESTAMP},
+      lastAddedFriendTime = #{lastaddedfriendtime,jdbcType=TIMESTAMP},
+      addNum = #{addnum},
+      addedNum = #{addednum}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

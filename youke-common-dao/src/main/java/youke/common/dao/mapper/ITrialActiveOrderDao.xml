@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.ITrialActiveOrderDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TTrialActiveOrder" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="orderno" property="orderno" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="wxfansname" property="wxfansname" jdbcType="VARCHAR" />
+    <result column="buyername" property="buyername" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="price" property="price" jdbcType="INTEGER" />
+    <result column="rewardType" property="rewardtype" jdbcType="INTEGER" />
+    <result column="backReward" property="backreward" jdbcType="INTEGER" />
+    <result column="orderTime" property="ordertime" jdbcType="TIMESTAMP" />
+    <result column="backTime" property="backtime" jdbcType="TIMESTAMP" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="activeId" property="activeid" jdbcType="INTEGER" />
+    <result column="shopId" property="shopid" jdbcType="VARCHAR" />
+    <result column="shopType" property="shoptype" jdbcType="INTEGER" />
+    <result column="failReason" property="failreason" jdbcType="VARCHAR" />
+    <result column="openId" property="openid" jdbcType="VARCHAR" />
+    <result column="appId" property="appid" jdbcType="VARCHAR" />
+    <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, orderno, title, wxfansname, buyername, createTime, price, rewardType, backReward, 
+    orderTime, backTime, state, activeId, shopId, shopType, failReason, openId, appId, 
+    youkeId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_trial_active_order
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_trial_active_order
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insertSelective" parameterType="youke.common.model.TTrialActiveOrder" useGeneratedKeys="true" keyProperty="id">
+    insert into t_trial_active_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orderno != null" >
+        orderno,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="wxfansname != null" >
+        wxfansname,
+      </if>
+      <if test="buyername != null" >
+        buyername,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="rewardtype != null" >
+        rewardType,
+      </if>
+      <if test="backreward != null" >
+        backReward,
+      </if>
+      <if test="ordertime != null" >
+        orderTime,
+      </if>
+      <if test="backtime != null" >
+        backTime,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="activeid != null" >
+        activeId,
+      </if>
+      <if test="shopid != null" >
+        shopId,
+      </if>
+      <if test="shoptype != null" >
+        shopType,
+      </if>
+      <if test="failreason != null" >
+        failReason,
+      </if>
+      <if test="openid != null" >
+        openId,
+      </if>
+      <if test="appid != null" >
+        appId,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="orderno != null" >
+        #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="wxfansname != null" >
+        #{wxfansname,jdbcType=VARCHAR},
+      </if>
+      <if test="buyername != null" >
+        #{buyername,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="rewardtype != null" >
+        #{rewardtype,jdbcType=INTEGER},
+      </if>
+      <if test="backreward != null" >
+        #{backreward,jdbcType=INTEGER},
+      </if>
+      <if test="ordertime != null" >
+        #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="backtime != null" >
+        #{backtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="activeid != null" >
+        #{activeid,jdbcType=INTEGER},
+      </if>
+      <if test="shopid != null" >
+        #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="shoptype != null" >
+        #{shoptype,jdbcType=INTEGER},
+      </if>
+      <if test="failreason != null" >
+        #{failreason,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null" >
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TTrialActiveOrder" >
+    update t_trial_active_order
+    <set >
+      <if test="orderno != null" >
+        orderno = #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="wxfansname != null" >
+        wxfansname = #{wxfansname,jdbcType=VARCHAR},
+      </if>
+      <if test="buyername != null" >
+        buyername = #{buyername,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=INTEGER},
+      </if>
+      <if test="rewardtype != null" >
+        rewardType = #{rewardtype,jdbcType=INTEGER},
+      </if>
+      <if test="backreward != null" >
+        backReward = #{backreward,jdbcType=INTEGER},
+      </if>
+      <if test="ordertime != null" >
+        orderTime = #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="backtime != null" >
+        backTime = #{backtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="activeid != null" >
+        activeId = #{activeid,jdbcType=INTEGER},
+      </if>
+      <if test="shopid != null" >
+        shopId = #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="shoptype != null" >
+        shopType = #{shoptype,jdbcType=INTEGER},
+      </if>
+      <if test="failreason != null" >
+        failReason = #{failreason,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null" >
+        openId = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null" >
+        appId = #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="youkeid != null" >
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TTrialActiveOrder" >
+    update t_trial_active_order
+    set orderno = #{orderno,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      wxfansname = #{wxfansname,jdbcType=VARCHAR},
+      buyername = #{buyername,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      price = #{price,jdbcType=INTEGER},
+      rewardType = #{rewardtype,jdbcType=INTEGER},
+      backReward = #{backreward,jdbcType=INTEGER},
+      orderTime = #{ordertime,jdbcType=TIMESTAMP},
+      backTime = #{backtime,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=INTEGER},
+      activeId = #{activeid,jdbcType=INTEGER},
+      shopId = #{shopid,jdbcType=VARCHAR},
+      shopType = #{shoptype,jdbcType=INTEGER},
+      failReason = #{failreason,jdbcType=VARCHAR},
+      openId = #{openid,jdbcType=VARCHAR},
+      appId = #{appid,jdbcType=VARCHAR},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="queryList" resultType="youke.common.model.vo.result.helper.TrialWealOrderQueryRetVo"
+          parameterType="youke.common.model.vo.param.helper.TrialWealOrderQueryVo">
+    SELECT
+    torder.id,
+    torder.title,
+    shop.title AS shopName,
+    torder.buyerName,
+    torder.wxfansname AS wxFansName,
+    torder.orderNo AS orderNo,
+    shop.`type` AS shopType,
+    torder.createTime,
+    torder.rewardType,
+    torder.backReward,
+    torder.backTime,
+    torder.state,
+    torder.price,
+    active.goodsId,
+    active.cover,
+    torder.activeId,
+    active.goodsUrl
+    FROM t_trial_active_order torder
+    JOIN t_shop shop on torder.shopId = shop.id
+    JOIN t_trial_active active ON active.id = torder.activeId
+    <where>
+      AND torder.appId = #{appId}
+      AND torder.youkeId = #{youkeId}
+      <if test="title != null ">
+        AND torder.title LIKE #{title}
+      </if>
+      <if test="wxFansName != null">
+        AND torder.wxfansname LIKE #{wxFansName}
+      </if>
+      <if test="buyerName != null">
+        AND torder.buyername LIKE #{buyerName}
+      </if>
+      <if test="state != null and state > -1 and 7 > state">
+        AND torder.state = #{state}
+      </if>
+      <if test="state != null and state == 7">
+        AND torder.state IN (0,2,3)
+      </if>
+      <if test="orderNo != null">
+        AND torder.orderno = #{orderNo}
+      </if>
+      <if test="shopId != null and shopId > -1">
+        AND torder.shopId = #{shopId}
+      </if>
+      <if test="shopType != null and shopType > -1">
+        AND shop.type = #{shopType}
+      </if>
+      <if test="timeBeg != null">
+        AND active.startTime &gt;= #{timeBeg}
+      </if>
+      <if test="timeEnd != null">
+        AND active.endTime &lt;= #{timeEnd}
+      </if>
+      <if test="backTimeBeg != null">
+        AND torder.backTime &gt;= #{backTimeBeg}
+      </if>
+      <if test="backTimeEnd != null">
+        AND torder.backTime &lt;= #{backTimeEnd}
+      </if>
+      <if test="rewardType != null and rewardType > -1">
+        AND torder.rewardType = #{rewardType}
+      </if>
+      <if test="backRewardBeg != null and backRewardBeg > -1 and backRewardEnd != null and backRewardEnd > -1">
+        AND torder.backReward &lt;= #{backRewardEnd}
+        AND torder.backReward &gt;= #{backRewardBeg}
+      </if>
+      <if test="openId != null">
+        AND openId = #{openId}
+      </if>
+    </where>
+  </select>
+
+  <update id="updateStateBatch" parameterType="youke.common.model.vo.param.helper.TrialWealOrderExamineParam">
+    UPDATE t_trial_active_order
+    <set>
+      <if test="state != null">
+        state = #{state},
+      </if>
+      <if test="failReason != null">
+        failreason = #{failReason},
+      </if>
+    </set>
+    WHERE appId = #{appId}
+    AND id IN
+    <foreach collection="orderIdList" item="id" open="(" close=")" separator=",">
+      #{id}
+    </foreach>
+  </update>
+
+  <select id="selectExamineDetail" resultType="youke.common.model.vo.result.helper.TrialWealOrderDetailRetVo">
+    SELECT sorder.orderno AS orderNo,
+             sorder.receiveName AS receiveName,
+             sorder.receiveAddress AS receiveAddress,
+             sorder.picPath,
+             aorder.title,
+             aorder.price,
+             sorder.num,
+             sorder.totalPrice,
+             sorder.state AS orderState,
+             aorder.state,
+             aorder.failReason
+    FROM t_trial_active_order aorder
+    JOIN t_shop_order sorder ON aorder.orderno = sorder.orderno
+    WHERE
+    aorder.appId = #{appId} AND aorder.id = #{id}
+  </select>
+
+  <update id="updateBatchState">
+    update t_trial_active_order set state=#{state},orderTime=NOW() where id in
+    <foreach collection="orderIds" item="orderId"  open="(" separator="," close=")">
+      #{orderId}
+    </foreach>
+  </update>
+
+  <select id="selectJoinCount" resultType="java.lang.Integer">
+    select count(id) from t_trial_active_order where activeId = #{activeId} and youkeId = #{youkeId}
+    <if test="typeId > 0">
+      AND state = 6
+    </if>
+  </select>
+
+  <select id="selectOrderInfo" resultType="youke.common.model.vo.result.helper.TrialWealOrderQueryRetVo">
+    SELECT
+    torder.id,
+    torder.title,
+    shop.title AS shopName,
+    torder.buyerName,
+    torder.wxfansname AS wxFansName,
+    torder.orderNo AS orderNo,
+    shop.`type` AS shopType,
+    torder.createTime,
+    torder.rewardType,
+    torder.backReward,
+    torder.backTime,
+    torder.state,
+    torder.price,
+    active.goodsId,
+    active.cover,
+    torder.activeId,
+    active.goodsUrl,
+    active.goodsId
+    FROM t_trial_active_order torder
+    JOIN t_shop shop on torder.shopId = shop.id
+    JOIN t_trial_active active ON active.id = torder.activeId
+    WHERE torder.appId=#{appId} and torder.openId=#{openId} and torder.id=#{orderId}
+  </select>
+</mapper>

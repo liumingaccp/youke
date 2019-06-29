@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.ISubscrMenuDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TSubscrMenu" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="pid" property="pid" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="TINYINT" />
+    <result column="ruleId" property="ruleid" jdbcType="INTEGER" />
+    <result column="mediaType" property="mediatype" jdbcType="VARCHAR" />
+    <result column="materialId" property="materialId" jdbcType="INTEGER" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="pageAppId" property="pageappid" jdbcType="VARCHAR" />
+    <result column="pagepath" property="pagepath" jdbcType="VARCHAR" />
+    <result column="appId" property="appid" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, pid, title, `type`, sort, ruleId, mediaType, materialId, url, content, pageAppId,
+    pagepath, appId, createTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_subscr_menu
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_subscr_menu
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertSelective" parameterType="youke.common.model.TSubscrMenu" useGeneratedKeys="true" keyProperty="id">
+    insert into t_subscr_menu
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="ruleid != null" >
+        ruleId,
+      </if>
+      <if test="mediatype != null" >
+        mediaType,
+      </if>
+      <if test="materialId != null" >
+        materialId,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="pageappid != null" >
+        pageAppId,
+      </if>
+      <if test="pagepath != null" >
+        pagepath,
+      </if>
+      <if test="appid != null" >
+        appId,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=TINYINT},
+      </if>
+      <if test="ruleid != null" >
+        #{ruleid,jdbcType=INTEGER},
+      </if>
+      <if test="mediatype != null" >
+        #{mediatype,jdbcType=VARCHAR},
+      </if>
+      <if test="materialId != null" >
+        #{materialId,jdbcType=INTEGER},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="pageappid != null" >
+        #{pageappid,jdbcType=VARCHAR},
+      </if>
+      <if test="pagepath != null" >
+        #{pagepath,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null" >
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TSubscrMenu" >
+    update t_subscr_menu
+    <set >
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=TINYINT},
+      </if>
+      <if test="ruleid != null" >
+        ruleId = #{ruleid,jdbcType=INTEGER},
+      </if>
+      <if test="mediatype != null" >
+        mediaType = #{mediatype,jdbcType=VARCHAR},
+      </if>
+      <if test="materialId != null" >
+        materialId = #{materialId,jdbcType=INTEGER},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="pageappid != null" >
+        pageAppId = #{pageappid,jdbcType=VARCHAR},
+      </if>
+      <if test="pagepath != null" >
+        pagepath = #{pagepath,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null" >
+        appId = #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TSubscrMenu" >
+    update t_subscr_menu
+    set pid = #{pid,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      `type` = #{type,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=TINYINT},
+      ruleId = #{ruleid,jdbcType=INTEGER},
+      mediaType = #{mediatype,jdbcType=VARCHAR},
+      materialId = #{materialId,jdbcType=INTEGER},
+      url = #{url,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      pageAppId = #{pageappid,jdbcType=VARCHAR},
+      pagepath = #{pagepath,jdbcType=VARCHAR},
+      appId = #{appid,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+  <!--增加的方法-->
+  <delete id="deleteByRuleId">
+    DELETE FROM t_subscr_menu
+    WHERE appId = #{appId} AND ruleId = #{ruleId}
+  </delete>
+
+  <delete id="deleteAllByAppId">
+    DELETE FROM t_subscr_menu
+    WHERE appId = #{appId}
+  </delete>
+
+  <select id="getMenus" resultMap="BaseResultMap">
+      select
+      <include refid="Base_Column_List" />
+      from t_subscr_menu
+      where appId = #{appId,jdbcType=VARCHAR} AND ruleId = #{ruleId} AND pid = 0 ORDER BY id , sort
+  </select>
+
+  <select id="getSubMenus" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_subscr_menu
+    where appId = #{appId,jdbcType=VARCHAR} AND ruleId = #{ruleId} AND pid = #{pid} ORDER BY id , sort
+  </select>
+
+  <select id="selectMaters" resultType="java.lang.Integer">
+    SELECT materialId
+    FROM t_subscr_menu
+    WHERE
+      appId = #{appId}
+      AND mediaType = #{MaterType}
+      AND ruleId = #{ruleId}
+  </select>
+</mapper>

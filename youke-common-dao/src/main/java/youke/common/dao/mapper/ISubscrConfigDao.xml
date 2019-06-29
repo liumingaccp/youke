@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.ISubscrConfigDao">
+    <resultMap id="BaseResultMap" type="youke.common.model.TSubscrConfig" >
+        <id column="appId" property="appid" jdbcType="VARCHAR" />
+        <result column="openAutoReply" property="openautoreply" jdbcType="INTEGER" />
+        <result column="openKefu" property="openkefu" jdbcType="INTEGER" />
+        <result column="openTagRule0" property="opentagrule0" jdbcType="INTEGER" />
+        <result column="openTagRule1" property="opentagrule1" jdbcType="INTEGER" />
+        <result column="openTagRule2" property="opentagrule2" jdbcType="INTEGER" />
+        <result column="payBuss" property="paybuss" jdbcType="INTEGER" />
+        <result column="payState" property="paystate" jdbcType="INTEGER" />
+        <result column="payNumber" property="paynumber" jdbcType="VARCHAR" />
+        <result column="paycert" property="paycert" jdbcType="VARCHAR" />
+        <result column="validtimeBeg" property="validtimebeg" jdbcType="DATE" />
+        <result column="validtimeEnd" property="validtimeend" jdbcType="DATE" />
+        <result column="filecert" property="filecert" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        appId, openAutoReply, openKefu, openTagRule0, openTagRule1, openTagRule2, payBuss,
+        payState, payNumber, paycert, validtimeBeg, validtimeEnd, filecert
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select
+        <include refid="Base_Column_List" />
+        from t_subscr_config
+        where appId = #{appid,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+        delete from t_subscr_config
+        where appId = #{appid,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insertSelective" parameterType="youke.common.model.TSubscrConfig" >
+        insert into t_subscr_config
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="appid != null" >
+                appId,
+            </if>
+            <if test="openautoreply != null" >
+                openAutoReply,
+            </if>
+            <if test="openkefu != null" >
+                openKefu,
+            </if>
+            <if test="opentagrule0 != null" >
+                openTagRule0,
+            </if>
+            <if test="opentagrule1 != null" >
+                openTagRule1,
+            </if>
+            <if test="opentagrule2 != null" >
+                openTagRule2,
+            </if>
+            <if test="paybuss != null" >
+                payBuss,
+            </if>
+            <if test="paystate != null" >
+                payState,
+            </if>
+            <if test="paynumber != null" >
+                payNumber,
+            </if>
+            <if test="paycert != null" >
+                paycert,
+            </if>
+            <if test="validtimebeg != null" >
+                validtimeBeg,
+            </if>
+            <if test="validtimeend != null" >
+                validtimeEnd,
+            </if>
+            <if test="filecert != null" >
+                filecert,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="appid != null" >
+                #{appid,jdbcType=VARCHAR},
+            </if>
+            <if test="openautoreply != null" >
+                #{openautoreply,jdbcType=INTEGER},
+            </if>
+            <if test="openkefu != null" >
+                #{openkefu,jdbcType=INTEGER},
+            </if>
+            <if test="opentagrule0 != null" >
+                #{opentagrule0,jdbcType=INTEGER},
+            </if>
+            <if test="opentagrule1 != null" >
+                #{opentagrule1,jdbcType=INTEGER},
+            </if>
+            <if test="opentagrule2 != null" >
+                #{opentagrule2,jdbcType=INTEGER},
+            </if>
+            <if test="paybuss != null" >
+                #{paybuss,jdbcType=INTEGER},
+            </if>
+            <if test="paystate != null" >
+                #{paystate,jdbcType=INTEGER},
+            </if>
+            <if test="paynumber != null" >
+                #{paynumber,jdbcType=VARCHAR},
+            </if>
+            <if test="paycert != null" >
+                #{paycert,jdbcType=VARCHAR},
+            </if>
+            <if test="validtimebeg != null" >
+                #{validtimebeg,jdbcType=DATE},
+            </if>
+            <if test="validtimeend != null" >
+                #{validtimeend,jdbcType=DATE},
+            </if>
+            <if test="filecert != null" >
+                #{filecert,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TSubscrConfig" >
+        update t_subscr_config
+        <set >
+            <if test="openautoreply != null" >
+                openAutoReply = #{openautoreply,jdbcType=INTEGER},
+            </if>
+            <if test="openkefu != null" >
+                openKefu = #{openkefu,jdbcType=INTEGER},
+            </if>
+            <if test="opentagrule0 != null" >
+                openTagRule0 = #{opentagrule0,jdbcType=INTEGER},
+            </if>
+            <if test="opentagrule1 != null" >
+                openTagRule1 = #{opentagrule1,jdbcType=INTEGER},
+            </if>
+            <if test="opentagrule2 != null" >
+                openTagRule2 = #{opentagrule2,jdbcType=INTEGER},
+            </if>
+            <if test="paybuss != null" >
+                payBuss = #{paybuss,jdbcType=INTEGER},
+            </if>
+            <if test="paystate != null" >
+                payState = #{paystate,jdbcType=INTEGER},
+            </if>
+            <if test="paynumber != null" >
+                payNumber = #{paynumber,jdbcType=VARCHAR},
+            </if>
+            <if test="paycert != null" >
+                paycert = #{paycert,jdbcType=VARCHAR},
+            </if>
+            <if test="validtimebeg != null" >
+                validtimeBeg = #{validtimebeg,jdbcType=DATE},
+            </if>
+            <if test="validtimeend != null" >
+                validtimeEnd = #{validtimeend,jdbcType=DATE},
+            </if>
+            <if test="filecert != null" >
+                filecert = #{filecert,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where appId = #{appid,jdbcType=VARCHAR}
+    </update>
+
+    <select id="getRuleState" resultType="youke.common.model.vo.result.TagRuleStateVo">
+        SELECT openTagRule0, openTagRule1, openTagRule2
+        FROM t_subscr_config
+        WHERE appId = #{appId}
+    </select>
+    <update id="updateState">
+        update t_subscr_config
+        <set>
+            <if test="type == 0">
+                <if test="open">
+                    openTagRule0 = 1
+                </if>
+                <if test="!open">
+                    openTagRule0 = 0
+                </if>
+            </if>
+            <if test="type == 1">
+                <if test="open">
+                    openTagRule1 = 1
+                </if>
+                <if test="!open">
+                    openTagRule1 = 0
+                </if>
+            </if>
+            <if test="type == 2">
+                <if test="open">
+                    openTagRule2 = 1
+                </if>
+                <if test="!open">
+                    openTagRule2 = 0
+                </if>
+            </if>
+        </set>
+        where appId = #{appId}
+    </update>
+
+    <update id="updateByAppid">
+    UPDATE t_subscr_config
+    SET openAutoReply = #{type}
+    WHERE appId = #{appId}
+  </update>
+</mapper>

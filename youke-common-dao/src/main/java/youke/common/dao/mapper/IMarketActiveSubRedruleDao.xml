@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IMarketActiveSubRedruleDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TMarketActiveSubRedrule" >
+    <id column="activeId" property="activeid" jdbcType="BIGINT" />
+    <result column="openMidLimit" property="openmidlimit" jdbcType="INTEGER" />
+    <result column="midLimitBeg" property="midlimitbeg" jdbcType="INTEGER" />
+    <result column="midLimitEnd" property="midlimitend" jdbcType="INTEGER" />
+    <result column="midMoneyBack" property="midmoneyback" jdbcType="INTEGER" />
+    <result column="midRandMoneyBeg" property="midrandmoneybeg" jdbcType="INTEGER" />
+    <result column="midRandMoneyEnd" property="midrandmoneyend" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    activeId, openMidLimit, midLimitBeg, midLimitEnd, midMoneyBack, midRandMoneyBeg, 
+    midRandMoneyEnd
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_market_active_subredrule
+    where activeId = #{activeid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_market_active_subredrule
+    where activeId = #{activeid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TMarketActiveSubRedrule" >
+    insert into t_market_active_subredrule (activeId, openMidLimit, midLimitBeg, 
+      midLimitEnd, midMoneyBack, midRandMoneyBeg, 
+      midRandMoneyEnd)
+    values (#{activeid,jdbcType=BIGINT}, #{openmidlimit,jdbcType=INTEGER}, #{midlimitbeg,jdbcType=INTEGER}, 
+      #{midlimitend,jdbcType=INTEGER}, #{midmoneyback,jdbcType=INTEGER}, #{midrandmoneybeg,jdbcType=INTEGER}, 
+      #{midrandmoneyend,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TMarketActiveSubRedrule" >
+    insert into t_market_active_subredrule
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="activeid != null" >
+        activeId,
+      </if>
+      <if test="openmidlimit != null" >
+        openMidLimit,
+      </if>
+      <if test="midlimitbeg != null" >
+        midLimitBeg,
+      </if>
+      <if test="midlimitend != null" >
+        midLimitEnd,
+      </if>
+      <if test="midmoneyback != null" >
+        midMoneyBack,
+      </if>
+      <if test="midrandmoneybeg != null" >
+        midRandMoneyBeg,
+      </if>
+      <if test="midrandmoneyend != null" >
+        midRandMoneyEnd,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="activeid != null" >
+        #{activeid,jdbcType=BIGINT},
+      </if>
+      <if test="openmidlimit != null" >
+        #{openmidlimit,jdbcType=INTEGER},
+      </if>
+      <if test="midlimitbeg != null" >
+        #{midlimitbeg,jdbcType=INTEGER},
+      </if>
+      <if test="midlimitend != null" >
+        #{midlimitend,jdbcType=INTEGER},
+      </if>
+      <if test="midmoneyback != null" >
+        #{midmoneyback,jdbcType=INTEGER},
+      </if>
+      <if test="midrandmoneybeg != null" >
+        #{midrandmoneybeg,jdbcType=INTEGER},
+      </if>
+      <if test="midrandmoneyend != null" >
+        #{midrandmoneyend,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TMarketActiveSubRedrule" >
+    update t_market_active_subredrule
+    <set >
+      <if test="openmidlimit != null" >
+        openMidLimit = #{openmidlimit,jdbcType=INTEGER},
+      </if>
+      <if test="midlimitbeg != null" >
+        midLimitBeg = #{midlimitbeg,jdbcType=INTEGER},
+      </if>
+      <if test="midlimitend != null" >
+        midLimitEnd = #{midlimitend,jdbcType=INTEGER},
+      </if>
+      <if test="midmoneyback != null" >
+        midMoneyBack = #{midmoneyback,jdbcType=INTEGER},
+      </if>
+      <if test="midrandmoneybeg != null" >
+        midRandMoneyBeg = #{midrandmoneybeg,jdbcType=INTEGER},
+      </if>
+      <if test="midrandmoneyend != null" >
+        midRandMoneyEnd = #{midrandmoneyend,jdbcType=INTEGER},
+      </if>
+    </set>
+    where activeId = #{activeid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TMarketActiveSubRedrule" >
+    update t_market_active_subredrule
+    set openMidLimit = #{openmidlimit,jdbcType=INTEGER},
+      midLimitBeg = #{midlimitbeg,jdbcType=INTEGER},
+      midLimitEnd = #{midlimitend,jdbcType=INTEGER},
+      midMoneyBack = #{midmoneyback,jdbcType=INTEGER},
+      midRandMoneyBeg = #{midrandmoneybeg,jdbcType=INTEGER},
+      midRandMoneyEnd = #{midrandmoneyend,jdbcType=INTEGER}
+    where activeId = #{activeid,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IMarketActiveRecordDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TMarketActiveRecord" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="activeId" property="activeid" jdbcType="BIGINT" />
+    <result column="openId" property="openid" jdbcType="VARCHAR" />
+    <result column="wxfansName" property="wxfansname" jdbcType="VARCHAR" />
+    <result column="shopfansName" property="shopfansname" jdbcType="VARCHAR" />
+    <result column="rewardType" property="rewardtype" jdbcType="INTEGER" />
+    <result column="money" property="money" jdbcType="INTEGER" />
+    <result column="integral" property="integral" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="failReason" property="failreason" jdbcType="VARCHAR" />
+    <result column="orderno" property="orderno" jdbcType="VARCHAR" />
+    <result column="userText" property="usertext" jdbcType="VARCHAR" />
+    <result column="userPics" property="userpics" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="examineType" property="examinetype" jdbcType="INTEGER" />
+    <result column="examineUserId" property="examineuserid" jdbcType="VARCHAR" />
+    <result column="examineName" property="examinename" jdbcType="VARCHAR" />
+    <result column="appId" property="appid" jdbcType="VARCHAR" />
+    <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, activeId, openId, wxfansName, shopfansName, rewardType, money, integral, state, 
+    failReason, orderno, userText, userPics, createTime, examineType, examineUserId, 
+    examineName, appId, youkeId
+  </sql>
+  <select id="getExamineDetail" resultType="youke.common.model.vo.result.market.MarketExamineDetailVo">
+    SELECT tmar.state AS state, tmar.userPics AS userPics, tmar.failReason AS failReason,
+	tso.receiveName AS receiveName, tso.receiveAddress AS receiveAddress, tso.state AS orderState,
+	tso.picPath AS picPath, tso.title AS title, tso.price AS price, tso.num AS num, tso.totalPrice AS totalPrice, tso.orderno AS orderno
+    FROM t_market_active_record tmar
+    LEFT JOIN t_shop_order tso ON tmar.orderno = tso.orderno AND tso.youkeId = tmar.youkeId
+    WHERE tmar.id = #{recordId} AND tmar.youkeId = #{dykId}
+  </select>
+  <select id="getRecordList" resultType="youke.common.model.vo.result.market.MarketRecordListVo">
+    SELECT tmar.id AS id, tmar.state AS state ,tma.title AS title, tmar.createTime AS createTime,
+    tmar.activeId AS activeId, tmar.wxfansName AS wxfansName, tmar.shopfansName AS shopfansName, tmar.orderno AS orderno,
+	tmar.rewardType AS rewardType, tmar.money AS money, tmar.integral AS integral, 	tmar.examineType AS examineType, tmar.examineName AS examineName
+    FROM t_market_active tma
+    INNER JOIN t_market_active_record tmar ON tma.id = tmar.activeId
+    LEFT JOIN
+    (
+      SELECT shopId, orderno FROM t_shop_order WHERE youkeId = #{youkeId}
+    )tso ON tmar.orderno = tso.orderno
+    <where>
+      <if test="wxfansName!=null">
+        AND tmar.wxfansName = #{wxfansName}
+      </if>
+      <if test="shopfansName!=null">
+        AND tmar.shopfansName = #{shopfansName}
+      </if>
+      <if test="orderno!=null">
+        AND tmar.orderno = #{orderno}
+      </if>
+      <if test="title!=null">
+        AND tma.title like concat('%',#{title},'%')
+      </if>
+      <if test="begTime!=null">
+        AND tma.begTime >= #{begTime}
+      </if>
+      <if test="endTime!=null">
+        AND tma.endTime &lt;= #{endTime}
+      </if>
+      <if test="state!=null and state>-1">
+        AND tmar.state = #{state}
+      </if>
+      <if test="type!=null and type>-1">
+        AND tma.type = #{type}
+      </if>
+      <if test="shopId!=null and shopId>-1">
+        AND tmar.orderno IS NOT NULL
+        AND tso.shopId = #{shopId}
+      </if>
+      AND tma.youkeId = #{youkeId}
+      AND  CASE WHEN tma.`type` = 7
+           THEN tmar.`money`>0
+           OR tmar.`integral`>0
+           ELSE TRUE END
+    </where>
+    ORDER BY tmar.createTime DESC
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from t_market_active_record
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="getParticipationList" resultType="youke.common.model.vo.result.market.ActivityRecordVo">
+    SELECT temp.id AS id, temp.activeId AS activeId, temp.title AS title, temp.type AS type, temp.rewardType AS rewardType,
+    temp.money AS money, temp.integral AS integral, temp.createTime AS createTime, temp.state AS state FROM
+    (SELECT tmar.id AS id , tma.id AS activeId, tma.title AS title, tma.type AS type, tmar.rewardType AS rewardType,
+    tmar.money AS money, tmar.integral AS integral, tmar.createTime AS createTime, tmar.state AS state
+    FROM  t_market_active tma JOIN t_market_active_record tmar
+    ON tmar.activeId = tma.id WHERE tmar.openId = #{openId}
+    ORDER BY tmar.createTime DESC)temp
+    GROUP BY temp.type
+  </select>
+  <select id="getRecordDetails" resultType="youke.common.model.vo.result.market.ActivityRecordDetailsVo">
+    SELECT tmar.id AS id , tma.id AS activeId, tma.title AS title, tma.type AS type, tmar.rewardType AS rewardType,
+    tmar.money AS money, tmar.integral AS integral, tmar.createTime AS createTime, tmar.state AS state, tmar.orderno AS orderno, tmar.failReason AS failReason, tmar.userPics AS userPics
+   FROM  t_market_active tma JOIN t_market_active_record tmar
+    ON tmar.activeId = tma.id WHERE tmar.openId = #{openId} AND tmar.id=#{recordId} ORDER BY tmar.createTime DESC
+  </select>
+  <select id="getRecordDetailList" resultType="youke.common.model.vo.result.market.ActivityRecordVo">
+    SELECT tmar.id AS id , tma.id AS activeId, tma.title AS title, tma.type AS type, tmar.rewardType AS rewardType,
+    tmar.money AS money, tmar.integral AS integral, tmar.createTime AS createTime, tmar.state AS state
+    FROM  t_market_active tma JOIN t_market_active_record tmar
+    ON tmar.activeId = tma.id WHERE tmar.openId = #{openId} AND tma.type = #{type}
+    ORDER BY tmar.createTime DESC
+  </select>
+  <select id="getConsumption" resultType="java.util.Map">
+    SELECT IFNULL(SUM(tmar.integral),0) AS integral, IFNULL(SUM(tmar.money),0) AS money
+    FROM t_market_active tma INNER JOIN t_market_active_record tmar ON tma.id = tmar.activeId
+    LEFT JOIN
+    (
+        SELECT shopId, orderno FROM t_shop_order WHERE youkeId = #{youkeId}
+    ) tso ON tmar.orderno = tso.orderno
+    <where>
+      <if test="wxfansName!=null">
+        AND tmar.wxfansName = #{wxfansName}
+      </if>
+      <if test="shopfansName!=null">
+        AND tmar.shopfansName = #{shopfansName}
+      </if>
+      <if test="orderno!=null">
+        AND tmar.orderno = #{orderno}
+      </if>
+      <if test="title!=null">
+        AND tma.title like concat('%',#{title},'%')
+      </if>
+      <if test="begTime!=null">
+        AND tma.begTime >= #{begTime}
+      </if>
+      <if test="endTime!=null">
+        AND tma.endTime &lt;= #{endTime}
+      </if>
+      <if test="type!=null and type>-1">
+        AND tma.type = #{type}
+      </if>
+      <if test="shopId!=null and shopId>-1">
+        AND tmar.orderno IS NOT NULL
+        AND tso.shopId = #{shopId}
+      </if>
+      AND tma.youkeId = #{youkeId}
+      AND tmar.state = 3
+    </where>
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_market_active_record
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TMarketActiveRecord" >
+    insert into t_market_active_record (id, activeId, openId, 
+      wxfansName, shopfansName, rewardType, 
+      money, integral, state, 
+      failReason, orderno, userText, 
+      userPics, createTime, examineType, 
+      examineUserId, examineName, appId, 
+      youkeId)
+    values (#{id,jdbcType=BIGINT}, #{activeid,jdbcType=BIGINT}, #{openid,jdbcType=VARCHAR}, 
+      #{wxfansname,jdbcType=VARCHAR}, #{shopfansname,jdbcType=VARCHAR}, #{rewardtype,jdbcType=INTEGER}, 
+      #{money,jdbcType=INTEGER}, #{integral,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, 
+      #{failreason,jdbcType=VARCHAR}, #{orderno,jdbcType=VARCHAR}, #{usertext,jdbcType=VARCHAR}, 
+      #{userpics,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{examinetype,jdbcType=INTEGER}, 
+      #{examineuserid,jdbcType=VARCHAR}, #{examinename,jdbcType=VARCHAR}, #{appid,jdbcType=VARCHAR}, 
+      #{youkeid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TMarketActiveRecord" useGeneratedKeys="true" keyProperty="id">
+    insert into t_market_active_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="activeid != null" >
+        activeId,
+      </if>
+      <if test="openid != null" >
+        openId,
+      </if>
+      <if test="wxfansname != null" >
+        wxfansName,
+      </if>
+      <if test="shopfansname != null" >
+        shopfansName,
+      </if>
+      <if test="rewardtype != null" >
+        rewardType,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="integral != null" >
+        integral,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="failreason != null" >
+        failReason,
+      </if>
+      <if test="orderno != null" >
+        orderno,
+      </if>
+      <if test="usertext != null" >
+        userText,
+      </if>
+      <if test="userpics != null" >
+        userPics,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="examinetype != null" >
+        examineType,
+      </if>
+      <if test="examineuserid != null" >
+        examineUserId,
+      </if>
+      <if test="examinename != null" >
+        examineName,
+      </if>
+      <if test="appid != null" >
+        appId,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="activeid != null" >
+        #{activeid,jdbcType=BIGINT},
+      </if>
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="wxfansname != null" >
+        #{wxfansname,jdbcType=VARCHAR},
+      </if>
+      <if test="shopfansname != null" >
+        #{shopfansname,jdbcType=VARCHAR},
+      </if>
+      <if test="rewardtype != null" >
+        #{rewardtype,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=INTEGER},
+      </if>
+      <if test="integral != null" >
+        #{integral,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="failreason != null" >
+        #{failreason,jdbcType=VARCHAR},
+      </if>
+      <if test="orderno != null" >
+        #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="usertext != null" >
+        #{usertext,jdbcType=VARCHAR},
+      </if>
+      <if test="userpics != null" >
+        #{userpics,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="examinetype != null" >
+        #{examinetype,jdbcType=INTEGER},
+      </if>
+      <if test="examineuserid != null" >
+        #{examineuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="examinename != null" >
+        #{examinename,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null" >
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TMarketActiveRecord" >
+    update t_market_active_record
+    <set >
+      <if test="activeid != null" >
+        activeId = #{activeid,jdbcType=BIGINT},
+      </if>
+      <if test="openid != null" >
+        openId = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="wxfansname != null" >
+        wxfansName = #{wxfansname,jdbcType=VARCHAR},
+      </if>
+      <if test="shopfansname != null" >
+        shopfansName = #{shopfansname,jdbcType=VARCHAR},
+      </if>
+      <if test="rewardtype != null" >
+        rewardType = #{rewardtype,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=INTEGER},
+      </if>
+      <if test="integral != null" >
+        integral = #{integral,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="failreason != null" >
+        failReason = #{failreason,jdbcType=VARCHAR},
+      </if>
+      <if test="orderno != null" >
+        orderno = #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="usertext != null" >
+        userText = #{usertext,jdbcType=VARCHAR},
+      </if>
+      <if test="userpics != null" >
+        userPics = #{userpics,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="examinetype != null" >
+        examineType = #{examinetype,jdbcType=INTEGER},
+      </if>
+      <if test="examineuserid != null" >
+        examineUserId = #{examineuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="examinename != null" >
+        examineName = #{examinename,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null" >
+        appId = #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="youkeid != null" >
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TMarketActiveRecord" >
+    update t_market_active_record
+    set activeId = #{activeid,jdbcType=BIGINT},
+      openId = #{openid,jdbcType=VARCHAR},
+      wxfansName = #{wxfansname,jdbcType=VARCHAR},
+      shopfansName = #{shopfansname,jdbcType=VARCHAR},
+      rewardType = #{rewardtype,jdbcType=INTEGER},
+      money = #{money,jdbcType=INTEGER},
+      integral = #{integral,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      failReason = #{failreason,jdbcType=VARCHAR},
+      orderno = #{orderno,jdbcType=VARCHAR},
+      userText = #{usertext,jdbcType=VARCHAR},
+      userPics = #{userpics,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      examineType = #{examinetype,jdbcType=INTEGER},
+      examineUserId = #{examineuserid,jdbcType=VARCHAR},
+      examineName = #{examinename,jdbcType=VARCHAR},
+      appId = #{appid,jdbcType=VARCHAR},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

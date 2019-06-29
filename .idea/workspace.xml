@@ -1,0 +1,2694 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="youke-web-pc" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" readonly="true" id="b7f2d4ff-3b12-4c29-b971-62f7e40a1a0f" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_3.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-common-dao/pom.xml" afterPath="$PROJECT_DIR$/youke-common-dao/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-common-dao/src/main/java/youke/common/dao/IUserDao.java" afterPath="$PROJECT_DIR$/youke-common-dao/src/main/java/youke/common/dao/IUserDao.java" />
+      <change beforePath="$PROJECT_DIR$/youke-common-dao/src/main/java/youke/common/dao/TFuncDao.java" afterPath="$PROJECT_DIR$/youke-common-dao/src/main/java/youke/common/dao/IFuncDao.java" />
+      <change beforePath="$PROJECT_DIR$/youke-common-dao/src/main/java/youke/common/dao/TPositionDao.java" afterPath="$PROJECT_DIR$/youke-common-dao/src/main/java/youke/common/dao/IPositionDao.java" />
+      <change beforePath="$PROJECT_DIR$/youke-common-dao/src/main/java/youke/common/dao/TPositionFuncDao.java" afterPath="$PROJECT_DIR$/youke-common-dao/src/main/java/youke/common/dao/IPositionFuncDao.java" />
+      <change beforePath="$PROJECT_DIR$/youke-common-dao/src/main/java/youke/common/dao/TUserPositionDao.java" afterPath="$PROJECT_DIR$/youke-common-dao/src/main/java/youke/common/dao/IUserPositionDao.java" />
+      <change beforePath="$PROJECT_DIR$/youke-common-dao/src/main/java/youke/common/dao/mapper/TFuncDao.xml" afterPath="$PROJECT_DIR$/youke-common-dao/src/main/java/youke/common/dao/mapper/TFuncDao.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-common-dao/src/main/java/youke/common/dao/mapper/TPositionDao.xml" afterPath="$PROJECT_DIR$/youke-common-dao/src/main/java/youke/common/dao/mapper/TPositionDao.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-common-dao/src/main/java/youke/common/dao/mapper/TPositionFuncDao.xml" afterPath="$PROJECT_DIR$/youke-common-dao/src/main/java/youke/common/dao/mapper/TPositionFuncDao.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-common-dao/src/main/java/youke/common/dao/mapper/TUserPositionDao.xml" afterPath="$PROJECT_DIR$/youke-common-dao/src/main/java/youke/common/dao/mapper/TUserPositionDao.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-common-dao/src/main/resources/META-INF/spring/spring-mongo.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/youke-common-dao/src/main/resources/generatorConfig.xml" afterPath="$PROJECT_DIR$/youke-common-dao/src/main/resources/generatorConfig.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-common-dao/src/test/java/BaseJunit4Test.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/youke-common-dao/src/test/java/BaseMongoDaoTest.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/youke-common-dao/youke-common-dao.iml" afterPath="$PROJECT_DIR$/youke-common-dao/youke-common-dao.iml" />
+      <change beforePath="$PROJECT_DIR$/youke-common-model/src/main/java/youke/common/model/vo/result/VipFuncVo.java" afterPath="$PROJECT_DIR$/youke-common-model/src/main/java/youke/common/model/vo/result/VipFuncVo.java" />
+      <change beforePath="$PROJECT_DIR$/youke-common-model/youke-common-model.iml" afterPath="$PROJECT_DIR$/youke-common-model/youke-common-model.iml" />
+      <change beforePath="$PROJECT_DIR$/youke-common/pom.xml" afterPath="$PROJECT_DIR$/youke-common/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-common/src/main/resources/META-INF/spring/spring-redis-slave.xml" afterPath="$PROJECT_DIR$/youke-common/src/main/resources/META-INF/spring/spring-redis-slave.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-common/src/main/resources/META-INF/spring/spring-redis.xml" afterPath="$PROJECT_DIR$/youke-common/src/main/resources/META-INF/spring/spring-redis.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-common/target/classes/META-INF/spring/spring-redis.xml" afterPath="$PROJECT_DIR$/youke-common/target/classes/META-INF/spring/spring-redis.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-common/target/classes/dubbo.properties" afterPath="$PROJECT_DIR$/youke-common/target/classes/dubbo.properties" />
+      <change beforePath="$PROJECT_DIR$/youke-common/target/classes/log4j.properties" afterPath="$PROJECT_DIR$/youke-common/target/classes/log4j.properties" />
+      <change beforePath="$PROJECT_DIR$/youke-common/target/classes/youke/common/constants/ApiCodeConstant.class" afterPath="$PROJECT_DIR$/youke-common/target/classes/youke/common/constants/ApiCodeConstant.class" />
+      <change beforePath="$PROJECT_DIR$/youke-common/target/classes/youke/common/redis/RedisUtil.class" afterPath="$PROJECT_DIR$/youke-common/target/classes/youke/common/redis/RedisUtil.class" />
+      <change beforePath="$PROJECT_DIR$/youke-common/target/classes/youke/common/utils/BeanUtil.class" afterPath="$PROJECT_DIR$/youke-common/target/classes/youke/common/utils/BeanUtil.class" />
+      <change beforePath="$PROJECT_DIR$/youke-common/target/classes/youke/common/utils/DateUtil.class" afterPath="$PROJECT_DIR$/youke-common/target/classes/youke/common/utils/DateUtil.class" />
+      <change beforePath="$PROJECT_DIR$/youke-common/target/classes/youke/common/utils/EncodeUtil.class" afterPath="$PROJECT_DIR$/youke-common/target/classes/youke/common/utils/EncodeUtil.class" />
+      <change beforePath="$PROJECT_DIR$/youke-common/target/classes/youke/common/utils/HttpConnUtil$1.class" afterPath="$PROJECT_DIR$/youke-common/target/classes/youke/common/utils/HttpConnUtil$1.class" />
+      <change beforePath="$PROJECT_DIR$/youke-common/target/classes/youke/common/utils/HttpConnUtil$3.class" afterPath="$PROJECT_DIR$/youke-common/target/classes/youke/common/utils/HttpConnUtil$3.class" />
+      <change beforePath="$PROJECT_DIR$/youke-common/target/classes/youke/common/utils/HttpConnUtil$miTM.class" afterPath="$PROJECT_DIR$/youke-common/target/classes/youke/common/utils/HttpConnUtil$miTM.class" />
+      <change beforePath="$PROJECT_DIR$/youke-common/target/classes/youke/common/utils/HttpConnUtil.class" afterPath="$PROJECT_DIR$/youke-common/target/classes/youke/common/utils/HttpConnUtil.class" />
+      <change beforePath="$PROJECT_DIR$/youke-common/target/classes/youke/common/utils/IPv4Util.class" afterPath="$PROJECT_DIR$/youke-common/target/classes/youke/common/utils/IPv4Util.class" />
+      <change beforePath="$PROJECT_DIR$/youke-common/target/classes/youke/common/utils/JsonUtils.class" afterPath="$PROJECT_DIR$/youke-common/target/classes/youke/common/utils/JsonUtils.class" />
+      <change beforePath="$PROJECT_DIR$/youke-common/target/classes/youke/common/utils/StringUtil.class" afterPath="$PROJECT_DIR$/youke-common/target/classes/youke/common/utils/StringUtil.class" />
+      <change beforePath="$PROJECT_DIR$/youke-core-mq/src/main/resources/META-INF/spring/spring-activemq.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/youke-core-mq/youke-core-mq.iml" afterPath="$PROJECT_DIR$/youke-core-mq/youke-core-mq.iml" />
+      <change beforePath="$PROJECT_DIR$/youke-core-order/src/main/java/youke/order/common/dao/IShopFansDao.java" afterPath="$PROJECT_DIR$/youke-core-order/src/main/java/youke/order/common/dao/IShopFansDao.java" />
+      <change beforePath="$PROJECT_DIR$/youke-core-order/src/main/java/youke/order/common/dao/IShopOrderDao.java" afterPath="$PROJECT_DIR$/youke-core-order/src/main/java/youke/order/common/dao/IShopOrderDao.java" />
+      <change beforePath="$PROJECT_DIR$/youke-core-order/src/main/java/youke/order/core/service/OrderService.java" afterPath="$PROJECT_DIR$/youke-core-order/src/main/java/youke/order/core/service/OrderService.java" />
+      <change beforePath="$PROJECT_DIR$/youke-core-orderJD/pom.xml" afterPath="$PROJECT_DIR$/youke-core-orderJD/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-core-orderJD/src/main/java/youke/order/common/dao/IShopFansDao.java" afterPath="$PROJECT_DIR$/youke-core-orderJD/src/main/java/youke/order/common/dao/IShopFansDao.java" />
+      <change beforePath="$PROJECT_DIR$/youke-core-orderJD/src/main/java/youke/order/common/dao/IShopOrderDao.java" afterPath="$PROJECT_DIR$/youke-core-orderJD/src/main/java/youke/order/common/dao/IShopOrderDao.java" />
+      <change beforePath="$PROJECT_DIR$/youke-core-orderJD/src/main/java/youke/order/core/service/JdOrderService.java" afterPath="$PROJECT_DIR$/youke-core-orderJD/src/main/java/youke/order/core/service/JdOrderService.java" />
+      <change beforePath="$PROJECT_DIR$/youke-core-orderJD/youke-core-orderJD.iml" afterPath="$PROJECT_DIR$/youke-core-orderJD/youke-core-orderJD.iml" />
+      <change beforePath="$PROJECT_DIR$/youke-core-orderPDD/pom.xml" afterPath="$PROJECT_DIR$/youke-core-orderPDD/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-core-orderPDD/src/main/java/youke/order/core/service/OrderService.java" afterPath="$PROJECT_DIR$/youke-core-orderPDD/src/main/java/youke/order/core/service/OrderService.java" />
+      <change beforePath="$PROJECT_DIR$/youke-core-orderPDD/src/main/resources/redis.properties" afterPath="$PROJECT_DIR$/youke-core-orderPDD/src/main/resources/redis.properties" />
+      <change beforePath="$PROJECT_DIR$/youke-core-orderPDD/youke-core-orderPDD.iml" afterPath="$PROJECT_DIR$/youke-core-orderPDD/youke-core-orderPDD.iml" />
+      <change beforePath="$PROJECT_DIR$/youke-core-orderYZ/src/main/resources/common.properties" afterPath="$PROJECT_DIR$/youke-core-orderYZ/src/main/resources/common.properties" />
+      <change beforePath="$PROJECT_DIR$/youke-core-orderYZ/src/main/resources/jdbc.properties" afterPath="$PROJECT_DIR$/youke-core-orderYZ/src/main/resources/jdbc.properties" />
+      <change beforePath="$PROJECT_DIR$/youke-core-orderYZ/src/main/resources/redis.properties" afterPath="$PROJECT_DIR$/youke-core-orderYZ/src/main/resources/redis.properties" />
+      <change beforePath="$PROJECT_DIR$/youke-core-scheduler/src/main/java/youke/core/scheduler/main/SchedulerMain.java" afterPath="$PROJECT_DIR$/youke-core-scheduler/src/main/java/youke/core/scheduler/main/SchedulerMain.java" />
+      <change beforePath="$PROJECT_DIR$/youke-core-scheduler/src/main/java/youke/core/scheduler/service/FansService.java" afterPath="$PROJECT_DIR$/youke-core-scheduler/src/main/java/youke/core/scheduler/service/FansService.java" />
+      <change beforePath="$PROJECT_DIR$/youke-core-scheduler/src/main/java/youke/core/scheduler/service/MongoService.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/youke-core-scheduler/src/main/java/youke/core/scheduler/utils/JDConstants.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/youke-core-scheduler/src/main/resources/META-INF/spring/spring-activemq.xml" afterPath="$PROJECT_DIR$/youke-core-scheduler/src/main/resources/META-INF/spring/spring-activemq.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-core-scheduler/src/main/resources/META-INF/spring/spring-mongo.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/youke-core-scheduler/src/main/resources/META-INF/spring/spring-mybatis.xml" afterPath="$PROJECT_DIR$/youke-core-scheduler/src/main/resources/META-INF/spring/spring-mybatis.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-core-scheduler/src/main/resources/log4j.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/youke-core-scheduler/youke-core-scheduler.iml" afterPath="$PROJECT_DIR$/youke-core-scheduler/youke-core-scheduler.iml" />
+      <change beforePath="$PROJECT_DIR$/youke-facade-cloudcode/src/main/java/youke/facade/cloudcode/provider/ICloudCodeService.java" afterPath="$PROJECT_DIR$/youke-facade-cloudcode/src/main/java/youke/facade/cloudcode/provider/ICloudCodeService.java" />
+      <change beforePath="$PROJECT_DIR$/youke-facade-fans/src/main/java/youke/facade/fans/provider/IFansTagService.java" afterPath="$PROJECT_DIR$/youke-facade-fans/src/main/java/youke/facade/fans/provider/IFansTagService.java" />
+      <change beforePath="$PROJECT_DIR$/youke-facade-fans/youke-facade-fans.iml" afterPath="$PROJECT_DIR$/youke-facade-fans/youke-facade-fans.iml" />
+      <change beforePath="$PROJECT_DIR$/youke-facade-market/src/main/java/youke/facade/market/provider/IIntegralWealService.java" afterPath="$PROJECT_DIR$/youke-facade-market/src/main/java/youke/facade/market/provider/IIntegralWealService.java" />
+      <change beforePath="$PROJECT_DIR$/youke-facade-market/src/main/java/youke/facade/market/vo/GoodInfoVo.java" afterPath="$PROJECT_DIR$/youke-facade-market/src/main/java/youke/facade/market/vo/GoodInfoVo.java" />
+      <change beforePath="$PROJECT_DIR$/youke-facade-mass/youke-facade-mass.iml" afterPath="$PROJECT_DIR$/youke-facade-mass/youke-facade-mass.iml" />
+      <change beforePath="$PROJECT_DIR$/youke-facade-pay/youke-facade-pay.iml" afterPath="$PROJECT_DIR$/youke-facade-pay/youke-facade-pay.iml" />
+      <change beforePath="$PROJECT_DIR$/youke-facade-shop/src/main/java/youke/facade/shop/provider/IShopService.java" afterPath="$PROJECT_DIR$/youke-facade-shop/src/main/java/youke/facade/shop/provider/IShopService.java" />
+      <change beforePath="$PROJECT_DIR$/youke-facade-shop/youke-facade-shop.iml" afterPath="$PROJECT_DIR$/youke-facade-shop/youke-facade-shop.iml" />
+      <change beforePath="$PROJECT_DIR$/youke-facade-user/youke-facade-user.iml" afterPath="$PROJECT_DIR$/youke-facade-user/youke-facade-user.iml" />
+      <change beforePath="$PROJECT_DIR$/youke-facade-wx/youke-facade-wx.iml" afterPath="$PROJECT_DIR$/youke-facade-wx/youke-facade-wx.iml" />
+      <change beforePath="$PROJECT_DIR$/youke-parent.iml" afterPath="$PROJECT_DIR$/youke-parent.iml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-cloudcode/src/main/resources/META-INF/spring/spring-mybatis.xml" afterPath="$PROJECT_DIR$/youke-service-cloudcode/src/main/resources/META-INF/spring/spring-mybatis.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-cloudcode/src/test/java/youke/AppTest.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/youke-service-fans/src/main/java/youke/service/fans/biz/IFansTagBiz.java" afterPath="$PROJECT_DIR$/youke-service-fans/src/main/java/youke/service/fans/biz/IFansTagBiz.java" />
+      <change beforePath="$PROJECT_DIR$/youke-service-fans/src/main/java/youke/service/fans/biz/impl/FansShopBiz.java" afterPath="$PROJECT_DIR$/youke-service-fans/src/main/java/youke/service/fans/biz/impl/FansShopBiz.java" />
+      <change beforePath="$PROJECT_DIR$/youke-service-fans/src/main/java/youke/service/fans/biz/impl/FansTagBiz.java" afterPath="$PROJECT_DIR$/youke-service-fans/src/main/java/youke/service/fans/biz/impl/FansTagBiz.java" />
+      <change beforePath="$PROJECT_DIR$/youke-service-fans/src/main/java/youke/service/fans/provider/FansTagService.java" afterPath="$PROJECT_DIR$/youke-service-fans/src/main/java/youke/service/fans/provider/FansTagService.java" />
+      <change beforePath="$PROJECT_DIR$/youke-service-fans/src/main/resources/META-INF/spring/spring-activemq.xml" afterPath="$PROJECT_DIR$/youke-service-fans/src/main/resources/META-INF/spring/spring-activemq.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-fans/src/main/resources/META-INF/spring/spring-mybatis.xml" afterPath="$PROJECT_DIR$/youke-service-fans/src/main/resources/META-INF/spring/spring-mybatis.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-fans/youke-service-fans.iml" afterPath="$PROJECT_DIR$/youke-service-fans/youke-service-fans.iml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-helper/src/main/java/youke/service/helper/provider/TrialWealService.java" afterPath="$PROJECT_DIR$/youke-service-helper/src/main/java/youke/service/helper/provider/TrialWealService.java" />
+      <change beforePath="$PROJECT_DIR$/youke-service-helper/src/main/resources/META-INF/spring/dubbo-provider.xml" afterPath="$PROJECT_DIR$/youke-service-helper/src/main/resources/META-INF/spring/dubbo-provider.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-helper/src/main/resources/META-INF/spring/spring-activemq.xml" afterPath="$PROJECT_DIR$/youke-service-helper/src/main/resources/META-INF/spring/spring-activemq.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-helper/src/main/resources/META-INF/spring/spring-mybatis.xml" afterPath="$PROJECT_DIR$/youke-service-helper/src/main/resources/META-INF/spring/spring-mybatis.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-helper/src/main/resources/rebel.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/youke-service-market/pom.xml" afterPath="$PROJECT_DIR$/youke-service-market/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-market/src/main/java/youke/service/market/biz/IGoodInfoBiz.java" afterPath="$PROJECT_DIR$/youke-service-market/src/main/java/youke/service/market/biz/IGoodInfoBiz.java" />
+      <change beforePath="$PROJECT_DIR$/youke-service-market/src/main/java/youke/service/market/biz/impl/GoodInfoBiz.java" afterPath="$PROJECT_DIR$/youke-service-market/src/main/java/youke/service/market/biz/impl/GoodInfoBiz.java" />
+      <change beforePath="$PROJECT_DIR$/youke-service-market/src/main/java/youke/service/market/provider/IntegraWealService.java" afterPath="$PROJECT_DIR$/youke-service-market/src/main/java/youke/service/market/provider/IntegraWealService.java" />
+      <change beforePath="$PROJECT_DIR$/youke-service-market/src/main/java/youke/service/market/provider/ToolService.java" afterPath="$PROJECT_DIR$/youke-service-market/src/main/java/youke/service/market/provider/ToolService.java" />
+      <change beforePath="$PROJECT_DIR$/youke-service-market/src/main/resources/META-INF/spring/dubbo-provider.xml" afterPath="$PROJECT_DIR$/youke-service-market/src/main/resources/META-INF/spring/dubbo-provider.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-market/src/main/resources/META-INF/spring/spring-activemq.xml" afterPath="$PROJECT_DIR$/youke-service-market/src/main/resources/META-INF/spring/spring-activemq.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-market/src/main/resources/META-INF/spring/spring-mybatis.xml" afterPath="$PROJECT_DIR$/youke-service-market/src/main/resources/META-INF/spring/spring-mybatis.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-mass/src/main/resources/META-INF/spring/spring-mybatis.xml" afterPath="$PROJECT_DIR$/youke-service-mass/src/main/resources/META-INF/spring/spring-mybatis.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-mass/youke-service-mass.iml" afterPath="$PROJECT_DIR$/youke-service-mass/youke-service-mass.iml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-pay/src/main/java/youke/service/pay/biz/impl/OrderBiz.java" afterPath="$PROJECT_DIR$/youke-service-pay/src/main/java/youke/service/pay/biz/impl/OrderBiz.java" />
+      <change beforePath="$PROJECT_DIR$/youke-service-pay/src/main/resources/META-INF/spring/spring-activemq.xml" afterPath="$PROJECT_DIR$/youke-service-pay/src/main/resources/META-INF/spring/spring-activemq.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-pay/src/main/resources/META-INF/spring/spring-mybatis.xml" afterPath="$PROJECT_DIR$/youke-service-pay/src/main/resources/META-INF/spring/spring-mybatis.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-pay/youke-service-pay.iml" afterPath="$PROJECT_DIR$/youke-service-pay/youke-service-pay.iml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-shop/pom.xml" afterPath="$PROJECT_DIR$/youke-service-shop/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-shop/src/main/java/youke/service/shop/biz/impl/PddCoreBiz.java" afterPath="$PROJECT_DIR$/youke-service-shop/src/main/java/youke/service/shop/biz/impl/PddCoreBiz.java" />
+      <change beforePath="$PROJECT_DIR$/youke-service-shop/src/main/java/youke/service/shop/provider/ShopService.java" afterPath="$PROJECT_DIR$/youke-service-shop/src/main/java/youke/service/shop/provider/ShopService.java" />
+      <change beforePath="$PROJECT_DIR$/youke-service-shop/src/main/resources/META-INF/spring/spring-activemq.xml" afterPath="$PROJECT_DIR$/youke-service-shop/src/main/resources/META-INF/spring/spring-activemq.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-shop/src/main/resources/META-INF/spring/spring-mybatis.xml" afterPath="$PROJECT_DIR$/youke-service-shop/src/main/resources/META-INF/spring/spring-mybatis.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-shop/youke-service-shop.iml" afterPath="$PROJECT_DIR$/youke-service-shop/youke-service-shop.iml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-user/src/main/java/youke/service/user/biz/impl/UserBiz.java" afterPath="$PROJECT_DIR$/youke-service-user/src/main/java/youke/service/user/biz/impl/UserBiz.java" />
+      <change beforePath="$PROJECT_DIR$/youke-service-user/target/classes/META-INF/spring/dubbo-provider.xml" afterPath="$PROJECT_DIR$/youke-service-user/target/classes/META-INF/spring/dubbo-provider.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-user/target/classes/META-INF/spring/spring-mybatis.xml" afterPath="$PROJECT_DIR$/youke-service-user/target/classes/META-INF/spring/spring-mybatis.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-user/target/classes/youke/service/user/biz/IUserBiz.class" afterPath="$PROJECT_DIR$/youke-service-user/target/classes/youke/service/user/biz/IUserBiz.class" />
+      <change beforePath="$PROJECT_DIR$/youke-service-user/target/classes/youke/service/user/biz/impl/UserBiz.class" afterPath="$PROJECT_DIR$/youke-service-user/target/classes/youke/service/user/biz/impl/UserBiz.class" />
+      <change beforePath="$PROJECT_DIR$/youke-service-user/target/test-classes/youke/service/user/provider/BaseJunit4Test.class" afterPath="$PROJECT_DIR$/youke-service-user/target/test-classes/youke/service/user/provider/BaseJunit4Test.class" />
+      <change beforePath="$PROJECT_DIR$/youke-service-user/youke-service-user.iml" afterPath="$PROJECT_DIR$/youke-service-user/youke-service-user.iml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-wx/pom.xml" afterPath="$PROJECT_DIR$/youke-service-wx/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-wx/src/main/java/youke/service/wx/biz/ICoreBiz.java" afterPath="$PROJECT_DIR$/youke-service-wx/src/main/java/youke/service/wx/biz/ICoreBiz.java" />
+      <change beforePath="$PROJECT_DIR$/youke-service-wx/src/main/java/youke/service/wx/biz/impl/CoreBiz.java" afterPath="$PROJECT_DIR$/youke-service-wx/src/main/java/youke/service/wx/biz/impl/CoreBiz.java" />
+      <change beforePath="$PROJECT_DIR$/youke-service-wx/src/main/java/youke/service/wx/provider/WeixinMessageService.java" afterPath="$PROJECT_DIR$/youke-service-wx/src/main/java/youke/service/wx/provider/WeixinMessageService.java" />
+      <change beforePath="$PROJECT_DIR$/youke-service-wx/src/main/resources/META-INF/spring/spring-activemq.xml" afterPath="$PROJECT_DIR$/youke-service-wx/src/main/resources/META-INF/spring/spring-activemq.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-wx/src/main/resources/META-INF/spring/spring-mybatis.xml" afterPath="$PROJECT_DIR$/youke-service-wx/src/main/resources/META-INF/spring/spring-mybatis.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-wx/src/test/java/youke/service/wx/biz/impl" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/youke-service-wx/youke-service-wx.iml" afterPath="$PROJECT_DIR$/youke-service-wx/youke-service-wx.iml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-wxper/src/main/java/youke/service/wxper/biz/impl/WxPerCoreBiz.java" afterPath="$PROJECT_DIR$/youke-service-wxper/src/main/java/youke/service/wxper/biz/impl/WxPerCoreBiz.java" />
+      <change beforePath="$PROJECT_DIR$/youke-service-wxper/src/main/java/youke/service/wxper/biz/impl/WxperFriendBiz.java" afterPath="$PROJECT_DIR$/youke-service-wxper/src/main/java/youke/service/wxper/biz/impl/WxperFriendBiz.java" />
+      <change beforePath="$PROJECT_DIR$/youke-service-wxper/src/main/resources/META-INF/spring/dubbo-provider.xml" afterPath="$PROJECT_DIR$/youke-service-wxper/src/main/resources/META-INF/spring/dubbo-provider.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-wxper/src/main/resources/META-INF/spring/spring-mybatis.xml" afterPath="$PROJECT_DIR$/youke-service-wxper/src/main/resources/META-INF/spring/spring-mybatis.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-service-wxper/src/main/resources/mybatis" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/youke-web-demo/youke-web-demo.iml" afterPath="$PROJECT_DIR$/youke-web-demo/youke-web-demo.iml" />
+      <change beforePath="$PROJECT_DIR$/youke-web-h5/src/main/java/youke/web/h5/action/GoodsAction.java" afterPath="$PROJECT_DIR$/youke-web-h5/src/main/java/youke/web/h5/action/GoodsAction.java" />
+      <change beforePath="$PROJECT_DIR$/youke-web-h5/src/main/java/youke/web/h5/interceptor/AuthorizeInterceptor.java" afterPath="$PROJECT_DIR$/youke-web-h5/src/main/java/youke/web/h5/interceptor/AuthorizeInterceptor.java" />
+      <change beforePath="$PROJECT_DIR$/youke-web-h5/src/main/resources/META-INF/spring/dubbo-consumer.xml" afterPath="$PROJECT_DIR$/youke-web-h5/src/main/resources/META-INF/spring/dubbo-consumer.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-web-h5/src/main/webapp/WEB-INF/jsp/goods.jsp" afterPath="$PROJECT_DIR$/youke-web-h5/src/main/webapp/WEB-INF/jsp/goods.jsp" />
+      <change beforePath="$PROJECT_DIR$/youke-web-h5/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/youke-web-h5/src/main/webapp/WEB-INF/web.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-web-h5/src/main/webapp/content/js/wx_app.js" afterPath="$PROJECT_DIR$/youke-web-h5/src/main/webapp/content/js/wx_app.js" />
+      <change beforePath="$PROJECT_DIR$/youke-web-h5/youke-web-h5.iml" afterPath="$PROJECT_DIR$/youke-web-h5/youke-web-h5.iml" />
+      <change beforePath="$PROJECT_DIR$/youke-web-pc/pom.xml" afterPath="$PROJECT_DIR$/youke-web-pc/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-web-pc/src/main/java/youke/web/pc/action/FansTagAction.java" afterPath="$PROJECT_DIR$/youke-web-pc/src/main/java/youke/web/pc/action/FansTagAction.java" />
+      <change beforePath="$PROJECT_DIR$/youke-web-pc/src/main/java/youke/web/pc/action/PcwxAction.java" afterPath="$PROJECT_DIR$/youke-web-pc/src/main/java/youke/web/pc/action/PcwxAction.java" />
+      <change beforePath="$PROJECT_DIR$/youke-web-pc/youke-web-pc.iml" afterPath="$PROJECT_DIR$/youke-web-pc/youke-web-pc.iml" />
+      <change beforePath="$PROJECT_DIR$/youke-web-service/pom.xml" afterPath="$PROJECT_DIR$/youke-web-service/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/youke-web-service/src/main/java/youke/web/service/interceptor/AuthorizeInterceptor.java" afterPath="$PROJECT_DIR$/youke-web-service/src/main/java/youke/web/service/interceptor/AuthorizeInterceptor.java" />
+      <change beforePath="$PROJECT_DIR$/youke-web-service/youke-web-service.iml" afterPath="$PROJECT_DIR$/youke-web-service/youke-web-service.iml" />
+      <change beforePath="$PROJECT_DIR$/youke-web-spread/src/main/java/youke/web/spread/controller/CommonController.java" afterPath="$PROJECT_DIR$/youke-web-spread/src/main/java/youke/web/spread/controller/CommonController.java" />
+      <change beforePath="$PROJECT_DIR$/youke-web-spread/src/main/java/youke/web/spread/entity/THelperType.java" afterPath="$PROJECT_DIR$/youke-web-spread/src/main/java/youke/web/spread/entity/THelperType.java" />
+      <change beforePath="$PROJECT_DIR$/youke-web-spread/src/main/java/youke/web/spread/service/jms/config/MQConstant.java" afterPath="$PROJECT_DIR$/youke-web-spread/src/main/java/youke/web/spread/service/jms/config/MQConstant.java" />
+      <change beforePath="$PROJECT_DIR$/youke-web-spread/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/youke-web-spread/src/main/resources/application.properties" />
+      <change beforePath="$PROJECT_DIR$/youke-web-spread/src/main/resources/common.properties" afterPath="$PROJECT_DIR$/youke-web-spread/src/main/resources/common.properties" />
+      <change beforePath="$PROJECT_DIR$/youke-web-spread/src/test/java/TestSql.java" afterPath="$PROJECT_DIR$/youke-web-spread/src/test/java/TestSql.java" />
+    </list>
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/youke-web-demo/target/" />
+    <ignored path="$PROJECT_DIR$/youke-core-mq/target/" />
+    <ignored path="$PROJECT_DIR$/youke-core-scheduler/target/" />
+    <ignored path="$PROJECT_DIR$/youke-service-fans/target/" />
+    <ignored path="$PROJECT_DIR$/youke-service-user/target/" />
+    <ignored path="$PROJECT_DIR$/youke-service-shop/target/" />
+    <ignored path="$PROJECT_DIR$/youke-web-pc/target/" />
+    <ignored path="$PROJECT_DIR$/youke-service-mass/target/" />
+    <ignored path="$PROJECT_DIR$/youke-web-service/target/" />
+    <ignored path="$PROJECT_DIR$/youke-web-h5/target/" />
+    <ignored path="$PROJECT_DIR$/youke-facade-user/target/" />
+    <ignored path="$PROJECT_DIR$/youke-service-wx/target/" />
+    <ignored path="$PROJECT_DIR$/youke-facade-pay/target/" />
+    <ignored path="$PROJECT_DIR$/youke-service-pay/target/" />
+    <ignored path="$PROJECT_DIR$/youke-facade-fans/target/" />
+    <ignored path="$PROJECT_DIR$/youke-facade-shop/target/" />
+    <ignored path="$PROJECT_DIR$/youke-common-dao/target/" />
+    <ignored path="$PROJECT_DIR$/youke-facade-mass/target/" />
+    <ignored path="$PROJECT_DIR$/youke-common-model/target/" />
+    <ignored path="$PROJECT_DIR$/youke-common/target/" />
+    <ignored path="$PROJECT_DIR$/youke-facade-wx/target/" />
+    <ignored path="$PROJECT_DIR$/youke-service-market/target/" />
+    <ignored path="$PROJECT_DIR$/youke-service-helper/target/" />
+    <ignored path="$PROJECT_DIR$/youke-facade-market/target/" />
+    <ignored path="$PROJECT_DIR$/youke-facade-helper/target/" />
+    <ignored path="$PROJECT_DIR$/youke-core-order/target/" />
+    <ignored path="$PROJECT_DIR$/youke-facade-cloudcode/target/" />
+    <ignored path="$PROJECT_DIR$/youke-service-cloudcode/target/" />
+    <ignored path="$PROJECT_DIR$/youke-facade-wxper/target/" />
+    <ignored path="$PROJECT_DIR$/youke-service-wxper/target/" />
+    <ignored path="$PROJECT_DIR$/youke-core-statistics/target/" />
+    <ignored path="$PROJECT_DIR$/youke-core-orderJD/target/" />
+    <ignored path="$PROJECT_DIR$/youke-core-orderPDD/target/" />
+    <ignored path="$PROJECT_DIR$/youke-web-spread/target/" />
+    <ignored path="$PROJECT_DIR$/youke-core-orderYZ/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/youke_parent$PC.coverage" NAME="PC Coverage Results" MODIFIED="1534142416986" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <expand />
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="youke-parent" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="FansTagBiz.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/youke-service-fans/src/main/java/youke/service/fans/biz/impl/FansTagBiz.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="189" column="39" lean-forward="true" selection-start-line="189" selection-start-column="39" selection-end-line="189" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FansTagService.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/youke-service-fans/src/main/java/youke/service/fans/provider/FansTagService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="157">
+              <caret line="80" column="67" lean-forward="true" selection-start-line="80" selection-start-column="67" selection-end-line="80" selection-end-column="67" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IFansTagBiz.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/youke-service-fans/src/main/java/youke/service/fans/biz/IFansTagBiz.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="49" column="22" lean-forward="false" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dubbo.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/youke-common/src/main/resources/dubbo.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IFansTagService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/youke-facade-fans/src/main/java/youke/facade/fans/provider/IFansTagService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="46" column="14" lean-forward="false" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="youke.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/youke-common/src/main/resources/youke.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="491">
+              <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dubbo-test.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/youke-common/src/main/resources/dubbo-test.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="youke-test.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/youke-common/src/main/resources/youke-test.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="23" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FansTagAction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/youke-web-pc/src/main/java/youke/web/pc/action/FansTagAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="191">
+              <caret line="31" column="18" lean-forward="false" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PcwxAction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/youke-web-pc/src/main/java/youke/web/pc/action/PcwxAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="258" column="32" lean-forward="true" selection-start-line="258" selection-start-column="32" selection-end-line="258" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Jsp File" />
+        <option value="Interface" />
+        <option value="JUnit4 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>tomcat</find>
+      <find>applyagency</find>
+      <find>getCloudCode</find>
+      <find>doShopFansTag</find>
+      <find>getshorturl</find>
+      <find>invitecode</find>
+      <find>getsublist</find>
+      <find>YouzanTradesSoldGetResult</find>
+      <find>a ',' or '}'</find>
+      <find>'}'</find>
+      <find>\n</find>
+      <find>json</find>
+      <find>getList</find>
+      <find>IWeixinMessageService</find>
+      <find>getSub</find>
+      <find>addsubaccount</find>
+      <find>auditsubaccount</find>
+      <find>getv</find>
+      <find>login</find>
+      <find>getC</find>
+      <find>getremain</find>
+      <find>addS</find>
+      <find>HEZU</find>
+      <find>buyerRate</find>
+      <find>ali</find>
+      <find>del</find>
+      <find>deleteTags</find>
+      <find>deleteTag</find>
+      <find>removeShopFansTag</find>
+      <find>delFriendTag</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+      <replace>H_code</replace>
+      <replace>RedisSlaveUtil.get</replace>
+      <replace>https://pcapi</replace>
+      <replace>https://m.dian</replace>
+      <replace>https://pcapi.dian</replace>
+      <replace>logger.error</replace>
+      <replace>同步</replace>
+      <replace>SYNC-JDORDER-TIME</replace>
+      <replace>youkeId</replace>
+      <replace>YoukeId</replace>
+    </replaceStrings>
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/youke-common-model/src/main/java/youke/common/model/vo/result/SubAccountListRetVo.java" />
+        <option value="$PROJECT_DIR$/youke-common-dao/src/main/java/youke/common/dao/IUserDao.java" />
+        <option value="$PROJECT_DIR$/youke-common-dao/src/main/java/youke/common/dao/IUserPositionDao.java" />
+        <option value="$PROJECT_DIR$/youke-service-pay/src/test/java/youke/service/pay/biz/impl/YoukePayBizTest.java" />
+        <option value="$PROJECT_DIR$/youke-service-user/src/test/java/youke/service/user/provider/UserServiceTest.java" />
+        <option value="$PROJECT_DIR$/youke-common-model/src/main/java/youke/common/model/vo/result/VipFuncVo.java" />
+        <option value="$PROJECT_DIR$/youke-common-dao/src/main/java/youke/common/dao/IFuncDao.java" />
+        <option value="$PROJECT_DIR$/youke-facade-user/src/main/java/youke/facade/user/provider/IUserService.java" />
+        <option value="$PROJECT_DIR$/youke-service-user/src/main/java/youke/service/user/provider/UserService.java" />
+        <option value="$PROJECT_DIR$/youke-service-user/src/main/java/youke/service/user/biz/IUserBiz.java" />
+        <option value="$PROJECT_DIR$/youke-common-dao/src/main/java/youke/common/dao/IPositionFuncDao.java" />
+        <option value="$PROJECT_DIR$/youke-web-pc/src/main/java/youke/web/pc/action/MemberAction.java" />
+        <option value="$PROJECT_DIR$/youke-service-shop/src/main/java/youke/service/shop/main/ShopProviderMain.java" />
+        <option value="$PROJECT_DIR$/youke-web-spread/src/test/java/TestSql.java" />
+        <option value="$PROJECT_DIR$/youke-web-spread/src/main/java/youke/web/spread/controller/CommonController.java" />
+        <option value="$PROJECT_DIR$/youke-web-spread/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/youke-web-spread/src/main/resources/common.properties" />
+        <option value="$PROJECT_DIR$/youke-web-h5/src/main/java/youke/web/h5/action/GoodsAction.java" />
+        <option value="$PROJECT_DIR$/youke-web-pc/src/main/java/youke/web/pc/action/CommonAction.java" />
+        <option value="$PROJECT_DIR$/youke-service-market/src/main/java/youke/service/market/biz/impl/GoodInfoBiz.java" />
+        <option value="$PROJECT_DIR$/youke-service-market/src/test/java/youke/service/market/provider/ToolServiceTest.java" />
+        <option value="$PROJECT_DIR$/youke-service-wxper/src/main/resources/META-INF/spring/dubbo-provider.xml" />
+        <option value="$PROJECT_DIR$/youke-service-wxper/src/main/resources/META-INF/spring/spring-mybatis.xml" />
+        <option value="$PROJECT_DIR$/youke-service-wxper/src/main/java/youke/service/wxper/biz/impl/WxPerCoreBiz.java" />
+        <option value="$PROJECT_DIR$/youke-service-wxper/src/main/java/youke/service/wxper/product/WxGetAllConsumer.java" />
+        <option value="$PROJECT_DIR$/youke-core-orderYZ/src/main/resources/jdbc.properties" />
+        <option value="$PROJECT_DIR$/youke-core-orderYZ/src/main/resources/common.properties" />
+        <option value="$PROJECT_DIR$/youke-core-orderYZ/src/main/resources/redis.properties" />
+        <option value="$PROJECT_DIR$/youke-service-wxper/src/test/java/youke/service/wxper/biz/impl/WxPerFriendServiceTest.java" />
+        <option value="$PROJECT_DIR$/youke-service-wxper/src/main/resources/youke.properties" />
+        <option value="$PROJECT_DIR$/youke-service-wxper/src/main/resources/dubbo.properties" />
+        <option value="$PROJECT_DIR$/youke-service-wxper/src/main/java/youke/service/wxper/biz/impl/WxperFriendBiz.java" />
+        <option value="$PROJECT_DIR$/youke-web-h5/src/main/webapp/content/js/go.jsp" />
+        <option value="$PROJECT_DIR$/youke-web-h5/src/main/webapp/content/layui/go.html" />
+        <option value="$PROJECT_DIR$/youke-service-fans/src/main/java/youke/service/fans/biz/impl/FansShopBiz.java" />
+        <option value="$PROJECT_DIR$/youke-web-service/src/main/java/youke/web/service/interceptor/AuthorizeInterceptor.java" />
+        <option value="$PROJECT_DIR$/youke-service-user/src/main/java/youke/service/user/biz/impl/UserBiz.java" />
+        <option value="$PROJECT_DIR$/youke-service-user/src/test/java/youke/service/user/biz/impl/NewsBizTest.java" />
+        <option value="$PROJECT_DIR$/youke-core-order/src/main/java/youke/order/core/service/OrderService.java" />
+        <option value="$PROJECT_DIR$/youke-web-pc/src/main/java/youke/web/pc/action/PayAction.java" />
+        <option value="$PROJECT_DIR$/youke-web-h5/src/main/webapp/content/js/wx_app.js" />
+        <option value="$PROJECT_DIR$/youke-web-h5/src/main/webapp/WEB-INF/jsp/goods.jsp" />
+        <option value="$PROJECT_DIR$/youke-service-fans/src/test/java/youke/service/fans/provider/FansServiceTest.java" />
+        <option value="$PROJECT_DIR$/youke-facade-fans/src/main/java/youke/facade/fans/provider/IFansTagService.java" />
+        <option value="$PROJECT_DIR$/youke-service-fans/src/main/java/youke/service/fans/biz/IFansTagBiz.java" />
+        <option value="$PROJECT_DIR$/youke-service-fans/src/main/java/youke/service/fans/biz/impl/FansTagBiz.java" />
+        <option value="$PROJECT_DIR$/youke-web-pc/src/main/java/youke/web/pc/action/FansTagAction.java" />
+        <option value="$PROJECT_DIR$/youke-service-fans/src/main/java/youke/service/fans/provider/FansTagService.java" />
+        <option value="$PROJECT_DIR$/youke-web-pc/src/main/java/youke/web/pc/action/PcwxAction.java" />
+        <option value="$PROJECT_DIR$/youke-common/src/main/resources/youke.properties" />
+        <option value="$PROJECT_DIR$/youke-common/src/main/resources/dubbo.properties" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:/program/apache-maven-3.5.2" />
+        <option name="userSettingsFile" value="D:\program\apache-maven-3.5.2\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="youke-common" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="youke-common" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="youke-common-dao" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="youke-common-dao" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="youke-common-model" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="youke-common-model" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="youke-core-order" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="youke-core-order" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="youke-core-orderYZ" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="youke-core-orderYZ" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="youke-facade-fans" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="youke-service-market" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="youke-service-market" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="youke-service-user" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="youke-service-user" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-common-dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-common-dao" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-facade-fans" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-facade-fans" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-facade-fans" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-facade-fans" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-facade-fans" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="provider" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-facade-fans" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-service-fans" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-service-fans" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-service-fans" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-service-fans" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-service-fans" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="fans" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-service-fans" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="fans" type="462c0819:PsiDirectoryNode" />
+              <item name="provider" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-service-fans" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-service-fans" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="spring" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-service-fans" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-service-fans" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-service-fans" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="provider" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-web-pc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-web-pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-web-pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-web-pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-web-pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-web-pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="action" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-web-pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="youke-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youke-web-pc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="spring" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/youke-web-pc/src/main/webapp/WEB-INF/lib/jave-1.0.2.jar!/" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2560214" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="ToolWindowVersion Control.ShowToolbar" value="false" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="youke.service.shop.biz.impl" />
+      <recent name="youke.service.market.biz.impl" />
+      <recent name="youke.common.mongo.impl" />
+      <recent name="youke.service.user.biz.impl" />
+      <recent name="youke.service.helper.provider" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="youke.web.spread.service.biz" />
+      <recent name="youke.web.spread.controller" />
+      <recent name="youke.web.spread.entity" />
+      <recent name="youke.order.core.mq" />
+      <recent name="youke.order.core.service" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\works\youke-parent\trunk\youke-web-h5\src\main\webapp\content\js" />
+      <recent name="D:\works\youke-parent\trunk\youke-common\src\main\resources" />
+      <recent name="D:\works\youke-parent\trunk\youke-service-wxper\src\test\java\youke\service\wxper\biz\impl" />
+      <recent name="D:\works\youke-parent\trunk\youke-service-wxper\src\main\resources" />
+      <recent name="D:\works\youke-parent\trunk\youke-service-shop\lib" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\works\youke-parent\trunk\youke-web-h5\src\main\webapp\content\layui" />
+      <recent name="D:\works\youke-parent\trunk\youke-common-dao\src\main\java\youke\common\dao\mapper" />
+      <recent name="D:\works\youke-parent\trunk\youke-service-wx\src\main\resources\META-INF\spring" />
+      <recent name="D:\works\youke-parent\trunk\youke-common-dao\src\main\resources\META-INF\spring" />
+      <recent name="D:\works\youke-parent\trunk\youke-common\src\main\resources\META-INF\spring" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.PC">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration name="YZOrderMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="youke.order.core.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="youke.order.core.main.YZOrderMain" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="youke-core-orderYZ" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration name="FansServiceTest.doTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="youke.service.fans.provider.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="youke-service-fans" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="youke.service.fans.provider" />
+      <option name="MAIN_CLASS_NAME" value="youke.service.fans.provider.FansServiceTest" />
+      <option name="METHOD_NAME" value="doTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="NewsBizTest.setRedis" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="youke.service.user.biz.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="youke-service-user" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="youke.service.user.biz.impl" />
+      <option name="MAIN_CLASS_NAME" value="youke.service.user.biz.impl.NewsBizTest" />
+      <option name="METHOD_NAME" value="setRedis" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="NewsBizTest.testUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="youke.service.user.biz.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="youke-service-user" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="youke.service.user.biz.impl" />
+      <option name="MAIN_CLASS_NAME" value="youke.service.user.biz.impl.NewsBizTest" />
+      <option name="METHOD_NAME" value="testUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="WxPerFriendServiceTest.createAddFansTask" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="youke.service.wxper.biz.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="youke-service-wxper" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="youke.service.wxper.biz.impl" />
+      <option name="MAIN_CLASS_NAME" value="youke.service.wxper.biz.impl.WxPerFriendServiceTest" />
+      <option name="METHOD_NAME" value="createAddFansTask" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="mybatis-generator" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="mybatis-generator:generate" />
+                <option value="-e" />
+              </list>
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/youke-common-dao" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration name="Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="youke.web.spread.Application" />
+      <module name="youke-web-spread" />
+      <envs />
+    </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="youke.core.statistics.main.Application" />
+      <module name="youke-core-statistics" />
+      <envs />
+    </configuration>
+    <configuration name="MainApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="youke.core.statistics.MainApplication" />
+      <module name="youke-core-statistics" />
+      <envs />
+    </configuration>
+    <configuration name="YoukeCoreStatisticsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="youke.youkecorestatistics.YoukeCoreStatisticsApplication" />
+      <module name="youke-core-statistics" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration name="H5" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.47" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="youke-web-h5">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_youke-parent_3" />
+        <option name="HTTP_PORT" value="8082" />
+        <option name="JNDI_PORT" value="1090" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="61613" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="Make" enabled="false" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="youke-web-h5" />
+        </option>
+      </method>
+    </configuration>
+    <configuration name="PC" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.47" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="youke-web-pc">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_youke-parent_2" />
+        <option name="HTTP_PORT" value="8081" />
+        <option name="JNDI_PORT" value="1089" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="61606" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="Make" enabled="false" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="youke-web-pc" />
+        </option>
+      </method>
+    </configuration>
+    <configuration name="Service" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.47" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="youke-web-service">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_youke-parent_4" />
+        <option name="HTTP_PORT" value="8083" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="62108" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="Make" enabled="false" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="youke-web-service" />
+        </option>
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <list size="13">
+      <item index="0" class="java.lang.String" itemvalue="Maven.mybatis-generator" />
+      <item index="1" class="java.lang.String" itemvalue="Spring Boot.Application" />
+      <item index="2" class="java.lang.String" itemvalue="Spring Boot.YoukeCoreStatisticsApplication" />
+      <item index="3" class="java.lang.String" itemvalue="Spring Boot.MainApplication" />
+      <item index="4" class="java.lang.String" itemvalue="Spring Boot.Application (1)" />
+      <item index="5" class="java.lang.String" itemvalue="Tomcat Server.Service" />
+      <item index="6" class="java.lang.String" itemvalue="Tomcat Server.PC" />
+      <item index="7" class="java.lang.String" itemvalue="Tomcat Server.H5" />
+      <item index="8" class="java.lang.String" itemvalue="Application.YZOrderMain" />
+      <item index="9" class="java.lang.String" itemvalue="JUnit.WxPerFriendServiceTest.createAddFansTask" />
+      <item index="10" class="java.lang.String" itemvalue="JUnit.NewsBizTest.testUser" />
+      <item index="11" class="java.lang.String" itemvalue="JUnit.NewsBizTest.setRedis" />
+      <item index="12" class="java.lang.String" itemvalue="JUnit.FansServiceTest.doTest" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.FansServiceTest.doTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.NewsBizTest.setRedis" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.NewsBizTest.testUser" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.WxPerFriendServiceTest.createAddFansTask" />
+        <item index="4" class="java.lang.String" itemvalue="Application.YZOrderMain" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration" myUseAcceleration="nothing" cleanupOnStartRun="true">
+    <configuration useDefault="false">C:\Program Files\TortoiseSVN</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\.idea" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\.idea" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-common" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-common" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-common-dao" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-common-dao" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-common-model" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-common-model" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-core-mq" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-core-mq" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-core-order" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-core-order" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-core-orderJD" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-core-orderJD" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-core-orderPDD" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-core-orderPDD" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-core-orderYZ" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-core-orderYZ" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-core-scheduler" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-core-scheduler" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-facade-cloudcode" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-facade-cloudcode" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-facade-fans" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-facade-fans" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-facade-helper" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-facade-helper" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-facade-market" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-facade-market" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-facade-mass" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-facade-mass" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-facade-pay" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-facade-pay" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-facade-shop" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-facade-shop" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-facade-user" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-facade-user" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-facade-wx" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-facade-wx" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-facade-wxper" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-service-cloudcode" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-service-cloudcode" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-service-fans" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-service-fans" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-service-helper" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-service-helper" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-service-market" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-service-market" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-service-mass" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-service-mass" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-service-pay" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-service-pay" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-service-shop" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-service-shop" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-service-user" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-service-user" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-service-wx" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-service-wx" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-service-wxper" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-web-demo" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-web-demo" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-web-h5" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-web-h5" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-web-pc" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-web-pc" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-web-service" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-web-service" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk\youke-web-spread" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk\youke-web-spread" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\works\youke-parent\trunk" />
+          <option name="myCopyRoot" value="D:\works\youke-parent\trunk" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b7f2d4ff-3b12-4c29-b971-62f7e40a1a0f" name="Default" comment="" />
+      <created>1525233235266</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1525233235266</updated>
+      <workItem from="1525233240464" duration="1138000" />
+      <workItem from="1525235091836" duration="30414000" />
+      <workItem from="1525324554978" duration="14635000" />
+      <workItem from="1525397546769" duration="16990000" />
+      <workItem from="1525435415829" duration="1738000" />
+      <workItem from="1525483864137" duration="24675000" />
+      <workItem from="1525657119091" duration="15654000" />
+      <workItem from="1525742892311" duration="13833000" />
+      <workItem from="1525832726469" duration="12291000" />
+      <workItem from="1525920683988" duration="10317000" />
+      <workItem from="1526002924070" duration="8946000" />
+      <workItem from="1526095308714" duration="4586000" />
+      <workItem from="1526261733202" duration="4566000" />
+      <workItem from="1526290944237" duration="799000" />
+      <workItem from="1526357544209" duration="2540000" />
+      <workItem from="1526433606643" duration="5266000" />
+      <workItem from="1526540138255" duration="12451000" />
+      <workItem from="1526607328224" duration="15246000" />
+      <workItem from="1526694308532" duration="6885000" />
+      <workItem from="1526865816542" duration="38815000" />
+      <workItem from="1527040751341" duration="22414000" />
+      <workItem from="1527125667615" duration="19607000" />
+      <workItem from="1527212443846" duration="19707000" />
+      <workItem from="1527302187209" duration="16227000" />
+      <workItem from="1527472058644" duration="14885000" />
+      <workItem from="1527558375344" duration="23214000" />
+      <workItem from="1527643751437" duration="32054000" />
+      <workItem from="1527762655441" duration="881000" />
+      <workItem from="1527817564672" duration="8532000" />
+      <workItem from="1527841891309" duration="6283000" />
+      <workItem from="1528076679495" duration="4535000" />
+      <workItem from="1528082145204" duration="13583000" />
+      <workItem from="1528181568783" duration="6365000" />
+      <workItem from="1528275825258" duration="3422000" />
+      <workItem from="1528354081214" duration="13234000" />
+      <workItem from="1528427547494" duration="3553000" />
+      <workItem from="1528512385488" duration="9149000" />
+      <workItem from="1528681430834" duration="10503000" />
+      <workItem from="1528768921806" duration="8540000" />
+      <workItem from="1528855813547" duration="18458000" />
+      <workItem from="1528942393365" duration="33113000" />
+      <workItem from="1529372600892" duration="12269000" />
+      <workItem from="1529457634944" duration="21362000" />
+      <workItem from="1529547362963" duration="16597000" />
+      <workItem from="1529631708845" duration="11858000" />
+      <workItem from="1529721742760" duration="5949000" />
+      <workItem from="1529891204431" duration="16799000" />
+      <workItem from="1529975609029" duration="25569000" />
+      <workItem from="1530063158184" duration="19814000" />
+      <workItem from="1530149247408" duration="22391000" />
+      <workItem from="1530235853697" duration="16030000" />
+      <workItem from="1530496441549" duration="21004000" />
+      <workItem from="1530581065846" duration="14671000" />
+      <workItem from="1530666259746" duration="24525000" />
+      <workItem from="1530753525691" duration="34846000" />
+      <workItem from="1531099930391" duration="17276000" />
+      <workItem from="1531186463608" duration="19090000" />
+      <workItem from="1531272685897" duration="19605000" />
+      <workItem from="1531359091955" duration="13423000" />
+      <workItem from="1531446936851" duration="17796000" />
+      <workItem from="1531706018437" duration="20619000" />
+      <workItem from="1531790216324" duration="14705000" />
+      <workItem from="1531876606740" duration="10184000" />
+      <workItem from="1531896040717" duration="3701000" />
+      <workItem from="1531900723272" duration="7441000" />
+      <workItem from="1531964145950" duration="14039000" />
+      <workItem from="1532051639035" duration="14360000" />
+      <workItem from="1532311332225" duration="4520000" />
+      <workItem from="1532406100985" duration="13890000" />
+      <workItem from="1532483783877" duration="4308000" />
+      <workItem from="1532502517696" duration="1809000" />
+      <workItem from="1532655892201" duration="15032000" />
+      <workItem from="1532914151295" duration="15804000" />
+      <workItem from="1533005179229" duration="15090000" />
+      <workItem from="1533029283349" duration="2641000" />
+      <workItem from="1533086270542" duration="24163000" />
+      <workItem from="1533173689017" duration="20115000" />
+      <workItem from="1533260886652" duration="21427000" />
+      <workItem from="1533517193203" duration="2846000" />
+      <workItem from="1533520905424" duration="12459000" />
+      <workItem from="1533608288247" duration="4141000" />
+      <workItem from="1533623266768" duration="13961000" />
+      <workItem from="1533690461058" duration="26048000" />
+      <workItem from="1533778507303" duration="11379000" />
+      <workItem from="1533864832319" duration="15684000" />
+      <workItem from="1534122855235" duration="26740000" />
+      <workItem from="1534209833875" duration="7255000" />
+      <workItem from="1534228203500" duration="2770000" />
+      <workItem from="1534231010378" duration="12398000" />
+      <workItem from="1534297011982" duration="22463000" />
+      <workItem from="1534384529957" duration="18241000" />
+      <workItem from="1534468978080" duration="24649000" />
+      <workItem from="1534728738256" duration="3520000" />
+      <workItem from="1534745589317" duration="12979000" />
+      <workItem from="1534814115183" duration="21497000" />
+      <workItem from="1534847007735" duration="416000" />
+      <workItem from="1534902736824" duration="8514000" />
+      <workItem from="1535004526196" duration="11641000" />
+      <workItem from="1535077741907" duration="10964000" />
+      <workItem from="1535167383003" duration="8348000" />
+      <workItem from="1535183742476" duration="2790000" />
+      <workItem from="1535188624030" duration="2595000" />
+      <workItem from="1535333124573" duration="11530000" />
+      <workItem from="1535357123505" duration="1737000" />
+      <workItem from="1535423898711" duration="851000" />
+      <workItem from="1535425368361" duration="3165000" />
+      <workItem from="1535506801018" duration="158000" />
+      <workItem from="1535515329746" duration="4153000" />
+      <workItem from="1535597042816" duration="26000" />
+      <workItem from="1535597146793" duration="609000" />
+      <workItem from="1535679241195" duration="619000" />
+      <workItem from="1535699794627" duration="3953000" />
+      <workItem from="1535793209419" duration="2576000" />
+      <workItem from="1535942898461" duration="18934000" />
+      <workItem from="1535971724155" duration="319000" />
+      <workItem from="1536024541641" duration="25173000" />
+      <workItem from="1536109869442" duration="26735000" />
+      <workItem from="1536196307465" duration="3480000" />
+      <workItem from="1536201017033" duration="20657000" />
+      <workItem from="1536283491124" duration="16731000" />
+      <workItem from="1536311254944" duration="5083000" />
+      <workItem from="1536373113271" duration="1414000" />
+      <workItem from="1536544166492" duration="6609000" />
+      <workItem from="1536569415666" duration="235000" />
+      <workItem from="1536629741094" duration="3024000" />
+      <workItem from="1536639622497" duration="432000" />
+      <workItem from="1536647296126" duration="4732000" />
+      <workItem from="1536715955325" duration="223000" />
+      <workItem from="1536724159054" duration="9399000" />
+      <workItem from="1536743756487" duration="82000" />
+      <workItem from="1536803474256" duration="18757000" />
+      <workItem from="1536907588295" duration="6507000" />
+      <workItem from="1536976268645" duration="21554000" />
+      <workItem from="1537030542318" duration="10999000" />
+      <workItem from="1537150679601" duration="3921000" />
+      <workItem from="1537241517623" duration="15835000" />
+      <workItem from="1537325113564" duration="20943000" />
+      <workItem from="1537407476433" duration="23682000" />
+      <workItem from="1537499933898" duration="11963000" />
+      <workItem from="1537840036794" duration="17851000" />
+      <workItem from="1537925496692" duration="21111000" />
+      <workItem from="1538013265842" duration="23239000" />
+      <workItem from="1538097832878" duration="21202000" />
+      <workItem from="1538131299517" duration="180000" />
+      <workItem from="1538183633699" duration="24906000" />
+      <workItem from="1538223079732" duration="203000" />
+      <workItem from="1538271572364" duration="18154000" />
+      <workItem from="1538966524597" duration="1201000" />
+      <workItem from="1538980203879" duration="15495000" />
+      <workItem from="1539047895029" duration="22581000" />
+      <workItem from="1539136063729" duration="5094000" />
+      <workItem from="1539168985217" duration="223000" />
+      <workItem from="1539232727799" duration="1690000" />
+      <workItem from="1539240293604" duration="4075000" />
+      <workItem from="1539324752556" duration="5452000" />
+      <workItem from="1539331413461" duration="2104000" />
+      <workItem from="1539655326533" duration="5700000" />
+      <workItem from="1539675641203" duration="5870000" />
+      <workItem from="1539742026350" duration="3026000" />
+      <workItem from="1539930337976" duration="412000" />
+      <workItem from="1539932283518" duration="1459000" />
+      <workItem from="1539944031670" duration="2007000" />
+      <workItem from="1540172698417" duration="6919000" />
+      <workItem from="1540260412612" duration="1097000" />
+      <workItem from="1540439064861" duration="1845000" />
+      <workItem from="1540528457789" duration="1110000" />
+      <workItem from="1540537370847" duration="181000" />
+      <workItem from="1540951205460" duration="6900000" />
+      <workItem from="1541040400503" duration="1679000" />
+    </task>
+    <task id="LOCAL-00233">
+      <created>1535181475678</created>
+      <option name="number" value="00233" />
+      <option name="presentableId" value="LOCAL-00233" />
+      <option name="project" value="LOCAL" />
+      <updated>1535181475679</updated>
+    </task>
+    <task id="LOCAL-00234">
+      <created>1535181753221</created>
+      <option name="number" value="00234" />
+      <option name="presentableId" value="LOCAL-00234" />
+      <option name="project" value="LOCAL" />
+      <updated>1535181753222</updated>
+    </task>
+    <task id="LOCAL-00235">
+      <created>1535336134116</created>
+      <option name="number" value="00235" />
+      <option name="presentableId" value="LOCAL-00235" />
+      <option name="project" value="LOCAL" />
+      <updated>1535336134116</updated>
+    </task>
+    <task id="LOCAL-00236">
+      <created>1535337460188</created>
+      <option name="number" value="00236" />
+      <option name="presentableId" value="LOCAL-00236" />
+      <option name="project" value="LOCAL" />
+      <updated>1535337460188</updated>
+    </task>
+    <task id="LOCAL-00237">
+      <created>1535337609839</created>
+      <option name="number" value="00237" />
+      <option name="presentableId" value="LOCAL-00237" />
+      <option name="project" value="LOCAL" />
+      <updated>1535337609839</updated>
+    </task>
+    <task id="LOCAL-00238">
+      <created>1535337774565</created>
+      <option name="number" value="00238" />
+      <option name="presentableId" value="LOCAL-00238" />
+      <option name="project" value="LOCAL" />
+      <updated>1535337774565</updated>
+    </task>
+    <task id="LOCAL-00239">
+      <created>1535357256492</created>
+      <option name="number" value="00239" />
+      <option name="presentableId" value="LOCAL-00239" />
+      <option name="project" value="LOCAL" />
+      <updated>1535357256492</updated>
+    </task>
+    <task id="LOCAL-00240">
+      <created>1535357284051</created>
+      <option name="number" value="00240" />
+      <option name="presentableId" value="LOCAL-00240" />
+      <option name="project" value="LOCAL" />
+      <updated>1535357284051</updated>
+    </task>
+    <task id="LOCAL-00241">
+      <created>1535711852585</created>
+      <option name="number" value="00241" />
+      <option name="presentableId" value="LOCAL-00241" />
+      <option name="project" value="LOCAL" />
+      <updated>1535711852585</updated>
+    </task>
+    <task id="LOCAL-00242">
+      <created>1535955875950</created>
+      <option name="number" value="00242" />
+      <option name="presentableId" value="LOCAL-00242" />
+      <option name="project" value="LOCAL" />
+      <updated>1535955875950</updated>
+    </task>
+    <task id="LOCAL-00243">
+      <created>1535968222772</created>
+      <option name="number" value="00243" />
+      <option name="presentableId" value="LOCAL-00243" />
+      <option name="project" value="LOCAL" />
+      <updated>1535968222772</updated>
+    </task>
+    <task id="LOCAL-00244">
+      <created>1536045080073</created>
+      <option name="number" value="00244" />
+      <option name="presentableId" value="LOCAL-00244" />
+      <option name="project" value="LOCAL" />
+      <updated>1536045080074</updated>
+    </task>
+    <task id="LOCAL-00245">
+      <created>1536226466375</created>
+      <option name="number" value="00245" />
+      <option name="presentableId" value="LOCAL-00245" />
+      <option name="project" value="LOCAL" />
+      <updated>1536226466375</updated>
+    </task>
+    <task id="LOCAL-00246">
+      <created>1536226530804</created>
+      <option name="number" value="00246" />
+      <option name="presentableId" value="LOCAL-00246" />
+      <option name="project" value="LOCAL" />
+      <updated>1536226530804</updated>
+    </task>
+    <task id="LOCAL-00247">
+      <created>1536307949693</created>
+      <option name="number" value="00247" />
+      <option name="presentableId" value="LOCAL-00247" />
+      <option name="project" value="LOCAL" />
+      <updated>1536307949694</updated>
+    </task>
+    <task id="LOCAL-00248">
+      <created>1536312434523</created>
+      <option name="number" value="00248" />
+      <option name="presentableId" value="LOCAL-00248" />
+      <option name="project" value="LOCAL" />
+      <updated>1536312434523</updated>
+    </task>
+    <task id="LOCAL-00249">
+      <created>1536549799158</created>
+      <option name="number" value="00249" />
+      <option name="presentableId" value="LOCAL-00249" />
+      <option name="project" value="LOCAL" />
+      <updated>1536549799158</updated>
+    </task>
+    <task id="LOCAL-00250">
+      <created>1536566175169</created>
+      <option name="number" value="00250" />
+      <option name="presentableId" value="LOCAL-00250" />
+      <option name="project" value="LOCAL" />
+      <updated>1536566175170</updated>
+    </task>
+    <task id="LOCAL-00251">
+      <created>1536566246691</created>
+      <option name="number" value="00251" />
+      <option name="presentableId" value="LOCAL-00251" />
+      <option name="project" value="LOCAL" />
+      <updated>1536566246691</updated>
+    </task>
+    <task id="LOCAL-00252">
+      <created>1536566293926</created>
+      <option name="number" value="00252" />
+      <option name="presentableId" value="LOCAL-00252" />
+      <option name="project" value="LOCAL" />
+      <updated>1536566293926</updated>
+    </task>
+    <task id="LOCAL-00253">
+      <created>1536566330861</created>
+      <option name="number" value="00253" />
+      <option name="presentableId" value="LOCAL-00253" />
+      <option name="project" value="LOCAL" />
+      <updated>1536566330861</updated>
+    </task>
+    <task id="LOCAL-00254">
+      <created>1536566437630</created>
+      <option name="number" value="00254" />
+      <option name="presentableId" value="LOCAL-00254" />
+      <option name="project" value="LOCAL" />
+      <updated>1536566437630</updated>
+    </task>
+    <task id="LOCAL-00255">
+      <created>1536635300257</created>
+      <option name="number" value="00255" />
+      <option name="presentableId" value="LOCAL-00255" />
+      <option name="project" value="LOCAL" />
+      <updated>1536635300257</updated>
+    </task>
+    <task id="LOCAL-00256">
+      <created>1536724236953</created>
+      <option name="number" value="00256" />
+      <option name="presentableId" value="LOCAL-00256" />
+      <option name="project" value="LOCAL" />
+      <updated>1536724236954</updated>
+    </task>
+    <task id="LOCAL-00257">
+      <created>1536724268800</created>
+      <option name="number" value="00257" />
+      <option name="presentableId" value="LOCAL-00257" />
+      <option name="project" value="LOCAL" />
+      <updated>1536724268800</updated>
+    </task>
+    <task id="LOCAL-00258">
+      <created>1536808367021</created>
+      <option name="number" value="00258" />
+      <option name="presentableId" value="LOCAL-00258" />
+      <option name="project" value="LOCAL" />
+      <updated>1536808367022</updated>
+    </task>
+    <task id="LOCAL-00259">
+      <created>1536812649929</created>
+      <option name="number" value="00259" />
+      <option name="presentableId" value="LOCAL-00259" />
+      <option name="project" value="LOCAL" />
+      <updated>1536812649929</updated>
+    </task>
+    <task id="LOCAL-00260">
+      <created>1537241572328</created>
+      <option name="number" value="00260" />
+      <option name="presentableId" value="LOCAL-00260" />
+      <option name="project" value="LOCAL" />
+      <updated>1537241572329</updated>
+    </task>
+    <task id="LOCAL-00261">
+      <created>1537244790808</created>
+      <option name="number" value="00261" />
+      <option name="presentableId" value="LOCAL-00261" />
+      <option name="project" value="LOCAL" />
+      <updated>1537244790808</updated>
+    </task>
+    <task id="LOCAL-00262">
+      <created>1537500486524</created>
+      <option name="number" value="00262" />
+      <option name="presentableId" value="LOCAL-00262" />
+      <option name="project" value="LOCAL" />
+      <updated>1537500486524</updated>
+    </task>
+    <task id="LOCAL-00263">
+      <created>1537857046173</created>
+      <option name="number" value="00263" />
+      <option name="presentableId" value="LOCAL-00263" />
+      <option name="project" value="LOCAL" />
+      <updated>1537857046174</updated>
+    </task>
+    <task id="LOCAL-00264">
+      <created>1537951437261</created>
+      <option name="number" value="00264" />
+      <option name="presentableId" value="LOCAL-00264" />
+      <option name="project" value="LOCAL" />
+      <updated>1537951437262</updated>
+    </task>
+    <task id="LOCAL-00265">
+      <created>1537952726795</created>
+      <option name="number" value="00265" />
+      <option name="presentableId" value="LOCAL-00265" />
+      <option name="project" value="LOCAL" />
+      <updated>1537952726796</updated>
+    </task>
+    <task id="LOCAL-00266">
+      <created>1537953577109</created>
+      <option name="number" value="00266" />
+      <option name="presentableId" value="LOCAL-00266" />
+      <option name="project" value="LOCAL" />
+      <updated>1537953577110</updated>
+    </task>
+    <task id="LOCAL-00267">
+      <created>1537957785677</created>
+      <option name="number" value="00267" />
+      <option name="presentableId" value="LOCAL-00267" />
+      <option name="project" value="LOCAL" />
+      <updated>1537957785677</updated>
+    </task>
+    <task id="LOCAL-00268">
+      <created>1538017641707</created>
+      <option name="number" value="00268" />
+      <option name="presentableId" value="LOCAL-00268" />
+      <option name="project" value="LOCAL" />
+      <updated>1538017641707</updated>
+    </task>
+    <task id="LOCAL-00269">
+      <created>1538021907181</created>
+      <option name="number" value="00269" />
+      <option name="presentableId" value="LOCAL-00269" />
+      <option name="project" value="LOCAL" />
+      <updated>1538021907181</updated>
+    </task>
+    <task id="LOCAL-00270">
+      <created>1538033518460</created>
+      <option name="number" value="00270" />
+      <option name="presentableId" value="LOCAL-00270" />
+      <option name="project" value="LOCAL" />
+      <updated>1538033518460</updated>
+    </task>
+    <task id="LOCAL-00271">
+      <created>1538033535734</created>
+      <option name="number" value="00271" />
+      <option name="presentableId" value="LOCAL-00271" />
+      <option name="project" value="LOCAL" />
+      <updated>1538033535734</updated>
+    </task>
+    <task id="LOCAL-00272">
+      <created>1538033615017</created>
+      <option name="number" value="00272" />
+      <option name="presentableId" value="LOCAL-00272" />
+      <option name="project" value="LOCAL" />
+      <updated>1538033615017</updated>
+    </task>
+    <task id="LOCAL-00273">
+      <created>1538034598371</created>
+      <option name="number" value="00273" />
+      <option name="presentableId" value="LOCAL-00273" />
+      <option name="project" value="LOCAL" />
+      <updated>1538034598371</updated>
+    </task>
+    <task id="LOCAL-00274">
+      <created>1538034732734</created>
+      <option name="number" value="00274" />
+      <option name="presentableId" value="LOCAL-00274" />
+      <option name="project" value="LOCAL" />
+      <updated>1538034732734</updated>
+    </task>
+    <task id="LOCAL-00275">
+      <created>1538124718135</created>
+      <option name="number" value="00275" />
+      <option name="presentableId" value="LOCAL-00275" />
+      <option name="project" value="LOCAL" />
+      <updated>1538124718135</updated>
+    </task>
+    <task id="LOCAL-00276">
+      <created>1538124739605</created>
+      <option name="number" value="00276" />
+      <option name="presentableId" value="LOCAL-00276" />
+      <option name="project" value="LOCAL" />
+      <updated>1538124739605</updated>
+    </task>
+    <task id="LOCAL-00277">
+      <created>1538277576032</created>
+      <option name="number" value="00277" />
+      <option name="presentableId" value="LOCAL-00277" />
+      <option name="project" value="LOCAL" />
+      <updated>1538277576032</updated>
+    </task>
+    <task id="LOCAL-00278">
+      <created>1538277932804</created>
+      <option name="number" value="00278" />
+      <option name="presentableId" value="LOCAL-00278" />
+      <option name="project" value="LOCAL" />
+      <updated>1538277932804</updated>
+    </task>
+    <task id="LOCAL-00279">
+      <created>1538277946567</created>
+      <option name="number" value="00279" />
+      <option name="presentableId" value="LOCAL-00279" />
+      <option name="project" value="LOCAL" />
+      <updated>1538277946567</updated>
+    </task>
+    <task id="LOCAL-00280">
+      <created>1538278399658</created>
+      <option name="number" value="00280" />
+      <option name="presentableId" value="LOCAL-00280" />
+      <option name="project" value="LOCAL" />
+      <updated>1538278399658</updated>
+    </task>
+    <task id="LOCAL-00281">
+      <created>1538997700631</created>
+      <option name="number" value="00281" />
+      <option name="presentableId" value="LOCAL-00281" />
+      <option name="project" value="LOCAL" />
+      <updated>1538997700631</updated>
+    </task>
+    <option name="localTasksCounter" value="282" />
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="FansServiceTest_doTest - 2018.10.31 at 11h 34m 37s.xml">
+      <configuration name="FansServiceTest.doTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FansServiceTest_doTest - 2018.10.31 at 11h 50m 47s.xml">
+      <configuration name="FansServiceTest.doTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="NewsBizTest_testUser - 2018.10.16 at 16h 50m 34s.xml">
+      <configuration name="NewsBizTest.testUser" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="NewsBizTest_testUser - 2018.10.16 at 16h 52m 57s.xml">
+      <configuration name="NewsBizTest.testUser" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ToolServiceTest_getProductInfo - 2018.09.30 at 16h 29m 36s.xml">
+      <configuration name="ToolServiceTest.getProductInfo" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserServiceTest_getInfo - 2018.09.28 at 11h 38m 09s.xml">
+      <configuration name="UserServiceTest.getInfo" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WXServiceTest_getInfo - 2018.09.26 at 12h 11m 02s.xml">
+      <configuration name="WXServiceTest.getInfo" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WXServiceTest_getInfo - 2018.09.26 at 17h 41m 56s.xml">
+      <configuration name="WXServiceTest.getInfo" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WxPerFriendServiceTest_createAddFansTask - 2018.10.09 at 12h 37m 48s.xml">
+      <configuration name="WxPerFriendServiceTest.createAddFansTask" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="YoukePayBizTest_doTestPay - 2018.09.28 at 13h 09m 30s.xml">
+      <configuration name="YoukePayBizTest.doTestPay" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1918830000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36444443" sideWeight="0.20948827" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22888888" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20628998" sideWeight="0.7064364" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20895523" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37222221" sideWeight="0.49573562" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.4936034" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22333333" sideWeight="0.4664179" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15777777" sideWeight="0.44509596" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30444443" sideWeight="0.7905117" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19402985" sideWeight="0.49555555" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18123667" sideWeight="0.5044444" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18123667" sideWeight="0.5044444" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1977612" sideWeight="0.29356357" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33" sideWeight="0.4978678" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <option name="CHANGE_BROWSER_SETTINGS">
+      <map>
+        <entry key="svn">
+          <value>
+            <ChangeBrowserSettings>
+              <option name="DATE_BEFORE" />
+              <option name="DATE_AFTER" />
+            </ChangeBrowserSettings>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/youke-service-wx/src/main/java/youke/service/wx/provider/WeixinMessageService.java</url>
+          <line>123</line>
+          <properties />
+          <option name="timeStamp" value="97" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/youke-service-wx/src/main/java/youke/service/wx/provider/WeixinMessageService.java</url>
+          <line>133</line>
+          <properties />
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/youke-service-wx/src/main/java/youke/service/wx/provider/WeixinMessageService.java</url>
+          <line>124</line>
+          <properties />
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/youke-service-wx/src/main/java/youke/service/wx/provider/WeixinMessageService.java</url>
+          <line>125</line>
+          <properties />
+          <option name="timeStamp" value="100" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/youke-service-cloudcode/src/main/java/youke/service/cloudcode/provider/ChatService.java</url>
+          <line>30</line>
+          <properties />
+          <option name="timeStamp" value="185" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/youke-service-cloudcode/src/main/java/youke/service/cloudcode/provider/ChatService.java</url>
+          <line>27</line>
+          <properties />
+          <option name="timeStamp" value="186" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/youke-service-cloudcode/src/main/java/youke/service/cloudcode/provider/ChatService.java</url>
+          <line>31</line>
+          <properties />
+          <option name="timeStamp" value="187" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/youke-service-helper/src/main/java/youke/service/helper/provider/CollageService.java</url>
+          <line>362</line>
+          <properties />
+          <option name="timeStamp" value="199" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/youke-service-helper/src/main/java/youke/service/helper/provider/CollageService.java</url>
+          <line>420</line>
+          <properties />
+          <option name="timeStamp" value="200" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/youke-service-helper/src/main/java/youke/service/helper/provider/CollageService.java</url>
+          <line>417</line>
+          <properties />
+          <option name="timeStamp" value="201" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/youke-core-order/src/main/java/youke/order/common/dao/IbTradeDao.java</url>
+          <line>24</line>
+          <properties class="youke.order.common.dao.IbTradeDao" method="selectLastTrades" />
+          <option name="timeStamp" value="269" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="486" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/youke-service-market/src/main/java/youke/service/market/main/MarketProviderMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-service-market/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="36" lean-forward="false" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-facade-pay/src/main/java/youke/facade/pay/util/WXPayUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-facade-pay/src/main/java/youke/facade/pay/util/WXConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="12" lean-forward="false" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-facade-pay/src/main/java/youke/facade/pay/util/AliConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="50" lean-forward="false" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-facade-pay/src/main/java/youke/facade/pay/util/OrderType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-facade-pay/src/main/java/youke/facade/pay/util/PayType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/alipay/sdk/alipay-sdk-java20170324180803/1.0.0/alipay-sdk-java20170324180803-1.0.0.jar!/com/alipay/api/AlipayClient.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$MAVEN_REPOSITORY$/com/alipay/sdk/alipay-sdk-java20170324180803/1.0.0/alipay-sdk-java20170324180803-1.0.0.pom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-service-pay/src/main/java/youke/service/pay/biz/impl/WxpayBiz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="45" column="48" lean-forward="false" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-service-pay/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="36" column="32" lean-forward="false" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1853">
+          <caret line="109" column="42" lean-forward="false" selection-start-line="109" selection-start-column="42" selection-end-line="109" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-service-pay/src/main/java/youke/service/pay/biz/impl/YoukePayBiz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="41" column="13" lean-forward="false" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-service-pay/src/main/java/youke/service/pay/biz/impl/AlipayBiz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="25" column="35" lean-forward="false" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-web-pc/src/main/java/youke/web/pc/action/PayAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/aliyun/oss/aliyun-sdk-oss/2.8.3/aliyun-sdk-oss-2.8.3.jar!/com/aliyun/oss/OSSClient.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3740">
+          <caret line="377" column="27" lean-forward="false" selection-start-line="377" selection-start-column="27" selection-end-line="377" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-common/src/main/java/youke/common/oss/FileUpOrDwUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="26" column="63" lean-forward="false" selection-start-line="26" selection-start-column="63" selection-end-line="26" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-common/src/main/java/youke/common/constants/ApiCodeConstant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1139">
+          <caret line="68" column="89" lean-forward="false" selection-start-line="68" selection-start-column="89" selection-end-line="68" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-web-pc/src/main/java/youke/web/pc/action/CommonAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1343">
+          <caret line="120" column="37" lean-forward="false" selection-start-line="120" selection-start-column="37" selection-end-line="120" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-web-h5/src/main/webapp/content/js/goods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-web-h5/src/main/webapp/content/js/wx_app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1564">
+          <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-web-h5/src/main/webapp/WEB-INF/jsp/goods.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1734">
+          <caret line="102" column="31" lean-forward="false" selection-start-line="102" selection-start-column="31" selection-end-line="102" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-web-pc/src/main/java/youke/web/pc/interceptor/AuthorizeInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="62" column="13" lean-forward="false" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-web-pc/src/main/java/youke/web/pc/action/BaseAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="61" column="5" lean-forward="false" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-core-order/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-core-order/src/main/resources/common.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-core-order/src/main/resources/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-service-cloudcode/src/main/java/youke/service/cloudcode/main/CloudCodeProviderMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-facade-fans/src/main/java/youke/facade/fans/provider/IShopFansService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="26" column="19" lean-forward="false" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-common-dao/src/main/java/youke/common/dao/IFriendTagDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="26" column="106" lean-forward="false" selection-start-line="26" selection-start-column="106" selection-end-line="26" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-web-pc/src/main/java/youke/web/pc/action/JDAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-service-fans/src/main/resources/META-INF/spring/spring-activemq.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-web-pc/src/main/resources/META-INF/spring/spring-mvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-360">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-web-pc/src/main/resources/META-INF/spring/dubbo-consumer.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="71" column="38" lean-forward="false" selection-start-line="71" selection-start-column="38" selection-end-line="71" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-service-fans/src/main/resources/META-INF/spring/dubbo-provider.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="48" lean-forward="false" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-common/src/main/resources/youke-product.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="16" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-common/src/main/resources/dubbo-product.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-service-fans/src/main/resources/META-INF/spring/spring-mybatis.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-common-dao/src/main/java/youke/common/dao/mapper/IShopFansTagDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="83" lean-forward="false" selection-start-line="13" selection-start-column="83" selection-end-line="13" selection-end-column="83" />
+          <folding>
+            <marker date="1536226410055" expanded="true" signature="680:755" ph="DELETE FROM t_shop_fans_tag... " />
+            <marker date="1536226410055" expanded="true" signature="870:990" ph="select from t_shop_fans_tag" />
+            <marker date="1536226410055" expanded="true" signature="1077:1141" ph="delete from t_shop_fans_tag... " />
+            <marker date="1536226410055" expanded="true" signature="1231:1419" ph="insert into t_shop_fans_tag... " />
+            <marker date="1536226410055" expanded="true" signature="2570:2991" ph="update t_shop_fans_tag... " />
+            <marker date="1536226410055" expanded="true" signature="3095:3283" ph="update t_shop_fans_tag... " />
+            <marker date="1536226410055" expanded="true" signature="3657:3723" ph="SELECT tagId... t_shop_fans_tag" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-common-dao/src/main/java/youke/common/dao/IShopFansTagDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="28" column="7" lean-forward="false" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-service-fans/src/test/java/youke/service/fans/provider/FansServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="28" column="5" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-service-fans/src/main/java/youke/service/fans/biz/IFansTagBiz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="49" column="22" lean-forward="false" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-service-fans/src/main/java/youke/service/fans/biz/impl/FansTagBiz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="189" column="39" lean-forward="true" selection-start-line="189" selection-start-column="39" selection-end-line="189" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-web-pc/src/main/java/youke/web/pc/action/PcwxAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="258" column="32" lean-forward="true" selection-start-line="258" selection-start-column="32" selection-end-line="258" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-common/src/main/resources/youke-test.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="23" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-common/src/main/resources/youke.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-common/src/main/resources/dubbo-test.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-common/src/main/resources/dubbo.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-web-pc/src/main/java/youke/web/pc/action/FansTagAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="31" column="18" lean-forward="false" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-facade-fans/src/main/java/youke/facade/fans/provider/IFansTagService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="46" column="14" lean-forward="false" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youke-service-fans/src/main/java/youke/service/fans/provider/FansTagService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="80" column="67" lean-forward="true" selection-start-line="80" selection-start-column="67" selection-end-line="80" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>youke-web-service</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2560214" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2560214" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2560214" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2560214" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>youke-web-pc</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2560214" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: aopalliance:aopalliance:1.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2560214" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

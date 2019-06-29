@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IReplyRuleKeyDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TReplyRuleKey" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="ruleId" property="ruleid" jdbcType="INTEGER" />
+    <result column="key" property="key" jdbcType="VARCHAR" />
+    <result column="appId" property="appid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, ruleId,`key`, appId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_reply_rule_key
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_reply_rule_key
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TReplyRuleKey" >
+    insert into t_reply_rule_key (id, ruleId,`key`, appId
+      )
+    values (#{id,jdbcType=INTEGER}, #{ruleId,jdbcType=INTEGER}, #{key,jdbcType=VARCHAR}, #{appid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TReplyRuleKey" useGeneratedKeys="true" keyProperty="id">
+    insert into t_reply_rule_key
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="ruleid != null" >
+        ruleId,
+      </if>
+      <if test="key != null" >
+        `key`,
+      </if>
+      <if test="appid != null" >
+        appId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ruleid != null" >
+        #{ruleid,jdbcType=INTEGER},
+      </if>
+      <if test="key != null" >
+        #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null" >
+        #{appid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TReplyRuleKey" >
+    update t_reply_rule_key
+    <set >
+      <if test="ruleid != null" >
+        ruleId = #{ruleid,jdbcType=INTEGER},
+      </if>
+      <if test="key != null" >
+        `key` = #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null" >
+        appId = #{appid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TReplyRuleKey" >
+    update t_reply_rule_key
+    set  ruleId = #{ruleid,jdbcType=INTEGER},
+      `key` = #{key,jdbcType=VARCHAR},
+      appId = #{appid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="hasReplyRuleKey" resultType="java.lang.String">
+    select `key`
+    FROM t_reply_rule_key
+    WHERE appId = #{appId} and `key` = #{key}
+  </select>
+
+  <delete id="deleteByRuleId">
+    DELETE
+    FROM t_reply_rule_key
+    WHERE ruleId = #{ruleId} and appId = #{appId}
+  </delete>
+
+  <select id="selectKeysByRuleId"  resultType="java.lang.String">
+    select
+    `key`
+    from t_reply_rule_key
+    where ruleId = #{ruleId}
+  </select>
+  <select id="selectRuleIdLikeKey" resultType="java.lang.Integer">
+    select
+    ruleId
+    from t_reply_rule_key
+    where appId = #{appId} AND `key` like #{key}
+    group by ruleId
+  </select>
+</mapper>

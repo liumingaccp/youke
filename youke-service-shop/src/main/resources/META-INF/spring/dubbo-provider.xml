@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:property-placeholder location="classpath:dubbo.properties" ignore-unresolvable="true"/>
+
+	<dubbo:application name="youke-service-shop" owner="${dubbo.application.owner}" organization="${dubbo.application.organization}"/>
+
+	<!-- 使用multicast广播注册中心暴露服务地址 -->
+	<!-- <dubbo:registry address="multicast://224.5.6.7:1234" /> -->
+
+	<dubbo:registry address="${dubbo.registry.address}" />
+    
+	<!-- 用dubbo协议在20880端口暴露服务 -->
+	<dubbo:protocol name="dubbo" port="20883" />
+	<!--<dubbo:protocol name="dubbo" port="20885" />-->
+	<!-- 声明需要暴露的服务接口  几个关键参数说明
+	     version 服务版本，建议使用两位数字版本，如：1.0，通常在接口不兼容是版本号才需要升级 默认0.0.0
+	     group 服务分组，当一个接口有多个实现，可以用分组区分
+	     delay 可选 延迟注册服务时间(毫秒)，设为-1时，表示延迟到Spring容器初始化完成时暴露服务 默认0
+	     timeout 可选 远程服务调用超时时间(毫秒)
+	     retries 可选 远程服务调用重试次数，不包括第一次调用，0为不需要重试 默认2(失败后调用2次，共3次)
+	     loadbalance 可选 负载均衡策略，可选值：random，roundrobin，leastactice，分别表示：随机，轮询，最少活跃调用 默认random
+	     async 可选 异步调用 默认false
+	     executes 可选 服务提供者每个服务方法最大可并行请求数
+	     actives 可选 服务消费者每个服务方法最大并发调用数
+	 -->
+
+	<dubbo:service  ref="shopService" interface="youke.facade.shop.provider.IShopService" timeout="6000" version="1.0.0" />
+
+</beans>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IMobcodeOrderDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TMobcodeOrder" >
+    <id column="oid" property="oid" jdbcType="VARCHAR" />
+    <result column="randomstr" property="randomstr" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="totalCount" property="totalcount" jdbcType="INTEGER" />
+    <result column="price" property="price" jdbcType="INTEGER" />
+    <result column="totalPrice" property="totalprice" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="payTime" property="paytime" jdbcType="TIMESTAMP" />
+    <result column="payType" property="paytype" jdbcType="VARCHAR" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
+    <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    oid, randomstr, title, num, totalCount, price, totalPrice, state, createTime, payTime,
+    payType, userId, youkeId
+  </sql>
+  <select id="getOrderList" resultMap="BaseResultMap">
+    select oid,title,createTime,num,totalCount,totalPrice,state
+    from t_mobcode_order
+    WHERE youkeId = #{dykId}
+    ORDER BY createTime DESC
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from t_mobcode_order
+    where oid = #{oid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_mobcode_order
+    where oid = #{oid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TMobcodeOrder" >
+    insert into t_mobcode_order (oid, randomstr, title,
+    num, totalCount, price,
+    totalPrice, state, createTime,
+    payTime, payType, userId,
+    youkeId)
+    values (#{oid,jdbcType=VARCHAR}, #{randomstr,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR},
+    #{num,jdbcType=INTEGER}, #{totalcount,jdbcType=INTEGER}, #{price,jdbcType=INTEGER},
+    #{totalprice,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP},
+    #{paytime,jdbcType=TIMESTAMP}, #{paytype,jdbcType=VARCHAR}, #{userid,jdbcType=INTEGER},
+    #{youkeid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TMobcodeOrder" >
+    insert into t_mobcode_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="oid != null" >
+        oid,
+      </if>
+      <if test="randomstr != null" >
+        randomstr,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="totalcount != null" >
+        totalCount,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="totalprice != null" >
+        totalPrice,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="paytime != null" >
+        payTime,
+      </if>
+      <if test="paytype != null" >
+        payType,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="oid != null" >
+        #{oid,jdbcType=VARCHAR},
+      </if>
+      <if test="randomstr != null" >
+        #{randomstr,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="totalcount != null" >
+        #{totalcount,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="totalprice != null" >
+        #{totalprice,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paytime != null" >
+        #{paytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paytype != null" >
+        #{paytype,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TMobcodeOrder" >
+    update t_mobcode_order
+    <set >
+      <if test="randomstr != null" >
+        randomstr = #{randomstr,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="totalcount != null" >
+        totalCount = #{totalcount,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=INTEGER},
+      </if>
+      <if test="totalprice != null" >
+        totalPrice = #{totalprice,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paytime != null" >
+        payTime = #{paytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paytype != null" >
+        payType = #{paytype,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="youkeid != null" >
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where oid = #{oid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TMobcodeOrder" >
+    update t_mobcode_order
+    set randomstr = #{randomstr,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      num = #{num,jdbcType=INTEGER},
+      totalCount = #{totalcount,jdbcType=INTEGER},
+      price = #{price,jdbcType=INTEGER},
+      totalPrice = #{totalprice,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      payTime = #{paytime,jdbcType=TIMESTAMP},
+      payType = #{paytype,jdbcType=VARCHAR},
+      userId = #{userid,jdbcType=INTEGER},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where oid = #{oid,jdbcType=VARCHAR}
+  </update>
+</mapper>

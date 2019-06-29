@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.ICloudCodeRuleDao">
+    <resultMap id="BaseResultMap" type="youke.common.model.TCloudCodeRule">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="beginTime" property="begintime" jdbcType="VARCHAR"/>
+        <result column="endTime" property="endtime" jdbcType="VARCHAR"/>
+        <result column="isRandom" property="israndom" jdbcType="INTEGER"/>
+        <result column="inOrder" property="inorder" jdbcType="INTEGER"/>
+        <result column="dayTimes" property="daytimes" jdbcType="INTEGER"/>
+        <result column="totalTimes" property="totaltimes" jdbcType="INTEGER"/>
+        <result column="cloudId" property="cloudid" jdbcType="BIGINT"/>
+        <result column="youkeId" property="youkeid" jdbcType="VARCHAR"/>
+    </resultMap>
+    <resultMap id="RuleResultMap" type="youke.common.model.vo.result.cloudcode.CloudCodeRuleAuditRetVo">
+        <result column="beginTime" property="begTime"/>
+        <result column="endTime" property="endTime"/>
+        <result column="isRandom" property="isRandom"/>
+        <result column="inOrder" property="inOrder"/>
+        <result column="dayTimes" property="dayTimes"/>
+        <result column="totalTimes" property="totalTimes"/>
+        <collection property="qrcodes" javaType="java.util.ArrayList" ofType="youke.common.model.vo.result.cloudcode.CloudCodeQrCodeAuditRetVo"
+                    select="youke.common.dao.ICloudCodeRuleDao.selectByRuleId" column="id">
+            <id property="id" column="id"/>
+            <result column="remark" property="remark"/>
+            <result column="url" property="url"/>
+        </collection>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, beginTime, endTime, isRandom, inOrder, dayTimes, totalTimes, cloudId, youkeId
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from t_cloud_code_rule
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <select id="selectRulesAndQrCodesByCloudId" resultMap="RuleResultMap">
+      select id, beginTime, endTime, isRandom, inOrder, dayTimes, totalTimes from t_cloud_code_rule where cloudId=#{id}
+    </select>
+    <select id="selectByRuleId" resultType="youke.common.model.vo.result.cloudcode.CloudCodeQrCodeAuditRetVo">
+        SELECT id AS id, url AS url, remark AS remark from t_cloud_code_qrcode where ruleId=#{id}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_cloud_code_rule
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="youke.common.model.TCloudCodeRule">
+    insert into t_cloud_code_rule (id, beginTime, endTime, 
+      isRandom, inOrder, dayTimes, 
+      totalTimes, cloudId, youkeId
+      )
+    values (#{id,jdbcType=BIGINT}, #{begintime,jdbcType=VARCHAR}, #{endtime,jdbcType=VARCHAR}, 
+      #{israndom,jdbcType=INTEGER}, #{inorder,jdbcType=INTEGER}, #{daytimes,jdbcType=INTEGER}, 
+      #{totaltimes,jdbcType=INTEGER}, #{cloudid,jdbcType=BIGINT}, #{youkeid,jdbcType=VARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="youke.common.model.TCloudCodeRule" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        insert into t_cloud_code_rule
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="begintime != null">
+                beginTime,
+            </if>
+            <if test="endtime != null">
+                endTime,
+            </if>
+            <if test="israndom != null">
+                isRandom,
+            </if>
+            <if test="inorder != null">
+                inOrder,
+            </if>
+            <if test="daytimes != null">
+                dayTimes,
+            </if>
+            <if test="totaltimes != null">
+                totalTimes,
+            </if>
+            <if test="cloudid != null">
+                cloudId,
+            </if>
+            <if test="youkeid != null">
+                youkeId,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="begintime != null">
+                #{begintime,jdbcType=VARCHAR},
+            </if>
+            <if test="endtime != null">
+                #{endtime,jdbcType=VARCHAR},
+            </if>
+            <if test="israndom != null">
+                #{israndom,jdbcType=INTEGER},
+            </if>
+            <if test="inorder != null">
+                #{inorder,jdbcType=INTEGER},
+            </if>
+            <if test="daytimes != null">
+                #{daytimes,jdbcType=INTEGER},
+            </if>
+            <if test="totaltimes != null">
+                #{totaltimes,jdbcType=INTEGER},
+            </if>
+            <if test="cloudid != null">
+                #{cloudid,jdbcType=BIGINT},
+            </if>
+            <if test="youkeid != null">
+                #{youkeid,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TCloudCodeRule">
+        update t_cloud_code_rule
+        <set>
+            <if test="begintime != null">
+                beginTime = #{begintime,jdbcType=VARCHAR},
+            </if>
+            <if test="endtime != null">
+                endTime = #{endtime,jdbcType=VARCHAR},
+            </if>
+            <if test="israndom != null">
+                isRandom = #{israndom,jdbcType=INTEGER},
+            </if>
+            <if test="inorder != null">
+                inOrder = #{inorder,jdbcType=INTEGER},
+            </if>
+            <if test="daytimes != null">
+                dayTimes = #{daytimes,jdbcType=INTEGER},
+            </if>
+            <if test="totaltimes != null">
+                totalTimes = #{totaltimes,jdbcType=INTEGER},
+            </if>
+            <if test="cloudid != null">
+                cloudId = #{cloudid,jdbcType=BIGINT},
+            </if>
+            <if test="youkeid != null">
+                youkeId = #{youkeid,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="youke.common.model.TCloudCodeRule">
+    update t_cloud_code_rule
+    set beginTime = #{begintime,jdbcType=VARCHAR},
+      endTime = #{endtime,jdbcType=VARCHAR},
+      isRandom = #{israndom,jdbcType=INTEGER},
+      inOrder = #{inorder,jdbcType=INTEGER},
+      dayTimes = #{daytimes,jdbcType=INTEGER},
+      totalTimes = #{totaltimes,jdbcType=INTEGER},
+      cloudId = #{cloudid,jdbcType=BIGINT},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

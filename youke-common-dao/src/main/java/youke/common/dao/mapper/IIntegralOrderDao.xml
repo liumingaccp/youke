@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IIntegralOrderDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TIntegralOrder" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="orderno" property="orderno" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="wxfansname" property="wxfansname" jdbcType="VARCHAR" />
+    <result column="shopfansname" property="shopfansname" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="price" property="price" jdbcType="INTEGER" />
+    <result column="integral" property="integral" jdbcType="INTEGER" />
+    <result column="money" property="money" jdbcType="INTEGER" />
+    <result column="openType" property="opentype" jdbcType="INTEGER" />
+    <result column="backMoney" property="backmoney" jdbcType="INTEGER" />
+    <result column="orderTime" property="ordertime" jdbcType="TIMESTAMP" />
+    <result column="backTime" property="backtime" jdbcType="TIMESTAMP" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="activeId" property="activeid" jdbcType="INTEGER" />
+    <result column="shopId" property="shopid" jdbcType="VARCHAR" />
+    <result column="shopType" property="shoptype" jdbcType="INTEGER" />
+    <result column="openId" property="openid" jdbcType="VARCHAR" />
+    <result column="appId" property="appid" jdbcType="VARCHAR" />
+    <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, orderno, title, wxfansname, shopfansname, createTime, price, integral, money, 
+    openType, backMoney, orderTime, backTime, state, activeId, shopId, shopType, openId, 
+    appId, youkeId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_integral_order
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_integral_order
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TIntegralOrder" useGeneratedKeys="true" keyProperty="id">
+    insert into t_integral_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orderno != null" >
+        orderno,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="wxfansname != null" >
+        wxfansname,
+      </if>
+      <if test="shopfansname != null" >
+        shopfansname,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="integral != null" >
+        integral,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="opentype != null" >
+        openType,
+      </if>
+      <if test="backmoney != null" >
+        backMoney,
+      </if>
+      <if test="ordertime != null" >
+        orderTime,
+      </if>
+      <if test="backtime != null" >
+        backTime,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="activeid != null" >
+        activeId,
+      </if>
+      <if test="shopid != null" >
+        shopId,
+      </if>
+      <if test="shoptype != null" >
+        shopType,
+      </if>
+      <if test="openid != null" >
+        openId,
+      </if>
+      <if test="appid != null" >
+        appId,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="orderno != null" >
+        #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="wxfansname != null" >
+        #{wxfansname,jdbcType=VARCHAR},
+      </if>
+      <if test="shopfansname != null" >
+        #{shopfansname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="integral != null" >
+        #{integral,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=INTEGER},
+      </if>
+      <if test="opentype != null" >
+        #{opentype,jdbcType=INTEGER},
+      </if>
+      <if test="backmoney != null" >
+        #{backmoney,jdbcType=INTEGER},
+      </if>
+      <if test="ordertime != null" >
+        #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="backtime != null" >
+        #{backtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="activeid != null" >
+        #{activeid,jdbcType=INTEGER},
+      </if>
+      <if test="shopid != null" >
+        #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="shoptype != null" >
+        #{shoptype,jdbcType=INTEGER},
+      </if>
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null" >
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TIntegralOrder" useGeneratedKeys="true" keyProperty="id">
+    insert into t_integral_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orderno != null" >
+        orderno,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="wxfansname != null" >
+        wxfansname,
+      </if>
+      <if test="shopfansname != null" >
+        shopfansname,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="integral != null" >
+        integral,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="opentype != null" >
+        openType,
+      </if>
+      <if test="backmoney != null" >
+        backMoney,
+      </if>
+      <if test="ordertime != null" >
+        orderTime,
+      </if>
+      <if test="backtime != null" >
+        backTime,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="activeid != null" >
+        activeId,
+      </if>
+      <if test="shopid != null" >
+        shopId,
+      </if>
+      <if test="shoptype != null" >
+        shopType,
+      </if>
+      <if test="openid != null" >
+        openId,
+      </if>
+      <if test="appid != null" >
+        appId,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="orderno != null" >
+        #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="wxfansname != null" >
+        #{wxfansname,jdbcType=VARCHAR},
+      </if>
+      <if test="shopfansname != null" >
+        #{shopfansname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="integral != null" >
+        #{integral,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=INTEGER},
+      </if>
+      <if test="opentype != null" >
+        #{opentype,jdbcType=INTEGER},
+      </if>
+      <if test="backmoney != null" >
+        #{backmoney,jdbcType=INTEGER},
+      </if>
+      <if test="ordertime != null" >
+        #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="backtime != null" >
+        #{backtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="activeid != null" >
+        #{activeid,jdbcType=INTEGER},
+      </if>
+      <if test="shopid != null" >
+        #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="shoptype != null" >
+        #{shoptype,jdbcType=INTEGER},
+      </if>
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null" >
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TIntegralOrder" >
+    update t_integral_order
+    <set >
+      <if test="orderno != null" >
+        orderno = #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="wxfansname != null" >
+        wxfansname = #{wxfansname,jdbcType=VARCHAR},
+      </if>
+      <if test="shopfansname != null" >
+        shopfansname = #{shopfansname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=INTEGER},
+      </if>
+      <if test="integral != null" >
+        integral = #{integral,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=INTEGER},
+      </if>
+      <if test="opentype != null" >
+        openType = #{opentype,jdbcType=INTEGER},
+      </if>
+      <if test="backmoney != null" >
+        backMoney = #{backmoney,jdbcType=INTEGER},
+      </if>
+      <if test="ordertime != null" >
+        orderTime = #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="backtime != null" >
+        backTime = #{backtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="activeid != null" >
+        activeId = #{activeid,jdbcType=INTEGER},
+      </if>
+      <if test="shopid != null" >
+        shopId = #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="shoptype != null" >
+        shopType = #{shoptype,jdbcType=INTEGER},
+      </if>
+      <if test="openid != null" >
+        openId = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null" >
+        appId = #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="youkeid != null" >
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TIntegralOrder" >
+    update t_integral_order
+    set orderno = #{orderno,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      wxfansname = #{wxfansname,jdbcType=VARCHAR},
+      shopfansname = #{shopfansname,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      price = #{price,jdbcType=INTEGER},
+      integral = #{integral,jdbcType=INTEGER},
+      money = #{money,jdbcType=INTEGER},
+      openType = #{opentype,jdbcType=INTEGER},
+      backMoney = #{backmoney,jdbcType=INTEGER},
+      orderTime = #{ordertime,jdbcType=TIMESTAMP},
+      backTime = #{backtime,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=INTEGER},
+      activeId = #{activeid,jdbcType=INTEGER},
+      shopId = #{shopid,jdbcType=VARCHAR},
+      shopType = #{shoptype,jdbcType=INTEGER},
+      openId = #{openid,jdbcType=VARCHAR},
+      appId = #{appid,jdbcType=VARCHAR},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="queryList" resultType="youke.common.model.vo.result.IntegralOrderVo" parameterType="youke.common.model.vo.param.WealOrderQueryVo" >
+    select
+    id, orderno, title, wxfansname, shopfansname, createTime, price, integral, money, backMoney, state
+    from t_integral_order
+    <where>
+      youkeId = #{dykId}
+      <if test="title != null">
+        AND title LIKE #{title}
+      </if>
+      <if test="wxFansName != null">
+        AND wxfansname LIKE #{wxFansName}
+      </if>
+      <if test="shopFansName != null">
+        AND shopfansname LIKE #{shopFansName}
+      </if>
+      <if test="state > -1">
+        AND state = #{state}
+      </if>
+      <if test="orderNo != null">
+        AND orderno = #{orderNo}
+      </if>
+      <if test="timeBeg != null">
+        AND createTime &gt;= #{timeBeg}
+      </if>
+      <if test="timeEnd != null">
+        AND createTime &lt;= #{timeEnd}
+      </if>
+      <if test="integralBeg != null and integralBeg != -1">
+        AND integral &gt;= #{integralBeg}
+      </if>
+      <if test="integralEnd != null and integralEnd != -1">
+        AND integral &lt;= #{integralEnd}
+      </if>
+      <if test="moneyBeg != null and moneyBeg != -1">
+        AND money &gt;= #{moneyBeg}
+      </if>
+      <if test="moneyEnd != null and moneyEnd != -1" >
+        AND money &lt;= #{moneyEnd}
+      </if>
+      <if test="openId != null">
+        AND openId = #{openId}
+      </if>
+    </where>
+  </select>
+
+  <select id="countIntegral" resultType="java.lang.Long">
+    SELECT SUM(integral)
+    FROM t_integral_order
+    WHERE youkeId = #{dykId}
+  </select>
+
+  <select id="queryListByOpenId" resultType="youke.common.model.vo.result.IntegralOrderRetVo">
+    select
+    torder.id, torder.orderno as orderNo, torder.title, torder.createTime,
+    torder.price, torder.integral, torder.money, torder.backMoney, torder.state,torder.openType,
+    active.cover, active.goodsId, active.goodsUrl
+    from t_integral_order torder
+    JOIN t_integral_active active ON torder.activeId = active.id
+    WHERE torder.openId = #{openId} and torder.appId = #{appId}
+  </select>
+
+  <update id="updateBatchState">
+    update t_integral_order set state=#{state} where id in
+    <foreach collection="orderIds" item="orderId"  open="(" separator="," close=")">
+       #{orderId}
+    </foreach>
+  </update>
+
+  <select id="selectOrderInfo" resultType="youke.common.model.vo.result.IntegralOrderRetVo">
+    SELECT
+      torder.id, torder.orderno as orderNo, torder.title, torder.createTime,
+      torder.price, torder.integral, torder.money, torder.backMoney, torder.state,torder.openType,
+      active.cover, active.goodsId, active.goodsUrl, active.id AS activeId
+    from t_integral_order torder
+    JOIN t_integral_active active ON torder.activeId = active.id
+    WHERE torder.openId = #{openId} and torder.appId = #{appId} and torder.id = #{orderId}
+  </select>
+
+  <select id="selectInttegralCount" parameterType="youke.common.model.vo.param.WealOrderQueryVo" resultType="java.lang.Long">
+    select
+    sum(integral)
+    from t_integral_order
+    <where>
+      youkeId = #{dykId}
+      <if test="title != null">
+        AND title LIKE #{title}
+      </if>
+      <if test="wxFansName != null">
+        AND wxfansname LIKE #{wxFansName}
+      </if>
+      <if test="shopFansName != null">
+        AND shopfansname LIKE #{shopFansName}
+      </if>
+      <if test="state > -1">
+        AND state = #{state}
+      </if>
+      <if test="orderNo != null">
+        AND orderno = #{orderNo}
+      </if>
+      <if test="timeBeg != null">
+        AND createTime &gt;= #{timeBeg}
+      </if>
+      <if test="timeEnd != null">
+        AND createTime &lt;= #{timeEnd}
+      </if>
+      <if test="integralBeg != null and integralBeg != -1">
+        AND integral &gt;= #{integralBeg}
+      </if>
+      <if test="integralEnd != null and integralEnd != -1">
+        AND integral &lt;= #{integralEnd}
+      </if>
+      <if test="moneyBeg != null and moneyBeg != -1">
+        AND money &gt;= #{moneyBeg}
+      </if>
+      <if test="moneyEnd != null and moneyEnd != -1" >
+        AND money &lt;= #{moneyEnd}
+      </if>
+      <if test="openId != null">
+        AND openId = #{openId}
+      </if>
+    </where>
+  </select>
+</mapper>

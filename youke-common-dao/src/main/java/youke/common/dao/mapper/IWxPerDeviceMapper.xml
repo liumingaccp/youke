@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IWxPerDeviceMapper">
+    <resultMap id="BaseResultMap" type="youke.common.model.TWxPerDevice">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="clientId" jdbcType="VARCHAR" property="clientid"/>
+        <result column="wxAccountId" jdbcType="BIGINT" property="wxaccountid"/>
+        <result column="wxPersonal" jdbcType="VARCHAR" property="wxpersonal"/>
+        <result column="weChatNum" jdbcType="VARCHAR" property="wechatnum"/>
+        <result column="deviceName" jdbcType="VARCHAR" property="devicename"/>
+        <result column="fansNum" jdbcType="INTEGER" property="fansnum"/>
+        <result column="phoneModel" jdbcType="VARCHAR" property="phonemodel"/>
+        <result column="imel" jdbcType="VARCHAR" property="imel"/>
+        <result column="createTime" jdbcType="TIMESTAMP" property="createtime"/>
+        <result column="lastTime" jdbcType="TIMESTAMP" property="lasttime"/>
+        <result column="state" jdbcType="INTEGER" property="state"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="recordDetail" jdbcType="VARCHAR" property="recorddetail"/>
+        <result column="youkeId" jdbcType="VARCHAR" property="youkeid"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, clientId, wxAccountId, wxPersonal, weChatNum, deviceName, fansNum, phoneModel, imel, createTime,
+    lastTime, state, remark, recordDetail, youkeId
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_wxper_device
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <select id="selectDeviceManageList" resultType="youke.common.model.vo.result.wxper.DeviceQueryRetVo">
+        SELECT id, deviceName, wxPersonal, weChatNum, remark, fansNum, lastTime, state, recordDetail
+        FROM t_wxper_device
+        <where>
+            <if test="state!=-1">
+                AND state = #{state}
+            </if>
+            <if test="deviceName!=null">
+                AND deviceName like concat('%',#{deviceName},'%')
+            </if>
+            <if test="wxPersonal!=null">
+                AND wxPersonal like concat('%',#{wxPersonal},'%')
+            </if>
+            <if test="remark!=null">
+                AND remark = #{remark}
+            </if>
+            AND youkeId = #{youkeId}
+            AND state != 2
+        </where>
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_wxper_device
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="youke.common.model.TWxPerDevice" useGeneratedKeys="true" keyProperty="id">
+    insert into t_wxper_device (id, clientId, wxAccountId,
+    wxPersonal, weChatNum, deviceName, fansNum,
+    phoneModel, imel, createTime,
+    lastTime, state, remark,
+    recordDetail, youkeId)
+    values (#{id,jdbcType=BIGINT}, #{clientid,jdbcType=VARCHAR}, #{wxaccountid,jdbcType=BIGINT},
+    #{wxpersonal,jdbcType=VARCHAR}, #{wechatnum,jdbcType=VARCHAR}, #{devicename,jdbcType=VARCHAR}, #{fansnum,jdbcType=INTEGER},
+    #{phonemodel,jdbcType=VARCHAR}, #{imel,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP},
+    #{lasttime,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR},
+    #{recorddetail,jdbcType=VARCHAR}, #{youkeid,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="youke.common.model.TWxPerDevice" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into t_wxper_device
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="clientid != null">
+                clientId,
+            </if>
+            <if test="wxaccountid != null">
+                wxAccountId,
+            </if>
+            <if test="wxpersonal != null">
+                wxPersonal,
+            </if>
+            <if test="wechatnum != null">
+                weChatNum,
+            </if>
+            <if test="devicename != null">
+                deviceName,
+            </if>
+            <if test="fansnum != null">
+                fansNum,
+            </if>
+            <if test="phonemodel != null">
+                phoneModel,
+            </if>
+            <if test="imel != null">
+                imel,
+            </if>
+            <if test="createtime != null">
+                createTime,
+            </if>
+            <if test="lasttime != null">
+                lastTime,
+            </if>
+            <if test="state != null">
+                state,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="recorddetail != null">
+                recordDetail,
+            </if>
+            <if test="youkeid != null">
+                youkeId,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="clientid != null">
+                #{clientid,jdbcType=VARCHAR},
+            </if>
+            <if test="wxaccountid != null">
+                #{wxaccountid,jdbcType=BIGINT},
+            </if>
+            <if test="wxpersonal != null">
+                #{wxpersonal,jdbcType=VARCHAR},
+            </if>
+            <if test="wechatnum != null">
+                #{wechatnum,jdbcType=VARCHAR},
+            </if>
+            <if test="devicename != null">
+                #{devicename,jdbcType=VARCHAR},
+            </if>
+            <if test="fansnum != null">
+                #{fansnum,jdbcType=INTEGER},
+            </if>
+            <if test="phonemodel != null">
+                #{phonemodel,jdbcType=VARCHAR},
+            </if>
+            <if test="imel != null">
+                #{imel,jdbcType=VARCHAR},
+            </if>
+            <if test="createtime != null">
+                #{createtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lasttime != null">
+                #{lasttime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="state != null">
+                #{state,jdbcType=INTEGER},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="recorddetail != null">
+                #{recorddetail,jdbcType=VARCHAR},
+            </if>
+            <if test="youkeid != null">
+                #{youkeid,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TWxPerDevice">
+        update t_wxper_device
+        <set>
+            <if test="clientid != null">
+                clientId = #{clientid,jdbcType=VARCHAR},
+            </if>
+            <if test="wxaccountid != null">
+                wxAccountId = #{wxaccountid,jdbcType=BIGINT},
+            </if>
+            <if test="wxpersonal != null">
+                wxPersonal = #{wxpersonal,jdbcType=VARCHAR},
+            </if>
+            <if test="wechatnum != null">
+                weChatNum = #{wechatnum,jdbcType=VARCHAR},
+            </if>
+            <if test="devicename != null">
+                deviceName = #{devicename,jdbcType=VARCHAR},
+            </if>
+            <if test="fansnum != null">
+                fansNum = #{fansnum,jdbcType=INTEGER},
+            </if>
+            <if test="phonemodel != null">
+                phoneModel = #{phonemodel,jdbcType=VARCHAR},
+            </if>
+            <if test="imel != null">
+                imel = #{imel,jdbcType=VARCHAR},
+            </if>
+            <if test="createtime != null">
+                createTime = #{createtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lasttime != null">
+                lastTime = #{lasttime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="state != null">
+                state = #{state,jdbcType=INTEGER},
+            </if>
+            <if test="remark != null">
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="recorddetail != null">
+                recordDetail = #{recorddetail,jdbcType=VARCHAR},
+            </if>
+            <if test="youkeid != null">
+                youkeId = #{youkeid,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="youke.common.model.TWxPerDevice">
+    update t_wxper_device
+    set clientId = #{clientid,jdbcType=VARCHAR},
+    wxAccountId = #{wxaccountid,jdbcType=BIGINT},
+    wxPersonal = #{wxpersonal,jdbcType=VARCHAR},
+    weChatNum = #{wechatnum,jdbcType=VARCHAR},
+    deviceName = #{devicename,jdbcType=VARCHAR},
+    fansNum = #{fansnum,jdbcType=INTEGER},
+    phoneModel = #{phonemodel,jdbcType=VARCHAR},
+    imel = #{imel,jdbcType=VARCHAR},
+    createTime = #{createtime,jdbcType=TIMESTAMP},
+    lastTime = #{lasttime,jdbcType=TIMESTAMP},
+    state = #{state,jdbcType=INTEGER},
+    remark = #{remark,jdbcType=VARCHAR},
+    recordDetail = #{recorddetail,jdbcType=VARCHAR},
+    youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+
+</mapper>

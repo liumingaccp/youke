@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.order.common.dao.IbTradeDao" >
+  <resultMap id="BaseResultMap" type="youke.order.common.model.TbTrade" >
+    <id column="tid" property="tid" jdbcType="BIGINT" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="seller_nick" property="sellerNick" jdbcType="VARCHAR" />
+    <result column="buyer_nick" property="buyerNick" jdbcType="VARCHAR" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+    <result column="modified" property="modified" jdbcType="TIMESTAMP" />
+    <result column="jdp_hashcode" property="jdpHashcode" jdbcType="VARCHAR" />
+    <result column="jdp_created" property="jdpCreated" jdbcType="TIMESTAMP" />
+    <result column="jdp_modified" property="jdpModified" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="youke.order.common.model.TbTrade" extends="BaseResultMap" >
+    <result column="jdp_response" property="jdpResponse" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    tid, status, type, seller_nick, buyer_nick, created, modified, jdp_hashcode, jdp_created, 
+    jdp_modified
+  </sql>
+  <sql id="Blob_Column_List" >
+    jdp_response
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from jdp_tb_trade
+    where tid = #{tid,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectAll" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from jdp_tb_trade limit 10
+  </select>
+
+
+  <select id="selectLastTrades" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from jdp_tb_trade where seller_nick IN
+    <foreach collection="snicks" item="snick" index="index"
+             open="(" close=")" separator=",">
+      #{snick}
+    </foreach>
+    and modified>#{lastdate} order by modified desc
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from jdp_tb_trade
+    where tid = #{tid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.order.common.model.TbTrade" >
+    insert into jdp_tb_trade (tid, status, type, 
+      seller_nick, buyer_nick, created, 
+      modified, jdp_hashcode, jdp_created, 
+      jdp_modified, jdp_response)
+    values (#{tid,jdbcType=BIGINT}, #{status,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{sellerNick,jdbcType=VARCHAR}, #{buyerNick,jdbcType=VARCHAR}, #{created,jdbcType=TIMESTAMP}, 
+      #{modified,jdbcType=TIMESTAMP}, #{jdpHashcode,jdbcType=VARCHAR}, #{jdpCreated,jdbcType=TIMESTAMP}, 
+      #{jdpModified,jdbcType=TIMESTAMP}, #{jdpResponse,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="youke.order.common.model.TbTrade" >
+    insert into jdp_tb_trade
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tid != null" >
+        tid,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="sellerNick != null" >
+        seller_nick,
+      </if>
+      <if test="buyerNick != null" >
+        buyer_nick,
+      </if>
+      <if test="created != null" >
+        created,
+      </if>
+      <if test="modified != null" >
+        modified,
+      </if>
+      <if test="jdpHashcode != null" >
+        jdp_hashcode,
+      </if>
+      <if test="jdpCreated != null" >
+        jdp_created,
+      </if>
+      <if test="jdpModified != null" >
+        jdp_modified,
+      </if>
+      <if test="jdpResponse != null" >
+        jdp_response,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tid != null" >
+        #{tid,jdbcType=BIGINT},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerNick != null" >
+        #{sellerNick,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerNick != null" >
+        #{buyerNick,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null" >
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modified != null" >
+        #{modified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jdpHashcode != null" >
+        #{jdpHashcode,jdbcType=VARCHAR},
+      </if>
+      <if test="jdpCreated != null" >
+        #{jdpCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jdpModified != null" >
+        #{jdpModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jdpResponse != null" >
+        #{jdpResponse,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.order.common.model.TbTrade" >
+    update jdp_tb_trade
+    <set >
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerNick != null" >
+        seller_nick = #{sellerNick,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerNick != null" >
+        buyer_nick = #{buyerNick,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null" >
+        created = #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modified != null" >
+        modified = #{modified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jdpHashcode != null" >
+        jdp_hashcode = #{jdpHashcode,jdbcType=VARCHAR},
+      </if>
+      <if test="jdpCreated != null" >
+        jdp_created = #{jdpCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jdpModified != null" >
+        jdp_modified = #{jdpModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jdpResponse != null" >
+        jdp_response = #{jdpResponse,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where tid = #{tid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="youke.order.common.model.TbTrade" >
+    update jdp_tb_trade
+    set status = #{status,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      seller_nick = #{sellerNick,jdbcType=VARCHAR},
+      buyer_nick = #{buyerNick,jdbcType=VARCHAR},
+      created = #{created,jdbcType=TIMESTAMP},
+      modified = #{modified,jdbcType=TIMESTAMP},
+      jdp_hashcode = #{jdpHashcode,jdbcType=VARCHAR},
+      jdp_created = #{jdpCreated,jdbcType=TIMESTAMP},
+      jdp_modified = #{jdpModified,jdbcType=TIMESTAMP},
+      jdp_response = #{jdpResponse,jdbcType=LONGVARCHAR}
+    where tid = #{tid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.order.common.model.TbTrade" >
+    update jdp_tb_trade
+    set status = #{status,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      seller_nick = #{sellerNick,jdbcType=VARCHAR},
+      buyer_nick = #{buyerNick,jdbcType=VARCHAR},
+      created = #{created,jdbcType=TIMESTAMP},
+      modified = #{modified,jdbcType=TIMESTAMP},
+      jdp_hashcode = #{jdpHashcode,jdbcType=VARCHAR},
+      jdp_created = #{jdpCreated,jdbcType=TIMESTAMP},
+      jdp_modified = #{jdpModified,jdbcType=TIMESTAMP}
+    where tid = #{tid,jdbcType=BIGINT}
+  </update>
+</mapper>

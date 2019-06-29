@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.ITagRuleDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TTagRule" >
+    <result column="serialNum" property="serialnum" jdbcType="INTEGER" />
+    <result column="thanNum" property="thannum" jdbcType="INTEGER" />
+    <result column="tagId" property="tagid" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="appId" property="appid" jdbcType="VARCHAR" />
+  </resultMap>
+  <select id="getAllRules" resultType="youke.common.model.vo.result.TagRuleVo">
+    SELECT ttr.serialNum AS serialNum ,
+	ttr.thanNum AS thanNum,
+	ttr.tagId AS tagId,
+	ttr.type AS type,
+	tt.title AS tagTitle
+    FROM t_tag_rule ttr JOIN t_tag tt
+    ON ttr.appId = tt.appId AND ttr.tagId = tt.id
+    where ttr.appId=#{appId}
+    ORDER BY ttr.type,ttr.serialNum ASC
+  </select>
+  <select id="getRules" resultType="youke.common.model.vo.result.TagRuleVo">
+    SELECT ttr.serialNum AS serialNum ,
+	ttr.thanNum AS thanNum,
+	ttr.tagId AS tagId,
+	ttr.type AS type,
+	tt.title AS tagTitle
+    FROM t_tag_rule ttr JOIN t_tag tt
+    ON ttr.appId = tt.appId AND ttr.tagId = tt.id
+    where ttr.type = #{type} and ttr.appId=#{appId}
+    ORDER BY ttr.type,ttr.serialNum ASC
+  </select>
+  <select id="selectRuleByTypeAndAppIdANdTagId" resultMap="BaseResultMap">
+    select * from t_tag_rule where tagId=#{tagId} and `type` = #{type} and appId = #{appId}
+  </select>
+  <delete id="deleteRuleByTypeAndAppId">
+    delete from t_tag_rule where type = #{type} and appId = #{appId}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TTagRule" useGeneratedKeys="true" keyProperty="id">
+    insert into t_tag_rule (serialNum, thanNum, tagId,
+    type, appId)
+    values (#{serialnum,jdbcType=INTEGER}, #{thannum,jdbcType=INTEGER}, #{tagid,jdbcType=INTEGER},
+    #{type,jdbcType=INTEGER}, #{appid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TTagRule" useGeneratedKeys="true" keyProperty="id">
+    insert into t_tag_rule
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="serialnum != null" >
+        serialNum,
+      </if>
+      <if test="thannum != null" >
+        thanNum,
+      </if>
+      <if test="tagid != null" >
+        tagId,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="appid != null" >
+        appId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="serialnum != null" >
+        #{serialnum,jdbcType=INTEGER},
+      </if>
+      <if test="thannum != null" >
+        #{thannum,jdbcType=INTEGER},
+      </if>
+      <if test="tagid != null" >
+        #{tagid,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="appid != null" >
+        #{appid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

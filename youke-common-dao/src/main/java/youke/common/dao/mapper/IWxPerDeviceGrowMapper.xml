@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IWxPerDeviceGrowMapper" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TWxPerDeviceGrow" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="deviceId" property="deviceid" jdbcType="BIGINT" />
+    <result column="isOpenTask" property="isopentask" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="period" property="period" jdbcType="INTEGER" />
+    <result column="invokeDays" property="invokedays" jdbcType="VARCHAR" />
+    <result column="startHour" property="starthour" jdbcType="INTEGER" />
+    <result column="startMinute" property="startminute" jdbcType="INTEGER" />
+    <result column="endHour" property="endhour" jdbcType="INTEGER" />
+    <result column="endMinute" property="endminute" jdbcType="INTEGER" />
+    <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, deviceId, isOpenTask, type, period, invokeDays, startHour, startMinute, endHour, 
+    endMinute, youkeId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_wxper_device_grow
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_wxper_device_grow
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TWxPerDeviceGrow" >
+    insert into t_wxper_device_grow (id, deviceId, isOpenTask, 
+      type, period, invokeDays, 
+      startHour, startMinute, endHour, 
+      endMinute, youkeId)
+    values (#{id,jdbcType=BIGINT}, #{deviceid,jdbcType=BIGINT}, #{isopentask,jdbcType=INTEGER}, 
+      #{type,jdbcType=VARCHAR}, #{period,jdbcType=INTEGER}, #{invokedays,jdbcType=VARCHAR}, 
+      #{starthour,jdbcType=INTEGER}, #{startminute,jdbcType=INTEGER}, #{endhour,jdbcType=INTEGER}, 
+      #{endminute,jdbcType=INTEGER}, #{youkeid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TWxPerDeviceGrow" >
+    insert into t_wxper_device_grow
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="deviceid != null" >
+        deviceId,
+      </if>
+      <if test="isopentask != null" >
+        isOpenTask,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="period != null" >
+        period,
+      </if>
+      <if test="invokedays != null" >
+        invokeDays,
+      </if>
+      <if test="starthour != null" >
+        startHour,
+      </if>
+      <if test="startminute != null" >
+        startMinute,
+      </if>
+      <if test="endhour != null" >
+        endHour,
+      </if>
+      <if test="endminute != null" >
+        endMinute,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="deviceid != null" >
+        #{deviceid,jdbcType=BIGINT},
+      </if>
+      <if test="isopentask != null" >
+        #{isopentask,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null" >
+        #{period,jdbcType=INTEGER},
+      </if>
+      <if test="invokedays != null" >
+        #{invokedays,jdbcType=VARCHAR},
+      </if>
+      <if test="starthour != null" >
+        #{starthour,jdbcType=INTEGER},
+      </if>
+      <if test="startminute != null" >
+        #{startminute,jdbcType=INTEGER},
+      </if>
+      <if test="endhour != null" >
+        #{endhour,jdbcType=INTEGER},
+      </if>
+      <if test="endminute != null" >
+        #{endminute,jdbcType=INTEGER},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TWxPerDeviceGrow" >
+    update t_wxper_device_grow
+    <set >
+      <if test="deviceid != null" >
+        deviceId = #{deviceid,jdbcType=BIGINT},
+      </if>
+      <if test="isopentask != null" >
+        isOpenTask = #{isopentask,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="period != null" >
+        period = #{period,jdbcType=INTEGER},
+      </if>
+      <if test="invokedays != null" >
+        invokeDays = #{invokedays,jdbcType=VARCHAR},
+      </if>
+      <if test="starthour != null" >
+        startHour = #{starthour,jdbcType=INTEGER},
+      </if>
+      <if test="startminute != null" >
+        startMinute = #{startminute,jdbcType=INTEGER},
+      </if>
+      <if test="endhour != null" >
+        endHour = #{endhour,jdbcType=INTEGER},
+      </if>
+      <if test="endminute != null" >
+        endMinute = #{endminute,jdbcType=INTEGER},
+      </if>
+      <if test="youkeid != null" >
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TWxPerDeviceGrow" >
+    update t_wxper_device_grow
+    set deviceId = #{deviceid,jdbcType=BIGINT},
+      isOpenTask = #{isopentask,jdbcType=INTEGER},
+      type = #{type,jdbcType=VARCHAR},
+      period = #{period,jdbcType=INTEGER},
+      invokeDays = #{invokedays,jdbcType=VARCHAR},
+      startHour = #{starthour,jdbcType=INTEGER},
+      startMinute = #{startminute,jdbcType=INTEGER},
+      endHour = #{endhour,jdbcType=INTEGER},
+      endMinute = #{endminute,jdbcType=INTEGER},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

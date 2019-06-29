@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IMobcodeFansDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TMobcodeFans" >
+    <id column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="lastSendTime" property="lastsendtime" jdbcType="TIMESTAMP" />
+    <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    mobile, lastSendTime, youkeId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from t_mobcode_fans
+    where mobile = #{mobile,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_mobcode_fans
+    where mobile = #{mobile,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insertSelective" parameterType="youke.common.model.TMobcodeFans" >
+    insert into t_mobcode_fans
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="lastsendtime != null" >
+        lastSendTime,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="lastsendtime != null" >
+        #{lastsendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TMobcodeFans" >
+    update t_mobcode_fans
+    <set >
+      <if test="lastsendtime != null" >
+        lastSendTime = #{lastsendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="youkeid != null" >
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where mobile = #{mobile,jdbcType=VARCHAR}
+  </update>
+  <select id="selectFilterMobiles" resultType="java.lang.String">
+    SELECT mobile FROM t_mobcode_fans WHERE DATEDIFF(lastSendTime,NOW())&lt;=0 AND DATEDIFF(lastSendTime,NOW())>-#{filterDay} AND youkeId = #{dykId}
+  </select>
+</mapper>
+
+

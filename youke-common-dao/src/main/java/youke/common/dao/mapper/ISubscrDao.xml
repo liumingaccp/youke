@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.ISubscrDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TSubscr" >
+    <id column="appId" property="appid" jdbcType="VARCHAR" />
+    <result column="refreshToken" property="refreshtoken" jdbcType="VARCHAR" />
+    <result column="nickName" property="nickname" jdbcType="VARCHAR" />
+    <result column="headImg" property="headimg" jdbcType="VARCHAR" />
+    <result column="serviceType" property="servicetype" jdbcType="INTEGER" />
+    <result column="verifyType" property="verifytype" jdbcType="INTEGER" />
+    <result column="wxId" property="wxid" jdbcType="VARCHAR" />
+    <result column="principalName" property="principalname" jdbcType="VARCHAR" />
+    <result column="alias" property="alias" jdbcType="VARCHAR" />
+    <result column="businessInfo" property="businessinfo" jdbcType="VARCHAR" />
+    <result column="signature" property="signature" jdbcType="VARCHAR" />
+    <result column="qrcodeUrl" property="qrcodeurl" jdbcType="VARCHAR" />
+    <result column="funcInfo" property="funcinfo" jdbcType="VARCHAR" />
+    <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    appId, refreshToken, nickName, headImg, serviceType, verifyType, wxId, principalName,
+    alias, businessInfo, signature, qrcodeUrl, funcInfo, youkeId, createTime, state
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from t_subscr
+    where appId = #{appid,jdbcType=VARCHAR}
+  </select>
+    <select id="selectByYoukeId" resultType="youke.common.model.TSubscr">
+      select
+      <include refid="Base_Column_List" />
+      from t_subscr
+      where youkeId = #{youkeId}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_subscr
+    where appId = #{appid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TSubscr">
+    insert into t_subscr (appId, refreshToken, nickName,
+    headImg, serviceType, verifyType,
+    wxId, principalName, alias,
+    businessInfo,signature, qrcodeUrl, funcInfo,
+    youkeId, createTime, state
+    )
+    values (#{appid,jdbcType=VARCHAR}, #{refreshtoken,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR},
+    #{headimg,jdbcType=VARCHAR}, #{servicetype,jdbcType=INTEGER}, #{verifytype,jdbcType=INTEGER},
+    #{wxid,jdbcType=VARCHAR}, #{principalname,jdbcType=VARCHAR}, #{alias,jdbcType=VARCHAR},
+    #{businessinfo,jdbcType=VARCHAR}, #{signature,jdbcType=VARCHAR},#{qrcodeurl,jdbcType=VARCHAR}, #{funcinfo,jdbcType=VARCHAR},
+    #{youkeid,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER}
+    )
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TSubscr">
+    insert into t_subscr
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="appid != null" >
+        appId,
+      </if>
+      <if test="refreshtoken != null" >
+        refreshToken,
+      </if>
+      <if test="nickname != null" >
+        nickName,
+      </if>
+      <if test="headimg != null" >
+        headImg,
+      </if>
+      <if test="servicetype != null" >
+        serviceType,
+      </if>
+      <if test="verifytype != null" >
+        verifyType,
+      </if>
+      <if test="wxid != null" >
+        wxId,
+      </if>
+      <if test="principalname != null" >
+        principalName,
+      </if>
+      <if test="alias != null" >
+        alias,
+      </if>
+      <if test="businessinfo != null" >
+        businessInfo,
+      </if>
+      <if test="signature != null" >
+        signature,
+      </if>
+      <if test="qrcodeurl != null" >
+        qrcodeUrl,
+      </if>
+      <if test="funcinfo != null" >
+        funcInfo,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="appid != null" >
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="refreshtoken != null" >
+        #{refreshtoken,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null" >
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="headimg != null" >
+        #{headimg,jdbcType=VARCHAR},
+      </if>
+      <if test="servicetype != null" >
+        #{servicetype,jdbcType=INTEGER},
+      </if>
+      <if test="verifytype != null" >
+        #{verifytype,jdbcType=INTEGER},
+      </if>
+      <if test="wxid != null" >
+        #{wxid,jdbcType=VARCHAR},
+      </if>
+      <if test="principalname != null" >
+        #{principalname,jdbcType=VARCHAR},
+      </if>
+      <if test="alias != null" >
+        #{alias,jdbcType=VARCHAR},
+      </if>
+      <if test="businessinfo != null" >
+        #{businessinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="signature != null" >
+        #{signature,jdbcType=VARCHAR},
+      </if>
+      <if test="qrcodeurl != null" >
+        #{qrcodeurl,jdbcType=VARCHAR},
+      </if>
+      <if test="funcinfo != null" >
+        #{funcinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TSubscr" >
+    update t_subscr
+    <set >
+      <if test="refreshtoken != null" >
+        refreshToken = #{refreshtoken,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null" >
+        nickName = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="headimg != null" >
+        headImg = #{headimg,jdbcType=VARCHAR},
+      </if>
+      <if test="servicetype != null" >
+        serviceType = #{servicetype,jdbcType=INTEGER},
+      </if>
+      <if test="verifytype != null" >
+        verifyType = #{verifytype,jdbcType=INTEGER},
+      </if>
+      <if test="wxid != null" >
+        wxId = #{wxid,jdbcType=VARCHAR},
+      </if>
+      <if test="principalname != null" >
+        principalName = #{principalname,jdbcType=VARCHAR},
+      </if>
+      <if test="alias != null" >
+        alias = #{alias,jdbcType=VARCHAR},
+      </if>
+      <if test="businessinfo != null" >
+        businessInfo = #{businessinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="signature != null" >
+        signature = #{signature,jdbcType=VARCHAR},
+      </if>
+      <if test="qrcodeurl != null" >
+        qrcodeUrl = #{qrcodeurl,jdbcType=VARCHAR},
+      </if>
+      <if test="funcinfo != null" >
+        funcInfo = #{funcinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="youkeid != null" >
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+    </set>
+    where appId = #{appid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TSubscr" >
+    update t_subscr
+    set refreshToken = #{refreshtoken,jdbcType=VARCHAR},
+      nickName = #{nickname,jdbcType=VARCHAR},
+      headImg = #{headimg,jdbcType=VARCHAR},
+      serviceType = #{servicetype,jdbcType=INTEGER},
+      verifyType = #{verifytype,jdbcType=INTEGER},
+      wxId = #{wxid,jdbcType=VARCHAR},
+      principalName = #{principalname,jdbcType=VARCHAR},
+      alias = #{alias,jdbcType=VARCHAR},
+      businessInfo = #{businessinfo,jdbcType=VARCHAR},
+      signature = #{signature,jdbcType=VARCHAR},
+      qrcodeUrl = #{qrcodeurl,jdbcType=VARCHAR},
+      funcInfo = #{funcinfo,jdbcType=VARCHAR},
+      youkeId = #{youkeid,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=INTEGER}
+    where appId = #{appid,jdbcType=VARCHAR}
+  </update>
+</mapper>

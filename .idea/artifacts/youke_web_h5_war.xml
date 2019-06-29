@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="youke-web-h5:war">
+    <output-path>$PROJECT_DIR$/youke-web-h5/target</output-path>
+    <root id="archive" name="youke-web-h5-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="youke-web-h5:war exploded" />
+    </root>
+  </artifact>
+</component>

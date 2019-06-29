@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IMassRecordDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TMassRecord" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="thumbUrl" property="thumburl" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="sendType" property="sendtype" jdbcType="INTEGER" />
+    <result column="taskTime" property="tasktime" jdbcType="TIMESTAMP" />
+    <result column="overTime" property="overtime" jdbcType="TIMESTAMP" />
+    <result column="sendNum" property="sendnum" jdbcType="INTEGER" />
+    <result column="successNum" property="successnum" jdbcType="INTEGER" />
+    <result column="failNum" property="failnum" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="taskId" property="taskid" jdbcType="INTEGER" />
+    <result column="failRearon" property="failRearon" jdbcType="INTEGER" />
+    <result column="appId" property="appId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, thumbUrl, title, sendType, taskTime, overTime, sendNum, successNum, failNum,
+    state, taskId, failRearon,appId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_mass_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_mass_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TMassRecord" >
+    insert into t_mass_record (id, thumbUrl, title, 
+      sendType, taskTime, overTime, 
+      sendNum, successNum, failNum, 
+      state, taskId, failRearon, appId)
+    values (#{id,jdbcType=INTEGER}, #{thumburl,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{sendtype,jdbcType=INTEGER}, #{tasktime,jdbcType=TIMESTAMP}, #{overtime,jdbcType=TIMESTAMP}, 
+      #{sendnum,jdbcType=INTEGER}, #{successnum,jdbcType=INTEGER}, #{failnum,jdbcType=INTEGER}, 
+      #{state,jdbcType=INTEGER}, #{taskid,jdbcType=INTEGER}, #{failRearon}, #{appId})
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TMassRecord" useGeneratedKeys="true" keyProperty="id">
+    insert into t_mass_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="thumburl != null" >
+        thumbUrl,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="sendtype != null" >
+        sendType,
+      </if>
+      <if test="tasktime != null" >
+        taskTime,
+      </if>
+      <if test="overtime != null" >
+        overTime,
+      </if>
+      <if test="sendnum != null" >
+        sendNum,
+      </if>
+      <if test="successnum != null" >
+        successNum,
+      </if>
+      <if test="failnum != null" >
+        failNum,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="taskid != null" >
+        taskId,
+      </if>
+      <if test="failRearon != null">
+        failRearon,
+      </if>
+      <if test="appId != null">
+        appId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="thumburl != null" >
+        #{thumburl,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtype != null" >
+        #{sendtype,jdbcType=INTEGER},
+      </if>
+      <if test="tasktime != null" >
+        #{tasktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="overtime != null" >
+        #{overtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendnum != null" >
+        #{sendnum,jdbcType=INTEGER},
+      </if>
+      <if test="successnum != null" >
+        #{successnum,jdbcType=INTEGER},
+      </if>
+      <if test="failnum != null" >
+        #{failnum,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="taskid != null" >
+        #{taskid,jdbcType=INTEGER},
+      </if>
+      <if test="failRearon != null" >
+        #{failRearon,jdbcType=VARCHAR},
+      </if>
+      <if test="appId != null">
+        #{appId},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TMassRecord" >
+    update t_mass_record
+    <set >
+      <if test="thumburl != null" >
+        thumbUrl = #{thumburl,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtype != null" >
+        sendType = #{sendtype,jdbcType=INTEGER},
+      </if>
+      <if test="tasktime != null" >
+        taskTime = #{tasktime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="overtime != null" >
+        overTime = #{overtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendnum != null" >
+        sendNum = #{sendnum,jdbcType=INTEGER},
+      </if>
+      <if test="successnum != null" >
+        successNum = #{successnum,jdbcType=INTEGER},
+      </if>
+      <if test="failnum != null" >
+        failNum = #{failnum,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="taskid != null" >
+        taskId = #{taskid,jdbcType=INTEGER},
+      </if>
+      <if test="failRearon != null" >
+        failRearon = #{failRearon,jdbcType=VARCHAR},
+      </if>
+      <if test="appId != null">
+        appId = #{appId}
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TMassRecord" >
+    update t_mass_record
+    set thumbUrl = #{thumburl,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      sendType = #{sendtype,jdbcType=INTEGER},
+      taskTime = #{tasktime,jdbcType=TIMESTAMP},
+      overTime = #{overtime,jdbcType=TIMESTAMP},
+      sendNum = #{sendnum,jdbcType=INTEGER},
+      successNum = #{successnum,jdbcType=INTEGER},
+      failNum = #{failnum,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      taskId = #{taskid,jdbcType=INTEGER},
+      failRearon = #{failRearon},
+      appId = #{appId}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="queryList" resultType="youke.common.model.vo.result.MassRecordVo" parameterType="youke.common.model.vo.param.MassFansQueryVo" >
+    select r.id, r.thumbUrl AS thumburl, r.title, r.sendType AS sendtype, r.taskTime AS tasktime, r.overTime AS overtime,  r.sendNum AS sendnum,
+          r.successNum AS successnum, r.failNum AS failnum, r.state, r.taskId AS taskid, r.failRearon AS failreason,
+          t.materialId AS materialid,t.mediaType AS mediatype,t.content
+    from t_mass_record r
+    JOIN t_mass_task t ON r.taskId = t.id
+    <where>
+      r.appId = #{appId}
+      <if test="subTimeBeg != null">
+        AND r.taskTime &gt;= #{subTimeBeg}
+      </if>
+      <if test="subTimeEnd != null">
+        AND r.taskTime &lt;= #{subTimeEnd}
+      </if>
+    </where>
+  </select>
+  <select id="selectByTaskId" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from t_mass_record
+    WHERE taskId = #{taskId}
+  </select>
+</mapper>

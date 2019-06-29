@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd  
+                        http://www.springframework.org/schema/context  
+                        http://www.springframework.org/schema/context/spring-context-3.1.xsd  
+                        http://www.springframework.org/schema/mvc 
+                        http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+                        http://www.springframework.org/schema/aop
+                        http://www.springframework.org/schema/aop/spring-aop.xsd
+                        http://www.springframework.org/schema/cache
+                        http://www.springframework.org/schema/cache/spring-cache.xsd
+                        http://www.springframework.org/schema/task
+                        http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <context:annotation-config/>
+    <context:component-scan base-package="youke.core.scheduler"/>
+
+    <aop:aspectj-autoproxy proxy-target-class="false"/>
+
+    <task:scheduled-tasks>
+        <!-- 每隔1小时执行 -->
+        <task:scheduled ref="marketService" method="doActiveMonitor" cron="0 0 0/1 * * ?"/>
+        <!-- 每隔1小时执行 -->
+        <task:scheduled ref="marketService" method="doIntegralMonitor" cron="0 0 0/1 * * ?"/>
+        <!-- 每隔1小时执行 -->
+        <task:scheduled ref="marketService" method="doRebateStateMonitor" cron="0 0 0/1 * * ?"/>
+        <!-- 每隔1小时执行 -->
+        <task:scheduled ref="marketService" method="doTaokeStateMonitor" cron="0 0 0/1 * * ?"/>
+        <!-- 每隔1小时执行 -->
+        <task:scheduled ref="marketService" method="doTrialStateMonitor" cron="0 0 0/1 * * ?"/>
+        <!-- 每隔1小时执行 -->
+        <task:scheduled ref="marketService" method="doCollageStateMonitor" cron="0 0 0/1 * * ?"/>
+        <!-- 每隔1小时执行 -->
+        <task:scheduled ref="marketService" method="doCutPriceStateMonitor" cron="0 0 0/1 * * ?"/>
+        <!-- 每天13点执行 -->
+        <task:scheduled ref="marketService" method="doRebateMonitor" cron="0 0 13 * * ?"/>
+        <!-- 每天14点执行 -->
+        <task:scheduled ref="marketService" method="doTaokeMonitor" cron="0 0 14 * * ?"/>
+        <!-- 每天15点执行 -->
+        <task:scheduled ref="marketService" method="doTrialMonitor" cron="0 0 15 * * ?"/>
+        <!-- 每天15点30执行 -->
+        <task:scheduled ref="marketService" method="doCollageMonitor" cron="0 30 15 * * ?"/>
+        <!-- 每天16点执行 -->
+        <task:scheduled ref="marketService" method="doCutPriceMonitor" cron="0 0 16 * * ?"/>
+        <!-- 每隔2秒执行 -->
+        <task:scheduled ref="marketService" method="doActiveState" cron="*/2 * * * * ?"/>
+        <!-- 每隔5秒执行 -->
+        <task:scheduled ref="youkeService" method="doYoukeSuccPush" cron="*/5 * * * * ?"/>
+        <!-- 每天0点执行 -->
+        <task:scheduled ref="youkeService" method="doYoukeState" cron="0 0 0 * * ?"/>
+        <!-- 每天9:00点执行 -->
+        <task:scheduled ref="youkeService" method="doExpirePush" cron="0 0 9 * * ?"/>
+        <!-- 每天10:00点执行 -->
+        <task:scheduled ref="youkeService" method="doShopExpirePush" cron="0 0 10 * * ?"/>
+        <!-- 每天10:30点执行 -->
+        <task:scheduled ref="youkeService" method="doCertExpirePush" cron="0 30 10 * * ?"/>
+        <!-- 每天3点执行 -->
+        <task:scheduled ref="fansService" method="doShopFansTag" cron="0 0 3 * * ?"/>
+        <!-- 每天4点10执行 -->
+        <task:scheduled ref="homeService" method="doUpdateFansChartData" cron="0 10 4 * * ?"/>
+        <!-- 每天4点执行 -->
+        <task:scheduled ref="homeService" method="doRefreshHomeData" cron="0 0 4 * * ?"/>
+        <!-- 每天8点执行 -->
+        <task:scheduled ref="sysMessageService" method="addCloudCodeExpireMessage" cron="0 0 8 * * ?"/>
+        <!-- 每天8点执行 -->
+        <task:scheduled ref="sysMessageService" method="addMarketAuditMessage" cron="0 0 8 * * ?"/>
+        <!-- 每天8点执行 -->
+        <task:scheduled ref="sysMessageService" method="addBindShopMessage" cron="0 0 8 * * ?"/>
+        <!-- 每天0点30执行 -->
+        <task:scheduled ref="accountService" method="doCheckUserState" cron="0 30 0 * * ?"/>
+    </task:scheduled-tasks>
+
+</beans>

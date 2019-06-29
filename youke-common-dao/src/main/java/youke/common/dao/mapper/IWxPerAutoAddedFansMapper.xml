@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="youke.common.dao.IWxPerAutoAddedFansMapper">
+  <resultMap id="BaseResultMap" type="youke.common.model.TWxPerAutoAddedFans">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="deviceId" jdbcType="BIGINT" property="deviceid" />
+    <result column="wxAccountId" jdbcType="BIGINT" property="wxaccountid" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="nickName" jdbcType="VARCHAR" property="nickname" />
+    <result column="wx" jdbcType="VARCHAR" property="wx" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, deviceId, wxAccountId, mobile, state, nickName, wx, createTime, updateTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_wxper_autoadded_fans
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_wxper_autoadded_fans
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TWxPerAutoAddedFans">
+    insert into t_wxper_autoadded_fans (id, deviceId, wxAccountId,
+    mobile, state, nickName,
+    wx, createTime, updateTime
+    )
+    values (#{id,jdbcType=BIGINT}, #{deviceid,jdbcType=BIGINT}, #{wxaccountid,jdbcType=BIGINT},
+    #{mobile,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, #{nickname,jdbcType=VARCHAR},
+    #{wx,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}
+    )
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TWxPerAutoAddedFans">
+    insert into t_wxper_autoadded_fans
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="deviceid != null">
+        deviceId,
+      </if>
+      <if test="wxaccountid != null">
+        wxAccountId,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="nickname != null">
+        nickName,
+      </if>
+      <if test="wx != null">
+        wx,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+      <if test="updatetime != null">
+        updateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="deviceid != null">
+        #{deviceid,jdbcType=BIGINT},
+      </if>
+      <if test="wxaccountid != null">
+        #{wxaccountid,jdbcType=BIGINT},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="wx != null">
+        #{wx,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TWxPerAutoAddedFans">
+    update t_wxper_autoadded_fans
+    <set>
+      <if test="deviceid != null">
+        deviceId = #{deviceid,jdbcType=BIGINT},
+      </if>
+      <if test="wxaccountid != null">
+        wxAccountId = #{wxaccountid,jdbcType=BIGINT},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="nickname != null">
+        nickName = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="wx != null">
+        wx = #{wx,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TWxPerAutoAddedFans">
+    update t_wxper_autoadded_fans
+    set deviceId = #{deviceid,jdbcType=BIGINT},
+      wxAccountId = #{wxaccountid,jdbcType=BIGINT},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER},
+      nickName = #{nickname,jdbcType=VARCHAR},
+      wx = #{wx,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectByWxAccountIdAndDeviceId" resultType="java.lang.Integer">
+    SELECT sum(addNum)
+    FROM t_wxper_autoadded_record
+    WHERE youkeId = #{youkeId}  and to_days(addTime) = to_days(now()) and taskId = #{id}
+  </select>
+</mapper>

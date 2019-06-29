@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="youke.common.dao.IWxPerAccountDeviceMapper">
+  <resultMap id="BaseResultMap" type="youke.common.model.TWxPerAccountDevice">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="wxAccountId" jdbcType="BIGINT" property="wxaccountid" />
+    <result column="deviceId" jdbcType="BIGINT" property="deviceid" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, wxAccountId, deviceId, state
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_wxper_account_device
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_wxper_account_device
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TWxPerAccountDevice">
+    insert into t_wxper_account_device (id, wxAccountId, deviceId, 
+      state)
+    values (#{id,jdbcType=BIGINT}, #{wxaccountid,jdbcType=BIGINT}, #{deviceid,jdbcType=BIGINT}, 
+      #{state,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TWxPerAccountDevice">
+    insert into t_wxper_account_device
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="wxaccountid != null">
+        wxAccountId,
+      </if>
+      <if test="deviceid != null">
+        deviceId,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="wxaccountid != null">
+        #{wxaccountid,jdbcType=BIGINT},
+      </if>
+      <if test="deviceid != null">
+        #{deviceid,jdbcType=BIGINT},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TWxPerAccountDevice">
+    update t_wxper_account_device
+    <set>
+      <if test="wxaccountid != null">
+        wxAccountId = #{wxaccountid,jdbcType=BIGINT},
+      </if>
+      <if test="deviceid != null">
+        deviceId = #{deviceid,jdbcType=BIGINT},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TWxPerAccountDevice">
+    update t_wxper_account_device
+    set wxAccountId = #{wxaccountid,jdbcType=BIGINT},
+      deviceId = #{deviceid,jdbcType=BIGINT},
+      state = #{state,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <select id="selectByDeviceId" resultMap="BaseResultMap">
+    SELECT *
+      FROM t_wxper_account_device
+      WHERE deviceId = #{deviceId} and state = #{state}
+  </select>
+  
+  <select id="selectAccountAndDevices" resultType="java.util.HashMap">
+    SELECT t2.id AS wxAccountId, t2.wxPersonal, t3.id AS deviceId,t3.deviceName, t3.state
+    FROM t_wxper_account t2
+    JOIN t_wxper_device t3 ON t2.id = t3.wxAccountId
+    WHERE
+       t3.youkeId = #{youkeId}
+  </select>
+</mapper>

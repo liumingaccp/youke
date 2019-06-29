@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IMobcodeRecordDao">
+    <resultMap id="BaseResultMap" type="youke.common.model.TMobcodeRecord">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="templetePro" property="templetepro" jdbcType="VARCHAR"/>
+        <result column="content" property="content" jdbcType="VARCHAR"/>
+        <result column="label" property="label" jdbcType="VARCHAR"/>
+        <result column="sendType" property="sendtype" jdbcType="INTEGER"/>
+        <result column="taskTime" property="tasktime" jdbcType="TIMESTAMP"/>
+        <result column="overTime" property="overtime" jdbcType="TIMESTAMP"/>
+        <result column="sendNum" property="sendnum" jdbcType="INTEGER"/>
+        <result column="successNum" property="successnum" jdbcType="INTEGER"/>
+        <result column="failNum" property="failnum" jdbcType="INTEGER"/>
+        <result column="state" property="state" jdbcType="INTEGER"/>
+        <result column="failReason" property="failreason" jdbcType="VARCHAR"/>
+        <result column="taskId" property="taskid" jdbcType="INTEGER"/>
+        <result column="youkeId" property="youkeid" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, templetePro, content, label, sendType, taskTime, overTime, sendNum, successNum, 
+    failNum, state, failReason, taskId, youkeId
+  </sql>
+    <select id="getRecordList" resultType="youke.common.model.TMobcodeRecord">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM t_mobcode_record
+        <where>
+            <if test="state!=null">
+                AND state = #{state}
+            </if>
+            <if test="taskTimeBeg!=null">
+                AND taskTime >= #{taskTimeBeg}
+            </if>
+            <if test="taskTimeEnd!=null">
+                AND taskTime &lt;= #{taskTimeEnd}
+            </if>
+            AND youkeId = #{dykId} AND sendType != 10
+        </where>
+        ORDER BY taskTime DESC
+    </select>
+    <select id="selectTemplateByContent" resultType="java.lang.String">
+        SELECT templetePro FROM t_mobcode_record  WHERE  youkeId = #{dykId}
+        AND content = #{content} AND state = 3 AND templetePro IS NOT NULL  limit 1
+    </select>
+    <select id="selectMassList" resultType="youke.common.model.vo.result.MassRecordRetVo">
+        SELECT id, taskTime, sendType, content, state
+        FROM t_mobcode_record
+        <where>
+            <if test="begTime!=null">
+                AND taskTime >= #{begTime}
+            </if>
+            <if test="endTime!=null">
+                AND taskTime &lt;= #{endTime}
+            </if>
+            AND sendType = 10
+            AND youkeId = #{dykId}
+        </where>
+        ORDER By overTime DESC
+    </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from t_mobcode_record
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_mobcode_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="youke.common.model.TMobcodeRecord" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+    insert into t_mobcode_record (id, templetePro, content, 
+      label, sendType, taskTime, 
+      overTime, sendNum, successNum, 
+      failNum, state, failReason, 
+      taskId, youkeId)
+    values (#{id,jdbcType=INTEGER}, #{templetepro,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{label,jdbcType=VARCHAR}, #{sendtype,jdbcType=INTEGER}, #{tasktime,jdbcType=TIMESTAMP}, 
+      #{overtime,jdbcType=TIMESTAMP}, #{sendnum,jdbcType=INTEGER}, #{successnum,jdbcType=INTEGER}, 
+      #{failnum,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, #{failreason,jdbcType=VARCHAR}, 
+      #{taskid,jdbcType=INTEGER}, #{youkeid,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="youke.common.model.TMobcodeRecord" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        insert into t_mobcode_record
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="templetepro != null">
+                templetePro,
+            </if>
+            <if test="content != null">
+                content,
+            </if>
+            <if test="label != null">
+                label,
+            </if>
+            <if test="sendtype != null">
+                sendType,
+            </if>
+            <if test="tasktime != null">
+                taskTime,
+            </if>
+            <if test="overtime != null">
+                overTime,
+            </if>
+            <if test="sendnum != null">
+                sendNum,
+            </if>
+            <if test="successnum != null">
+                successNum,
+            </if>
+            <if test="failnum != null">
+                failNum,
+            </if>
+            <if test="state != null">
+                state,
+            </if>
+            <if test="failreason != null">
+                failReason,
+            </if>
+            <if test="taskid != null">
+                taskId,
+            </if>
+            <if test="youkeid != null">
+                youkeId,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="templetepro != null">
+                #{templetepro,jdbcType=VARCHAR},
+            </if>
+            <if test="content != null">
+                #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="label != null">
+                #{label,jdbcType=VARCHAR},
+            </if>
+            <if test="sendtype != null">
+                #{sendtype,jdbcType=INTEGER},
+            </if>
+            <if test="tasktime != null">
+                #{tasktime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="overtime != null">
+                #{overtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="sendnum != null">
+                #{sendnum,jdbcType=INTEGER},
+            </if>
+            <if test="successnum != null">
+                #{successnum,jdbcType=INTEGER},
+            </if>
+            <if test="failnum != null">
+                #{failnum,jdbcType=INTEGER},
+            </if>
+            <if test="state != null">
+                #{state,jdbcType=INTEGER},
+            </if>
+            <if test="failreason != null">
+                #{failreason,jdbcType=VARCHAR},
+            </if>
+            <if test="taskid != null">
+                #{taskid,jdbcType=INTEGER},
+            </if>
+            <if test="youkeid != null">
+                #{youkeid,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TMobcodeRecord">
+        update t_mobcode_record
+        <set>
+            <if test="templetepro != null">
+                templetePro = #{templetepro,jdbcType=VARCHAR},
+            </if>
+            <if test="content != null">
+                content = #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="label != null">
+                label = #{label,jdbcType=VARCHAR},
+            </if>
+            <if test="sendtype != null">
+                sendType = #{sendtype,jdbcType=INTEGER},
+            </if>
+            <if test="tasktime != null">
+                taskTime = #{tasktime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="overtime != null">
+                overTime = #{overtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="sendnum != null">
+                sendNum = #{sendnum,jdbcType=INTEGER},
+            </if>
+            <if test="successnum != null">
+                successNum = #{successnum,jdbcType=INTEGER},
+            </if>
+            <if test="failnum != null">
+                failNum = #{failnum,jdbcType=INTEGER},
+            </if>
+            <if test="state != null">
+                state = #{state,jdbcType=INTEGER},
+            </if>
+            <if test="failreason != null">
+                failReason = #{failreason,jdbcType=VARCHAR},
+            </if>
+            <if test="taskid != null">
+                taskId = #{taskid,jdbcType=INTEGER},
+            </if>
+            <if test="youkeid != null">
+                youkeId = #{youkeid,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="youke.common.model.TMobcodeRecord">
+    update t_mobcode_record
+    set templetePro = #{templetepro,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      label = #{label,jdbcType=VARCHAR},
+      sendType = #{sendtype,jdbcType=INTEGER},
+      taskTime = #{tasktime,jdbcType=TIMESTAMP},
+      overTime = #{overtime,jdbcType=TIMESTAMP},
+      sendNum = #{sendnum,jdbcType=INTEGER},
+      successNum = #{successnum,jdbcType=INTEGER},
+      failNum = #{failnum,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      failReason = #{failreason,jdbcType=VARCHAR},
+      taskId = #{taskid,jdbcType=INTEGER},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

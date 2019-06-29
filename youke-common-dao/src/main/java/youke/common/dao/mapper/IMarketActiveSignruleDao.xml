@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IMarketActiveSignruleDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TMarketActiveSignrule" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="activeId" property="activeid" jdbcType="BIGINT" />
+    <result column="runDay" property="runday" jdbcType="INTEGER" />
+    <result column="integral" property="integral" jdbcType="INTEGER" />
+    <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, activeId, runDay, integral, youkeId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from t_market_active_signrule
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_market_active_signrule
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TMarketActiveSignrule" >
+    insert into t_market_active_signrule (id, activeId, runDay, 
+      integral, youkeId)
+    values (#{id,jdbcType=BIGINT}, #{activeid,jdbcType=BIGINT}, #{runday,jdbcType=INTEGER}, 
+      #{integral,jdbcType=INTEGER}, #{youkeid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TMarketActiveSignrule" useGeneratedKeys="true" keyProperty="id">
+    insert into t_market_active_signrule
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="activeid != null" >
+        activeId,
+      </if>
+      <if test="runday != null" >
+        runDay,
+      </if>
+      <if test="integral != null" >
+        integral,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="activeid != null" >
+        #{activeid,jdbcType=BIGINT},
+      </if>
+      <if test="runday != null" >
+        #{runday,jdbcType=INTEGER},
+      </if>
+      <if test="integral != null" >
+        #{integral,jdbcType=INTEGER},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TMarketActiveSignrule" >
+    update t_market_active_signrule
+    <set >
+      <if test="activeid != null" >
+        activeId = #{activeid,jdbcType=BIGINT},
+      </if>
+      <if test="runday != null" >
+        runDay = #{runday,jdbcType=INTEGER},
+      </if>
+      <if test="integral != null" >
+        integral = #{integral,jdbcType=INTEGER},
+      </if>
+      <if test="youkeid != null" >
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TMarketActiveSignrule" >
+    update t_market_active_signrule
+    set activeId = #{activeid,jdbcType=BIGINT},
+      runDay = #{runday,jdbcType=INTEGER},
+      integral = #{integral,jdbcType=INTEGER},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

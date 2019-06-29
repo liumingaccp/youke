@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.ICollageActiveOrderDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TCollageActiveOrder" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="orderno" property="orderno" jdbcType="VARCHAR" />
+    <result column="wxfansname" property="wxfansname" jdbcType="VARCHAR" />
+    <result column="buyername" property="buyername" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="INTEGER" />
+    <result column="tuanPrice" property="tuanprice" jdbcType="INTEGER" />
+    <result column="orderTime" property="ordertime" jdbcType="TIMESTAMP" />
+    <result column="backTime" property="backtime" jdbcType="TIMESTAMP" />
+    <result column="joinTime" property="jointime" jdbcType="TIMESTAMP" />
+    <result column="backMoney" property="backmoney" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="activeId" property="activeid" jdbcType="INTEGER" />
+    <result column="tuanId" property="tuanid" jdbcType="BIGINT" />
+    <result column="openId" property="openid" jdbcType="VARCHAR" />
+    <result column="appId" property="appid" jdbcType="VARCHAR" />
+    <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, title, orderno, wxfansname, buyername, price, tuanPrice, orderTime, backTime, 
+    joinTime, backMoney, state, activeId, tuanId, openId, appId, youkeId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_collage_active_order
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_collage_active_order
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TCollageActiveOrder" >
+    insert into t_collage_active_order (id, title, orderno, 
+      wxfansname, buyername, price, 
+      tuanPrice, orderTime, backTime, 
+      joinTime, backMoney, state, 
+      activeId, tuanId, openId, 
+      appId, youkeId)
+    values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{orderno,jdbcType=VARCHAR}, 
+      #{wxfansname,jdbcType=VARCHAR}, #{buyername,jdbcType=VARCHAR}, #{price,jdbcType=INTEGER}, 
+      #{tuanprice,jdbcType=INTEGER}, #{ordertime,jdbcType=TIMESTAMP}, #{backtime,jdbcType=TIMESTAMP}, 
+      #{jointime,jdbcType=TIMESTAMP}, #{backmoney,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, 
+      #{activeid,jdbcType=INTEGER}, #{tuanid,jdbcType=BIGINT}, #{openid,jdbcType=VARCHAR}, 
+      #{appid,jdbcType=VARCHAR}, #{youkeid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TCollageActiveOrder" >
+    insert into t_collage_active_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="orderno != null" >
+        orderno,
+      </if>
+      <if test="wxfansname != null" >
+        wxfansname,
+      </if>
+      <if test="buyername != null" >
+        buyername,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="tuanprice != null" >
+        tuanPrice,
+      </if>
+      <if test="ordertime != null" >
+        orderTime,
+      </if>
+      <if test="backtime != null" >
+        backTime,
+      </if>
+      <if test="jointime != null" >
+        joinTime,
+      </if>
+      <if test="backmoney != null" >
+        backMoney,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="activeid != null" >
+        activeId,
+      </if>
+      <if test="tuanid != null" >
+        tuanId,
+      </if>
+      <if test="openid != null" >
+        openId,
+      </if>
+      <if test="appid != null" >
+        appId,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="orderno != null" >
+        #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="wxfansname != null" >
+        #{wxfansname,jdbcType=VARCHAR},
+      </if>
+      <if test="buyername != null" >
+        #{buyername,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="tuanprice != null" >
+        #{tuanprice,jdbcType=INTEGER},
+      </if>
+      <if test="ordertime != null" >
+        #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="backtime != null" >
+        #{backtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jointime != null" >
+        #{jointime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="backmoney != null" >
+        #{backmoney,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="activeid != null" >
+        #{activeid,jdbcType=INTEGER},
+      </if>
+      <if test="tuanid != null" >
+        #{tuanid,jdbcType=BIGINT},
+      </if>
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null" >
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TCollageActiveOrder" >
+    update t_collage_active_order
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="orderno != null" >
+        orderno = #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="wxfansname != null" >
+        wxfansname = #{wxfansname,jdbcType=VARCHAR},
+      </if>
+      <if test="buyername != null" >
+        buyername = #{buyername,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=INTEGER},
+      </if>
+      <if test="tuanprice != null" >
+        tuanPrice = #{tuanprice,jdbcType=INTEGER},
+      </if>
+      <if test="ordertime != null" >
+        orderTime = #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="backtime != null" >
+        backTime = #{backtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jointime != null" >
+        joinTime = #{jointime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="backmoney != null" >
+        backMoney = #{backmoney,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="activeid != null" >
+        activeId = #{activeid,jdbcType=INTEGER},
+      </if>
+      <if test="tuanid != null" >
+        tuanId = #{tuanid,jdbcType=BIGINT},
+      </if>
+      <if test="openid != null" >
+        openId = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null" >
+        appId = #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="youkeid != null" >
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TCollageActiveOrder" >
+    update t_collage_active_order
+    set title = #{title,jdbcType=VARCHAR},
+      orderno = #{orderno,jdbcType=VARCHAR},
+      wxfansname = #{wxfansname,jdbcType=VARCHAR},
+      buyername = #{buyername,jdbcType=VARCHAR},
+      price = #{price,jdbcType=INTEGER},
+      tuanPrice = #{tuanprice,jdbcType=INTEGER},
+      orderTime = #{ordertime,jdbcType=TIMESTAMP},
+      backTime = #{backtime,jdbcType=TIMESTAMP},
+      joinTime = #{jointime,jdbcType=TIMESTAMP},
+      backMoney = #{backmoney,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      activeId = #{activeid,jdbcType=INTEGER},
+      tuanId = #{tuanid,jdbcType=BIGINT},
+      openId = #{openid,jdbcType=VARCHAR},
+      appId = #{appid,jdbcType=VARCHAR},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="queryList" resultType="youke.common.model.vo.result.helper.CollageOrderQueryRetVo" parameterType="youke.common.model.vo.param.helper.CollageOrderQueryVo">
+    SELECT
+      torder.id, torder.title,torder.wxfansname AS wxFansName,torder.buyername AS buyerName,
+      torder.orderno AS orderNo, torder.price,torder.tuanPrice,torder.joinTime,torder.backTime,torder.state,
+      tuan.endTime
+    FROM t_collage_active_order torder
+    JOIN t_collage_active active ON active.id = torder.activeId
+    JOIN t_collage_active_tuan tuan ON torder.tuanId = tuan.id
+    <where>
+      AND torder.appId = #{appId}
+      AND torder.youkeId = #{youkeId}
+      <if test="title != null">
+        AND torder.title LIKE #{title}
+      </if>
+      <if test="wxFansName != null">
+        AND torder.wxFansName LIKE #{wxFansName}
+      </if>
+      <if test="state > -1">
+        AND torder.state = #{state}
+      </if>
+      <if test="orderNo != null">
+        AND torder.orderNo = #{orderNo}
+      </if>
+      <if test="shopId > -1">
+        AND active.shopId = #{shopId}
+      </if>
+      <if test="timeBeg != null">
+        AND torder.joinTime &gt; #{timeBeg}
+      </if>
+      <if test="timeEnd != null">
+        AND torder.joinTime &lt; #{timeEnd}
+      </if>
+    </where>
+  </select>
+
+  <select id="getParticipantByTuanId" resultType="youke.common.model.vo.result.helper.WxFansLessVo">
+    SELECT torder.openId, torder.wxfansname AS wxName, fans.headimgurl AS wxFace
+    FROM t_collage_active_order torder
+    JOIN t_subscr_fans fans ON torder.openId = fans.openId
+    WHERE torder.appId = #{appId} AND torder.tuanId = #{tuanId}
+  </select>
+
+  <select id="selectByOpenIdAndTuanId" resultType="java.lang.Integer">
+    SELECT id
+    FROM t_collage_active_order
+    WHERE openId = #{openId} AND tuanId = #{tuanId}
+  </select>
+
+  <update id="updateBatchState">
+    update t_collage_active_order set state=#{state} where id in
+    <foreach collection="orderIds" item="orderId"  open="(" separator="," close=")">
+      #{orderId}
+    </foreach>
+  </update>
+
+  <update id="updateStateForBeg">
+    update t_collage_active_order set state=3 where tuanId in
+    <foreach collection="ids" item="id"  open="(" separator="," close=")">
+      #{id}
+    </foreach>
+  </update>
+
+  <select id="selectOpenIdByTuanId" resultType="java.lang.String">
+    SELECT openId
+    FROM t_collage_active_order
+    WHERE appId = #{appId} AND tuanId = #{tuanId}
+  </select>
+</mapper>

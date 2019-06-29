@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="youke.common.dao.IWxPerAutoAddedTaskFansMapper">
+  <resultMap id="BaseResultMap" type="youke.common.model.TWxPerAutoAddedTaskFans">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="taskId" jdbcType="BIGINT" property="taskid" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="priority" jdbcType="INTEGER" property="priority" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, taskId, mobile, state, priority,name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_wxper_autoadded_task_fans
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_wxper_autoadded_task_fans
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TWxPerAutoAddedTaskFans">
+    insert into t_wxper_autoadded_task_fans (id, taskId, mobile,
+    state, priority, name
+    )
+    values (#{id,jdbcType=BIGINT}, #{taskid,jdbcType=BIGINT}, #{mobile,jdbcType=VARCHAR},
+    #{state,jdbcType=INTEGER},#{priority,jdbcType=INTEGER}, #{name}
+    )
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TWxPerAutoAddedTaskFans">
+    insert into t_wxper_autoadded_task_fans
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="taskid != null">
+        taskId,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="priority != null">
+        priority,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="taskid != null">
+        #{taskid,jdbcType=BIGINT},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="priority != null">
+        #{priority,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name}
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TWxPerAutoAddedTaskFans">
+    update t_wxper_autoadded_task_fans
+    <set>
+      <if test="taskid != null">
+        taskId = #{taskid,jdbcType=BIGINT},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="priority != null">
+        priority = #{priority,jdbcType=INTEGER},
+      </if>
+      <if test="name">
+        name = #{name},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TWxPerAutoAddedTaskFans">
+    update t_wxper_autoadded_task_fans
+    set taskId = #{taskid,jdbcType=BIGINT},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER},
+      priority = #{priority,jdbcType=INTEGER}
+      name = #{name}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <insert id="insertBacth">
+    INSERT INTO t_wxper_autoadded_task_fans (mobile, state, taskId, priority)
+    VALUES
+    <foreach collection="fansList" item="item" separator=",">
+      (
+      #{item.mobile},#{item.state},#{item.taskid},#{item.priority}
+      )
+    </foreach>
+  </insert>
+
+  <update id="updatePriority">
+    update t_wxper_autoadded_task_fans
+    set priority = #{priority}
+    <where>
+      and state = 0
+      <if test="taskId > -1">
+        and taskId = #{taskId}
+      </if>
+    </where>
+  </update>
+
+  <select id="selectByPriority" resultMap="BaseResultMap">
+      SELECT *
+      FROM t_wxper_autoadded_task_fans
+      WHERE priority = #{priority}
+        and state = #{state}
+        and taskId in
+          <foreach collection="ids" item="id" separator="," close=")" open="(">
+              #{id}
+          </foreach>
+         limit 0, #{limit}
+  </select>
+
+  <update id="updateBantch">
+    update t_wxper_autoadded_task_fans
+    set state = 1
+    WHERE id in
+    <foreach collection="fansIds" item="id" separator="," close=")" open="(">
+      #{id}
+    </foreach>
+  </update>
+
+  <select id="selectCountByTaskIdAndSatete" resultType="java.lang.Integer">
+    select nullif(count(id), 0) from t_wxper_autoadded_task_fans where taskId = #{taskId}
+    <if test="state == 0">
+      and ( state = 0 or state = 2)
+    </if>
+    <if test="state == 1">
+      and ( state = 1 or state = 3)
+    </if>
+  </select>
+
+  <select id="checkFansId" resultType="java.lang.Long">
+    SELECT t1.id from t_wxper_autoadded_task_fans t1
+    JOIN t_wxper_autoadded_task t3 ON t1.taskId = t3.id
+    WHERE t1.mobile = #{mobile}
+    AND t3.wxAccountId in
+    <foreach collection="list" open="(" close=")" separator="," item="id">
+      #{id}
+    </foreach>
+  </select>
+</mapper>

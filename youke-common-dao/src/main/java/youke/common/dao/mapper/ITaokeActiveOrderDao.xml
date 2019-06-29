@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.ITaokeActiveOrderDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TTaokeActiveOrder" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="orderno" property="orderno" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="buyerOpenId" property="buyeropenid" jdbcType="VARCHAR" />
+    <result column="buyerName" property="buyername" jdbcType="VARCHAR" />
+    <result column="buyerFace" property="buyerface" jdbcType="VARCHAR" />
+    <result column="buyerMobile" property="buyermobile" jdbcType="VARCHAR" />
+    <result column="taokeOpenId" property="taokeopenid" jdbcType="VARCHAR" />
+    <result column="taokeName" property="taokename" jdbcType="VARCHAR" />
+    <result column="taokeFace" property="taokeface" jdbcType="VARCHAR" />
+    <result column="taokeMobile" property="taokemobile" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="totalPrice" property="totalprice" jdbcType="INTEGER" />
+    <result column="totalNum" property="totalnum" jdbcType="INTEGER" />
+    <result column="backMoney" property="backmoney" jdbcType="INTEGER" />
+    <result column="commision" property="commision" jdbcType="INTEGER" />
+    <result column="orderTime" property="ordertime" jdbcType="TIMESTAMP" />
+    <result column="backTime" property="backtime" jdbcType="TIMESTAMP" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="activeId" property="activeid" jdbcType="INTEGER" />
+    <result column="shopId" property="shopid" jdbcType="VARCHAR" />
+    <result column="shopType" property="shoptype" jdbcType="INTEGER" />
+    <result column="appId" property="appid" jdbcType="VARCHAR" />
+    <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+    <result column="failreason" property="failreason" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, orderno, title, buyerOpenId, buyerName, buyerFace, buyerMobile, taokeOpenId,
+    taokeName, taokeFace, taokeMobile, createTime, totalPrice, totalNum, backMoney, commision,
+    orderTime, backTime, state, activeId, shopId, shopType, failReason, appId, youkeId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from t_taoke_active_order
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_taoke_active_order
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insertSelective" parameterType="youke.common.model.TTaokeActiveOrder" useGeneratedKeys="true" keyProperty="id">
+    insert into t_taoke_active_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orderno != null" >
+        orderno,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="buyeropenid != null" >
+        buyerOpenId,
+      </if>
+      <if test="buyername != null" >
+        buyerName,
+      </if>
+      <if test="buyerface != null" >
+        buyerFace,
+      </if>
+      <if test="buyermobile != null" >
+        buyerMobile,
+      </if>
+      <if test="taokeopenid != null" >
+        taokeOpenId,
+      </if>
+      <if test="taokename != null" >
+        taokeName,
+      </if>
+      <if test="taokeface != null" >
+        taokeFace,
+      </if>
+      <if test="taokemobile != null" >
+        taokeMobile,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="totalprice != null" >
+        totalPrice,
+      </if>
+      <if test="totalnum != null" >
+        totalNum,
+      </if>
+      <if test="backmoney != null" >
+        backMoney,
+      </if>
+      <if test="commision != null" >
+        commision,
+      </if>
+      <if test="ordertime != null" >
+        orderTime,
+      </if>
+      <if test="backtime != null" >
+        backTime,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="activeid != null" >
+        activeId,
+      </if>
+      <if test="shopid != null" >
+        shopId,
+      </if>
+      <if test="shoptype != null" >
+        shopType,
+      </if>
+      <if test="failreason != null" >
+        failReason,
+      </if>
+      <if test="appid != null" >
+        appId,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="orderno != null" >
+        #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="buyeropenid != null" >
+        #{buyeropenid,jdbcType=VARCHAR},
+      </if>
+      <if test="buyername != null" >
+        #{buyername,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerface != null" >
+        #{buyerface,jdbcType=VARCHAR},
+      </if>
+      <if test="buyermobile != null" >
+        #{buyermobile,jdbcType=VARCHAR},
+      </if>
+      <if test="taokeopenid != null" >
+        #{taokeopenid,jdbcType=VARCHAR},
+      </if>
+      <if test="taokename != null" >
+        #{taokename,jdbcType=VARCHAR},
+      </if>
+      <if test="taokeface != null" >
+        #{taokeface,jdbcType=VARCHAR},
+      </if>
+      <if test="taokemobile != null" >
+        #{taokemobile,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalprice != null" >
+        #{totalprice,jdbcType=INTEGER},
+      </if>
+      <if test="totalnum != null" >
+        #{totalnum,jdbcType=INTEGER},
+      </if>
+      <if test="backmoney != null" >
+        #{backmoney,jdbcType=INTEGER},
+      </if>
+      <if test="commision != null" >
+        #{commision,jdbcType=INTEGER},
+      </if>
+      <if test="ordertime != null" >
+        #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="backtime != null" >
+        #{backtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="activeid != null" >
+        #{activeid,jdbcType=INTEGER},
+      </if>
+      <if test="shopid != null" >
+        #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="shoptype != null" >
+        #{shoptype,jdbcType=INTEGER},
+      </if>
+      <if test="failreason != null" >
+        #{failreason,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null" >
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TTaokeActiveOrder" >
+    update t_taoke_active_order
+    <set >
+      <if test="orderno != null" >
+        orderno = #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="buyeropenid != null" >
+        buyerOpenId = #{buyeropenid,jdbcType=VARCHAR},
+      </if>
+      <if test="buyername != null" >
+        buyerName = #{buyername,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerface != null" >
+        buyerFace = #{buyerface,jdbcType=VARCHAR},
+      </if>
+      <if test="buyermobile != null" >
+        buyerMobile = #{buyermobile,jdbcType=VARCHAR},
+      </if>
+      <if test="taokeopenid != null" >
+        taokeOpenId = #{taokeopenid,jdbcType=VARCHAR},
+      </if>
+      <if test="taokename != null" >
+        taokeName = #{taokename,jdbcType=VARCHAR},
+      </if>
+      <if test="taokeface != null" >
+        taokeFace = #{taokeface,jdbcType=VARCHAR},
+      </if>
+      <if test="taokemobile != null" >
+        taokeMobile = #{taokemobile,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalprice != null" >
+        totalPrice = #{totalprice,jdbcType=INTEGER},
+      </if>
+      <if test="totalnum != null" >
+        totalNum = #{totalnum,jdbcType=INTEGER},
+      </if>
+      <if test="backmoney != null" >
+        backMoney = #{backmoney,jdbcType=INTEGER},
+      </if>
+      <if test="commision != null" >
+        commision = #{commision,jdbcType=INTEGER},
+      </if>
+      <if test="ordertime != null" >
+        orderTime = #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="backtime != null" >
+        backTime = #{backtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="activeid != null" >
+        activeId = #{activeid,jdbcType=INTEGER},
+      </if>
+      <if test="shopid != null" >
+        shopId = #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="shoptype != null" >
+        shopType = #{shoptype,jdbcType=INTEGER},
+      </if>
+      <if test="failreason != null" >
+        failReason = #{failreason,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null" >
+        appId = #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="youkeid != null" >
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TTaokeActiveOrder" >
+    update t_taoke_active_order
+    set orderno = #{orderno,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      buyerOpenId = #{buyeropenid,jdbcType=VARCHAR},
+      buyerName = #{buyername,jdbcType=VARCHAR},
+      buyerFace = #{buyerface,jdbcType=VARCHAR},
+      buyerMobile = #{buyermobile,jdbcType=VARCHAR},
+      taokeOpenId = #{taokeopenid,jdbcType=VARCHAR},
+      taokeName = #{taokename,jdbcType=VARCHAR},
+      taokeFace = #{taokeface,jdbcType=VARCHAR},
+      taokeMobile = #{taokemobile,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      totalPrice = #{totalprice,jdbcType=INTEGER},
+      totalNum = #{totalnum,jdbcType=INTEGER},
+      backMoney = #{backmoney,jdbcType=INTEGER},
+      commision = #{commision,jdbcType=INTEGER},
+      orderTime = #{ordertime,jdbcType=TIMESTAMP},
+      backTime = #{backtime,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=INTEGER},
+      activeId = #{activeid,jdbcType=INTEGER},
+      shopId = #{shopid,jdbcType=VARCHAR},
+      shopType = #{shoptype,jdbcType=INTEGER},
+      failReason = #{failreason,jdbcType=VARCHAR},
+      appId = #{appid,jdbcType=VARCHAR},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="queryList" resultType="youke.common.model.vo.result.helper.TaokeOrderQueryRetVo"
+          parameterType="youke.common.model.vo.param.helper.TaokeOrderQueryVo">
+    SELECT
+    torder.id,
+    active.cover,
+    active.goodsId,
+    torder.activeId,
+    torder.orderno AS orderNo,
+    shop.state AS orderState,
+    torder.title,
+    torder.buyerOpenId,
+    torder.buyerFace,
+    torder.buyerMobile,
+    torder.buyerName,
+    torder.taokeOpenId,
+    torder.taokeFace,
+    torder.taokeMobile,
+    torder.taokeName,
+    torder.totalPrice,
+    torder.totalNum,
+    torder.backMoney,
+    torder.commision,
+    torder.backTime,
+    torder.createTime,
+    torder.state
+    FROM t_taoke_active_order torder
+    JOIN t_taoke_active active ON torder.activeId = active.id
+    LEFT JOIN t_shop_order shop ON shop.orderno = torder.orderno
+    <where>
+      AND torder.appId = #{appId}
+      <if test="title != null ">
+        AND torder.title LIKE #{title}
+      </if>
+      <if test="wxFansName != null">
+        AND torder.buyerName LIKE #{wxFansName}
+      </if>
+      <if test="buyerName != null">
+        AND (torder.buyername LIKE #{buyerName} or torder.taokeName LIKE #{buyerName})
+      </if>
+      <if test="state != null and state > -1">
+        AND torder.state = #{state}
+      </if>
+      <if test="orderNo != null">
+        AND torder.orderno = #{orderNo}
+      </if>
+      <if test="shopId != null and shopId > -1">
+        AND torder.shopId = #{shopId}
+      </if>
+      <if test="timeBeg != null">
+        AND torder.backTime &gt;= #{timeBeg}
+      </if>
+      <if test="timeEnd != null">
+        AND torder.backTime &lt;= #{timeEnd}
+      </if>
+      <if test="goodsId != null">
+        AND active.goodsId = #{goodsId}
+      </if>
+      <if test="mobile != null">
+        AND torder.buyerMobile = #{mobile}
+      </if>
+    </where>
+  </select>
+
+    <update id="updateStateBatch" parameterType="youke.common.model.vo.param.helper.TaokeOrderExamineParam">
+        UPDATE t_taoke_active_order
+        <set>
+            <if test="state != null">
+                state = #{state},
+            </if>
+            <if test="failReason != null">
+                failreason = #{failReason},
+            </if>
+        </set>
+        WHERE appId = #{appId}
+        AND id IN
+        <foreach collection="orderIdList" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </update>
+
+    <select id="selectExamineDetail" resultType="youke.common.model.vo.result.helper.TaokeOrderDetailRetVo">
+        SELECT
+             sorder.orderno AS orderNo,
+             sorder.receiveName AS receiveName,
+             sorder.receiveAddress AS receiveAddress,
+             sorder.picPath,
+             sorder.title,
+             sorder.price,
+             sorder.num,
+             sorder.totalPrice,
+             sorder.state AS orderState,
+             aorder.id,
+             aorder.state,
+             aorder.failReason
+        FROM t_taoke_active_order aorder
+        LEFT JOIN t_shop_order sorder ON aorder.orderno = sorder.orderno
+        WHERE
+        aorder.appId = #{appId} AND aorder.id = #{id}
+    </select>
+
+  <select id="queryCountForOpenId" parameterType="youke.common.model.vo.param.helper.H5TaokeOrderQueryVo" resultType="java.lang.Integer">
+    SELECT COUNT(activeId)
+      FROM (
+        SELECT activeId
+        FROM t_taoke_active_order
+        <where>
+          AND appId = #{appId}
+          <if test="type != null">
+            <if test="type == 0">
+              AND buyerOpenId = #{openId}
+            </if>
+            <if test="type == 1">
+              AND taokeOpenId = #{openId}
+            </if>
+            <if test="type == -1">
+              AND (
+              buyerOpenId = #{openId} OR taokeOpenId = #{openId}
+              )
+            </if>
+          </if>
+        </where>
+        GROUP BY activeId) as a
+  </select>
+
+  <select id="queryOrderListByOenId" resultType="youke.common.model.vo.result.helper.H5TaokeOrderQueryRetVo"
+          parameterType="youke.common.model.vo.param.helper.H5TaokeOrderQueryVo">
+    SELECT temp.*
+    FROM (
+        SELECT
+        torder.id,
+        torder.orderno AS orderNo,
+        torder.state,
+        torder.activeId,
+        torder.taokeOpenId,
+        torder.backMoney,
+        torder.commision,
+        torder.createTime,
+        active.cover,
+        active.title,
+        active.price,
+        active.goodsId,
+        active.goodsUrl
+        FROM t_taoke_active_order torder
+        JOIN t_taoke_active active ON torder.activeId = active.id
+        <where>
+          AND torder.appId = #{appId}
+          <if test="type != null">
+            <if test="type == 0">
+              AND torder.buyerOpenId = #{openId}
+            </if>
+            <if test="type == 1">
+              AND torder.taokeOpenId = #{openId}
+            </if>
+            <if test="type == -1">
+              AND (
+              torder.buyerOpenId = #{openId} OR torder.taokeOpenId = #{openId}
+              )
+            </if>
+          </if>
+        </where>
+        GROUP BY torder.activeId
+        ORDER BY torder.createTime desc
+      ) AS temp
+    limit #{startPage} , #{limit}
+  </select>
+
+  <!-- 获取-->
+  <select id="queryListByTaokeOpenId" resultType="youke.common.model.vo.result.helper.H5TaokeOrderDetailQueryRetVo">
+      SELECT
+        buyerName, commision, createTime, state
+      FROM t_taoke_active_order
+      WHERE taokeOpenId = #{openId}
+        AND activeId = #{activeId}
+        AND state = 6
+  </select>
+  <update id="updateBatchState">
+    update t_taoke_active_order set state=#{state},orderTime=NOW() where id in
+    <foreach collection="orderIds" item="orderId"  open="(" separator="," close=")">
+      #{orderId}
+    </foreach>
+  </update>
+
+  <select id="selectOrderInfo" resultType="youke.common.model.vo.result.helper.H5TaokeOrderQueryRetVo">
+    SELECT
+        torder.id,
+        torder.orderno AS orderNo,
+        torder.state,
+        torder.activeId,
+        torder.taokeOpenId,
+        torder.backMoney,
+        torder.commision,
+        torder.createTime,
+        active.cover,
+        active.title,
+        active.price,
+        active.goodsId,
+        active.goodsUrl
+        FROM t_taoke_active_order torder
+        JOIN t_taoke_active active ON torder.activeId = active.id
+        WHERE torder.id = #{orderId} and torder.appId=#{appId} and torder.buyerOpenId = #{openId}
+  </select>
+
+</mapper>

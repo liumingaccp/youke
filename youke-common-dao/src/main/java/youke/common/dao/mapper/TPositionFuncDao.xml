@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IPositionFuncDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TPositionFunc" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="positionId" property="positionid" jdbcType="INTEGER" />
+    <result column="funcId" property="funcid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, positionId, funcId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_position_func
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_position_func
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TPositionFunc" >
+    insert into t_position_func (id, positionId, funcId
+      )
+    values (#{id,jdbcType=BIGINT}, #{positionid,jdbcType=INTEGER}, #{funcid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TPositionFunc" >
+    insert into t_position_func
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="positionid != null" >
+        positionId,
+      </if>
+      <if test="funcid != null" >
+        funcId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="positionid != null" >
+        #{positionid,jdbcType=INTEGER},
+      </if>
+      <if test="funcid != null" >
+        #{funcid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TPositionFunc" >
+    update t_position_func
+    <set >
+      <if test="positionid != null" >
+        positionId = #{positionid,jdbcType=INTEGER},
+      </if>
+      <if test="funcid != null" >
+        funcId = #{funcid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TPositionFunc" >
+    update t_position_func
+    set positionId = #{positionid,jdbcType=INTEGER},
+      funcId = #{funcid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

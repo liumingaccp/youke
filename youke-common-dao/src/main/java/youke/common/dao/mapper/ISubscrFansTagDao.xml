@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.ISubscrFansTagDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TSubscrFansTag" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="openId" property="openid" jdbcType="VARCHAR" />
+    <result column="tagId" property="tagid" jdbcType="INTEGER" />
+    <result column="syncState" property="syncstate" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, openId, tagId,syncState
+  </sql>
+  <delete id="removeSubScrFansTag">
+      DELETE FROM t_subscr_fans_tag where tagId = #{tagId}
+  </delete>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_subscr_fans_tag
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_subscr_fans_tag
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TSubscrFansTag" useGeneratedKeys="true" keyProperty="id">
+    insert into t_subscr_fans_tag (id, openId, tagId,syncState
+      )
+    values (#{id,jdbcType=INTEGER}, #{openid,jdbcType=VARCHAR}, #{tagid,jdbcType=INTEGER}, #{syncstate,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TSubscrFansTag" useGeneratedKeys="true" keyProperty="id">
+    insert into t_subscr_fans_tag
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="openid != null" >
+        openId,
+      </if>
+      <if test="tagid != null" >
+        tagId,
+      </if>
+      <if test="syncstate != null" >
+        syncState,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="tagid != null" >
+        #{tagid,jdbcType=INTEGER},
+      </if>
+      <if test="syncstate != null" >
+        #{syncstate,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TSubscrFansTag" >
+    update t_subscr_fans_tag
+    <set >
+      <if test="openid != null" >
+        openId = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="tagid != null" >
+        tagId = #{tagid,jdbcType=INTEGER},
+      </if>
+      <if test="syncstate != null" >
+        syncState = #{syncstate,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TSubscrFansTag" >
+    update t_subscr_fans_tag
+    set openId = #{openid,jdbcType=VARCHAR},
+        tagId = #{tagid,jdbcType=INTEGER},
+        syncState = #{syncstate,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectTagsIdByOpenId" resultType="java.lang.Integer">
+    SELECT tagId
+    FROM t_subscr_fans_tag
+    WHERE openId = #{openId}
+  </select>
+
+  <delete id="deleteTagsRelative">
+    DELETE
+    FROM t_subscr_fans_tag
+    WHERE openId = #{openId}
+        AND tagId IN
+            <foreach collection="tagsId" item="tagId" index="index"
+                open="(" close=")" separator=",">
+                #{tagId}
+            </foreach>
+  </delete>
+
+
+  <select id="selectAllTags" resultType="java.lang.Integer">
+    select
+    temp.tagId
+    from t_subscr_fans_tag temp
+    JOIN t_subscr_fans fans ON temp.openId = fans.openId
+    WHERE fans.appId = #{appId}
+    group by temp.tagId
+  </select>
+
+  <update id="updateByFansTagId">
+    UPDATE t_subscr_fans_tag
+    SET syncState = #{type}
+    WHERE tagId = #{fansTagId}
+  </update>
+</mapper>

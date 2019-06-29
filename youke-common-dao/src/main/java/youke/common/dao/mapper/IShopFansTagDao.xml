@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IShopFansTagDao">
+    <resultMap id="BaseResultMap" type="youke.common.model.TShopFansTag">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="tagId" property="tagid" jdbcType="INTEGER"/>
+        <result column="fansId" property="fansid" jdbcType="BIGINT"/>
+        <result column="youkeId" property="youkeid" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, tagId, fansId, youkeId
+  </sql>
+    <delete id="removeShopFansTag">
+        DELETE FROM t_shop_fans_tag where youkeId = #{youkeId} and tagId = #{tagId}
+  </delete>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from t_shop_fans_tag
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_shop_fans_tag
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="youke.common.model.TShopFansTag">
+    insert into t_shop_fans_tag (id, tagId, fansId, 
+      youkeId)
+    values (#{id,jdbcType=BIGINT}, #{tagid,jdbcType=INTEGER}, #{fansid,jdbcType=BIGINT}, 
+      #{youkeid,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="youke.common.model.TShopFansTag" useGeneratedKeys="true" keyProperty="id">
+        insert into t_shop_fans_tag
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="tagid != null">
+                tagId,
+            </if>
+            <if test="fansid != null">
+                fansId,
+            </if>
+            <if test="youkeid != null">
+                youkeId,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="tagid != null">
+                #{tagid,jdbcType=INTEGER},
+            </if>
+            <if test="fansid != null">
+                #{fansid,jdbcType=BIGINT},
+            </if>
+            <if test="youkeid != null">
+                #{youkeid,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TShopFansTag">
+        update t_shop_fans_tag
+        <set>
+            <if test="tagid != null">
+                tagId = #{tagid,jdbcType=INTEGER},
+            </if>
+            <if test="fansid != null">
+                fansId = #{fansid,jdbcType=BIGINT},
+            </if>
+            <if test="youkeid != null">
+                youkeId = #{youkeid,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="youke.common.model.TShopFansTag">
+    update t_shop_fans_tag
+    set tagId = #{tagid,jdbcType=INTEGER},
+      fansId = #{fansid,jdbcType=BIGINT},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+    <!-- 增加 -->
+    <delete id="delTags">
+        DELETE FROM t_shop_fans_tag
+        WHERE fansId = #{fansId} AND tagId IN
+        <foreach collection="tags" item="tagId" index="index"
+                 open="(" close=")" separator=",">
+            #{tagId}
+        </foreach>
+    </delete>
+
+    <select id="selectByFansId" resultType="java.lang.Integer">
+    SELECT tagId
+    FROM t_shop_fans_tag
+    WHERE fansId = #{fansId}
+  </select>
+
+</mapper>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IMarketActiveVoteDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TMarketActiveVote" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="picId" property="picid" jdbcType="BIGINT" />
+    <result column="openId" property="openid" jdbcType="VARCHAR" />
+    <result column="activeId" property="activeid" jdbcType="BIGINT" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, picId, openId, activeId, createTime, youkeId
+  </sql>
+  <select id="gettpdatas" resultType="youke.common.model.vo.result.ResultOfVotingVo">
+    SELECT a.total AS total, a.title AS title, a.url AS picUrl,
+    CASE
+    WHEN @rowtotal = a.total THEN
+        @rownum
+    WHEN @rowtotal := a.total THEN
+        @rownum :=@rownum + 1
+    WHEN @rowtotal = 0 THEN
+        @rownum :=@rownum + 1
+    END AS rank
+    FROM
+    (SELECT count(vote.picId) AS total, pic.title AS title, pic.picUrl AS url
+    FROM t_market_active_vote vote
+    JOIN t_market_active_pic pic
+    ON vote.picId = pic.id
+    AND vote.youkeId = pic.youkeId
+    WHERE vote.activeId = #{activeId} AND vote.youkeId = #{dykId}
+    GROUP BY vote.picId
+    ORDER BY total DESC)a, (SELECT @rownum := 0 ,@rowtotal := NULL) r
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from t_market_active_vote
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_market_active_vote
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TMarketActiveVote" >
+    insert into t_market_active_vote (id, picId, openId, 
+      activeId, createTime, youkeId
+      )
+    values (#{id,jdbcType=BIGINT}, #{picid,jdbcType=BIGINT}, #{openid,jdbcType=VARCHAR}, 
+      #{activeid,jdbcType=BIGINT}, #{createtime,jdbcType=TIMESTAMP}, #{youkeid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TMarketActiveVote" useGeneratedKeys="true" keyProperty="id">
+    insert into t_market_active_vote
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="picid != null" >
+        picId,
+      </if>
+      <if test="openid != null" >
+        openId,
+      </if>
+      <if test="activeid != null" >
+        activeId,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="picid != null" >
+        #{picid,jdbcType=BIGINT},
+      </if>
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="activeid != null" >
+        #{activeid,jdbcType=BIGINT},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TMarketActiveVote" >
+    update t_market_active_vote
+    <set >
+      <if test="picid != null" >
+        picId = #{picid,jdbcType=BIGINT},
+      </if>
+      <if test="openid != null" >
+        openId = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="activeid != null" >
+        activeId = #{activeid,jdbcType=BIGINT},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="youkeid != null" >
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TMarketActiveVote" >
+    update t_market_active_vote
+    set picId = #{picid,jdbcType=BIGINT},
+      openId = #{openid,jdbcType=VARCHAR},
+      activeId = #{activeid,jdbcType=BIGINT},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

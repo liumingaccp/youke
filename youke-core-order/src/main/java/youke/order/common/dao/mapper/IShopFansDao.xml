@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.order.common.dao.IShopFansDao">
+    <resultMap id="BaseResultMap" type="youke.order.common.model.TShopFans">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="nickname" property="nickname" jdbcType="VARCHAR"/>
+        <result column="truename" property="truename" jdbcType="VARCHAR"/>
+        <result column="mobile" property="mobile" jdbcType="VARCHAR"/>
+        <result column="email" property="email" jdbcType="VARCHAR"/>
+        <result column="sex" property="sex" jdbcType="INTEGER"/>
+        <result column="headimgurl" property="headimgurl" jdbcType="VARCHAR"/>
+        <result column="city" property="city" jdbcType="VARCHAR"/>
+        <result column="province" property="province" jdbcType="VARCHAR"/>
+        <result column="country" property="country" jdbcType="VARCHAR"/>
+        <result column="language" property="language" jdbcType="VARCHAR"/>
+        <result column="integral" property="integral" jdbcType="INTEGER"/>
+        <result column="experience" property="experience" jdbcType="INTEGER"/>
+        <result column="unionid" property="unionid" jdbcType="VARCHAR"/>
+        <result column="login_count" property="loginCount" jdbcType="INTEGER"/>
+        <result column="regIp" property="regip" jdbcType="VARCHAR"/>
+        <result column="regTime" property="regtime" jdbcType="TIMESTAMP"/>
+        <result column="lastTime" property="lasttime" jdbcType="TIMESTAMP"/>
+        <result column="state" property="state" jdbcType="INTEGER"/>
+        <result column="dealTotal" property="dealtotal" jdbcType="DOUBLE"/>
+        <result column="avgDealTotal" property="avgdealtotal" jdbcType="DOUBLE"/>
+        <result column="dealNum" property="dealnum" jdbcType="INTEGER"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+        <result column="comeFrom" property="comefrom" jdbcType="INTEGER"/>
+        <result column="shopId" property="shopid" jdbcType="INTEGER"/>
+        <result column="youkeId" property="youkeid" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, nickname, truename, mobile, email, sex, headimgurl, city, province, country,
+    language, integral, experience, unionid, login_count, regIp, regTime, lastTime, state,
+    dealTotal, avgDealTotal, dealNum, remark, comeFrom, shopId, youkeId
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from t_shop_fans
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from t_shop_fans
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insertSelective" parameterType="youke.order.common.model.TShopFans" useGeneratedKeys="true" keyProperty="id">
+        insert into t_shop_fans
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="nickname != null">
+                nickname,
+            </if>
+            <if test="truename != null">
+                truename,
+            </if>
+            <if test="mobile != null">
+                mobile,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="sex != null">
+                sex,
+            </if>
+            <if test="headimgurl != null">
+                headimgurl,
+            </if>
+            <if test="city != null">
+                city,
+            </if>
+            <if test="province != null">
+                province,
+            </if>
+            <if test="country != null">
+                country,
+            </if>
+            <if test="language != null">
+                language,
+            </if>
+            <if test="integral != null">
+                integral,
+            </if>
+            <if test="experience != null">
+                experience,
+            </if>
+            <if test="unionid != null">
+                unionid,
+            </if>
+            <if test="loginCount != null">
+                login_count,
+            </if>
+            <if test="regip != null">
+                regIp,
+            </if>
+            <if test="regtime != null">
+                regTime,
+            </if>
+            <if test="lasttime != null">
+                lastTime,
+            </if>
+            <if test="state != null">
+                state,
+            </if>
+            <if test="dealtotal != null">
+                dealTotal,
+            </if>
+            <if test="avgdealtotal != null">
+                avgDealTotal,
+            </if>
+            <if test="dealnum != null">
+                dealNum,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="comefrom != null">
+                comeFrom,
+            </if>
+            <if test="shopid != null">
+                shopId,
+            </if>
+            <if test="youkeid != null">
+                youkeId,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="nickname != null">
+                #{nickname,jdbcType=VARCHAR},
+            </if>
+            <if test="truename != null">
+                #{truename,jdbcType=VARCHAR},
+            </if>
+            <if test="mobile != null">
+                #{mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                #{sex,jdbcType=INTEGER},
+            </if>
+            <if test="headimgurl != null">
+                #{headimgurl,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="province != null">
+                #{province,jdbcType=VARCHAR},
+            </if>
+            <if test="country != null">
+                #{country,jdbcType=VARCHAR},
+            </if>
+            <if test="language != null">
+                #{language,jdbcType=VARCHAR},
+            </if>
+            <if test="integral != null">
+                #{integral,jdbcType=INTEGER},
+            </if>
+            <if test="experience != null">
+                #{experience,jdbcType=INTEGER},
+            </if>
+            <if test="unionid != null">
+                #{unionid,jdbcType=VARCHAR},
+            </if>
+            <if test="loginCount != null">
+                #{loginCount,jdbcType=INTEGER},
+            </if>
+            <if test="regip != null">
+                #{regip,jdbcType=VARCHAR},
+            </if>
+            <if test="regtime != null">
+                #{regtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lasttime != null">
+                #{lasttime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="state != null">
+                #{state,jdbcType=INTEGER},
+            </if>
+            <if test="dealtotal != null">
+                #{dealtotal,jdbcType=DOUBLE},
+            </if>
+            <if test="avgdealtotal != null">
+                #{avgdealtotal,jdbcType=DOUBLE},
+            </if>
+            <if test="dealnum != null">
+                #{dealnum,jdbcType=INTEGER},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="comefrom != null">
+                #{comefrom,jdbcType=INTEGER},
+            </if>
+            <if test="shopid != null">
+                #{shopid,jdbcType=INTEGER},
+            </if>
+            <if test="youkeid != null">
+                #{youkeid,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="youke.order.common.model.TShopFans">
+        update t_shop_fans
+        <set>
+            <if test="nickname != null">
+                nickname = #{nickname,jdbcType=VARCHAR},
+            </if>
+            <if test="truename != null">
+                truename = #{truename,jdbcType=VARCHAR},
+            </if>
+            <if test="mobile != null">
+                mobile = #{mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                sex = #{sex,jdbcType=INTEGER},
+            </if>
+            <if test="headimgurl != null">
+                headimgurl = #{headimgurl,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                city = #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="province != null">
+                province = #{province,jdbcType=VARCHAR},
+            </if>
+            <if test="country != null">
+                country = #{country,jdbcType=VARCHAR},
+            </if>
+            <if test="language != null">
+                language = #{language,jdbcType=VARCHAR},
+            </if>
+            <if test="integral != null">
+                integral = #{integral,jdbcType=INTEGER},
+            </if>
+            <if test="experience != null">
+                experience = #{experience,jdbcType=INTEGER},
+            </if>
+            <if test="unionid != null">
+                unionid = #{unionid,jdbcType=VARCHAR},
+            </if>
+            <if test="loginCount != null">
+                login_count = #{loginCount,jdbcType=INTEGER},
+            </if>
+            <if test="regip != null">
+                regIp = #{regip,jdbcType=VARCHAR},
+            </if>
+            <if test="regtime != null">
+                regTime = #{regtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lasttime != null">
+                lastTime = #{lasttime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="state != null">
+                state = #{state,jdbcType=INTEGER},
+            </if>
+            <if test="dealtotal != null">
+                dealTotal = #{dealtotal,jdbcType=DOUBLE},
+            </if>
+            <if test="avgdealtotal != null">
+                avgDealTotal = #{avgdealtotal,jdbcType=DOUBLE},
+            </if>
+            <if test="dealnum != null">
+                dealNum = #{dealnum,jdbcType=INTEGER},
+            </if>
+            <if test="remark != null">
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="comefrom != null">
+                comeFrom = #{comefrom,jdbcType=INTEGER},
+            </if>
+            <if test="shopid != null">
+                shopId = #{shopid,jdbcType=INTEGER},
+            </if>
+            <if test="youkeid != null">
+                youkeId = #{youkeid,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>

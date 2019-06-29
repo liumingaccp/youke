@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IShopFansDao">
+    <resultMap id="BaseResultMap" type="youke.common.model.TShopFans">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="nickname" property="nickname" jdbcType="VARCHAR"/>
+        <result column="truename" property="truename" jdbcType="VARCHAR"/>
+        <result column="mobile" property="mobile" jdbcType="VARCHAR"/>
+        <result column="email" property="email" jdbcType="VARCHAR"/>
+        <result column="sex" property="sex" jdbcType="INTEGER"/>
+        <result column="headimgurl" property="headimgurl" jdbcType="VARCHAR"/>
+        <result column="city" property="city" jdbcType="VARCHAR"/>
+        <result column="province" property="province" jdbcType="VARCHAR"/>
+        <result column="country" property="country" jdbcType="VARCHAR"/>
+        <result column="language" property="language" jdbcType="VARCHAR"/>
+        <result column="integral" property="integral" jdbcType="INTEGER"/>
+        <result column="experience" property="experience" jdbcType="INTEGER"/>
+        <result column="unionid" property="unionid" jdbcType="VARCHAR"/>
+        <result column="login_count" property="loginCount" jdbcType="INTEGER"/>
+        <result column="regIp" property="regip" jdbcType="VARCHAR"/>
+        <result column="regTime" property="regtime" jdbcType="TIMESTAMP"/>
+        <result column="lastTime" property="lasttime" jdbcType="TIMESTAMP"/>
+        <result column="state" property="state" jdbcType="INTEGER"/>
+        <result column="dealTotal" property="dealtotal" jdbcType="DOUBLE"/>
+        <result column="avgDealTotal" property="avgdealtotal" jdbcType="DOUBLE"/>
+        <result column="dealNum" property="dealnum" jdbcType="INTEGER"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+        <result column="comeFrom" property="comefrom" jdbcType="INTEGER"/>
+        <result column="shopId" property="shopid" jdbcType="INTEGER"/>
+        <result column="youkeId" property="youkeid" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, nickname, truename, mobile, email, sex, headimgurl, city, province, country,
+    language, integral, experience, unionid, login_count, regIp, regTime, lastTime, state,
+    dealTotal, avgDealTotal, dealNum, remark, comeFrom, shopId, youkeId
+  </sql>
+    <select id="selectTagFilterFansList" resultType="java.lang.Long">
+        SELECT a.id from t_shop_fans a
+        JOIN t_shop_fans_tag b
+        on a.id = b.fansId
+        JOIN t_tag c
+        ON b.tagId = c.id
+        WHERE b.tagId IN
+        <foreach collection="tagList" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        AND b.youkeId = #{dykId}
+        GROUP BY a.id
+        <if test="tagFilter == 1">
+          HAVING count(a.id) > 1
+        </if>
+    </select>
+    <select id="getShopSendList" resultType="youke.common.model.vo.result.MassTempListVo">
+        SELECT id, nickname, truename, lastTime, mobile,shopId FROM t_shop_fans
+        <where>
+            <if test="shopList!=null and shopList.size()>0">
+                AND shopId IN
+                <foreach collection="shopList" item="shopItem" index="index" open="(" separator="," close=")">
+                    #{shopItem}
+                </foreach>
+            </if>
+            <if test="mobileList!=null and mobileList.size()>0">
+                AND mobile NOT IN
+                <foreach collection="mobileList" index="index" item="mobileItem" open="(" separator="," close=")" >
+                    #{mobileItem}
+                </foreach>
+            </if>
+            <if test="fansList!=null and fansList.size()>0">
+                AND id IN
+                <foreach collection="fansList" index="index" item="fansItem" open="(" separator="," close=")" >
+                    #{fansItem}
+                </foreach>
+            </if>
+            <if test="lastTimeBeg != null">
+                AND lastTime >= #{lastTimeBeg}
+            </if>
+            <if test="lastTimeEnd != null">
+                AND lastTime &lt;= #{lastTimeEnd}
+            </if>
+            <if test="avgDealTotalBeg != null and avgDealTotalBeg!=-1">
+                AND avgDealTotal >= #{avgDealTotalBeg}
+            </if>
+            <if test="avgDealTotalEnd != null and avgDealTotalEnd!=-1">
+                AND avgDealTotal &lt;= #{avgDealTotalEnd}
+            </if>
+            AND state =0 AND youkeId = #{dykId}
+        </where>
+    </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from t_shop_fans
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_shop_fans
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="youke.common.model.TShopFans">
+    insert into t_shop_fans (id, nickname, truename,
+    mobile, email, sex,
+    headimgurl, city, province,
+    country, language, integral,
+    experience, unionid, login_count,
+    regIp, regTime, lastTime,
+    state, dealTotal, avgDealTotal,
+    dealNum, remark, comeFrom,
+    shopId, youkeId)
+    values (#{id,jdbcType=BIGINT}, #{nickname,jdbcType=VARCHAR}, #{truename,jdbcType=VARCHAR},
+    #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER},
+    #{headimgurl,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR},
+    #{country,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR}, #{integral,jdbcType=INTEGER},
+    #{experience,jdbcType=INTEGER}, #{unionid,jdbcType=VARCHAR}, #{loginCount,jdbcType=INTEGER},
+    #{regip,jdbcType=VARCHAR}, #{regtime,jdbcType=TIMESTAMP}, #{lasttime,jdbcType=TIMESTAMP},
+    #{state,jdbcType=INTEGER}, #{dealtotal,jdbcType=DOUBLE}, #{avgdealtotal,jdbcType=DOUBLE},
+    #{dealnum,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{comefrom,jdbcType=INTEGER},
+    #{shopid,jdbcType=INTEGER}, #{youkeid,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="youke.common.model.TShopFans" useGeneratedKeys="true" keyProperty="id">
+        insert into t_shop_fans
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="nickname != null">
+                nickname,
+            </if>
+            <if test="truename != null">
+                truename,
+            </if>
+            <if test="mobile != null">
+                mobile,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="sex != null">
+                sex,
+            </if>
+            <if test="headimgurl != null">
+                headimgurl,
+            </if>
+            <if test="city != null">
+                city,
+            </if>
+            <if test="province != null">
+                province,
+            </if>
+            <if test="country != null">
+                country,
+            </if>
+            <if test="language != null">
+                language,
+            </if>
+            <if test="integral != null">
+                integral,
+            </if>
+            <if test="experience != null">
+                experience,
+            </if>
+            <if test="unionid != null">
+                unionid,
+            </if>
+            <if test="loginCount != null">
+                login_count,
+            </if>
+            <if test="regip != null">
+                regIp,
+            </if>
+            <if test="regtime != null">
+                regTime,
+            </if>
+            <if test="lasttime != null">
+                lastTime,
+            </if>
+            <if test="state != null">
+                state,
+            </if>
+            <if test="dealtotal != null">
+                dealTotal,
+            </if>
+            <if test="avgdealtotal != null">
+                avgDealTotal,
+            </if>
+            <if test="dealnum != null">
+                dealNum,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="comefrom != null">
+                comeFrom,
+            </if>
+            <if test="shopid != null">
+                shopId,
+            </if>
+            <if test="youkeid != null">
+                youkeId,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="nickname != null">
+                #{nickname,jdbcType=VARCHAR},
+            </if>
+            <if test="truename != null">
+                #{truename,jdbcType=VARCHAR},
+            </if>
+            <if test="mobile != null">
+                #{mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                #{sex,jdbcType=INTEGER},
+            </if>
+            <if test="headimgurl != null">
+                #{headimgurl,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="province != null">
+                #{province,jdbcType=VARCHAR},
+            </if>
+            <if test="country != null">
+                #{country,jdbcType=VARCHAR},
+            </if>
+            <if test="language != null">
+                #{language,jdbcType=VARCHAR},
+            </if>
+            <if test="integral != null">
+                #{integral,jdbcType=INTEGER},
+            </if>
+            <if test="experience != null">
+                #{experience,jdbcType=INTEGER},
+            </if>
+            <if test="unionid != null">
+                #{unionid,jdbcType=VARCHAR},
+            </if>
+            <if test="loginCount != null">
+                #{loginCount,jdbcType=INTEGER},
+            </if>
+            <if test="regip != null">
+                #{regip,jdbcType=VARCHAR},
+            </if>
+            <if test="regtime != null">
+                #{regtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lasttime != null">
+                #{lasttime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="state != null">
+                #{state,jdbcType=INTEGER},
+            </if>
+            <if test="dealtotal != null">
+                #{dealtotal,jdbcType=DOUBLE},
+            </if>
+            <if test="avgdealtotal != null">
+                #{avgdealtotal,jdbcType=DOUBLE},
+            </if>
+            <if test="dealnum != null">
+                #{dealnum,jdbcType=INTEGER},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="comefrom != null">
+                #{comefrom,jdbcType=INTEGER},
+            </if>
+            <if test="shopid != null">
+                #{shopid,jdbcType=INTEGER},
+            </if>
+            <if test="youkeid != null">
+                #{youkeid,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TShopFans">
+        update t_shop_fans
+        <set>
+            <if test="nickname != null">
+                nickname = #{nickname,jdbcType=VARCHAR},
+            </if>
+            <if test="truename != null">
+                truename = #{truename,jdbcType=VARCHAR},
+            </if>
+            <if test="mobile != null">
+                mobile = #{mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                sex = #{sex,jdbcType=INTEGER},
+            </if>
+            <if test="headimgurl != null">
+                headimgurl = #{headimgurl,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                city = #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="province != null">
+                province = #{province,jdbcType=VARCHAR},
+            </if>
+            <if test="country != null">
+                country = #{country,jdbcType=VARCHAR},
+            </if>
+            <if test="language != null">
+                language = #{language,jdbcType=VARCHAR},
+            </if>
+            <if test="integral != null">
+                integral = #{integral,jdbcType=INTEGER},
+            </if>
+            <if test="experience != null">
+                experience = #{experience,jdbcType=INTEGER},
+            </if>
+            <if test="unionid != null">
+                unionid = #{unionid,jdbcType=VARCHAR},
+            </if>
+            <if test="loginCount != null">
+                login_count = #{loginCount,jdbcType=INTEGER},
+            </if>
+            <if test="regip != null">
+                regIp = #{regip,jdbcType=VARCHAR},
+            </if>
+            <if test="regtime != null">
+                regTime = #{regtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lasttime != null">
+                lastTime = #{lasttime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="state != null">
+                state = #{state,jdbcType=INTEGER},
+            </if>
+            <if test="dealtotal != null">
+                dealTotal = #{dealtotal,jdbcType=DOUBLE},
+            </if>
+            <if test="avgdealtotal != null">
+                avgDealTotal = #{avgdealtotal,jdbcType=DOUBLE},
+            </if>
+            <if test="dealnum != null">
+                dealNum = #{dealnum,jdbcType=INTEGER},
+            </if>
+            <if test="remark != null">
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="comefrom != null">
+                comeFrom = #{comefrom,jdbcType=INTEGER},
+            </if>
+            <if test="shopid != null">
+                shopId = #{shopid,jdbcType=INTEGER},
+            </if>
+            <if test="youkeid != null">
+                youkeId = #{youkeid,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="youke.common.model.TShopFans">
+    update t_shop_fans
+    set nickname = #{nickname,jdbcType=VARCHAR},
+      truename = #{truename,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=INTEGER},
+      headimgurl = #{headimgurl,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      country = #{country,jdbcType=VARCHAR},
+      language = #{language,jdbcType=VARCHAR},
+      integral = #{integral,jdbcType=INTEGER},
+      experience = #{experience,jdbcType=INTEGER},
+      unionid = #{unionid,jdbcType=VARCHAR},
+      login_count = #{loginCount,jdbcType=INTEGER},
+      regIp = #{regip,jdbcType=VARCHAR},
+      regTime = #{regtime,jdbcType=TIMESTAMP},
+      lastTime = #{lasttime,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=INTEGER},
+      dealTotal = #{dealtotal,jdbcType=DOUBLE},
+      avgDealTotal = #{avgdealtotal,jdbcType=DOUBLE},
+      dealNum = #{dealnum,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      comeFrom = #{comefrom,jdbcType=INTEGER},
+      shopId = #{shopid,jdbcType=INTEGER},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+    <!--增加sql-->
+    <resultMap id="ListResultMap" type="youke.common.model.TShopFans">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="truename" property="truename" jdbcType="VARCHAR"/>
+        <result column="mobile" property="mobile" jdbcType="VARCHAR"/>
+        <result column="lastTime" property="lasttime" jdbcType="TIMESTAMP"/>
+        <result column="dealTotal" property="dealtotal" jdbcType="DOUBLE"/>
+        <result column="avgDealTotal" property="avgdealtotal" jdbcType="DOUBLE"/>
+        <result column="dealNum" property="dealnum" jdbcType="INTEGER"/>
+        <result column="comeFrom" property="comefrom" jdbcType="INTEGER"/>
+        <result column="shopId" property="shopid" jdbcType="INTEGER"/>
+
+        <association property="shop" javaType="youke.common.model.TShop">
+            <id column="shop_id" property="id"/>
+            <result column="shop_title" property="title"/>
+        </association>
+    </resultMap>
+
+    <select id="getFansIds" resultType="java.lang.Integer" parameterType="youke.common.model.vo.param.ShopFansQueryVo">
+        SELECT sfans.fansId
+        FROM t_shop_fans_tag sfans
+        JOIN t_shop_fans fans ON sfans.fansId = fans.id
+        JOIN t_tag tag ON sfans.tagId = tag.id
+        WHERE
+        fans.youkeId = #{youkeId}
+        AND tag.id IN
+        <foreach collection="tags" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        GROUP BY sfans.fansId
+        HAVING count(sfans.fansId) &gt;= #{tagCount}
+    </select>
+    <select id="queryForList" parameterType="youke.common.model.vo.param.ShopFansQueryVo" resultMap="ListResultMap">
+        SELECT fans.id,fans.truename,fans.mobile,fans.lastTime,fans.dealTotal,fans.avgDealTotal,fans.dealNum,
+        fans.comeFrom,fans.shopId, shop.id AS shop_id, shop.title AS shop_title
+        FROM t_shop_fans fans
+        LEFT JOIN t_shop shop
+        ON fans.shopId = shop.id
+        <where>
+            AND fans.youkeId = #{youkeId}
+            <if test="idsCount > 0">
+                AND fans.id IN
+                <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="shopId != null and shopId > -1">
+                AND fans.shopId = #{shopId}
+            </if>
+            <if test="begDealDate != null and endDealDate != null">
+                AND fans.lastTime &gt;= #{begDealDate}
+                AND fans.lastTime &lt;= #{endDealDate}
+            </if>
+            <if test="keyType != null and key != null">
+                <if test='keyType == "mobile".toString() '>
+                    AND fans.mobile LIKE concat('%',#{key},'%')
+                </if>
+                <if test='keyType == "truename".toString() '>
+                    AND fans.truename LIKE concat('%',#{key},'%')
+                </if>
+            </if>
+            <if test="begDealTotal != null and begDealTotal != -1 and endDealTotal != null and endDealTotal != -1">
+                AND fans.dealtotal &gt;= #{begDealTotal}
+                AND fans.dealtotal &lt;= #{endDealTotal}
+            </if>
+            <if test="begDealNum != null and begDealNum != -1 and endDealNum != null and endDealNum != -1">
+                AND fans.dealnum &gt;= #{begDealNum}
+                AND fans.dealnum &lt;= #{endDealNum}
+            </if>
+            <if test="state == 1">
+                AND fans.state = 1
+            </if>
+            <if test="state == 0">
+                AND fans.state = 0
+            </if>
+        </where>
+        order by fans.regTime desc
+    </select>
+
+    <update id="sveRemark">
+        UPDATE t_shop_fans
+        SET remark = #{remark}
+        WHERE id = #{fansId}
+    </update>
+
+    <select id="selectTTagById" resultMap="youke.common.dao.ITagDao.BaseResultMap">
+        SELECT tag.id, tag.title FROM t_shop_fans fans
+            JOIN t_shop_fans_tag sfans on fans.id = sfans.fansId
+            JOIN t_tag tag ON sfans.tagId = tag.id
+        WHERE fans.id = #{fanId}
+    </select>
+
+    <select id="getByMobile" resultMap="BaseResultMap">
+        SELECT mobile, integral, lastTime, nickname, truename, city, sex
+        FROM t_shop_fans
+        WHERE mobile = #{mobile} AND youkeId = #{youkeId}
+    </select>
+    <select id="selectBuyBackFansNumForThisWeek" resultType="java.lang.Integer">
+        SELECT IFNULL(count(id),0) FROM t_shop_fans WHERE YEARWEEK(date_format(lastTime,'%Y-%m-%d %h:%i:%s')) = YEARWEEK(now()) AND youkeId = #{dykId}
+    </select>
+    <select id="selectBuyBackFansNumForLastWeek" resultType="java.lang.Integer">
+        SELECT IFNULL(count(id),0) FROM t_shop_fans WHERE YEARWEEK(date_format(lastTime,'%Y-%m-%d %h:%i:%s')) = YEARWEEK(now())-1 AND youkeId = #{dykId}
+    </select>
+    <select id="selectBuyBackFansNumForYesterday" resultType="java.lang.Integer">
+        SELECT IFNULL(count(id),0) FROM t_shop_fans WHERE date(DATE_FORMAT(lastTime,'%Y-%m-%d %h:%i:%s')) = date_sub(curdate(),interval 1 day) AND youkeId = #{dykId}
+    </select>
+    <select id="selectBuyBackFansNumForSevenDays" resultType="java.lang.Integer">
+        SELECT IFNULL(count(id),0) FROM t_shop_fans WHERE DATEDIFF(lastTime,NOW())&lt;=0 AND DATEDIFF(lastTime,NOW())>-7 AND youkeId = #{dykId}
+    </select>
+    <select id="selectBuyBackFansNumForElevenDays" resultType="java.lang.Integer">
+        SELECT IFNULL(count(id),0) FROM t_shop_fans WHERE DATEDIFF(lastTime,NOW())&lt;=0 AND DATEDIFF(lastTime,NOW())>-14 AND youkeId = #{dykId}
+    </select>
+    <select id="selectBuyBackProbabilityForSevenDays" resultType="java.lang.String">
+        SELECT CONCAT(ROUND(a.count/b.totalCount * 100, 2),'','%') AS probability
+        FROM (SELECT IFNULL(count(id),0) AS count FROM t_shop_fans WHERE DATEDIFF(lastTime,NOW())&lt;=0 AND DATEDIFF(lastTime,NOW())>-7 AND youkeId = #{dykId}) AS a,
+        (SELECT IFNULL(count(id),1) AS totalCount FROM t_shop_fans WHERE youkeId = #{dykId}) AS b
+    </select>
+    <select id="selectBuyBackProbabilityForElevenDays" resultType="java.lang.String">
+        SELECT CONCAT(ROUND(((a.count- b.count)/c.totalCount) * 100, 2),'','%') AS probability
+        FROM (SELECT IFNULL(count(id),0) AS count FROM t_shop_fans WHERE DATEDIFF(lastTime,NOW())&lt;=0 AND DATEDIFF(lastTime,NOW())>-14) AS a,
+        (SELECT IFNULL(count(id),0) AS count FROM t_shop_fans WHERE DATEDIFF(lastTime,NOW())&lt;=0 AND DATEDIFF(lastTime,NOW())>-7) AS b,
+        (SELECT IFNULL(count(id),0) AS totalCount FROM t_shop_fans) AS c
+    </select>
+    <select id="queryForCount" resultType="java.lang.Integer">
+        select IFNULL(count(id),0) FROM t_shop_fans where youkeId = #{dykId}
+    </select>
+    <select id="selectShopFansByMobile" resultType="java.lang.Integer">
+        select  IFNULL(count(id),0) from  t_shop_fans where mobile=#{mobile} and youkeId = #{dykId}
+    </select>
+    
+    <update id="bacthupdateState">
+        UPDATE t_shop_fans
+        SET state = #{state}
+        where id in
+        <foreach collection="ids" item="id" separator="," close=")" open="(">
+            #{id}
+        </foreach>
+    </update>
+</mapper>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IWxPerConfigMapper" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TWxPerConfig" >
+    <id column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+    <result column="dailyLimit" property="dailylimit" jdbcType="INTEGER" />
+    <result column="openDistinct" property="opendistinct" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    youkeId, dailyLimit, openDistinct
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_wxper_config
+    where youkeId = #{youkeid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_wxper_config
+    where youkeId = #{youkeid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TWxPerConfig" >
+    insert into t_wxper_config (youkeId, dailyLimit, openDistinct
+      )
+    values (#{youkeid,jdbcType=VARCHAR}, #{dailylimit,jdbcType=INTEGER}, #{opendistinct,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TWxPerConfig" >
+    insert into t_wxper_config
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+      <if test="dailylimit != null" >
+        dailyLimit,
+      </if>
+      <if test="opendistinct != null" >
+        openDistinct,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+      <if test="dailylimit != null" >
+        #{dailylimit,jdbcType=INTEGER},
+      </if>
+      <if test="opendistinct != null" >
+        #{opendistinct,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TWxPerConfig" >
+    update t_wxper_config
+    <set >
+      <if test="dailylimit != null" >
+        dailyLimit = #{dailylimit,jdbcType=INTEGER},
+      </if>
+      <if test="opendistinct != null" >
+        openDistinct = #{opendistinct,jdbcType=INTEGER},
+      </if>
+    </set>
+    where youkeId = #{youkeid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TWxPerConfig" >
+    update t_wxper_config
+    set dailyLimit = #{dailylimit,jdbcType=INTEGER},
+      openDistinct = #{opendistinct,jdbcType=INTEGER}
+    where youkeId = #{youkeid,jdbcType=VARCHAR}
+  </update>
+</mapper>

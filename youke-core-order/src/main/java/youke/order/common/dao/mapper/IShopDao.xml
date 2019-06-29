@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="youke.order.common.dao.IShopDao">
+    <resultMap id="BaseResultMap" type="youke.order.common.model.TShop" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="dianId" property="dianid" jdbcType="VARCHAR" />
+        <result column="dianName" property="dianname" jdbcType="VARCHAR" />
+        <result column="cover" property="cover" jdbcType="VARCHAR" />
+        <result column="title" property="title" jdbcType="VARCHAR" />
+        <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+        <result column="state" property="state" jdbcType="INTEGER" />
+        <result column="authTime" property="authtime" jdbcType="TIMESTAMP" />
+        <result column="expTime" property="exptime" jdbcType="TIMESTAMP" />
+        <result column="type" property="type" jdbcType="INTEGER" />
+        <result column="accessToken" property="accesstoken" jdbcType="VARCHAR" />
+        <result column="refreshToken" property="refreshtoken" jdbcType="VARCHAR" />
+        <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+        <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
+        <result column="isDemo" property="isDemo" jdbcType="INTEGER" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        id, dianId, dianName, cover, title, createTime, state, authTime, expTime, type, accessToken,
+        refreshToken, youkeId, updateTime,isDemo
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+        select
+        <include refid="Base_Column_List" />
+        from t_shop
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+        delete from t_shop
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insertSelective" parameterType="youke.order.common.model.TShop" useGeneratedKeys="true" keyProperty="id">
+        insert into t_shop
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                id,
+            </if>
+            <if test="dianid != null" >
+                dianId,
+            </if>
+            <if test="dianname != null" >
+                dianName,
+            </if>
+            <if test="cover != null" >
+                cover,
+            </if>
+            <if test="title != null" >
+                title,
+            </if>
+            <if test="createtime != null" >
+                createTime,
+            </if>
+            <if test="state != null" >
+                state,
+            </if>
+            <if test="authtime != null" >
+                authTime,
+            </if>
+            <if test="exptime != null" >
+                expTime,
+            </if>
+            <if test="type != null" >
+                type,
+            </if>
+            <if test="accesstoken != null" >
+                accessToken,
+            </if>
+            <if test="refreshtoken != null" >
+                refreshToken,
+            </if>
+            <if test="youkeid != null" >
+                youkeId,
+            </if>
+            <if test="updatetime != null" >
+                updateTime,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="dianid != null" >
+                #{dianid,jdbcType=VARCHAR},
+            </if>
+            <if test="dianname != null" >
+                #{dianname,jdbcType=VARCHAR},
+            </if>
+            <if test="cover != null" >
+                #{cover,jdbcType=VARCHAR},
+            </if>
+            <if test="title != null" >
+                #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="createtime != null" >
+                #{createtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="state != null" >
+                #{state,jdbcType=INTEGER},
+            </if>
+            <if test="authtime != null" >
+                #{authtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="exptime != null" >
+                #{exptime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="type != null" >
+                #{type,jdbcType=INTEGER},
+            </if>
+            <if test="accesstoken != null" >
+                #{accesstoken,jdbcType=VARCHAR},
+            </if>
+            <if test="refreshtoken != null" >
+                #{refreshtoken,jdbcType=VARCHAR},
+            </if>
+            <if test="youkeid != null" >
+                #{youkeid,jdbcType=VARCHAR},
+            </if>
+            <if test="updatetime != null" >
+                #{updatetime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="youke.order.common.model.TShop" >
+        update t_shop
+        <set >
+            <if test="dianid != null" >
+                dianId = #{dianid,jdbcType=VARCHAR},
+            </if>
+            <if test="dianname != null" >
+                dianName = #{dianname,jdbcType=VARCHAR},
+            </if>
+            <if test="cover != null" >
+                cover = #{cover,jdbcType=VARCHAR},
+            </if>
+            <if test="title != null" >
+                title = #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="createtime != null" >
+                createTime = #{createtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="state != null" >
+                state = #{state,jdbcType=INTEGER},
+            </if>
+            <if test="authtime != null" >
+                authTime = #{authtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="exptime != null" >
+                expTime = #{exptime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="type != null" >
+                type = #{type,jdbcType=INTEGER},
+            </if>
+            <if test="accesstoken != null" >
+                accessToken = #{accesstoken,jdbcType=VARCHAR},
+            </if>
+            <if test="refreshtoken != null" >
+                refreshToken = #{refreshtoken,jdbcType=VARCHAR},
+            </if>
+            <if test="youkeid != null" >
+                youkeId = #{youkeid,jdbcType=VARCHAR},
+            </if>
+            <if test="updatetime != null" >
+                updateTime = #{updatetime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+</mapper>

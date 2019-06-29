@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:dubbo.properties" ignore-unresolvable="true"/>
+
+    <dubbo:application name="youke-web-service" owner="${dubbo.application.owner}" organization="${dubbo.application.organization}"/>
+ 
+    <!-- 使用multicast广播注册中心暴露发现服务地址 -->
+    <!--  <dubbo:registry address="multicast://224.5.6.7:1234" /> -->
+   
+    <!-- 使用Linux服务器上的Zookeeper -->
+    <dubbo:registry address="${dubbo.registry.address}" />
+   
+    <!--  使用本机的Zookeeper（Windows）-->
+  	<!--<dubbo:registry address="zookeeper://127.0.0.1:2181" /> -->
+  
+    <!-- 生成远程服务代理，可以和本地bean一样使用demoService
+     几个关键参数说明
+     version 服务版本，与服务提供者的版本保持一致
+     group 服务分组，当一个借口有多个实现，可以用分组区分，必须和服务提供方一致
+     delay 可选 延迟注册服务时间(毫秒)，设为-1时，表示延迟到Spring容器初始化完成时暴露服务 默认0
+     timeout 可选 服务方法调用超时时间(毫秒) 默认使用<dubbo:consumer />
+     retries 可选 远程服务调用重试次数，不包括第一次调用，不需要重试请设置为0 默认使用<dubbo:consumer />
+     loadbalance 可选负载均衡策略，可选值：random,roundrobin,leastactive，分别表示：随机，轮循，最少活跃调用
+     async 可选 异步调用 默认false
+     cache 可选 缓存 以调用参数为key，缓存返回结果 默认false
+     actives 可选 服务消费者每个服务方法最大并发调用数
+ -->
+
+    <!--2、关闭所有服务的启动时检查：(没有提供者时报错)  写在定义服务消费者一方-->
+    <dubbo:consumer check="false" timeout="6000" retries="2" />
+
+    <!--3、关闭注册中心启动时检查：(注册订阅失败时报错)-->
+    <dubbo:registry check="false" />
+
+    <dubbo:reference id="wxPerCoreService" interface="youke.facade.wxper.provider.IWxPerCoreService" version="1.0.0" check="false"/>
+</beans>

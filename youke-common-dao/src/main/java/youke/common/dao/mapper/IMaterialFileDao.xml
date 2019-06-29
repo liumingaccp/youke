@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IMaterialFileDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TMaterialFile" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="mediaId" property="mediaid" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="wxUrl" property="wxUrl" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="VARCHAR" />
+    <result column="isTemp" property="istemp" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="introduction" property="introduction" jdbcType="VARCHAR" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="appId" property="appid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, mediaId, url, wxUrl,createTime, isTemp, title, type, introduction, userId, state, appId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_material_file
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_material_file
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TMaterialFile" >
+    insert into t_material_file (id, mediaId, url, wxUrl,
+      createTime, isTemp, title, 
+      type, introduction, userId, 
+      state, appId)
+    values (#{id,jdbcType=INTEGER}, #{mediaid,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{wxUrl,jdbcType=VARCHAR},
+      #{createtime,jdbcType=VARCHAR}, #{istemp,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR},
+      #{type,jdbcType=VARCHAR}, #{introduction,jdbcType=VARCHAR}, #{userid,jdbcType=INTEGER}, 
+      #{state,jdbcType=INTEGER}, #{appid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TMaterialFile" useGeneratedKeys="true" keyProperty="id">
+    insert into t_material_file
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="mediaid != null" >
+        mediaId,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="wxUrl != null" >
+        wxUrl,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="istemp != null" >
+        isTemp,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="introduction != null" >
+        introduction,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="appid != null" >
+        appId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="mediaid != null" >
+        #{mediaid,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="wxUrl != null" >
+        #{wxUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="istemp != null" >
+        #{istemp,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="introduction != null" >
+        #{introduction,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="appid != null" >
+        #{appid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TMaterialFile" >
+    update t_material_file
+    <set >
+      <if test="mediaid != null" >
+        mediaId = #{mediaid,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="wxUrl != null" >
+        wxUrl = #{wxUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="istemp != null" >
+        isTemp = #{istemp,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="introduction != null" >
+        introduction = #{introduction,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="appid != null" >
+        appId = #{appid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TMaterialFile" >
+    update t_material_file
+    set mediaId = #{mediaid,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      wxUrl = #{wxUrl,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=VARCHAR},
+      isTemp = #{istemp,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      introduction = #{introduction,jdbcType=VARCHAR},
+      userId = #{userid,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      appId = #{appid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_material_file
+    where appId = #{appId,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByMateriaId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_material_file
+    where mediaId = #{mediaId,jdbcType=VARCHAR}
+  </select>
+</mapper>

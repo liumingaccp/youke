@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IMarketActiveRedruleDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TMarketActiveRedrule" >
+    <id column="activeId" property="activeid" jdbcType="BIGINT" />
+    <result column="openMinLimit" property="openminlimit" jdbcType="INTEGER" />
+    <result column="openMidLimit" property="openmidlimit" jdbcType="INTEGER" />
+    <result column="openMaxLimit" property="openmaxlimit" jdbcType="INTEGER" />
+    <result column="minLimit" property="minlimit" jdbcType="INTEGER" />
+    <result column="minMoneyBack" property="minmoneyback" jdbcType="INTEGER" />
+    <result column="midLimitBeg" property="midlimitbeg" jdbcType="INTEGER" />
+    <result column="midLimitEnd" property="midlimitend" jdbcType="INTEGER" />
+    <result column="midMoneyBack" property="midmoneyback" jdbcType="INTEGER" />
+    <result column="midRandMoneyBeg" property="midrandmoneybeg" jdbcType="INTEGER" />
+    <result column="midRandMoneyEnd" property="midrandmoneyend" jdbcType="INTEGER" />
+    <result column="maxLimit" property="maxlimit" jdbcType="INTEGER" />
+    <result column="maxMoneyBack" property="maxmoneyback" jdbcType="INTEGER" />
+    <result column="maxRandMoneyBeg" property="maxrandmoneybeg" jdbcType="INTEGER" />
+    <result column="maxRandMoneyEnd" property="maxrandmoneyend" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    activeId, openMinLimit, openMidLimit, openMaxLimit, minLimit, minMoneyBack, midLimitBeg,
+    midLimitEnd, midMoneyBack, midRandMoneyBeg, midRandMoneyEnd, maxLimit, maxMoneyBack,
+    maxRandMoneyBeg, maxRandMoneyEnd
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from t_market_active_redrule
+    where activeId = #{activeid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_market_active_redrule
+    where activeId = #{activeid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TMarketActiveRedrule" >
+    insert into t_market_active_redrule (activeId, openMinLimit, openMidLimit,
+    openMaxLimit, minLimit, minMoneyBack,
+    midLimitBeg, midLimitEnd, midMoneyBack,
+    midRandMoneyBeg, midRandMoneyEnd, maxLimit,
+    maxMoneyBack, maxRandMoneyBeg, maxRandMoneyEnd
+    )
+    values (#{activeid,jdbcType=BIGINT}, #{openminlimit,jdbcType=INTEGER}, #{openmidlimit,jdbcType=INTEGER},
+    #{openmaxlimit,jdbcType=INTEGER}, #{minlimit,jdbcType=INTEGER}, #{minmoneyback,jdbcType=INTEGER},
+    #{midlimitbeg,jdbcType=INTEGER}, #{midlimitend,jdbcType=INTEGER}, #{midmoneyback,jdbcType=INTEGER},
+    #{midrandmoneybeg,jdbcType=INTEGER}, #{midrandmoneyend,jdbcType=INTEGER}, #{maxlimit,jdbcType=INTEGER},
+    #{maxmoneyback,jdbcType=INTEGER}, #{maxrandmoneybeg,jdbcType=INTEGER}, #{maxrandmoneyend,jdbcType=INTEGER}
+    )
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TMarketActiveRedrule" useGeneratedKeys="true" keyProperty="id">
+    insert into t_market_active_redrule
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="activeid != null" >
+        activeId,
+      </if>
+      <if test="openminlimit != null" >
+        openMinLimit,
+      </if>
+      <if test="openmidlimit != null" >
+        openMidLimit,
+      </if>
+      <if test="openmaxlimit != null" >
+        openMaxLimit,
+      </if>
+      <if test="minlimit != null" >
+        minLimit,
+      </if>
+      <if test="minmoneyback != null" >
+        minMoneyBack,
+      </if>
+      <if test="midlimitbeg != null" >
+        midLimitBeg,
+      </if>
+      <if test="midlimitend != null" >
+        midLimitEnd,
+      </if>
+      <if test="midmoneyback != null" >
+        midMoneyBack,
+      </if>
+      <if test="midrandmoneybeg != null" >
+        midRandMoneyBeg,
+      </if>
+      <if test="midrandmoneyend != null" >
+        midRandMoneyEnd,
+      </if>
+      <if test="maxlimit != null" >
+        maxLimit,
+      </if>
+      <if test="maxmoneyback != null" >
+        maxMoneyBack,
+      </if>
+      <if test="maxrandmoneybeg != null" >
+        maxRandMoneyBeg,
+      </if>
+      <if test="maxrandmoneyend != null" >
+        maxRandMoneyEnd,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="activeid != null" >
+        #{activeid,jdbcType=BIGINT},
+      </if>
+      <if test="openminlimit != null" >
+        #{openminlimit,jdbcType=INTEGER},
+      </if>
+      <if test="openmidlimit != null" >
+        #{openmidlimit,jdbcType=INTEGER},
+      </if>
+      <if test="openmaxlimit != null" >
+        #{openmaxlimit,jdbcType=INTEGER},
+      </if>
+      <if test="minlimit != null" >
+        #{minlimit,jdbcType=INTEGER},
+      </if>
+      <if test="minmoneyback != null" >
+        #{minmoneyback,jdbcType=INTEGER},
+      </if>
+      <if test="midlimitbeg != null" >
+        #{midlimitbeg,jdbcType=INTEGER},
+      </if>
+      <if test="midlimitend != null" >
+        #{midlimitend,jdbcType=INTEGER},
+      </if>
+      <if test="midmoneyback != null" >
+        #{midmoneyback,jdbcType=INTEGER},
+      </if>
+      <if test="midrandmoneybeg != null" >
+        #{midrandmoneybeg,jdbcType=INTEGER},
+      </if>
+      <if test="midrandmoneyend != null" >
+        #{midrandmoneyend,jdbcType=INTEGER},
+      </if>
+      <if test="maxlimit != null" >
+        #{maxlimit,jdbcType=INTEGER},
+      </if>
+      <if test="maxmoneyback != null" >
+        #{maxmoneyback,jdbcType=INTEGER},
+      </if>
+      <if test="maxrandmoneybeg != null" >
+        #{maxrandmoneybeg,jdbcType=INTEGER},
+      </if>
+      <if test="maxrandmoneyend != null" >
+        #{maxrandmoneyend,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TMarketActiveRedrule" >
+    update t_market_active_redrule
+    <set >
+      <if test="openminlimit != null" >
+        openMinLimit = #{openminlimit,jdbcType=INTEGER},
+      </if>
+      <if test="openmidlimit != null" >
+        openMidLimit = #{openmidlimit,jdbcType=INTEGER},
+      </if>
+      <if test="openmaxlimit != null" >
+        openMaxLimit = #{openmaxlimit,jdbcType=INTEGER},
+      </if>
+      <if test="minlimit != null" >
+        minLimit = #{minlimit,jdbcType=INTEGER},
+      </if>
+      <if test="minmoneyback != null" >
+        minMoneyBack = #{minmoneyback,jdbcType=INTEGER},
+      </if>
+      <if test="midlimitbeg != null" >
+        midLimitBeg = #{midlimitbeg,jdbcType=INTEGER},
+      </if>
+      <if test="midlimitend != null" >
+        midLimitEnd = #{midlimitend,jdbcType=INTEGER},
+      </if>
+      <if test="midmoneyback != null" >
+        midMoneyBack = #{midmoneyback,jdbcType=INTEGER},
+      </if>
+      <if test="midrandmoneybeg != null" >
+        midRandMoneyBeg = #{midrandmoneybeg,jdbcType=INTEGER},
+      </if>
+      <if test="midrandmoneyend != null" >
+        midRandMoneyEnd = #{midrandmoneyend,jdbcType=INTEGER},
+      </if>
+      <if test="maxlimit != null" >
+        maxLimit = #{maxlimit,jdbcType=INTEGER},
+      </if>
+      <if test="maxmoneyback != null" >
+        maxMoneyBack = #{maxmoneyback,jdbcType=INTEGER},
+      </if>
+      <if test="maxrandmoneybeg != null" >
+        maxRandMoneyBeg = #{maxrandmoneybeg,jdbcType=INTEGER},
+      </if>
+      <if test="maxrandmoneyend != null" >
+        maxRandMoneyEnd = #{maxrandmoneyend,jdbcType=INTEGER},
+      </if>
+    </set>
+    where activeId = #{activeid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TMarketActiveRedrule" >
+    update t_market_active_redrule
+    set openMinLimit = #{openminlimit,jdbcType=INTEGER},
+      openMidLimit = #{openmidlimit,jdbcType=INTEGER},
+      openMaxLimit = #{openmaxlimit,jdbcType=INTEGER},
+      minLimit = #{minlimit,jdbcType=INTEGER},
+      minMoneyBack = #{minmoneyback,jdbcType=INTEGER},
+      midLimitBeg = #{midlimitbeg,jdbcType=INTEGER},
+      midLimitEnd = #{midlimitend,jdbcType=INTEGER},
+      midMoneyBack = #{midmoneyback,jdbcType=INTEGER},
+      midRandMoneyBeg = #{midrandmoneybeg,jdbcType=INTEGER},
+      midRandMoneyEnd = #{midrandmoneyend,jdbcType=INTEGER},
+      maxLimit = #{maxlimit,jdbcType=INTEGER},
+      maxMoneyBack = #{maxmoneyback,jdbcType=INTEGER},
+      maxRandMoneyBeg = #{maxrandmoneybeg,jdbcType=INTEGER},
+      maxRandMoneyEnd = #{maxrandmoneyend,jdbcType=INTEGER}
+    where activeId = #{activeid,jdbcType=BIGINT}
+  </update>
+</mapper>

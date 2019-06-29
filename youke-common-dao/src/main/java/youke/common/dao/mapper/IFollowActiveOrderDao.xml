@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.IFollowActiveOrderDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TFollowActiveOrder" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="openId" property="openid" jdbcType="VARCHAR" />
+    <result column="wxfansname" property="wxfansname" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="followOpenId" property="followopenid" jdbcType="VARCHAR" />
+    <result column="followName" property="followname" jdbcType="VARCHAR" />
+    <result column="backMoney" property="backmoney" jdbcType="INTEGER" />
+    <result column="backTime" property="backtime" jdbcType="TIMESTAMP" />
+    <result column="activeId" property="activeid" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="appId" property="appid" jdbcType="VARCHAR" />
+    <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, title, openId, wxfansname, mobile, createTime, followOpenId, followName, backMoney,
+    backTime, activeId, state, appId, youkeId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from t_follow_active_order
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_follow_active_order
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insertSelective" parameterType="youke.common.model.TFollowActiveOrder" useGeneratedKeys="true" keyProperty="id">
+    insert into t_follow_active_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="openid != null" >
+        openId,
+      </if>
+      <if test="wxfansname != null" >
+        wxfansname,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="followopenid != null" >
+        followOpenId,
+      </if>
+      <if test="followname != null" >
+        followName,
+      </if>
+      <if test="backmoney != null" >
+        backMoney,
+      </if>
+      <if test="backtime != null" >
+        backTime,
+      </if>
+      <if test="activeid != null" >
+        activeId,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="appid != null" >
+        appId,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="wxfansname != null" >
+        #{wxfansname,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="followopenid != null" >
+        #{followopenid,jdbcType=VARCHAR},
+      </if>
+      <if test="followname != null" >
+        #{followname,jdbcType=VARCHAR},
+      </if>
+      <if test="backmoney != null" >
+        #{backmoney,jdbcType=INTEGER},
+      </if>
+      <if test="backtime != null" >
+        #{backtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activeid != null" >
+        #{activeid,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="appid != null" >
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TFollowActiveOrder" >
+    update t_follow_active_order
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null" >
+        openId = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="wxfansname != null" >
+        wxfansname = #{wxfansname,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="followopenid != null" >
+        followOpenId = #{followopenid,jdbcType=VARCHAR},
+      </if>
+      <if test="followname != null" >
+        followName = #{followname,jdbcType=VARCHAR},
+      </if>
+      <if test="backmoney != null" >
+        backMoney = #{backmoney,jdbcType=INTEGER},
+      </if>
+      <if test="backtime != null" >
+        backTime = #{backtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activeid != null" >
+        activeId = #{activeid,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="appid != null" >
+        appId = #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="youkeid != null" >
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="queryList" resultType="youke.common.model.vo.result.helper.FollowOrderQueryRetVo" parameterType="youke.common.model.vo.param.helper.FollowOrderQueryVo">
+    SELECT torder.id, torder.followName AS wxFansName, torder.mobile, torder.backTime, torder.backMoney, torder.followName
+    FROM t_follow_active_order torder
+    JOIN t_follow_active active ON torder.activeId = active.id
+    JOIN t_subscr_fans fans ON fans.openId = torder.openId
+    <where>
+      AND torder.appId = #{appId}
+      AND torder.youkeId = #{youkeId}
+      <if test="wxFansName != null">
+        AND torder.followName LIKE #{wxFansName}
+      </if>
+      <if test="mobile != null">
+        AND fans.mobile = #{mobile}
+      </if>
+      <if test="openId != null">
+        AND torder.openId = #{openId}
+      </if>
+    </where>
+  </select>
+</mapper>

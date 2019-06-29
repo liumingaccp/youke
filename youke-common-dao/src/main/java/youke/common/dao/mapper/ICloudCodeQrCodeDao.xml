@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.ICloudCodeQrCodeDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TCloudCodeQrCode" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="cloudId" property="cloudid" jdbcType="BIGINT" />
+    <result column="ruleId" property="ruleid" jdbcType="BIGINT" />
+    <result column="scanTimes" property="scantimes" jdbcType="INTEGER" />
+    <result column="lastScanTime" property="lastscantime" jdbcType="TIMESTAMP" />
+    <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, url, state, remark, cloudId, ruleId, scanTimes, lastScanTime, youkeId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_cloud_code_qrcode
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+    <select id="selectFilterQrCodes" resultType="java.lang.Long">
+      SELECT
+      c.id AS id
+      FROM
+      (
+      SELECT
+      IFNULL(COUNT(b.id), 0) AS dayTimes,
+      a.scanTimes AS scanTimes,
+      tcc.state AS state,
+      a.id AS id
+      FROM t_cloud_code tcc
+      INNER JOIN t_cloud_code_qrcode a
+      ON tcc.id = a.cloudId
+        LEFT JOIN (
+        SELECT codeId AS id
+        FROM t_cloud_code_record
+        WHERE to_days(scanTime) = to_days(now())
+        ) b ON a.id = b.id
+        WHERE a.ruleId = #{ruleId} AND a.cloudId = #{id} AND a.state = 0
+        GROUP BY a.id
+        ORDER BY a.id
+      ) c
+      <where>
+        <if test="dayTimes!=null and dayTimes>0">
+          AND c.dayTimes &lt; #{dayTimes}
+        </if>
+        <if test="totalTimes!=null and totalTimes>0">
+          AND c.scanTimes &lt; #{totalTimes}
+        </if>
+        AND c.state = 0
+      </where>
+    </select>
+    <update id="updateInvalidCode">
+    UPDATE  t_cloud_code_qrcode SET state = 1 where youkeId=#{dykId} AND cloudId=#{cloudId}
+    AND id NOT IN
+    <foreach collection="codeIds" item="codeId" separator="," open="(" close=")">
+      #{codeId}
+    </foreach>
+  </update>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_cloud_code_qrcode
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TCloudCodeQrCode" >
+    insert into t_cloud_code_qrcode (id, url, state, remark,
+      cloudId, ruleId, scanTimes, 
+      lastScanTime, youkeId)
+    values (#{id,jdbcType=BIGINT}, #{url,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR},
+      #{cloudid,jdbcType=BIGINT}, #{ruleid,jdbcType=BIGINT}, #{scantimes,jdbcType=INTEGER}, 
+      #{lastscantime,jdbcType=TIMESTAMP}, #{youkeid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TCloudCodeQrCode" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+    insert into t_cloud_code_qrcode
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="cloudid != null" >
+        cloudId,
+      </if>
+      <if test="ruleid != null" >
+        ruleId,
+      </if>
+      <if test="scantimes != null" >
+        scanTimes,
+      </if>
+      <if test="lastscantime != null" >
+        lastScanTime,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="cloudid != null" >
+        #{cloudid,jdbcType=BIGINT},
+      </if>
+      <if test="ruleid != null" >
+        #{ruleid,jdbcType=BIGINT},
+      </if>
+      <if test="scantimes != null" >
+        #{scantimes,jdbcType=INTEGER},
+      </if>
+      <if test="lastscantime != null" >
+        #{lastscantime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TCloudCodeQrCode" >
+    update t_cloud_code_qrcode
+    <set >
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="cloudid != null" >
+        cloudId = #{cloudid,jdbcType=BIGINT},
+      </if>
+      <if test="ruleid != null" >
+        ruleId = #{ruleid,jdbcType=BIGINT},
+      </if>
+      <if test="scantimes != null" >
+        scanTimes = #{scantimes,jdbcType=INTEGER},
+      </if>
+      <if test="lastscantime != null" >
+        lastScanTime = #{lastscantime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="youkeid != null" >
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TCloudCodeQrCode" >
+    update t_cloud_code_qrcode
+    set url = #{url,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      cloudId = #{cloudid,jdbcType=BIGINT},
+      ruleId = #{ruleid,jdbcType=BIGINT},
+      scanTimes = #{scantimes,jdbcType=INTEGER},
+      lastScanTime = #{lastscantime,jdbcType=TIMESTAMP},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

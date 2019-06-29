@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="youke.common.dao.IWxPerFansTagMapper">
+  <resultMap id="BaseResultMap" type="youke.common.model.TWxperFansTag">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="fansId" jdbcType="BIGINT" property="fansid" />
+    <result column="tagId" jdbcType="BIGINT" property="tagid" />
+    <result column="wxAccountId" jdbcType="BIGINT" property="wxAccountid" />
+    <result column="youkeId" jdbcType="VARCHAR" property="youkeid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, fansId, tagId, wxAccountId, youkeId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_wxper_fans_tag
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_wxper_fans_tag
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TWxperFansTag" useGeneratedKeys="true" keyProperty="id">
+    insert into t_wxper_fans_tag (id, fansId, tagId, 
+      wxAccountId, youkeId)
+    values (#{id,jdbcType=BIGINT}, #{fansid,jdbcType=BIGINT}, #{tagid,jdbcType=BIGINT}, 
+      #{wxAccountid,jdbcType=BIGINT}, #{youkeid})
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TWxperFansTag" useGeneratedKeys="true" keyProperty="id">
+    insert into t_wxper_fans_tag
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="fansid != null">
+        fansId,
+      </if>
+      <if test="tagid != null">
+        tagId,
+      </if>
+      <if test="wxAccountid != null">
+        wxAccountId,
+      </if>
+      <if test="youkeid != null">
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="fansid != null">
+        #{fansid,jdbcType=BIGINT},
+      </if>
+      <if test="tagid != null">
+        #{tagid,jdbcType=BIGINT},
+      </if>
+      <if test="wxAccountid != null">
+        #{wxAccountid,jdbcType=BIGINT},
+      </if>
+      <if test="youkeid != null">
+        #{youkeid},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TWxperFansTag">
+    update t_wxper_fans_tag
+    <set>
+      <if test="fansid != null">
+        fansId = #{fansid,jdbcType=BIGINT},
+      </if>
+      <if test="tagid != null">
+        tagId = #{tagid,jdbcType=BIGINT},
+      </if>
+      <if test="wxAccountid != null">
+        wxAccountId = #{wxAccountid,jdbcType=BIGINT},
+      </if>
+      <if test="youkeid != null">
+        youkeId = #{youkeid},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TWxperFansTag">
+    update t_wxper_fans_tag
+    set fansId = #{fansid,jdbcType=BIGINT},
+      tagId = #{tagid,jdbcType=BIGINT},
+      wxAccountId = #{wxAccountid,jdbcType=BIGINT},
+      youkeId = #{youkeid}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="queryTagListByFansId" resultType="java.util.HashMap">
+    SELECT t2.id,t2.title
+    FROM t_wxper_fans_tag t1
+    JOIN t_tag t2 ON t1.tagId = t2.id
+    WHERE t1.fansId = #{fansId}
+      and t1.youkeId = #{youkeId}
+  </select>
+
+  <select id="selectByYouke" resultType="java.lang.Long">
+    SELECT fansId
+    FROM t_wxper_fans_tag
+    <where>
+      youkeId = #{youkeId}
+    </where>
+  </select>
+
+  <select id="selectByTagId" resultType="java.lang.Long">
+    SELECT fansId
+    FROM t_wxper_fans_tag
+    WHERE
+      youkeId = #{youkeId}
+      AND tagid = #{tagid}
+  </select>
+
+  <insert id="saveBacth">
+    INSERT INTO t_wxper_fans_tag (fansId, tagId,
+      wxAccountId, youkeId)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (
+      #{item.fansid},#{item.tagid},#{item.wxAccountid},#{item.youkeid}
+      )
+    </foreach>
+  </insert>
+
+  <delete id="deleteBacth">
+    DELETE FROM t_wxper_fans_tag
+    WHERE fansId = #{fansId} and youkeId = #{youkeId}
+    and tagId IN
+    <foreach collection="tagList" item="tag" separator="," close=")" open="(">
+      #{tag}
+    </foreach>
+  </delete>
+
+</mapper>

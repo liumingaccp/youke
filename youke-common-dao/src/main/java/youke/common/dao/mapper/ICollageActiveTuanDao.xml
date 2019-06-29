@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="youke.common.dao.ICollageActiveTuanDao" >
+  <resultMap id="BaseResultMap" type="youke.common.model.TCollageActiveTuan" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="activeId" property="activeid" jdbcType="INTEGER" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="endTime" property="endtime" jdbcType="TIMESTAMP" />
+    <result column="alreadyTuanNum" property="alreadytuannum" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="openId" property="openid" jdbcType="VARCHAR" />
+    <result column="appId" property="appid" jdbcType="VARCHAR" />
+    <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, activeId, createTime, endTime, alreadyTuanNum, state, openId, appId, youkeId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_collage_active_tuan
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_collage_active_tuan
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TCollageActiveTuan" >
+    insert into t_collage_active_tuan (id, activeId, createTime, 
+      endTime, alreadyTuanNum, state, 
+      openId, appId, youkeId
+      )
+    values (#{id,jdbcType=BIGINT}, #{activeid,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{endtime,jdbcType=TIMESTAMP}, #{alreadytuannum,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, 
+      #{openid,jdbcType=VARCHAR}, #{appid,jdbcType=VARCHAR}, #{youkeid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TCollageActiveTuan" useGeneratedKeys="true" keyProperty="id">
+    insert into t_collage_active_tuan
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="activeid != null" >
+        activeId,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="endtime != null" >
+        endTime,
+      </if>
+      <if test="alreadytuannum != null" >
+        alreadyTuanNum,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="openid != null" >
+        openId,
+      </if>
+      <if test="appid != null" >
+        appId,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="activeid != null" >
+        #{activeid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="alreadytuannum != null" >
+        #{alreadytuannum,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null" >
+        #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TCollageActiveTuan" >
+    update t_collage_active_tuan
+    <set >
+      <if test="activeid != null" >
+        activeId = #{activeid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        endTime = #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="alreadytuannum != null" >
+        alreadyTuanNum = #{alreadytuannum,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="openid != null" >
+        openId = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null" >
+        appId = #{appid,jdbcType=VARCHAR},
+      </if>
+      <if test="youkeid != null" >
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TCollageActiveTuan" >
+    update t_collage_active_tuan
+    set activeId = #{activeid,jdbcType=INTEGER},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      endTime = #{endtime,jdbcType=TIMESTAMP},
+      alreadyTuanNum = #{alreadytuannum,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      openId = #{openid,jdbcType=VARCHAR},
+      appId = #{appid,jdbcType=VARCHAR},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="getTuanDetailByOpenId" resultType="youke.common.model.vo.result.helper.TuanDetailVo">
+    SELECT tuan.id AS id, tuan.activeId, active.coverPics, active.title,active.content,tuan.endTime,active.price,active.tuanPrice, active.tuanFansNum,active.intro AS intros,
+          tuan.openId,fans.nickname AS wxName, fans.headimgurl AS wxFace, torder.orderno AS orderNo, torder.state,active.goodsUrl, active.goodsId
+    FROM
+      t_collage_active_tuan tuan
+       JOIN t_collage_active active ON tuan.activeId = active.id
+       JOIN t_collage_active_order torder ON tuan.openId = torder.openId AND tuan.id = torder.tuanId
+       JOIN t_subscr_fans fans ON torder.openId = fans.openId
+    WHERE tuan.appId = #{appId}
+        AND tuan.id = #{tuanId}
+  </select>
+
+  <select id="selectByActiveId" resultType="youke.common.model.vo.result.helper.CollageTuanItem">
+    SELECT tuan.id AS tuanId, tuan.openId, fans.nickname AS wxName, fans.headimgurl AS wxFace, active.tuanFansNum - tuan.alreadyTuanNum AS leftTuanNum, tuan.endTime
+    FROM t_collage_active_tuan tuan
+    Inner JOIN t_subscr_fans fans ON tuan.openId = fans.openId
+    Inner JOIN t_collage_active active ON tuan.activeId =active.id
+    WHERE tuan.appId = #{appId} AND tuan.activeId = #{activeId} AND tuan.state = 0
+  </select>
+
+  <update id="updateStateForBeg">
+    UPDATE t_collage_active_tuan
+    SET state = 1
+    WHERE id IN
+    <foreach collection="ids" separator="," open="(" close=")" item="id">
+      #{id}
+    </foreach>
+  </update>
+</mapper>

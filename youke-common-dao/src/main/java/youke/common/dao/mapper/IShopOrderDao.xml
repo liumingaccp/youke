@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="youke.common.dao.IShopOrderDao">
+  <resultMap id="BaseResultMap" type="youke.common.model.TShopOrder" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="goodId" property="goodid" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="picPath" property="picpath" jdbcType="VARCHAR" />
+    <result column="orderno" property="orderno" jdbcType="VARCHAR" />
+    <result column="shopId" property="shopid" jdbcType="INTEGER" />
+    <result column="shopType" property="shoptype" jdbcType="INTEGER" />
+    <result column="buyerName" property="buyername" jdbcType="VARCHAR" />
+    <result column="receiveName" property="receivename" jdbcType="VARCHAR" />
+    <result column="receiveState" property="receivestate" jdbcType="VARCHAR" />
+    <result column="receiveMobile" property="receivemobile" jdbcType="VARCHAR" />
+    <result column="receiveAddress" property="receiveaddress" jdbcType="VARCHAR" />
+    <result column="receiverZip" property="receiverzip" jdbcType="VARCHAR" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="price" property="price" jdbcType="INTEGER" />
+    <result column="totalPrice" property="totalprice" jdbcType="INTEGER" />
+    <result column="buyerRate" property="buyerrate" jdbcType="INTEGER" />
+    <result column="payTime" property="paytime" jdbcType="TIMESTAMP" />
+    <result column="endTime" property="endtime" jdbcType="TIMESTAMP" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="youkeId" property="youkeid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, goodId, title, picPath, orderno, shopId, shopType, buyerName, receiveName, receiveState,
+    receiveMobile, receiveAddress, receiverZip, num, price, totalPrice, buyerRate, payTime,
+    endTime, state, youkeId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from t_shop_order
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_shop_order
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="youke.common.model.TShopOrder" >
+    insert into t_shop_order (id, goodId, title,
+    picPath, orderno, shopId,
+    shopType, buyerName, receiveName,
+    receiveState, receiveMobile, receiveAddress,
+    receiverZip, num, price,
+    totalPrice, buyerRate, payTime,
+    endTime, state, youkeId
+    )
+    values (#{id,jdbcType=BIGINT}, #{goodid,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR},
+    #{picpath,jdbcType=VARCHAR}, #{orderno,jdbcType=VARCHAR}, #{shopid,jdbcType=INTEGER},
+    #{shoptype,jdbcType=INTEGER}, #{buyername,jdbcType=VARCHAR}, #{receivename,jdbcType=VARCHAR},
+    #{receivestate,jdbcType=VARCHAR}, #{receivemobile,jdbcType=VARCHAR}, #{receiveaddress,jdbcType=VARCHAR},
+    #{receiverzip,jdbcType=VARCHAR}, #{num,jdbcType=INTEGER}, #{price,jdbcType=INTEGER},
+    #{totalprice,jdbcType=INTEGER}, #{buyerrate,jdbcType=INTEGER}, #{paytime,jdbcType=TIMESTAMP},
+    #{endtime,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER}, #{youkeid,jdbcType=VARCHAR}
+    )
+  </insert>
+  <insert id="insertSelective" parameterType="youke.common.model.TShopOrder" useGeneratedKeys="true" keyProperty="id">
+    insert into t_shop_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="goodid != null" >
+        goodId,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="picpath != null" >
+        picPath,
+      </if>
+      <if test="orderno != null" >
+        orderno,
+      </if>
+      <if test="shopid != null" >
+        shopId,
+      </if>
+      <if test="shoptype != null" >
+        shopType,
+      </if>
+      <if test="buyername != null" >
+        buyerName,
+      </if>
+      <if test="receivename != null" >
+        receiveName,
+      </if>
+      <if test="receivestate != null" >
+        receiveState,
+      </if>
+      <if test="receivemobile != null" >
+        receiveMobile,
+      </if>
+      <if test="receiveaddress != null" >
+        receiveAddress,
+      </if>
+      <if test="receiverzip != null" >
+        receiverZip,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="totalprice != null" >
+        totalPrice,
+      </if>
+      <if test="buyerrate != null" >
+        buyerRate,
+      </if>
+      <if test="paytime != null" >
+        payTime,
+      </if>
+      <if test="endtime != null" >
+        endTime,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="youkeid != null" >
+        youkeId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="goodid != null" >
+        #{goodid,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="picpath != null" >
+        #{picpath,jdbcType=VARCHAR},
+      </if>
+      <if test="orderno != null" >
+        #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="shopid != null" >
+        #{shopid,jdbcType=INTEGER},
+      </if>
+      <if test="shoptype != null" >
+        #{shoptype,jdbcType=INTEGER},
+      </if>
+      <if test="buyername != null" >
+        #{buyername,jdbcType=VARCHAR},
+      </if>
+      <if test="receivename != null" >
+        #{receivename,jdbcType=VARCHAR},
+      </if>
+      <if test="receivestate != null" >
+        #{receivestate,jdbcType=VARCHAR},
+      </if>
+      <if test="receivemobile != null" >
+        #{receivemobile,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveaddress != null" >
+        #{receiveaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverzip != null" >
+        #{receiverzip,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="totalprice != null" >
+        #{totalprice,jdbcType=INTEGER},
+      </if>
+      <if test="buyerrate != null" >
+        #{buyerrate,jdbcType=INTEGER},
+      </if>
+      <if test="paytime != null" >
+        #{paytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="youkeid != null" >
+        #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="youke.common.model.TShopOrder" >
+    update t_shop_order
+    <set >
+      <if test="goodid != null" >
+        goodId = #{goodid,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="picpath != null" >
+        picPath = #{picpath,jdbcType=VARCHAR},
+      </if>
+      <if test="orderno != null" >
+        orderno = #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="shopid != null" >
+        shopId = #{shopid,jdbcType=INTEGER},
+      </if>
+      <if test="shoptype != null" >
+        shopType = #{shoptype,jdbcType=INTEGER},
+      </if>
+      <if test="buyername != null" >
+        buyerName = #{buyername,jdbcType=VARCHAR},
+      </if>
+      <if test="receivename != null" >
+        receiveName = #{receivename,jdbcType=VARCHAR},
+      </if>
+      <if test="receivestate != null" >
+        receiveState = #{receivestate,jdbcType=VARCHAR},
+      </if>
+      <if test="receivemobile != null" >
+        receiveMobile = #{receivemobile,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveaddress != null" >
+        receiveAddress = #{receiveaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverzip != null" >
+        receiverZip = #{receiverzip,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=INTEGER},
+      </if>
+      <if test="totalprice != null" >
+        totalPrice = #{totalprice,jdbcType=INTEGER},
+      </if>
+      <if test="buyerrate != null" >
+        buyerRate = #{buyerrate,jdbcType=INTEGER},
+      </if>
+      <if test="paytime != null" >
+        payTime = #{paytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        endTime = #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="youkeid != null" >
+        youkeId = #{youkeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="youke.common.model.TShopOrder" >
+    update t_shop_order
+    set goodId = #{goodid,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      picPath = #{picpath,jdbcType=VARCHAR},
+      orderno = #{orderno,jdbcType=VARCHAR},
+      shopId = #{shopid,jdbcType=INTEGER},
+      shopType = #{shoptype,jdbcType=INTEGER},
+      buyerName = #{buyername,jdbcType=VARCHAR},
+      receiveName = #{receivename,jdbcType=VARCHAR},
+      receiveState = #{receivestate,jdbcType=VARCHAR},
+      receiveMobile = #{receivemobile,jdbcType=VARCHAR},
+      receiveAddress = #{receiveaddress,jdbcType=VARCHAR},
+      receiverZip = #{receiverzip,jdbcType=VARCHAR},
+      num = #{num,jdbcType=INTEGER},
+      price = #{price,jdbcType=INTEGER},
+      totalPrice = #{totalprice,jdbcType=INTEGER},
+      buyerRate = #{buyerrate,jdbcType=INTEGER},
+      payTime = #{paytime,jdbcType=TIMESTAMP},
+      endTime = #{endtime,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=INTEGER},
+      youkeId = #{youkeid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="getByOrderNo" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM t_shop_order
+    WHERE orderno =#{orderno}
+      AND youkeId = #{youkeId}
+  </select>
+
+  <select id="selectSHOrderNoInOrderno" resultType="java.lang.String">
+       select orderno from t_shop_order where state between 1 and 4 and orderno in
+       <foreach collection="ordernos" item="orderno" index="index" open="(" separator="," close=")">
+        #{orderno}
+       </foreach>
+  </select>
+    <select id="getFansPaymentAmountForSevenDays" resultType="java.lang.Integer">
+      SELECT IFNULL(sum(totalPrice),0) FROM t_shop_order WHERE DATEDIFF(payTime,NOW())&lt;=0 AND DATEDIFF(payTime,NOW())>-7 AND youkeId=#{dykId}
+    </select>
+  <select id="getFansPaymentAmountForElevenDays" resultType="java.lang.Integer">
+    SELECT IFNULL(sum(totalPrice),0) FROM t_shop_order WHERE DATEDIFF(payTime,NOW())&lt;=0 AND DATEDIFF(payTime,NOW())>-14 AND  youkeId = #{dykId}
+  </select>
+    <select id="getTurnoverForYesterday" resultType="java.lang.Integer">
+      SELECT IFNULL(SUM(totalPrice),0) FROM t_shop_order WHERE date(DATE_FORMAT(payTime,'%Y-%m-%d')) = date_sub(curdate(),interval 1 day) AND youkeId = #{dykId}
+    </select>
+  <select id="selectSuccessOrderNoInOrderNo" resultType="java.lang.String">
+    select orderno from t_shop_order where state between 3 and 4 and orderno in
+    <foreach collection="ordernos" item="orderno" index="index" open="(" separator="," close=")">
+      #{orderno}
+    </foreach>
+  </select>
+</mapper>
